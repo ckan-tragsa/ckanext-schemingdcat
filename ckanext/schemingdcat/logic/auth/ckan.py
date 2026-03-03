@@ -4,6 +4,7 @@ import typing
 import ckan.plugins as p
 import ckan.logic as logic
 import ckan.logic.auth as auth
+import ckan.authz as authz
 
 from ckanext.harvest.utils import DATASET_TYPE_NAME as CKANEXT_HARVEST_DATASET_TYPE_NAME
 
@@ -45,7 +46,7 @@ def package_update(next_auth, context, data_dict=None):
                     )
                     #log.debug('members:%s', members)
                     for member_id, _, role in members:
-                        if member_id == user.id and role.lower() == "admin":
+                        if member_id == user.id and role.lower() == "admin" or authz.user_is_collaborator_on_dataset(user.id,package.id,"admin"):
                             result["success"] = True
                             break
                     else:

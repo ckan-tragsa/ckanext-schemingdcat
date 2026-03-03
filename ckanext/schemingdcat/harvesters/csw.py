@@ -118,9 +118,12 @@ class SchemingDCATCSWHarvester(CSWHarvester, SchemingDCATHarvester):
             if config_obj['csw_harvest_type'] not in CSW_HARVESTER_TYPES:
                 raise ValueError('csw_harvest_type must be one of the following: %s' % ', '.join(CSW_HARVESTER_TYPES))
             elif config_obj['csw_harvest_type'] == 'xsl':
+                pass
+                '''
                 raise NotImplementedError(
                     "XSLT-based harvesting is currently disabled. This functionality will remain disabled until the official ISO19139 to DCAT-AP XSLT (https://github.com/SEMICeu/iso-19139-to-dcat-ap) becomes available."
                 )
+                '''
         else:
             # Default to owslib if not specified
             config_obj['csw_harvest_type'] = DEFAULT_CSW_HARVESTER_TYPE
@@ -377,12 +380,15 @@ class SchemingDCATCSWHarvester(CSWHarvester, SchemingDCATHarvester):
         harvest_type = self.config.get('csw_harvest_type', 'owslib')
         
         if harvest_type == 'xsl':
+            return self._gather_with_xsl(harvest_job)
+            '''
             log.warning(
                 "XSLT-based harvesting is currently disabled. This functionality will remain disabled until the official ISO19139 to DCAT-AP XSLT (https://github.com/SEMICeu/iso-19139-to-dcat-ap) becomes available."
             )
             raise NotImplementedError(
                 "XSLT-based harvesting is currently disabled. This functionality will remain disabled until the official ISO19139 to DCAT-AP XSLT (https://github.com/SEMICeu/iso-19139-to-dcat-ap) becomes available."
             )
+            '''
         else:
             return self._gather_with_owslib(harvest_job)
 
