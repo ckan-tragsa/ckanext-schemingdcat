@@ -417,12 +417,23 @@ class SchemingDCATCSWHarvester(CSWHarvester, SchemingDCATHarvester):
 
             csw_client = SchemingDCATCatalogueServiceWeb(url=csw_url, ssl_verify=ssl_verify)
             csw_extractor = CSWMetadataExtractor(debug=DEBUG_MODE)
-            gathered_identifiers = csw_client.get_csw_records(
-                cql=self.config.get('cql', None),
-                cql_query=self.config.get('cql_query', None),
-                cql_search_term=self.config.get('cql_search_term', None),
-                cql_use_like=self.config.get('cql_use_like', False)
-            )
+            if self.config.get('inspire_ids',None):
+                gathered_identifiers = self.config.get('inspire_ids',None)
+                csw_client.get_csw_records(
+                    cql=self.config.get('cql', None),
+                    cql_query=self.config.get('cql_query', None),
+                    cql_search_term=self.config.get('cql_search_term', None),
+                    cql_use_like=self.config.get('cql_use_like', False)
+                )
+            else:   
+                gathered_identifiers = csw_client.get_csw_records(
+                    cql=self.config.get('cql', None),
+                    cql_query=self.config.get('cql_query', None),
+                    cql_search_term=self.config.get('cql_search_term', None),
+                    cql_use_like=self.config.get('cql_use_like', False)
+                )
+
+            log.debug(gathered_identifiers)
 
             # Limit to first 25 records for testing
             if DEBUG_MODE:
