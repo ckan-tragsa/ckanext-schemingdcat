@@ -20,7 +20,6 @@ from ckan import model
 from ckan.lib.i18n import get_available_locales, get_lang
 import ckan.plugins as p
 import ckan.authz as authz
-_get_or_bust = logic.get_or_bust
 
 from ckanext.scheming.helpers import (
     scheming_choices_label,

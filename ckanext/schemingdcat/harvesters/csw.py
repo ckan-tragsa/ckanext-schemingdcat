@@ -419,12 +419,7 @@ class SchemingDCATCSWHarvester(CSWHarvester, SchemingDCATHarvester):
             csw_extractor = CSWMetadataExtractor(debug=DEBUG_MODE)
             if self.config.get('inspire_ids',None):
                 gathered_identifiers = self.config.get('inspire_ids',None)
-                csw_client.get_csw_records(
-                    cql=self.config.get('cql', None),
-                    cql_query=self.config.get('cql_query', None),
-                    cql_search_term=self.config.get('cql_search_term', None),
-                    cql_use_like=self.config.get('cql_use_like', False)
-                )
+                csw_client.get_csw_records()
             else:   
                 gathered_identifiers = csw_client.get_csw_records(
                     cql=self.config.get('cql', None),

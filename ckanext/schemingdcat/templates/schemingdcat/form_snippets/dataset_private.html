@@ -21,7 +21,11 @@
 {% set owner_org = data.get('owner_org') %}
 {% set user_is_sysadmin = h.check_access('sysadmin') %}
 {% set user_is_orgadmin = h.schemingdcat_user_is_org_member(owner_org, g.userobj, role="admin") %}
-{% set user_is_datasetadmin = h.schemingdcat_user_is_dataset_member(g.pkg.id, g.userobj, role="admin") %}
+{% if g.pkg %}
+  {% set user_is_datasetadmin = h.schemingdcat_user_is_dataset_member(g.pkg.id, g.userobj, role="admin") %}
+{% else %}
+  {% set user_is_datasetadmin = false %}
+{% endif %}
 
 {% if user_is_sysadmin or user_is_orgadmin or user_is_datasetadmin %}
   {% set options=[] %}
@@ -58,7 +62,6 @@
       is_required=h.scheming_field_required(field)
       )
   %}
-  {{ field }}
       {% snippet 'scheming/form_snippets/help_text.html', field=field %}
   {% endcall %}
 
