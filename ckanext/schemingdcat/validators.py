@@ -3,7 +3,9 @@ import re
 import six
 import mimetypes
 from shapely.geometry import shape, Polygon
+from shapely import from_geojson, to_wkt, from_wkt
 from functools import lru_cache
+from pyshacl import validate
 
 import ckanext.scheming.helpers as sh
 import ckanext.schemingdcat.helpers as helpers
@@ -154,6 +156,60 @@ def schemingdcat_valid_json_object(value, context):
         raise Invalid(
             _('Unsupported type for JSON field: {}').format(type(value))
         )
+
+@validator
+def schemingdcat_valid_wkt_object(value, context):
+    """Store a WKT object as a serialized JSWKTON string
+    It accepts two types of inputs:
+        1. A valid serialized WKT string (it must be an object or a list)
+        2. An object that can be serialized to WKT
+        3. Any of the above in JSON format
+    Returns a parsing WKT string 
+    """
+    if not value:
+        return
+    try:
+        if not value:
+            return
+        elif isinstance(value, six.string_types):
+            try:
+                loaded = from_wkt(value)
+                if not isinstance(loaded, dict):
+                    raise Invalid(
+                        _('Unsupported value for WKT field: {}').format(value)
+                    )
+
+                return to_wkt(loaded)
+            except (ValueError, TypeError) as e:
+                raise Invalid(_('Invalid WKT string: {}').format(e))
+        else:
+            raise Invalid(
+                _('Unsupported type for WKT field: {}').format(type(value))
+            )
+    except:
+        if not value:
+            return
+        elif isinstance(value, six.string_types):
+            try:
+                loaded = json.loads(value)
+                if not isinstance(loaded, dict):
+                    raise Invalid(
+                        _('Unsupported value for WKT field: {}').format(value)
+                    )
+
+                return to_wkt(from_geojson(json.dumps(loaded, ensure_ascii=False)))
+            except (ValueError, TypeError) as e:
+                raise Invalid(_('Invalid JSON string: {}').format(e))
+
+        elif isinstance(value, dict):
+            try:
+                return to_wkt(from_geojson(json.dumps(value, ensure_ascii=False)))
+            except (ValueError, TypeError) as e:
+                raise Invalid(_('Invalid JSON object: {}').format(e))
+        else:
+            raise Invalid(
+                _('Unsupported type for WKT field: {}').format(type(value))
+            )
 
 
 @scheming_validator
@@ -1332,3 +1388,12 @@ def schemingdcat_dataset_url(field, schema):
         else:
             data[key] = ''
     return validator
+
+@scheming_validator
+@validator
+def schemingdcat_catalog_shacl_validator_dcat(field, schema):
+    """
+    #TODO full catalog validation with external SHACL files
+    """
+    def validator():
+        pass

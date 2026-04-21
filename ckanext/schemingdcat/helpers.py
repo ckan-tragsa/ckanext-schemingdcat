@@ -2108,6 +2108,37 @@ def schemingdcat_user_is_org_member(
                 break
     return result
 
+# Publisher permissions
+@helper
+def schemingdcat_user_is_dataset_member(dataset_id, user=None, role: typing.Optional[str] = "admin"
+) -> bool:
+    """
+    Check if a user has a specific role in the input organization.
+
+    This function checks if the given user has the specified role in the organization
+    identified by `org_id`. By default, it checks if the user has the "admin" role.
+
+    Args:
+        org_id (str): The ID of the organization.
+        user: The user object to check. If None, the function will return False.
+        role (str, optional): The role to check for. Defaults to "admin".
+
+    Returns:
+        bool: True if the user has the specified role in the organization, False otherwise.
+
+    Example:
+        >>> schemingdcat_user_is_dataset_member(user, "editor")
+        True
+    """
+    if not user or not hasattr(user, 'id'):
+        return False
+    log.debug(user)
+    if authz.user_is_collaborator_on_dataset(user.id,dataset_id,"admin"):
+        return True
+    else:
+        return True
+    
+
 @lru_cache(maxsize=1)
 @helper
 def schemingdcat_get_catalog_publisher_info():

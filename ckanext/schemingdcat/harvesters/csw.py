@@ -118,9 +118,12 @@ class SchemingDCATCSWHarvester(CSWHarvester, SchemingDCATHarvester):
             if config_obj['csw_harvest_type'] not in CSW_HARVESTER_TYPES:
                 raise ValueError('csw_harvest_type must be one of the following: %s' % ', '.join(CSW_HARVESTER_TYPES))
             elif config_obj['csw_harvest_type'] == 'xsl':
+                pass
+                '''
                 raise NotImplementedError(
                     "XSLT-based harvesting is currently disabled. This functionality will remain disabled until the official ISO19139 to DCAT-AP XSLT (https://github.com/SEMICeu/iso-19139-to-dcat-ap) becomes available."
                 )
+                '''
         else:
             # Default to owslib if not specified
             config_obj['csw_harvest_type'] = DEFAULT_CSW_HARVESTER_TYPE
@@ -377,12 +380,15 @@ class SchemingDCATCSWHarvester(CSWHarvester, SchemingDCATHarvester):
         harvest_type = self.config.get('csw_harvest_type', 'owslib')
         
         if harvest_type == 'xsl':
+            return self._gather_with_xsl(harvest_job)
+            '''
             log.warning(
                 "XSLT-based harvesting is currently disabled. This functionality will remain disabled until the official ISO19139 to DCAT-AP XSLT (https://github.com/SEMICeu/iso-19139-to-dcat-ap) becomes available."
             )
             raise NotImplementedError(
                 "XSLT-based harvesting is currently disabled. This functionality will remain disabled until the official ISO19139 to DCAT-AP XSLT (https://github.com/SEMICeu/iso-19139-to-dcat-ap) becomes available."
             )
+            '''
         else:
             return self._gather_with_owslib(harvest_job)
 
@@ -411,12 +417,18 @@ class SchemingDCATCSWHarvester(CSWHarvester, SchemingDCATHarvester):
 
             csw_client = SchemingDCATCatalogueServiceWeb(url=csw_url, ssl_verify=ssl_verify)
             csw_extractor = CSWMetadataExtractor(debug=DEBUG_MODE)
-            gathered_identifiers = csw_client.get_csw_records(
-                cql=self.config.get('cql', None),
-                cql_query=self.config.get('cql_query', None),
-                cql_search_term=self.config.get('cql_search_term', None),
-                cql_use_like=self.config.get('cql_use_like', False)
-            )
+            if self.config.get('inspire_ids',None):
+                gathered_identifiers = self.config.get('inspire_ids',None)
+                csw_client.get_csw_records()
+            else:   
+                gathered_identifiers = csw_client.get_csw_records(
+                    cql=self.config.get('cql', None),
+                    cql_query=self.config.get('cql_query', None),
+                    cql_search_term=self.config.get('cql_search_term', None),
+                    cql_use_like=self.config.get('cql_use_like', False)
+                )
+
+            log.debug(gathered_identifiers)
 
             # Limit to first 25 records for testing
             if DEBUG_MODE:

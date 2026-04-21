@@ -1626,6 +1626,7 @@ dataset_fields:
     es: 'ej: Registro de listas controladas de metadatos (INSPIRE): http://inspire.ec.europa.eu/metadata-codelist'
   form_group_id: vocabs
 
+
 # TODO: Probably better include contact_role and contact_organization (boolean) to distinguish between vcard:Individual and vcard:Organizationto use in ckanext-dcat/profiles.py
 # Metadata point of contact URI (M)
 - field_name: contact_uri
@@ -4224,6 +4225,15 @@ resource_fields:
     es: 'Condiciones de acceso y utilización y <a href="http://inspire.ec.europa.eu/metadata-codelist/LimitationsOnPublicAccess" target="_blank" rel="noopener">limitaciones de acceso público</a> (INSPIRE)'
   help_allow_html: True
   form_group_id: resource_license_info 
+
+- field_name: other_constrains
+  label:
+    en: 'other constrains'
+    es: 'otras restricciones'
+  preset: multiple_text
+  help_text:
+    en: 'Other access conditions'
+    es: 'Otras condiciones de acceso'
 
 # Conformity (M)
 - field_name: conforms_to

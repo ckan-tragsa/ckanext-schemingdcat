@@ -395,6 +395,14 @@
         "validators": "schemingdcat_spatial_uri_validator ignore_missing schemingdcat_valid_json_object schemingdcat_fill_spatial_dependent_fields"
       }
     },
+    {
+      "preset_name": "spatial_dependent_fields_es",
+      "values": {
+        "form_snippet": "json.html",
+        "display_snippet": "schemingdcat/display_snippets/spatial_json.html",
+        "validators": "schemingdcat_spatial_uri_validator ignore_missing schemingdcat_valid_wkt_object schemingdcat_fill_spatial_dependent_fields"
+      }
+    },
 
     {
       "preset_name": "hide_spatial_coverage",
