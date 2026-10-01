@@ -122,12 +122,12 @@
                     {% if s2 != 'complete' %}
                     <span class="highlight">{{ _('Add data') }}</span>
                     {% else %}
-                    {% if s1 == 'active' %}
-                        {# stage 1 #}
-                        <button class="highlight" name="save" value="go-resources" type="submit">{{ _('Add data') }}</button>
-                    {% else %}
-                        {% link_for _('Add data'), named_route='dataset.new', class_="highlight" %}
-                    {% endif %}
+                        {% if s1 == 'active' %}
+                            {# stage 1 #}
+                            <button class="highlight" name="save" value="go-resources" type="submit">{{ _('Add data') }}</button>
+                        {% else %}
+                            {% link_for _('Add data'), named_route='dataset.new', class_="highlight" %}
+                        {% endif %}
                     {% endif %}
                 </li>
                 {%- endif -%}
