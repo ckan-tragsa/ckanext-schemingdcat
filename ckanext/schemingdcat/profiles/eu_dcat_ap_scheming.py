@@ -73,6 +73,7 @@ class EuDCATAPSchemingDCATProfile(SchemingDCATRDFProfile):
                 field_name
             ) or self._schema_resource_field(field_name)
 
+            #log.debug(schema_field)
             if schema_field and "scheming_multiple_text" in schema_field.get(
                 "validators", []
             ):

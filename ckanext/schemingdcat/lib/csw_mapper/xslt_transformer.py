@@ -35,7 +35,7 @@ class XSLTTransformer:
 
         log.debug("XSLTTransformer initialized correctly.")
 
-    def transform(self, xml_content):
+    def transform(self, xml_content:str):
         """Transforms XML content using XSLT and returns serialized RDF.
 
         Args:
@@ -51,7 +51,6 @@ class XSLTTransformer:
         try:
             if isinstance(xml_content, bytes):
                 xml_content = xml_content.decode('utf-8')
-    
             with tempfile.NamedTemporaryFile(delete=False, suffix="." + XML_FORMAT, mode='w', encoding='utf-8') as temp_file:
                 temp_file.write(xml_content)
                 temp_file_path = temp_file.name
@@ -64,21 +63,15 @@ class XSLTTransformer:
                 for error in self.xslt_processor.get_error_message():
                     log.error(f"Error in XSLT transformation: {error}")
                 raise Exception("Error in XSLT transformation")
-    
-            # Parse result as RDF and serialize in RDF/XML
-            g = Graph()
-            g.parse(data=result, format=XML_FORMAT)
-            rdf_result = g.serialize(format=RDF_FORMAT)
-    
-            # Only for debugging purposes. Export the original XML content and the transformed RDF content.
-            if self.debug_mode:
-                self.debug_xml_and_rdf_output_files(rdf_result, xml_content)
 
-            return rdf_result
+            #log.debug(result)
+            return result
         except Exception as e:
             log.error(f"Failure to transform XML content: {e}")
             raise
 
+    
+    
     def debug_xml_and_rdf_output_files(self, rdf_result, xml_content):
         """Debug XML and RDF output files by saving the last of them to the output directory for debugging purposes.
     

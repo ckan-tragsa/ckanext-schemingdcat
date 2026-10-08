@@ -6,7 +6,7 @@ BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..'))
 # XLSTransformer configuration
 XLST_MAPPINGS_DIR = os.path.join(BASE_DIR, 'ckanext/schemingdcat/lib/csw_mapper/xslt/mappings')
 # GeoDCAT-AP official XSLT
-DEFAULT_XSLT_FILE = 'https://raw.githubusercontent.com/SEMICeu/iso-19139-to-dcat-ap/refs/heads/geodcat-ap-2.0.0/iso-19139-to-dcat-ap.xsl'
+DEFAULT_XSLT_FILE = 'https://raw.githubusercontent.com/SEMICeu/iso-19139-to-dcat-ap/refs/heads/main/iso-19139-to-dcat-ap.xsl'
 
 # CSW processor configuration
 CSW_DEFAULT_LIMIT = None

@@ -6,6 +6,7 @@ import dateutil
 import time
 import pprint
 
+
 import ckan.plugins as p
 from ckan import model
 from ckan.logic import NotFound, get_action
@@ -688,17 +689,28 @@ class SchemingDCATCSWHarvester(CSWHarvester, SchemingDCATHarvester):
                 log.warning('SSL Verify is set to False. SSL certificate verification is disabled.')
 
             csw_client = SchemingDCATCatalogueServiceWeb(url=csw_url, ssl_verify=ssl_verify)
-            gathered_identifiers = csw_client.get_csw_records(
-                cql=self.config.get('cql', None),
-                cql_query=self.config.get('cql_query', None),
-                cql_search_term=self.config.get('cql_search_term', None),
-                cql_use_like=self.config.get('cql_use_like', False)
-            )
+            if self.config.get('inspire_ids',None):
+                gathered_identifiers = self.config.get('inspire_ids',None)
+                csw_client.get_csw_records(
+                    cql=self.config.get('cql', None),
+                    cql_query=self.config.get('cql_query', None),
+                    cql_search_term=self.config.get('cql_search_term', None),
+                    cql_use_like=self.config.get('cql_use_like', False)
+                )
+            else:   
+                gathered_identifiers = csw_client.get_csw_records(
+                    cql=self.config.get('cql', None),
+                    cql_query=self.config.get('cql_query', None),
+                    cql_search_term=self.config.get('cql_search_term', None),
+                    cql_use_like=self.config.get('cql_use_like', False)
+                )
 
             # Limit to first 20 records for testing
             if DEBUG_MODE:
-                gathered_identifiers = gathered_identifiers[:20]
+                #gathered_identifiers = gathered_identifiers[:20]
                 log.debug('Limited to first 20 records for testing')
+
+            
 
         except KeyError as e:
             # Handling the case of a missing key in self.config
@@ -753,7 +765,7 @@ class SchemingDCATCSWHarvester(CSWHarvester, SchemingDCATHarvester):
         # Transform CSW XML records to RDF
         for id in gathered_identifiers:
             try:
-                csw_record_xml = csw_client.get_record_by_id(id)
+                csw_record_xml = csw_client.get_metadata_record(id)[1]
                 transformed_xml = transformer.transform(csw_record_xml)
                 try:
                     parser.parse(transformed_xml, _format='xml')
@@ -1179,6 +1191,8 @@ class SchemingDCATCSWHarvester(CSWHarvester, SchemingDCATHarvester):
         Returns:
             dict: The package dictionary with translated fields and default values set.
         """
+
+        log.debug(harvest_object)
         # Add default values: tags, groups, etc.
         package_dict = self._set_package_dict_default_values(package_dict, harvest_object, context)
 

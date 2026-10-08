@@ -1,0 +1,67 @@
+{% include 'scheming/snippets/multiple_text_asset.html' %}
+
+{% import 'macros/form.html' as form %}
+
+{% macro multiple_contact(element, error) %}
+  <li class="multiple-contact-field control-full">
+    <input
+      type="text"
+      name="{{ field.field_name }}"
+      value="{{ element }}"
+      class="form-control"
+      {{ form.attributes(field.form_attrs if 'form_attrs' in field else {}) }} />
+    <input
+      type="text"
+      name="{{ field.field_name }}"
+      value="{{ element }}"
+      class="form-control"
+      {{ form.attributes(field.form_attrs if 'form_attrs' in field else {}) }} />
+    <input
+      type="text"
+      name="{{ field.field_name }}"
+      value="{{ element }}"
+      class="form-control"
+      {{ form.attributes(field.form_attrs if 'form_attrs' in field else {}) }} />
+    <a class="btn btn-default btn-multiple-remove" name="multiple-remove" href="javascript:;"
+      >{% block delete_button_text %}{{ _('Remove') }}{% endblock %}</a>
+      {% if error and error is iterable %}<span class="error-block">{{ error|join(', ') }}</span>{% endif %}
+  </li>
+{% endmacro %}
+
+{%  set choices = data[field.field_name] %}
+
+{% if choices is iterable and (choices is not string) %}
+  {%  set values = choices or ([''] * field.get('form_blanks', 1)) %}
+{% elif choices is string %}
+  {%  set values = h.scheming_display_json_list(choices).strip('][').split('",') or ([''] * field.get('form_blanks', 1)) %}
+{% else %}
+  {%  set values = [''] %}
+{% endif %}
+
+{% call form.input_block(
+  'field-' + field.field_name,
+  h.scheming_language_text(field.label) or field.field_name,
+  "",
+  field.classes if 'classes' in field else ['control-medium'],
+  dict({"class": "form-control"}, **(field.get('form_attrs', {}))),
+  is_required=h.scheming_field_required(field)) %}
+  <fieldset name="{{ field.field_name }}" class="scheming-fieldset" data-bs-module="scheming-multiple-contact">
+    <ol class="multiple-contact-group">
+      {%  for element in values %}
+        {{ h.scheming_clean_json_value(multiple_contact(element, errors[field.field_name] if loop.index == 1 else "")) }}
+      {%  endfor %}
+    </ol>
+
+    <div class="control-medium">
+      <a href="javascript:MultipleText.multiple_add('{{ field.field_name }}');" class="btn btn-link"
+        >{% block add_button_text %}<i class="fa fa-plus" aria-hidden="true"></i> {{ _('Add') }}{% endblock %}</a>
+    </div>
+  </fieldset>
+
+  {% set help_text = h.scheming_language_text(field.help_text) %}
+  {% if help_text %}
+    <div class="info-block mrgn-tp-md">
+      <i class="fa fa-info-circle"></i> {{ help_text }}
+    </div>
+  {% endif %}
+{% endcall %}
