@@ -234,7 +234,7 @@ class SchemingDCATDatasetsPlugin(SchemingDatasetsPlugin):
                 schema = dict(
                     schema,
                     __after=schema.get('__after', []) + [composite_convert_to])
-
+        log.debug(context)
         return p.toolkit.navl_validate(data_dict, schema, context)
 
 

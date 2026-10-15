@@ -33,7 +33,7 @@
   field.classes if 'classes' in field else ['control-medium'],
   dict({"class": "form-control"}, **(field.get('form_attrs', {}))),
   is_required=h.scheming_field_required(field)) %}
-  <fieldset name="{{ field.field_name }}" class="scheming-fieldset" data-bs-module="scheming-multiple-text">
+  <fieldset name="{{ field.field_name }}" class="scheming-fieldset" data-module="scheming-multiple-text">
     <ol class="multiple-text-group">
       {%  for element in values %}
         {{ h.scheming_clean_json_value(multiple_text(element, errors[field.field_name] if loop.index == 1 else "")) }}
