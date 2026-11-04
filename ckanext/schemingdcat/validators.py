@@ -1332,9 +1332,9 @@ def schemingdcat_access_url_if_empty_same_as_url(field, schema):
         resource_id = data.get(key[:-1] + ('id',), None)
         resource_url = data.get(key[:-1] + ('url',))
 
-        if dataset_id and resource_id:
+        if dataset_id and resource_id and not resource_url:
             data[key] = ckan_helpers.url_for('resource.read', id=dataset_id, resource_id=resource_id, _external=True)
-        else:
+        else: 
             data[key] = resource_url
 
     return validator

@@ -1103,6 +1103,9 @@ To run the tests:
 
     pytest --ckan-ini=test.ini ckanext/schemingdcat/tests
 
+> [!CAUTION]
+> [`ckanext/schemingdcat/tests/conftest.py`](https://github.com/mjanez/ckanext-schemingdcat/blob/1d17ce6bd20de0c3b7b97ccebb7219f55653aef1/ckanext/schemingdcat/tests/conftest.py#L6-L9) may result in the database being deleted; it is preferable to use testing with [Docker Compose](#run-tests-quickly-with-docker-compose) or the [volatile test on GitHub Actions](/.github/workflows/test.yml).
+
 
 ### Run tests quickly with Docker Compose
 This repository includes a Docker Compose configuration to simplify running tests. The CKAN image is built using the Dockerfile located in the `docker/` directory.
