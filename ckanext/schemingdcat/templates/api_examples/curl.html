@@ -1,0 +1,71 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <a class="accordion-toggle" data-bs-toggle="collapse" data-bs-parent="accordion2" href="#collapse-curl">{{ _('Example') }}: curl &raquo;</a>
+  </div>
+
+  <div id="collapse-curl" class="panel-collapse collapse">
+    <div class="panel-body">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <a class="accordion-toggle" data-bs-toggle="collapse" data-bs-parent="#collapse-curl" href="#collapse-curl-example1">{{ _('Query example (first 5 results)') }}</a>
+        </div>
+        <div id="collapse-curl-example1" class="panel-collapse collapse">
+          <div class="panel-body">
+            <pre class="ft-syntax-highlight" data-bs-syntax="shell" data-bs-syntax-theme="one-dark" style="font-size:12px"><code>
+  
+  curl {{ h.url_for('api.action', ver=3, logic_function='datastore_search', qualified=True) }} \
+  -H"Authorization:$API_TOKEN" -d '
+{
+  "resource_id": "{{ resource_id }}",
+  "limit": 5
+}'
+          </code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+          <div class="panel-heading">
+            <a class="accordion-toggle" data-bs-toggle="collapse" data-bs-parent="#collapse-curl" href="#collapse-curl-example2">{{ _('Query example (results containing \'medio-ambiente\')') }}</a>
+          </div>
+          <div id="collapse-curl-example2" class="panel-collapse collapse">
+            <div class="panel-body">
+              <pre class="ft-syntax-highlight" data-bs-syntax="shell" data-bs-syntax-theme="one-dark" style="font-size:12px"><code>
+
+curl {{ h.url_for('api.action', ver=3, logic_function='datastore_search', qualified=True) }} \
+-H"Authorization:$API_TOKEN" -d '
+{
+"resource_id": "{{ resource_id }}",
+  "filters": {
+    "subject": ["medio-ambiente"],
+    "stage": "active"
+  }
+}'
+              </code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <a class="accordion-toggle" data-bs-toggle="collapse" data-bs-parent="#collapse-curl" href="#collapse-curl-example3">{{ _('Query example (via SQL statement)') }}</a>
+          </div>
+          <div id="collapse-curl-example3" class="panel-collapse collapse">
+            <div class="panel-body">
+              <pre class="ft-syntax-highlight" data-bs-syntax="shell" data-bs-syntax-theme="one-dark" style="font-size:12px"><code>
+
+curl {{ h.url_for('api.action', ver=3, logic_function='datastore_search_sql', qualified=True) }} \
+  -H"Authorization:$API_TOKEN" -d @- &lt;&lt;END
+{
+  "sql": "SELECT * FROM \"{{ resource_id }}\" WHERE title LIKE 'medio-ambiente'"
+}
+END
+              </code></pre>
+            </div>
+          </div>
+        </div>
+
+
+    </div>
+  </div>
+</div>

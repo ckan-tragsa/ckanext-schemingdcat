@@ -1,0 +1,37 @@
+{% macro license_string(pkg_dict) %}
+  {% set fa_icon_license = 'fa fa-lock' %}
+  {% if pkg_dict.isopen %}
+    {% set fa_icon_license = 'fa fa-unlock' %}
+  {% endif %}
+  {% if pkg_dict.license_url %}
+    <a href="{{ pkg_dict.license_url }}" target="_blank" rel="dc:rights"><i class="{{ fa_icon_license }}"></i> {{ pkg_dict.license_title }}</a>
+  {% elif pkg_dict.license_id %}
+    <a property="dc:rights"><i class="{{ fa_icon_license }}"></i> {{ pkg_dict.license_title }}</a>
+  {% else %}
+    <i class="{{ fa_icon_license }}"></i> <a>{{ _('No License Provided') }}</a>
+  {% endif %}
+{% endmacro %}
+
+{% block license %}
+  {% if text_only %}
+    {{ license_string(pkg_dict) }}
+  {% else %}
+    <section class="module module-narrow license">
+      {% set fa_icon = 'fa fa-copyright' %}
+      {% if pkg_dict.isopen %}
+        {% set fa_icon = 'fab fa-creative-commons' %}
+      {% endif %}
+      <h2 class="module-heading"><i class="{{ fa_icon }}"></i> {{ _('License') }}</h2>
+      <ul class="nav nav-simple">
+        <li class="nav-item">
+          {{ license_string(pkg_dict) }}
+          {% if pkg_dict.isopen %}
+            <a href="http://opendefinition.org/okd/" target="_blank" title="{{ _('This dataset satisfies the Open Definition.') }}">
+              <img class="open-data" src="{{ h.url_for_static('/base/images/od_80x15_blue.png') }}" alt="[Open Data]" />
+            </a>
+          {% endif %}
+        </li>
+      </ul>
+    </section>
+  {% endif %}
+{% endblock %}

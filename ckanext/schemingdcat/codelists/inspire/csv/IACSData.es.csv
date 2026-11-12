@@ -1,0 +1,7 @@
+id,label
+http://inspire.ec.europa.eu/metadata-codelist/IACSData/lpis,lpis
+http://inspire.ec.europa.eu/metadata-codelist/IACSData/gsaa,gsaa
+http://inspire.ec.europa.eu/metadata-codelist/IACSData/iacs,iacs
+http://inspire.ec.europa.eu/metadata-codelist/IACSData/referenceParcel,referenceParcel
+http://inspire.ec.europa.eu/metadata-codelist/IACSData/agriculturalArea,agriculturalArea
+http://inspire.ec.europa.eu/metadata-codelist/IACSData/ecologicalFocusArea,ecologicalFocusArea

@@ -1,0 +1,45 @@
+{% if pkg_dict %}
+  {% set dataset_fields = h.schemingdcat_get_cached_schema(dataset_type).dataset_fields %}
+
+  <section class="module module-narrow dataset_org_info">
+    <div class="module context-info">
+      {% set org_img = 'placeholder' in organization.image_display_url %}
+      {% set org_img = h.url_for_static('/images/default/organization.png') if org_img else organization.image_display_url or h.url_for_static('/images/default/organization.png') %}
+      {% set url = h.url_for(organization.type + '.read', id=organization.name) %}
+      <h2 class="info_heading">
+        <img class="module-image info_heading_image" src="{{ org_img }}" alt="{{ organization.title }}" />
+        <a href="{{ url }}" class="info_text_bold" title="{{ _('Organization') }}">{{ organization.title }}</a>
+      </h2>
+      {% if pkg_dict.theme_es %}
+        {% set theme_field = 'theme_es' %}
+      {% elif pkg_dict.theme_eu %}
+        {% set theme_field = 'theme_eu' %}
+      {% else %}
+        {% set theme_field = 'theme' %}
+      {% endif %}
+      {% set field = h.scheming_field_by_name(dataset_fields, theme_field) %}
+      {% if field %}
+        {% set field_choices = h.scheming_field_choices(field) %}
+        {% set list_values = h.schemingdcat_listify_str(pkg_dict[theme_field]) %}
+        {% if list_values %}
+          {% set icons_dir = h.schemingdcat_get_icons_dir(field_name=field.field_name) %}
+          <ul class="nav nav-simple scrollable-list">
+            {% for item in list_values %}
+              {% if item %}
+                {% set label = h.scheming_choices_label(field_choices, item) %}
+                {% set choice_item = h.schemingdcat_get_choice_item(field, item) %}
+                {% set icon = choice_item and h.schemingdcat_get_icon(choice_item, icons_dir) %}
+                {% set img_url = h.url_for_static(icon) if icon %}
+                {% set url = h.url_for('dataset.search', **{theme_field: item}) %}
+                <li class="nav-item info_item" title="{{ h.scheming_language_text(field.label) }}">
+                  <img class="module-image info_image" src="{{ img_url }}" alt="{{ organization.title }}" />
+                  <a href="{{ url }}" class="info_text">{{ label }}</a>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endif %}
+    </div>
+  </section>
+{% endif %}

@@ -1,0 +1,50 @@
+{% import 'macros/form.html' as form %}
+
+{% macro help_text() %}
+  {%  snippet 'scheming/form_snippets/help_text.html', field=field %}
+{% endmacro %}
+
+{%  call form.input_block(
+    "field-" + field.field_name,
+    label=h.scheming_language_text(field.label),
+    classes=field.classes if 'classes' in field else ['control-full'],
+    error=errors[field.field_name],
+    is_required=h.scheming_field_required(field),
+    extra_html=help_text()
+    ) %}
+  {%  set choices = [] %}
+  {%  for c in h.scheming_field_choices(field) %}
+    {%  do choices.append(
+      (c.value, h.scheming_language_text(c.label), c.narrower, c.narrower_level)) %}
+  {%  endfor %}
+  {%  if field.get('sorted_choices') %}
+    {%  set choices = choices|sort(case_sensitive=false, attribute=1) %}
+  {%  endif %}
+  {% set icons_dir = h.schemingdcat_get_icons_dir(field_name=field.field_name) %}
+  <select
+      size="{{ field.get('select_size', field.choices|length) }}"
+      style="display: block"
+      id="field-{{ field.field_name }}"
+      name="{{ field.field_name }}"
+      {{ form.attributes(dict(
+        {"class": "form-control"}, **field.get('form_select_attrs', {}))) }}>
+    {%  for val, label, narrower, narrower_level in choices %}
+    {% set icon = icons_dir and h.schemingdcat_get_icon(h.schemingdcat_get_choice_item(field, val), icons_dir, None) %}
+    {% set img_url = icon and h.url_for_static(icon) %}
+    {% set val_id = val.split('/')[-1]|lower if '/' in val else val[-4:]|lower %}
+    <option 
+        id="field-{{ field.field_name }}-{{ val_id }}" 
+        value="{{ val }}"
+        {% if img_url %}
+          class="icon_option {% if 'provincia' in val|lower %}provincia{% endif %}"
+          style="background-image:url({{img_url}});"
+          title="{{ _(Province) }}"
+        {% endif %}
+        {% if val in data[field.field_name] %}selected="selected"{% endif %}
+        class="narrower_level-{{ narrower_level|lower }}"
+        style="padding-left: {{ (narrower_level|replace('NT', '')|int * 20) }}px;">
+        {{ h.scheming_language_text(label) }}
+    </option>
+    {%  endfor %}
+  </select>
+{%  endcall %}

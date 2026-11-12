@@ -1,0 +1,15 @@
+{% set current_lang = request.environ.CKAN_LANG %}
+{% set current_locale = h.lang_native_name() %}
+<a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <i class="fas fa-globe"></i> {{ current_locale | capitalize }}
+</a>
+<ul class="dropdown-menu" aria-labelledby="languageDropdown">
+  {% for locale in h.get_available_locales() %}
+    <li>
+      <a class="dropdown-item" href="{% url_for h.current_url(), locale=locale.short_name %}" {% if locale.short_name == current_lang %}aria-current="true"{% endif %}>
+        {% set lang_label = locale.display_name or locale.english_name %}
+        {{ lang_label | capitalize }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>

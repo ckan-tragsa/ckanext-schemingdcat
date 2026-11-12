@@ -1,0 +1,5 @@
+include README.rst
+include LICENSE
+include requirements.txt
+recursive-include ckanext/schemingdcat *.html *.json *.js *.less *.css *.mo *.yml *.yaml *.json *.xml
+recursive-include ckanext/schemingdcat/migration *.ini *.py *.mako

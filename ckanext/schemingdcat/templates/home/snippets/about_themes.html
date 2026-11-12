@@ -1,0 +1,44 @@
+{#
+    Macro to render a card with an SVG icon, label, and URL.
+
+    icon_path - The path to the SVG icon.
+    label - The label to display on the card.
+    count - The count to display on the card.
+    url - The base URL the card should link to.
+    param_name - The name of the URL parameter.
+    param_value - The value of the URL parameter.
+    target_blank - Optional boolean to open the link in a new tab with security attributes.
+
+    Example:
+
+    {{ render_svg_card("/images/icons/theme/example.svg", "Example Label", 123, "https://example.com", "theme", "example_value", target_blank=True) }}
+#}
+{% macro render_svg_card(icon_path, label, count, url, param_name, param_value, target_blank=False) %}
+<a href="{{ url }}?{{ param_name }}={{ param_value | urlencode }}" class="sct-about-themes-card mt-2" {% if target_blank %}target="_blank" rel="noopener noreferrer"{% endif %}>
+    <div class="sct-about-themes-card-icon-container">
+        <div class="sct-about-themes-card-icon">
+            <img src="{{ h.url_for_static(icon_path) }}" alt="{{ label }} icon" />
+        </div>
+        <div class="sct-about-themes-card-count">{{ h.SI_number_span(count) }}</div>
+    </div>
+    {% if label|length <= 2 %}
+        <div class="sct-about-themes-card-acronym">{{ label.upper() }}</div>
+    {% endif %}
+    <div class="sct-about-themes-card-label">{{ _(label) }}</div>
+</a>
+{% endmacro %}
+
+{% set theme_field = h.schemingdcat_get_default_package_item_icon() %}
+{% set themes_stats = h.schemingdcat_get_open_data_statistics(theme_field) %}
+{% if themes_stats %}
+    <div class="sct-about-themes">
+        <div class="sct-about-h4-container">
+        <h3 class="sct-about-h4">{{ _('Theme categories') }}</h3>
+        </div>
+        <div class="sct-about-themes-card-container">
+            {% for theme_id, theme in themes_stats.items() %}
+                {{ render_svg_card(theme.icon, theme.label, theme.stat_count, h.url_for('dataset.search'), theme_field, theme.value) }}
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}

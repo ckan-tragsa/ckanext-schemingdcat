@@ -1,0 +1,40 @@
+{% set tags = h.get_facet_items_dict('tags', search_facets, limit=6) %}
+{% set intro = h.schemingdcat_extract_lang_text(g.site_intro_text, h.schemingdcat_get_current_lang()) %}
+{% set placeholder = _('E.g. environment') %}
+
+{% set heading_title = c.site_title or _('Open Data Catalog')%}
+
+<div class="module module-search module-narrow module-shallow box">
+  <form class="module-content search-form" method="get" action="{% url_for 'dataset.search' %}">
+    {{ h.csrf_input() if 'csrf_input' in h }}
+    <div class="sdct-about-heading-container">
+      <h3 class="sdct-about-heading">{{ heading_title|truncate(60) }}</h3>
+      {% if h.schemingdcat_get_open_data_intro_enabled() %}
+        <div class="open-data-intro">
+            {% if intro %}
+              {{ h.render_markdown(intro) }}
+            {% else %}
+              <p>
+                {% trans %}Find data published by various organizations to help you develop products and services.
+                {% endtrans %}
+              </p>
+            {% endif %}
+        </div>
+      {% endif %}
+      </div>
+
+    <div class="search-input form-group search-giant">
+      <input aria-label="{% block header_site_search_label %}{{ _('Search datasets') }}{% endblock %}" id="field-main-search" type="text" class="form-control" name="q" value="" autocomplete="off" placeholder="{% block search_placeholder %}{{ placeholder }}{% endblock %}" />
+      <button type="submit" aria-labelledby="search-label">
+        <i class="fa fa-search"></i>
+        <span class="sr-only" id="search-label">{{ _('Search') }}</span>
+      </button>
+    </div>
+    <div class="tags index_tags tag-container">
+      <h3>{{ _('Popular tags') }}</h3>
+      {% for tag in tags %}
+        <a class="tag" href="{% url_for 'dataset.search', tags=tag.name %}">{{ _(tag.display_name)|truncate(22) }}</a>
+      {% endfor %}
+    </div>
+  </div>
+  </form>

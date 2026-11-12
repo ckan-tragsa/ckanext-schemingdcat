@@ -1,0 +1,614 @@
+.dataset-categories {
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+@media all and (min-width: 60em){
+    .dataset-categories a{display:block;overflow:hidden;text-indent:-9999px;height:40px;width:40px;background-repeat:no-repeat;background-position:center center;background-size:100% 100%;font-size:1em;}
+    .category-spatial_uri {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
+@media all and (max-width: 770px){
+    .dataset-categories a, .category-spatial_uri {
+        display: none;
+    }
+}
+
+/* theme_es: theme_es-last_part_of_uri */
+.category-theme_es{
+	background-repeat:no-repeat;
+	background-size:30px auto;
+	background-position:15px 7px;
+	width:40px;
+	height:40px;
+    border-radius: 50%;
+}
+
+.category-theme_es:hover, .category-theme_es:focus {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: scale(1.2);
+}
+
+.category-theme_es[data-bs-icon="ciencia-tecnologia"] {
+	background-image: url(../../images/icons/theme_es/sector/ciencia-tecnologia.png);
+}
+.category-theme_es[data-bs-icon="comercio"] {
+	background-image: url(../../images/icons/theme_es/sector/comercio.png);
+}
+.category-theme_es[data-bs-icon="cultura-ocio"] {
+	background-image: url(../../images/icons/theme_es/sector/cultura-ocio.png);
+}
+.category-theme_es[data-bs-icon="deporte"] {
+	background-image: url(../../images/icons/theme_es/sector/deporte.png);
+}
+.category-theme_es[data-bs-icon="economia"] {
+	background-image: url(../../images/icons/theme_es/sector/economia.png);
+}
+.category-theme_es[data-bs-icon="educacion"] {
+	background-image: url(../../images/icons/theme_es/sector/educacion.png);
+}
+.category-theme_es[data-bs-icon="empleo"] {
+	background-image: url(../../images/icons/theme_es/sector/empleo.png);
+}
+.category-theme_es[data-bs-icon="energia"] {
+	background-image: url(../../images/icons/theme_es/sector/energia.png);
+}
+.category-theme_es[data-bs-icon="hacienda"] {
+	background-image: url(../../images/icons/theme_es/sector/hacienda.png);
+}
+.category-theme_es[data-bs-icon="industria"] {
+	background-image: url(../../images/icons/theme_es/sector/industria.png);
+}
+.category-theme_es[data-bs-icon="legislacion-justicia"] {
+	background-image: url(../../images/icons/theme_es/sector/legislacion-justicia.png);
+}
+.category-theme_es[data-bs-icon="medio-ambiente"] {
+	background-image: url(../../images/icons/theme_es/sector/medio-ambiente.png);
+}
+.category-theme_es[data-bs-icon="medio-rural-pesca"] {
+	background-image: url(../../images/icons/theme_es/sector/medio-rural-pesca.png);
+}
+.category-theme_es[data-bs-icon="salud"] {
+	background-image: url(../../images/icons/theme_es/sector/salud.png);
+}
+.category-theme_es[data-bs-icon="sector-publico"] {
+	background-image: url(../../images/icons/theme_es/sector/sector-publico.png);
+}
+.category-theme_es[data-bs-icon="seguridad"] {
+	background-image: url(../../images/icons/theme_es/sector/seguridad.png);
+}
+.category-theme_es[data-bs-icon="sociedad-bienestar"] {
+	background-image: url(../../images/icons/theme_es/sector/sociedad-bienestar.png);
+}
+.category-theme_es[data-bs-icon="transporte"] {
+	background-image: url(../../images/icons/theme_es/sector/transporte.png);
+}
+.category-theme_es[data-bs-icon="turismo"] {
+	background-image: url(../../images/icons/theme_es/sector/turismo.png);
+}
+.category-theme_es[data-bs-icon="urbanismo-infraestructuras"] {
+	background-image: url(../../images/icons/theme_es/sector/urbanismo-infraestructuras.png);
+}
+.category-theme_es[data-bs-icon="vivienda"] {
+	background-image: url(../../images/icons/theme_es/sector/vivienda.png);
+}
+
+/* theme: theme-last_part_of_uri */
+.category-theme{
+	background-repeat:no-repeat;
+	background-size:30px auto;
+	background-position:15px 7px;
+	width:40px;
+	height:40px;
+    border-radius: 50%;
+}
+
+.category-theme:hover, .category-theme:focus {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: scale(1.2);
+}
+
+.category-theme[data-bs-icon="ac"] {
+    background-image: url(../../images/icons/theme/theme/ac.svg);
+}
+.category-theme[data-bs-icon="ad"] {
+    background-image: url(../../images/icons/theme/theme/ad.svg);
+}
+.category-theme[data-bs-icon="af"] {
+    background-image: url(../../images/icons/theme/theme/af.svg);
+}
+.category-theme[data-bs-icon="am"] {
+    background-image: url(../../images/icons/theme/theme/am.svg);
+}
+.category-theme[data-bs-icon="au"] {
+    background-image: url(../../images/icons/theme/theme/au.svg);
+}
+.category-theme[data-bs-icon="br"] {
+    background-image: url(../../images/icons/theme/theme/br.svg);
+}
+.category-theme[data-bs-icon="bu"] {
+    background-image: url(../../images/icons/theme/theme/bu.svg);
+}
+.category-theme[data-bs-icon="cp"] {
+    background-image: url(../../images/icons/theme/theme/cp.svg);
+}
+.category-theme[data-bs-icon="ef"] {
+    background-image: url(../../images/icons/theme/theme/ef.svg);
+}
+.category-theme[data-bs-icon="el"] {
+    background-image: url(../../images/icons/theme/theme/el.svg);
+}
+.category-theme[data-bs-icon="er"] {
+    background-image: url(../../images/icons/theme/theme/er.svg);
+}
+.category-theme[data-bs-icon="ge"] {
+    background-image: url(../../images/icons/theme/theme/ge.svg);
+}
+.category-theme[data-bs-icon="gg"] {
+    background-image: url(../../images/icons/theme/theme/gg.svg);
+}
+.category-theme[data-bs-icon="gn"] {
+    background-image: url(../../images/icons/theme/theme/gn.svg);
+}
+.category-theme[data-bs-icon="hb"] {
+    background-image: url(../../images/icons/theme/theme/hb.svg);
+}
+.category-theme[data-bs-icon="hh"] {
+    background-image: url(../../images/icons/theme/theme/hh.svg);
+}
+.category-theme[data-bs-icon="hy"] {
+    background-image: url(../../images/icons/theme/theme/hy.svg);
+}
+.category-theme[data-bs-icon="lc"] {
+    background-image: url(../../images/icons/theme/theme/lc.svg);
+}
+.category-theme[data-bs-icon="lu"] {
+    background-image: url(../../images/icons/theme/theme/lu.svg);
+}
+.category-theme[data-bs-icon="mf"] {
+    background-image: url(../../images/icons/theme/theme/mf.svg);
+}
+.category-theme[data-bs-icon="mr"] {
+    background-image: url(../../images/icons/theme/theme/mr.svg);
+}
+.category-theme[data-bs-icon="nz"] {
+    background-image: url(../../images/icons/theme/theme/nz.svg);
+}
+.category-theme[data-bs-icon="of"] {
+    background-image: url(../../images/icons/theme/theme/of.svg);
+}
+.category-theme[data-bs-icon="oi"] {
+    background-image: url(../../images/icons/theme/theme/oi.svg);
+}
+.category-theme[data-bs-icon="pd"] {
+    background-image: url(../../images/icons/theme/theme/pd.svg);
+}
+.category-theme[data-bs-icon="pf"] {
+    background-image: url(../../images/icons/theme/theme/pf.svg);
+}
+.category-theme[data-bs-icon="ps"] {
+    background-image: url(../../images/icons/theme/theme/ps.svg);
+}
+.category-theme[data-bs-icon="rs"] {
+    background-image: url(../../images/icons/theme/theme/rs.svg);
+}
+.category-theme[data-bs-icon="sd"] {
+    background-image: url(../../images/icons/theme/theme/sd.svg);
+}
+.category-theme[data-bs-icon="so"] {
+    background-image: url(../../images/icons/theme/theme/so.svg);
+}
+.category-theme[data-bs-icon="sr"] {
+    background-image: url(../../images/icons/theme/theme/sr.svg);
+}
+.category-theme[data-bs-icon="su"] {
+    background-image: url(../../images/icons/theme/theme/su.svg);
+}
+.category-theme[data-bs-icon="tn"] {
+    background-image: url(../../images/icons/theme/theme/tn.svg);
+}
+.category-theme[data-bs-icon="us"] {
+    background-image: url(../../images/icons/theme/theme/us.svg);
+}
+
+/* theme_eu: theme_eu-data-bs-theme */
+.category-theme_eu{
+	background-repeat:no-repeat;
+	background-size:30px auto;
+	background-position:15px 7px;
+	width:40px;
+	height:40px;
+    border-radius: 50%;
+}
+.category-theme_eu:hover, .category-theme_eu:focus {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: scale(1.2);
+}
+
+.category-theme_eu[data-bs-icon="agri"] {
+	background-image: url(../../images/icons/theme_eu/data-bs-theme/agri.png);
+}
+.category-theme_eu[data-bs-icon="econ"] {
+	background-image: url(../../images/icons/theme_eu/data-bs-theme/econ.png);
+}
+.category-theme_eu[data-bs-icon="educ"] {
+	background-image: url(../../images/icons/theme_eu/data-bs-theme/educ.png);
+}
+.category-theme_eu[data-bs-icon="ener"] {
+	background-image: url(../../images/icons/theme_eu/data-bs-theme/ener.png);
+}
+.category-theme_eu[data-bs-icon="envi"] {
+	background-image: url(../../images/icons/theme_eu/data-bs-theme/envi.png);
+}
+.category-theme_eu[data-bs-icon="gove"] {
+	background-image: url(../../images/icons/theme_eu/data-bs-theme/gove.png);
+}
+.category-theme_eu[data-bs-icon="heal"] {
+	background-image: url(../../images/icons/theme_eu/data-bs-theme/heal.png);
+}
+.category-theme_eu[data-bs-icon="intr"] {
+	background-image: url(../../images/icons/theme_eu/data-bs-theme/intr.png);
+}
+.category-theme_eu[data-bs-icon="just"] {
+	background-image: url(../../images/icons/theme_eu/data-bs-theme/just.png);
+}
+.category-theme_eu[data-bs-icon="regi"] {
+	background-image: url(../../images/icons/theme_eu/data-bs-theme/regi.png);
+}
+.category-theme_eu[data-bs-icon="soci"] {
+	background-image: url(../../images/icons/theme_eu/data-bs-theme/soci.png);
+}
+.category-theme_eu[data-bs-icon="tech"] {
+	background-image: url(../../images/icons/theme_eu/data-bs-theme/tech.png);
+}
+
+
+/* spatial_uri: spatial_uri-last_part_of_uri */
+.category-spatial_uri {
+	background-repeat: no-repeat;
+	background-size: 30px auto;
+	background-position: 15px 7px;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+}
+.category-spatial_uri:hover, .category-spatial_uri:focus {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: scale(1.2);
+}
+
+/* spain/autonomia */
+/* Andalucía and provinces */
+.category-spatial_uri[data-bs-icon="andalucia"],
+.category-spatial_uri[data-bs-icon="almeria"],
+.category-spatial_uri[data-bs-icon="cadiz"],
+.category-spatial_uri[data-bs-icon="cordoba"],
+.category-spatial_uri[data-bs-icon="granada"],
+.category-spatial_uri[data-bs-icon="huelva"],
+.category-spatial_uri[data-bs-icon="jaen"],
+.category-spatial_uri[data-bs-icon="malaga"],
+.category-spatial_uri[data-bs-icon="sevilla"] {
+    background-image: url(../../images/icons/spatial_uri/autonomia/andalucia.jpg);
+}
+/* Aragón and provinces */
+.category-spatial_uri[data-bs-icon="aragon"],
+.category-spatial_uri[data-bs-icon="huesca"],
+.category-spatial_uri[data-bs-icon="teruel"],
+.category-spatial_uri[data-bs-icon="zaragoza"] {
+    background-image: url(../../images/icons/spatial_uri/autonomia/aragon.jpg);
+}
+
+/* Canarias and provinces */
+.category-spatial_uri[data-bs-icon="canarias"],
+.category-spatial_uri[data-bs-icon="las-palmas"],
+.category-spatial_uri[data-bs-icon="santa-cruz-tenerife"] {
+    background-image: url(../../images/icons/spatial_uri/autonomia/canarias.jpg);
+}
+
+/* Cantabria */
+.category-spatial_uri[data-bs-icon="cantabria"] {
+    background-image: url(../../images/icons/spatial_uri/autonomia/cantabria.jpg);
+}
+
+/* Castilla-La Mancha and provinces */
+.category-spatial_uri[data-bs-icon="castilla-la-mancha"],
+.category-spatial_uri[data-bs-icon="albacete"],
+.category-spatial_uri[data-bs-icon="ciudad-real"],
+.category-spatial_uri[data-bs-icon="cuenca"],
+.category-spatial_uri[data-bs-icon="guadalajara"],
+.category-spatial_uri[data-bs-icon="toledo"] {
+    background-image: url(../../images/icons/spatial_uri/autonomia/castilla-la-mancha.jpg);
+}
+
+/* Castilla y León and provinces */
+.category-spatial_uri[data-bs-icon="castilla-leon"],
+.category-spatial_uri[data-bs-icon="avila"],
+.category-spatial_uri[data-bs-icon="burgos"],
+.category-spatial_uri[data-bs-icon="leon"],
+.category-spatial_uri[data-bs-icon="palencia"],
+.category-spatial_uri[data-bs-icon="salamanca"],
+.category-spatial_uri[data-bs-icon="segovia"],
+.category-spatial_uri[data-bs-icon="soria"],
+.category-spatial_uri[data-bs-icon="valladolid"],
+.category-spatial_uri[data-bs-icon="zamora"] {
+    background-image: url(../../images/icons/spatial_uri/autonomia/castilla-leon.jpg);
+}
+/* Cataluña and provinces */
+.category-spatial_uri[data-bs-icon="cataluna"],
+.category-spatial_uri[data-bs-icon="barcelona"],
+.category-spatial_uri[data-bs-icon="girona"],
+.category-spatial_uri[data-bs-icon="lleida"],
+.category-spatial_uri[data-bs-icon="tarragona"] {
+    background-image: url(../../images/icons/spatial_uri/autonomia/cataluna.jpg);
+}
+
+/* Ceuta */
+.category-spatial_uri[data-bs-icon="ceuta"] {
+    background-image: url(../../images/icons/spatial_uri/autonomia/ceuta.jpg);
+}
+
+/* Comunidad Foral de Navarra */
+.category-spatial_uri[data-bs-icon="comunidad-foral-navarra"],
+.category-spatial_uri[data-bs-icon="navarra"] {
+    background-image: url(../../images/icons/spatial_uri/autonomia/comunidad-foral-navarra.jpg);
+}
+
+/* Comunidad de Madrid */
+.category-spatial_uri[data-bs-icon="comunidad-madrid"],
+.category-spatial_uri[data-bs-icon="madrid"] {
+    background-image: url(../../images/icons/spatial_uri/autonomia/comunidad-madrid.jpg);
+}
+
+/* Comunidad Valenciana and provinces */
+.category-spatial_uri[data-bs-icon="comunitat-valenciana"],
+.category-spatial_uri[data-bs-icon="alicante"],
+.category-spatial_uri[data-bs-icon="castellon"],
+.category-spatial_uri[data-bs-icon="valencia"] {
+    background-image: url(../../images/icons/spatial_uri/autonomia/comunitat-valenciana.jpg);
+}
+
+/* Extremadura and provinces */
+.category-spatial_uri[data-bs-icon="extremadura"],
+.category-spatial_uri[data-bs-icon="badajoz"],
+.category-spatial_uri[data-bs-icon="caceres"] {
+    background-image: url(../../images/icons/spatial_uri/autonomia/extremadura.jpg);
+}
+
+/* Galicia and provinces */
+.category-spatial_uri[data-bs-icon="galicia"],
+.category-spatial_uri[data-bs-icon="a-coruna"],
+.category-spatial_uri[data-bs-icon="lugo"],
+.category-spatial_uri[data-bs-icon="ourense"],
+.category-spatial_uri[data-bs-icon="pontevedra"] {
+    background-image: url(../../images/icons/spatial_uri/autonomia/galicia.jpg);
+}
+
+/* Illes Balears */
+.category-spatial_uri[data-bs-icon="illes-balears"] {
+    background-image: url(../../images/icons/spatial_uri/autonomia/illes-balears.jpg);
+}
+
+/* La Rioja */
+.category-spatial_uri[data-bs-icon="la-rioja"] {
+    background-image: url(../../images/icons/spatial_uri/autonomia/la-rioja.jpg);
+}
+
+/* Melilla */
+.category-spatial_uri[data-bs-icon="melilla"] {
+    background-image: url(../../images/icons/spatial_uri/autonomia/melilla.jpg);
+}
+
+/* País Vasco and provinces */
+.category-spatial_uri[data-bs-icon="pais-vasco"],
+.category-spatial_uri[data-bs-icon="alava"],
+.category-spatial_uri[data-bs-icon="guipuzcoa"],
+.category-spatial_uri[data-bs-icon="vizcaya"] {
+    background-image: url(../../images/icons/spatial_uri/autonomia/pais-vasco.jpg);
+}
+
+/* Principado de Asturias */
+.category-spatial_uri[data-bs-icon="principado-asturias"],
+.category-spatial_uri[data-bs-icon="asturias"] {
+    background-image: url(../../images/icons/spatial_uri/autonomia/principado-asturias.jpg);
+}
+
+/* Región de Murcia */
+.category-spatial_uri[data-bs-icon="region-murcia"],
+.category-spatial_uri[data-bs-icon="murcia"] {
+    background-image: url(../../images/icons/spatial_uri/autonomia/region-murcia.jpg);
+}
+
+/* spain/pais */
+.category-spatial_uri[data-bs-icon="españa"] {
+	background-image: url(../../images/icons/spatial_uri/pais/españa.jpg);
+}
+
+/* country */
+.category-spatial_uri[data-bs-icon="1a0"] {
+    background-image: url(../../images/icons/spatial_uri/country/1a0.svg);
+}
+.category-spatial_uri[data-bs-icon="alb"] {
+    background-image: url(../../images/icons/spatial_uri/country/alb.svg);
+}
+.category-spatial_uri[data-bs-icon="and"] {
+    background-image: url(../../images/icons/spatial_uri/country/and.svg);
+}
+.category-spatial_uri[data-bs-icon="arg"] {
+    background-image: url(../../images/icons/spatial_uri/country/arg.svg);
+}
+.category-spatial_uri[data-bs-icon="arm"] {
+    background-image: url(../../images/icons/spatial_uri/country/arm.svg);
+}
+.category-spatial_uri[data-bs-icon="aus"] {
+    background-image: url(../../images/icons/spatial_uri/country/aus.svg);
+}
+.category-spatial_uri[data-bs-icon="aut"] {
+    background-image: url(../../images/icons/spatial_uri/country/aut.svg);
+}
+.category-spatial_uri[data-bs-icon="aze"] {
+    background-image: url(../../images/icons/spatial_uri/country/aze.svg);
+}
+.category-spatial_uri[data-bs-icon="bel"] {
+    background-image: url(../../images/icons/spatial_uri/country/bel.svg);
+}
+.category-spatial_uri[data-bs-icon="bgr"] {
+    background-image: url(../../images/icons/spatial_uri/country/bgr.svg);
+}
+.category-spatial_uri[data-bs-icon="bih"] {
+    background-image: url(../../images/icons/spatial_uri/country/bih.svg);
+}
+.category-spatial_uri[data-bs-icon="blr"] {
+    background-image: url(../../images/icons/spatial_uri/country/blr.svg);
+}
+.category-spatial_uri[data-bs-icon="bra"] {
+    background-image: url(../../images/icons/spatial_uri/country/bra.svg);
+}
+.category-spatial_uri[data-bs-icon="can"] {
+    background-image: url(../../images/icons/spatial_uri/country/can.svg);
+}
+.category-spatial_uri[data-bs-icon="che"] {
+    background-image: url(../../images/icons/spatial_uri/country/che.svg);
+}
+.category-spatial_uri[data-bs-icon="chn"] {
+    background-image: url(../../images/icons/spatial_uri/country/chn.svg);
+}
+.category-spatial_uri[data-bs-icon="cyp"] {
+    background-image: url(../../images/icons/spatial_uri/country/cyp.svg);
+}
+.category-spatial_uri[data-bs-icon="cze"] {
+    background-image: url(../../images/icons/spatial_uri/country/cze.svg);
+}
+.category-spatial_uri[data-bs-icon="deu"] {
+    background-image: url(../../images/icons/spatial_uri/country/deu.svg);
+}
+.category-spatial_uri[data-bs-icon="dnk"] {
+    background-image: url(../../images/icons/spatial_uri/country/dnk.svg);
+}
+.category-spatial_uri[data-bs-icon="esp"] {
+    background-image: url(../../images/icons/spatial_uri/country/esp.svg);
+}
+.category-spatial_uri[data-bs-icon="est"] {
+    background-image: url(../../images/icons/spatial_uri/country/est.svg);
+}
+.category-spatial_uri[data-bs-icon="eur"] {
+    background-image: url(../../images/icons/spatial_uri/country/eur.svg);
+}
+.category-spatial_uri[data-bs-icon="fin"] {
+    background-image: url(../../images/icons/spatial_uri/country/fin.svg);
+}
+.category-spatial_uri[data-bs-icon="fra"] {
+    background-image: url(../../images/icons/spatial_uri/country/fra.svg);
+}
+.category-spatial_uri[data-bs-icon="fro"] {
+    background-image: url(../../images/icons/spatial_uri/country/fro.svg);
+}
+.category-spatial_uri[data-bs-icon="gbr"] {
+    background-image: url(../../images/icons/spatial_uri/country/gbr.svg);
+}
+.category-spatial_uri[data-bs-icon="geo"] {
+    background-image: url(../../images/icons/spatial_uri/country/geo.svg);
+}
+.category-spatial_uri[data-bs-icon="grc"] {
+    background-image: url(../../images/icons/spatial_uri/country/grc.svg);
+}
+.category-spatial_uri[data-bs-icon="grl"] {
+    background-image: url(../../images/icons/spatial_uri/country/grl.svg);
+}
+.category-spatial_uri[data-bs-icon="hrv"] {
+    background-image: url(../../images/icons/spatial_uri/country/hrv.svg);
+}
+.category-spatial_uri[data-bs-icon="hun"] {
+    background-image: url(../../images/icons/spatial_uri/country/hun.svg);
+}
+.category-spatial_uri[data-bs-icon="irl"] {
+    background-image: url(../../images/icons/spatial_uri/country/irl.svg);
+}
+.category-spatial_uri[data-bs-icon="isl"] {
+    background-image: url(../../images/icons/spatial_uri/country/isl.svg);
+}
+.category-spatial_uri[data-bs-icon="isr"] {
+    background-image: url(../../images/icons/spatial_uri/country/isr.svg);
+}
+.category-spatial_uri[data-bs-icon="ita"] {
+    background-image: url(../../images/icons/spatial_uri/country/ita.svg);
+}
+.category-spatial_uri[data-bs-icon="jpn"] {
+    background-image: url(../../images/icons/spatial_uri/country/jpn.svg);
+}
+.category-spatial_uri[data-bs-icon="lie"] {
+    background-image: url(../../images/icons/spatial_uri/country/lie.svg);
+}
+.category-spatial_uri[data-bs-icon="ltu"] {
+    background-image: url(../../images/icons/spatial_uri/country/ltu.svg);
+}
+.category-spatial_uri[data-bs-icon="lux"] {
+    background-image: url(../../images/icons/spatial_uri/country/lux.svg);
+}
+.category-spatial_uri[data-bs-icon="lva"] {
+    background-image: url(../../images/icons/spatial_uri/country/lva.svg);
+}
+.category-spatial_uri[data-bs-icon="mda"] {
+    background-image: url(../../images/icons/spatial_uri/country/mda.svg);
+}
+.category-spatial_uri[data-bs-icon="mex"] {
+    background-image: url(../../images/icons/spatial_uri/country/mex.svg);
+}
+.category-spatial_uri[data-bs-icon="mkd"] {
+    background-image: url(../../images/icons/spatial_uri/country/mkd.svg);
+}
+.category-spatial_uri[data-bs-icon="mlt"] {
+    background-image: url(../../images/icons/spatial_uri/country/mlt.svg);
+}
+.category-spatial_uri[data-bs-icon="mne"] {
+    background-image: url(../../images/icons/spatial_uri/country/mne.svg);
+}
+.category-spatial_uri[data-bs-icon="nld"] {
+    background-image: url(../../images/icons/spatial_uri/country/nld.svg);
+}
+.category-spatial_uri[data-bs-icon="nor"] {
+    background-image: url(../../images/icons/spatial_uri/country/nor.svg);
+}
+.category-spatial_uri[data-bs-icon="nzl"] {
+    background-image: url(../../images/icons/spatial_uri/country/nzl.svg);
+}
+.category-spatial_uri[data-bs-icon="pol"] {
+    background-image: url(../../images/icons/spatial_uri/country/pol.svg);
+}
+.category-spatial_uri[data-bs-icon="prt"] {
+    background-image: url(../../images/icons/spatial_uri/country/prt.svg);
+}
+.category-spatial_uri[data-bs-icon="rou"] {
+    background-image: url(../../images/icons/spatial_uri/country/rou.svg);
+}
+.category-spatial_uri[data-bs-icon="rus"] {
+    background-image: url(../../images/icons/spatial_uri/country/rus.svg);
+}
+.category-spatial_uri[data-bs-icon="srb"] {
+    background-image: url(../../images/icons/spatial_uri/country/srb.svg);
+}
+.category-spatial_uri[data-bs-icon="svk"] {
+    background-image: url(../../images/icons/spatial_uri/country/svk.svg);
+}
+.category-spatial_uri[data-bs-icon="svn"] {
+    background-image: url(../../images/icons/spatial_uri/country/svn.svg);
+}
+.category-spatial_uri[data-bs-icon="swe"] {
+    background-image: url(../../images/icons/spatial_uri/country/swe.svg);
+}
+.category-spatial_uri[data-bs-icon="tur"] {
+    background-image: url(../../images/icons/spatial_uri/country/tur.svg);
+}
+.category-spatial_uri[data-bs-icon="ukr"] {
+    background-image: url(../../images/icons/spatial_uri/country/ukr.svg);
+}
+.category-spatial_uri[data-bs-icon="usa"] {
+    background-image: url(../../images/icons/spatial_uri/country/usa.svg);
+}
+.category-spatial_uri[data-bs-icon="vat"] {
+    background-image: url(../../images/icons/spatial_uri/country/vat.svg);
+}

@@ -1,0 +1,7 @@
+id,label
+http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/discovery,discovery
+http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/view,view
+http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/download,download
+http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/transformation,transformation
+http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/invoke,invoke
+http://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/other,other

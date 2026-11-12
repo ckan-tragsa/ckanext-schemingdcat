@@ -1,0 +1,211 @@
+{% set exclude_fields = [ 'id', 'title', 'title_translated', 'name', 'notes',
+'notes_translated', 'tag_string', 'license_id', 'owner_org', 'graphic_overview',
+'access_rights', 'publisher_uri', 'publisher_name', 'publisher_identifier',
+'publisher_url', 'publisher_email', 'publisher_type', 'contact_uri',
+'contact_name', 'contact_email', 'contact_url', 'reference', 'author', 'maintainer' ] %} {# MD Fields #}
+{# Basic info: Sublist #} {% set basic = [ 'dcat_type', 'created', 'issued', 'modified', 'identifier', 'language', 'theme_es', 'theme_eu', 'hvd_category', 'topic' ] %} {% set basic_toggle = [ 'tag_uri',] %} {# Bibliographic info: Sublist #} {% set bibliographic = [ 'author_name', 'editor_name', 'alternate_identifier'] %} {% set bibliographic_toggle = [ 'author_uri', 'author_email', 'author_url'] %} {# Provenance info: Sublist #} {% set provenance = [ 'provenance',
+'metadata_profile', 'applicable_legislation'] %} {% set provenance_toggle = [ 'conforms_to', 'source',
+'reference', 'frequency', 'lineage_source', 'purpose', 'lineage_process_steps',
+'temporal_start', 'temporal_end', 'version_notes', 'version', 'valid', ] %} {#
+Provenance info: Sublist #} {% set responsible_party = [ 'author_name', 'maintainer_name',
+] %} {%
+  set dataset_fields = schema.dataset_fields %} {% set metadata_fields = {} %} {%
+  for field in dataset_fields if field.field_name not in exclude_fields %} {% set
+  _ = metadata_fields.update({field.field_name: field}) %} {% endfor %}
+  
+  <section class="additional-info">
+    {% with md = dataset_type %} {% if md %}
+    <header class="metadata-header">
+      <h2>
+        {{ _('Metadata') }}
+      </h2>
+      {% block package_download_metadata %}
+      {% snippet "schemingdcat/package/snippets/download_metadata.html", pkg=pkg %} 
+      {% endblock %}
+    </header>
+  </section>
+
+  {% block package_metadata %} {% asset
+        'ckanext-schemingdcat/schemingdcat-table-collapsible-rows' %} {# Basic
+        information #}
+  <table
+    class="table table-bordered table-condensed"
+    data-module="schemingdcat-table-collapsible-rows"
+    data-module-numcols="2"
+  >
+          <thead class="thead-normal_table">
+            <tr>
+              <td scope="row" colspan="2">{{ _('Basic information') }}</td>
+            </tr>
+          </thead>
+          <tbody>
+      {% for field_name in basic %} {% set field =
+      metadata_fields.get(field_name) %} {% if field %}
+                <tr class="toggle-not">
+        <th scope="row" class="dataset-label">
+          {{ h.scheming_language_text(field.label) }}
+        </th>
+        <td
+          class="dataset-details"
+          {%
+          if
+          field.display_property
+          %}
+          property="{{ field.display_property }}"
+          {%
+          endif
+          %}
+        >
+          {% snippet 'scheming/snippets/display_field.html', field=field,
+          data=pkg, schema=schema %}
+                  </td>
+                </tr>
+      {% endif %} {% endfor %} {% for field_name in basic_toggle %} {% set field
+      = metadata_fields.get(field_name) %} {% if field and field_name not in
+      basic %}
+                <tr class="toggle-more">
+        <th scope="row" class="dataset-label">
+          {{ h.scheming_language_text(field.label) }}
+        </th>
+        <td
+          class="dataset-details"
+          {%
+          if
+          field.display_property
+          %}
+          property="{{ field.display_property }}"
+          {%
+          endif
+          %}
+        >
+          {% snippet 'scheming/snippets/display_field.html', field=field,
+          data=pkg, schema=schema %}
+                  </td>
+                </tr>
+      {% endif %} {% endfor %}
+          </tbody>
+        </table>
+
+        {# Bibliographic information #}
+        <table
+        class="table table-bordered table-condensed"
+        data-module="schemingdcat-table-collapsible-rows"
+        data-module-numcols="2"
+      >
+        <thead class="thead-normal_table">
+          <tr>
+              <td scope="row" colspan="2">{{ _('Bibliographic information') }}</td>
+            </tr>
+          </thead>
+          <tbody>
+            {% for field_name in bibliographic %}
+              {% set field = metadata_fields.get(field_name) %}
+              {% if field %}
+              <tr class="toggle-not">
+                <th scope="row" class="dataset-label">
+                  {{ h.scheming_language_text(field.label) }}
+                </th>
+                <td
+                  class="dataset-details"
+                  {%
+                  if
+                  field.display_property
+                  %}
+                  property="{{ field.display_property }}"
+                  {%
+                  endif
+                  %}
+                >
+                  {% snippet 'scheming/snippets/display_field.html', field=field,
+                  data=pkg, schema=schema %}
+                </td>
+              </tr>
+      {% endif %} {% endfor %} {% for field_name in bibliographic_toggle %} {% set
+      field = metadata_fields.get(field_name) %} {% if field and field_name not
+      in spatial %}
+                <tr class="toggle-more">
+        <th scope="row" class="dataset-label">
+          {{ h.scheming_language_text(field.label) }}
+        </th>
+        <td
+          class="dataset-details"
+          {%
+          if
+          field.display_property
+          %}
+          property="{{ field.display_property }}"
+          {%
+          endif
+          %}
+        >
+          {% snippet 'scheming/snippets/display_field.html', field=field,
+          data=pkg, schema=schema %}
+                  </td>
+                </tr>
+      {% endif %} {% endfor %}
+          </tbody>
+        </table>
+
+        {# Provenance #}
+  <table
+    class="table table-bordered table-condensed"
+    data-module="schemingdcat-table-collapsible-rows"
+    data-module-numcols="2"
+  >
+          <thead class="thead-normal_table">
+            <tr>
+              <td scope="row" colspan="2">{{ _('Provenance') }}</td>
+            </tr>
+          </thead>
+          <tbody>
+      {% for field_name in provenance %} {% set field =
+      metadata_fields.get(field_name) %} {% if field %}
+                <tr class="toggle-not">
+        <th scope="row" class="dataset-label">
+          {{ h.scheming_language_text(field.label) }}
+        </th>
+        <td
+          class="dataset-details"
+          {%
+          if
+          field.display_property
+          %}
+          property="{{ field.display_property }}"
+          {%
+          endif
+          %}
+        >
+          {% snippet 'scheming/snippets/display_field.html', field=field,
+          data=pkg, schema=schema %}
+                  </td>
+                </tr>
+      {% endif %} {% endfor %} {% for field_name in provenance_toggle %} {% set
+      field = metadata_fields.get(field_name) %} {% if field and field_name not
+      in provenance %}
+                <tr class="toggle-more">
+        <th scope="row" class="dataset-label">
+          {{ h.scheming_language_text(field.label) }}
+        </th>
+        <td
+          class="dataset-details"
+          {%
+          if
+          field.display_property
+          %}
+          property="{{ field.display_property }}"
+          {%
+          endif
+          %}
+        >
+          {% snippet 'scheming/snippets/display_field.html', field=field,
+          data=pkg, schema=schema %}
+                  </td>
+                </tr>
+      {% endif %} {% endfor %}
+          </tbody>
+        </table>
+
+      {% endblock %}
+    {% endif %}
+  {% endwith %}
+</section>

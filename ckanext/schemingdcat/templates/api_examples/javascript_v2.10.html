@@ -1,0 +1,27 @@
+<div class="accordion-item">
+  <div class="accordion-heading">
+    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-javascript" aria-expanded="false" aria-controls="collapse-javascript">{{ _('Example') }}: Javascript &raquo;</button>
+  </div>
+  <div id="collapse-javascript" class="accordion-collapse collapse" aria-labelledby="collapse-javascript" data-bs-parent="#accordion2">
+    <div class="accordion-body">
+      <p>{{ _('A simple ajax (JSONP) request to the data API using jQuery.') }}</p>
+<pre class="ft-syntax-highlight" data-bs-syntax="js" data-bs-syntax-theme="one-dark" style="font-size:12px">
+<code class="language-javascript">
+<span class="keyword">var</span> <span class="identifier">data</span> = {
+  <span class="property">resource_id</span>: <span class="string">'{{resource_id}}'</span>, <span class="comment">// the resource id</span>
+  <span class="property">limit</span>: <span class="number">5</span>, <span class="comment">// get 5 results</span>
+  <span class="property">q</span>: <span class="string">'medio-ambiente'</span> <span class="comment">// query for 'medio-ambiente'</span>
+};
+$.<span class="identifier">ajax</span>({
+  <span class="property">url</span>: <span class="string">'{{ h.url_for('api.action', ver=3, logic_function='datastore_search', qualified=True) }}'</span>,
+  <span class="property">data</span>: <span class="identifier">data</span>,
+  <span class="property">dataType</span>: <span class="string">'jsonp'</span>,
+  <span class="property">success</span>: <span class="keyword">function</span>(<span class="identifier">data</span>) {
+    <span class="identifier">alert</span>(<span class="string">'Total results found: '</span> + <span class="identifier">data</span>.<span class="property">result</span>.<span class="property">total</span>)
+  }
+});
+</code>
+</pre>
+    </div>
+  </div>
+</div>

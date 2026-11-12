@@ -1,0 +1,88 @@
+{% macro format_element(element, is_last, add_comma) %}
+    {% set formatted_element = element.strip().replace('...', '').replace(',', '') %}
+    {{ formatted_element }}{% if not is_last and add_comma %},{% elif is_last and not formatted_element.endswith('.') %}.{% endif %}
+{% endmacro %}
+
+{% block citation_status %}
+    {% asset 'ckanext-schemingdcat/schemingdcat-dataset-citation' %}
+    {% asset 'ckanext-schemingdcat/schemingdcat-dataset-bibtex' %}
+
+    {% set doi = pkg['doi'] if pkg['doi'] else h.schemingdcat_get_doi_from_alternate_identifier(pkg['alternate_identifier']) %}
+    {% set doi_api_url = 'api.crossref.org' %}
+
+    <div class="citation">
+        <div id="citation-status">
+            {% if (pkg.get('author') and pkg.get('title')) or pkg.get('resources') %}
+            <h3>{{ _('Cite as') }}</h3>
+            <div class="citation-string">
+                <p>
+                    {% set authors = pkg.get('author', '') %}
+                    {% set authors = authors.split(';') if authors else [] %}
+                    {% for author in authors %}
+                        {{ format_element(author, loop.last, true) }}
+                    {% endfor %}
+
+                    {% set formatted_title = pkg['title'].strip().replace('...', '').replace(',', '') %}
+                    <i>{{ formatted_title }}</i>{% if not formatted_title.endswith('.') %}.{% endif %}
+                    {% if pkg['editor_name'] %}
+                        {{ format_element(pkg['editor_name'], false, true) }}
+                    {% endif %}
+
+                    {% set first_resource = pkg['resources'][0] if pkg['resources'] else None %}
+                    {% set created_field_name = _('Created') %}
+                    {% if first_resource and created_field_name in first_resource %}
+                        {{ format_element(first_resource[created_field_name][:4], true, false) }}
+                    {% else %}
+                        {% if first_resource and 'created' in first_resource %}
+                        {{ format_element(first_resource['created'][:4], true, false) }}
+                        {% endif %}
+                    {% endif %}
+
+                    {% if doi %}
+                        <a href="https://doi.org/{{ doi }}">https://doi.org/{{ doi }}</a>
+                    {% endif %}
+                </p>
+                <img id="clipboard-icon" src="{{ h.url_for_static('/images/default/clipboard.svg') }}" class="clipboard-icon" alt="Clipboard Icon">
+            </div>
+            {% endif %}
+            {% if pkg.get('private') and not doi %}
+            <div class="pad-v">
+                <span class="dataset-private label label-inverse"
+                    title="This DOI has not yet been published">
+                    <i class="fa fa-lock inline-icon-left"> </i>
+                     {{ _('Private {id}').format(id='DOI') }}</span>
+                <small>
+                    <i class="fa fa-exclamation-triangle"></i>
+                    <strong>{{ _('This {id} is not yet resolvable.').format(id='DOI') }}</strong>
+                </small>
+            </div>
+            <div>
+                {% block  doi_note %}
+                    {% set quote_content %}
+                        <small>{{ _('It is available for use in manuscripts, and will be published when the Dataset is made public.') }}</small>
+                    {% endset %}
+                {% snippet "schemingdcat/snippets/quote_alerts.html", alert_type='note', content=quote_content %}
+              {% endblock %}
+            </div>
+            {% else %}
+            <div class="citation-flex-container citation-flex-between">
+                <small>
+                    <i class="fa fa-calendar"></i>
+                    {{ _('Retrieved') }}: {{ h.render_datetime(h.schemingdcat_get_current_datetime(), date_format='%d %b %Y %H:%M:%S') }}
+                </small>
+                <!-- Buttons container at the end -->
+                <div class="citation-buttons">
+                {% if doi %}
+                        <a id="download-ris" class="btn btn-primary" title="{{ _('Download') }} RIS" href="https://{{ doi_api_url }}/works/{{ doi }}/transform/application/x-research-info-systems">
+                            <small><i class="fa fa-file-text"></i> RIS</small>
+                        </a>
+                        <a id="download-bibtex" class="btn btn-primary" title="{{ _('Download') }} BibTeX" href="https://{{ doi_api_url }}/works/{{ doi }}/transform/application/x-bibtex">
+                        <small><i class="fa fa-file-text"></i> BibTeX</small>
+                    </a>
+                {% endif %}
+                </div>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

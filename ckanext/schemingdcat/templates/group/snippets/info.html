@@ -1,0 +1,35 @@
+{% ckan_extends %}
+
+{% set truncate = truncate or 180 %}
+{% set title = h.dataset_display_name(group) %}
+{% set notes = h.markdown_extract(h.dataset_display_field_value(group, 'description'), extract_length=truncate) %}
+
+{% block heading %}
+<h1 class="heading">
+    <div class="dataset-badges">
+        {% if group.state.startswith('draft') %}
+        <span class="dataset-draft badge pull-left">
+          <i class="fa fa-book"></i>
+          {{ _('Draft') }}
+        </span>
+        {% endif %}
+        {% if group.state == 'deleted' %}
+        <span class="dataset-delete badge badge pull-left">
+          <i class="fa fa-trash"></i>
+          {{ _('Deleted') }}
+        </span>
+        {% endif %}
+      </div>
+    {{ title }}
+</h1>
+{% endblock %}
+{% block description %}
+{% if notes %}
+    <p class="description">
+    {{ notes }}
+    </p>
+    <p class="read-more">
+    {% link_for _('read more'), named_route='group.about', id=group.name %}
+    </p>
+{% endif %}
+{% endblock %}

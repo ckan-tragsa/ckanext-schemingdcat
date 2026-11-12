@@ -1,0 +1,69 @@
+schemingdcat-css:
+  filter: cssrewrite
+  output: ckanext-schemingdcat/%(version)s-schemingdcat.css
+  contents:
+    - css/schemingdcat.css
+    - css/ft-syntax-highlight.min.css
+
+schemingdcat-table-collapsible-rows:
+  filter: rjsmin
+  output: ckanext-schemingdcat/%(version)s-schemingdcat_table_collapsible_rows.js
+  extra:
+    preload:
+      - base/main
+  contents:
+    - vendor/mustache/mustache.js
+    - js/modules/schemingdcat-table-collapsible-rows.js
+
+schemingdcat-permanent-url:
+  filter: rjsmin
+  output: ckanext-schemingdcat/%(version)s-schemingdcat_permanent_url.js
+  extra:
+    preload:
+      - base/main
+  contents:
+    - js/modules/schemingdcat-permanent-url.js
+
+schemingdcat-metadata-sidebar:
+  filter: rjsmin
+  output: ckanext-schemingdcat/%(version)s-schemingdcat_metadata_sidebar.js
+  extra:
+    preload:
+      - base/main
+  contents:
+    - js/modules/schemingdcat-metadata-sidebar.js
+
+schemingdcat-icons:
+  contents:
+    - css/categories/schemingdcat-icons.css
+  output: schemingdcat_icons/%(version)s_schemingdcat_icons.css
+
+schemingdcat-form-tabs:
+  filter: rjsmin
+  output: ckanext-schemingdcat/%(version)s-schemingdcat_form_tabs.js
+  extra:
+    preload:
+      - vendor/jquery
+  contents:
+    - js/modules/schemingdcat-form-tabs.js
+
+schemingdcat-dataset-citation:
+  output: ckanext-schemingdcat/%(version)s_schemingdcat_dataset-citation.js
+  filters: rjsmin
+  contents:
+    - js/modules/schemingdcat-dataset-citation.js
+
+schemingdcat-dataset-bibtex:
+  output: ckanext-schemingdcat/%(version)s_schemingdcat_dataset-bibtex.js
+  filters: rjsmin
+  contents:
+    - js/modules/schemingdcat-dataset-bibtex.js
+
+main:
+  filters: rjsmin
+  output: base/%(version)s_main.js
+  extra:
+    preload:
+      - base/main
+  contents:
+    - plugins/jquery.schemingdcat-slug-preview.js

@@ -1,0 +1,199 @@
+{
+    "name": "test-dataset-shacl",
+    "title": "Test DCAT dataset",
+    "title_translated": {
+        "en": "Test DCAT dataset",
+        "es": "Test del conjunto de datos DCAT"
+    },
+    "notes": "Sample description.",
+    "notes_translated": {
+        "en": "Sample description.",
+        "es": "Descripción de ejemplo."
+    },
+    "url": "http://example.org/ds1",
+    "version": "1.0b",
+    "tags": [
+        {
+            "name": "Tag 1"
+        },
+        {
+            "name": "Tag 2"
+        }
+    ],
+    "extras": [
+        {
+            "key": "issued",
+            "value": "2024-05-01"
+        },
+        {
+            "key": "modified",
+            "value": "2024-05-05"
+        },
+        {
+            "key": "identifier",
+            "value": "xx-some-dataset-id-yy"
+        },
+        {
+            "key": "frequency",
+            "value": "monthly"
+        },
+        {
+            "key": "provenance",
+            "value": "Statement about provenance"
+        },
+        {
+            "key": "dcat_type",
+            "value": "test-type"
+        },
+        {
+            "key": "version_notes",
+            "value": "Some version notes"
+        },
+        {
+            "key": "access_rights",
+            "value": "http://inspire.ec.europa.eu/metadata-codelist/LimitationsOnPublicAccess/noLimitation"
+        },
+        {
+            "key": "alternate_identifier",
+            "value": "[\"alt-id-1\",\"alt-id-2\"]"
+        },
+        {
+            "key": "theme",
+            "value": "[\"http://inspire.ec.europa.eu/theme/hb\",\"http://inspire.ec.europa.eu/theme/am\"]"
+        },
+        {
+            "key": "language",
+            "value": "http://publications.europa.eu/resource/authority/language/SPA"
+        },
+        {
+            "key": "documentation",
+            "value": "[\"https://example.org/some-doc.html\"]"
+        },
+        {
+            "key": "conforms_to",
+            "value": "[\"Standard1\",\"Standard2\"]"
+        },
+        {
+            "key": "is_referenced_by",
+            "value": "[\"https://doi.org/10.1038/sdata.2018.22\",\"test_isreferencedby\"]"
+        },
+        {
+            "key": "applicable_legislation",
+            "value": "[\"http://data.europa.eu/eli/reg_impl/2023/138/oj\",\"http://data.europa.eu/eli/reg_impl/2023/138/oj_alt\"]"
+        },
+        {
+            "key": "contact_name",
+            "value": "Contact 1"
+        },
+        {
+            "key": "contact_email",
+            "value": "contact1@example.org"
+        },
+        {
+            "key": "publisher_name",
+            "value": "Test Publisher"
+        },
+        {
+            "key": "publisher_email",
+            "value": "publisher@example.org"
+        },
+        {
+            "key": "publisher_url",
+            "value": "https://example.org"
+        },
+        {
+            "key": "publisher_type",
+            "value": "public_body"
+        },
+        {
+            "key": "author",
+            "value": "Test Author"
+        },
+        {
+            "key": "author_name",
+            "value": "Test Author"
+        },
+        {
+            "key": "author_email",
+            "value": "author@example.org"
+        },
+        {
+            "key": "maintainer",
+            "value": "Test Maintainer"
+        },
+        {
+            "key": "maintainer_name",
+            "value": "Test Maintainer"
+        },
+        {
+            "key": "maintainer_email",
+            "value": "maintainer@example.org"
+        },
+        {
+            "key": "temporal_start",
+            "value": "1905-03-01"
+        },
+        {
+            "key": "temporal_end",
+            "value": "2013-01-05"
+        },
+        {
+            "key": "temporal_resolution",
+            "value": "PT15M"
+        },
+        {
+            "key": "spatial",
+            "value": "{\"type\":\"Polygon\",\"coordinates\":[[[11.9936,54.0486],[11.9936,54.2466],[12.3045,54.2466],[12.3045,54.0486],[11.9936,54.0486]]]}"
+        },
+        {
+            "key": "spatial_text",
+            "value": "Tarragona"
+        },
+        {
+            "key": "spatial_uri",
+            "value": "https://sws.geonames.org/6361390/"
+        },
+        {
+            "key": "spatial_bbox",
+            "value": "{\"type\":\"Polygon\",\"coordinates\":[[[11.9936,54.0486],[11.9936,54.2466],[12.3045,54.2466],[12.3045,54.0486],[11.9936,54.0486]]]}"
+        },
+        {
+            "key": "spatial_centroid",
+            "value": "{\"type\":\"Point\",\"coordinates\":[1.26639,41.12386]}"
+        },
+        {
+            "key": "spatial_resolution_in_meters",
+            "value": 1.5
+        }
+    ],
+    "resources": [
+        {
+            "name": "Resource 1",
+            "description": "Some description",
+            "url": "https://example.com/data.csv",
+            "format": "CSV",
+            "encoding": "UTF-8",
+            "alternate_identifier": "xx-some-dataset-id-yy_csv",
+            "availability": "http://publications.europa.eu/resource/authority/planned-availability/EXPERIMENTAL",
+            "compress_format": "http://www.iana.org/assignments/media-types/application/gzip",
+            "package_format": "http://publications.europa.eu/resource/authority/file-type/TAR",
+            "conforms_to": [
+                "https://www.example.com/standard/1"
+            ],
+            "size": 12323,
+            "hash": "4304cf2e751e6053c90b1804c89c0ebb758f395a",
+            "hash_algorithm": "http://spdx.org/rdf/terms#checksumAlgorithm_sha1",
+            "status": "http://purl.org/adms/status/Completed",
+            "access_url": "https://example.com/data.csv",
+            "download_url": "https://example.com/data.csv",
+            "issued": "2024-05-01T01:20:33",
+            "modified": "2024-05-05T09:33:20",
+            "license": "http://creativecommons.org/licenses/by/3.0/",
+            "rights": "http://inspire.ec.europa.eu/metadata-codelist/LimitationsOnPublicAccess/noLimitations",
+            "language": "http://publications.europa.eu/resource/authority/language/SPA",
+            "provenance": "Sample provenance.",
+            "relation": "https://example.com/related/resource",
+            "access_services": "[{\"title\": \"Access Service 1\", \"endpoint_description\": \"https://example.org/endpoint_description\", \"endpoint_url\": [\"https://example.org/access_service/1\", \"https://example.org/access_service/2\"], \"serves_dataset\": [\"https://example.org/dataset/1\", \"https://example.org/dataset/2\"]}]"
+        }
+    ]
+}

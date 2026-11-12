@@ -1,0 +1,119 @@
+{#
+Displays information about accessing a resource via the API.
+
+resource_id - The resource id
+embedded - If true will not include the "modal" classes on the snippet.
+
+Example
+
+    {% snippet 'ajax_snippets/api_info.html', resource_id=resource_id, embedded=true %}
+
+#}
+
+{% set resource_id = h.sanitize_id(resource_id) %}
+{% set sql_example_url = h.url_for('api.action', ver=3, logic_function='datastore_search_sql', qualified=True) + '?sql=SELECT * from "' + resource_id + '" WHERE title LIKE \'medio-ambiente\'' %}
+{# not urlencoding the sql because its clearer #}
+<div {% if not embedded %} class="modal"{% endif %} tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+          <h3>
+            {{ _('CKAN Data API') }}
+          </h3>
+        </div>
+        <div {% if not embedded %} class="modal-body"{% endif %}>
+          <p><strong>{{ _('Access resource data via a web API with powerful query support') }}</strong>.
+
+          {% block api_info %}
+            {% set quote_content %}
+              {% trans %}
+              Further information in the <a href="http://docs.ckan.org/en/latest/maintaining/datastore.html" target="_blank">main CKAN Data API and DataStore documentation</a>.
+              {% endtrans %}
+            {% endset %}
+            {% snippet "schemingdcat/snippets/quote_alerts.html", alert_type='tip', content=quote_content %}
+          {% endblock %}
+          
+          <div class="accordion" id="accordion2">
+            <div class="accordion-item">
+              <div class="accordion-heading">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-endpoints" aria-expanded="true" aria-controls="collapse-endpoints">{{ _('Endpoints') }} &raquo;</button>
+              </div>
+              <div id="collapse-endpoints" class="accordion-collapse collapse show" aria-labelledby="collapse-endpoints" data-bs-parent="#accordion2">
+                <div class="accordion-body">
+                  <p>{{ _('The Data API can be accessed via the following actions of the CKAN action API.') }}</p>
+                  <table class="table table-striped table-bordered">
+                    <thead></thead>
+                    <tbody>
+                      {% if h.datastore_search_sql_enabled() %}
+                        <tr>
+                          <th scope="row">{{ _('Create') }}</th>
+                          <td><code>{{ h.url_for('api.action', ver=3, logic_function='datastore_create', qualified=True) }}</code></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">{{ _('Update / Insert') }}</th>
+                          <td><code>{{ h.url_for('api.action', ver=3, logic_function='datastore_upsert', qualified=True) }}</code></td>
+                        </tr>
+                      {% endif %}
+                      <tr>
+                        <th scope="row">{{ _('Query') }}</th>
+                        <td><code>{{ h.url_for('api.action', ver=3, logic_function='datastore_search', qualified=True) }}</code></td>
+                      </tr>
+                      {% if h.datastore_search_sql_enabled() %}
+                        <tr>
+                            <th scope="row">{{ _('Query (via SQL)') }}</th>
+                            <td><code>{{ h.url_for('api.action', ver=3, logic_function='datastore_search_sql', qualified=True) }}</code></td>
+                        </tr>
+                      {% endif %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <div class="accordion-heading">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-querying" aria-expanded="false" aria-controls="collapse-querying">{{ _('Querying') }} &raquo;</button>
+              </div>
+              <div id="collapse-querying"  class="accordion-collapse collapse" aria-labelledby="collapse-querying" data-bs-parent="#accordion2">
+                <div class="accordion-body">
+                  <strong>{{ _('Query example (first 5 results)') }}</strong>
+                  <p>
+                  <code><a href="{{ h.url_for('api.action', ver=3, logic_function='datastore_search', resource_id=resource_id, limit=5, qualified=True) }}" target="_blank" rel="noreferrer">{{ h.url_for('api.action', ver=3, logic_function='datastore_search', resource_id=resource_id, limit=5, qualified=True) }}</a></code>
+                  </p>
+
+                  <strong>{{ _('Query example (results containing \'medio-ambiente\')') }}</strong>
+                  <p>
+                  <code><a href="{{ h.url_for('api.action', ver=3, logic_function='datastore_search', resource_id=resource_id, q='medio-ambiente', qualified=True) }}" target="_blank" rel="noreferrer">{{ h.url_for('api.action', ver=3, logic_function='datastore_search', resource_id=resource_id, q='medio-ambiente', qualified=True) }}</a></code>
+                  </p>
+                  {% if h.datastore_search_sql_enabled() %}
+                    <strong>{{ _('Query example (via SQL statement)') }}</strong>
+                    <p>
+                    <code><a href="{{sql_example_url}}" target="_blank" rel="noreferrer">{{ sql_example_url }}</a></code>
+                    </p>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+
+
+          {% block javascript_examples %}
+            {% snippet "api_examples/javascript_v2.10.html", resource_id=resource_id %}
+          {% endblock %}
+
+          {% block python_examples %}
+            {% snippet "api_examples/python_v2.10.html", resource_id=resource_id %}
+          {% endblock %}
+
+          {% block curl_examples %}
+            {% snippet "api_examples/curl_v2.10.html", resource_id=resource_id %}
+          {% endblock %}
+
+          {% block r_examples %}
+            {% snippet "api_examples/r_v2.10.html", resource_id=resource_id %}
+          {% endblock %}
+
+      </div>
+    </div>
+  </div>
+
+</div>

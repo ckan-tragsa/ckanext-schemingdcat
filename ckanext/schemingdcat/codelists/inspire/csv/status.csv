@@ -1,0 +1,5 @@
+id,dcat_ap,label
+http://purl.org/adms/status/Completed,http://publications.europa.eu/resource/authority/distribution-status/COMPLETED,Completed
+http://purl.org/adms/status/Deprecated,http://publications.europa.eu/resource/authority/distribution-status/DEPRECATED,Deprecated
+http://purl.org/adms/status/UnderDevelopment,http://publications.europa.eu/resource/authority/distribution-status/DEVELOP,Under development
+http://purl.org/adms/status/Withdrawn,http://publications.europa.eu/resource/authority/distribution-status/WITHDRAWN,Withdrawn

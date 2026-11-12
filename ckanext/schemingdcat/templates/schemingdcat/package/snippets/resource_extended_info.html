@@ -1,0 +1,130 @@
+{% macro render_basic_field_block(field_name, field, res, schema, type) %}
+{#
+    Renders a basic field block for a resource.
+
+    Args:
+        field_name (str): The name of the field.
+        field (obj): The field object.
+        res (dict): The resource data.
+        schema (obj): The schema.
+        type (str): The type of the field. Defaults to 'text'.
+
+    Returns:
+        str: The rendered HTML.   
+#}
+    {% if res[field_name] %}
+        <tr>
+            <th scope="row">{{ h.scheming_language_text(field.label) }}</th>
+            <td class="truncate-text">
+                {% if res[field_name] is iterable and res[field_name] is not string %}
+                    <ul class="link-list">
+                    {% for item in res[field_name] %}
+                        <li>
+                        {% if h.is_url(item) %}
+                            {{ h.link_to(h.schemingdcat_prettify_url_name(item), item, target='_blank') }}
+                        {% else %}
+                            {{ item }}
+                        {% endif %}
+                        </li>
+                    {% endfor %}
+                    </ul>
+                {% else %}
+                    {% if type == 'text' %}
+                        {{ res[field_name] }}
+                    {% elif type == 'mimetype' %}
+                        {% set mimetype_label = res[field_name].split('/')[-2:] | join('/') %}
+                        {{ h.link_to(mimetype_label, res[field_name], target='_blank') }}
+                    {% elif type == 'url' %}
+                        {% if h.is_url(res[field_name]) %}
+                            {{ h.link_to(h.schemingdcat_prettify_url_name(res[field_name]), res[field_name], target='_blank') }}
+                        {% else %}
+                            {{ res[field_name] }}
+                        {% endif %}
+                    {% elif type == 'reference_system' %}
+                    {% snippet 'schemingdcat/display_snippets/link_epsg.html',
+                        field=field, data=res, schema=schema %}
+                    {% elif type == 'date' %}
+                        {{ h.schemingdcat_parse_localised_date(res[field_name].split()[0]) }}
+                    {% else %}
+                        {{ res[field_name] }}
+                    {% endif %}
+                {% endif %}
+            </td>
+        </tr>
+    {% endif %}
+{% endmacro %}
+
+{% block format %}
+    {% set field_name = 'format' %}
+    {% set field = h.scheming_field_by_name(schema.resource_fields, 'format') %}
+    {{ render_basic_field_block(field_name, field, res, schema, 'url') }}
+{% endblock %}
+
+{% block mimetype %}
+    {% set field_name = _('Media type') %}
+    {% set field = h.scheming_field_by_name(schema.resource_fields, 'mimetype') %}
+    {{ render_basic_field_block(field_name, field, res, schema, 'mimetype') }}
+{% endblock %}
+
+{%  block conforms_to %}
+    {% set field_name = _('Conforms to') %}
+    {% set field = h.scheming_field_by_name(schema.resource_fields, 'conforms_to') %}
+    {{ render_basic_field_block(field_name, field, res, schema, 'url') }}
+{%  endblock %}
+
+{% block created %}
+    {% set field_name = _('Created') %}
+    {% set field = h.scheming_field_by_name(schema.resource_fields, 'created') %}
+    {{ render_basic_field_block(field_name, field, res, schema, 'date') }}
+{% endblock %}
+
+{% block modified %}
+    {% set field_name = _('Modified') %}
+    {% set field = h.scheming_field_by_name(schema.resource_fields, 'modified') %}
+    {{ render_basic_field_block(field_name, field, res, schema, 'date') }}
+{% endblock %}
+
+{% block language %}
+    {% set field_name = _('Language') %}
+    {% set field = h.scheming_field_by_name(schema.resource_fields, 'language') %}
+    {{ render_basic_field_block(field_name, field, res, schema, 'url') }}
+{% endblock %}
+
+{% block reference_system %}
+    {% set field_name = 'reference_system' %}
+    {% set field = h.scheming_field_by_name(schema.resource_fields, 'reference_system') %}
+    {{ render_basic_field_block(field_name, field, res, schema, 'reference_system') }}
+{% endblock %}
+
+{% block byte_size %}
+    {% set field_name ='size' %}
+    {% set field = h.scheming_field_by_name(schema.resource_fields, 'size') %}
+    <tr>
+        <th scope="row">{{ h.scheming_language_text(field.label) }}</th>
+        <td class="truncate-text">
+            {{ h.localised_filesize(res[field_name]) }}
+        </td>
+    </tr>
+{% endblock %}
+
+{% block access_url %}
+    {% set field_name ='access_url' %}
+    {% set field = h.scheming_field_by_name(schema.resource_fields, 'access_url') %}
+    <tr>
+        <th scope="row">{{ h.scheming_language_text(field.label) }}</th>
+        <td class="truncate-text">
+            {{ h.link_to(res[field_name], res[field_name], target='_blank') }}
+        </td>
+    </tr>
+{% endblock %}
+
+{% block download_url %}
+    {% set field_name ='download_url' %}
+    {% set field = h.scheming_field_by_name(schema.resource_fields, 'download_url') %}
+    <tr>
+        <th scope="row">{{ h.scheming_language_text(field.label) }}</th>
+        <td class="truncate-text">
+            {{ h.link_to(res[field_name], res[field_name], target='_blank') }}
+        </td>
+    </tr>
+{% endblock %}

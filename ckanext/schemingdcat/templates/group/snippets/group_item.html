@@ -1,0 +1,29 @@
+{% ckan_extends %}
+
+{% set group_info = h.schemingdcat_get_group_or_org(h.dataset_display_field_value(group, 'id'), 'group') %}
+
+{% set type = group.type or 'group' %}
+{% set url = h.url_for(type ~ '.read', id=group.name) %}
+{% set truncate = truncate or 40 %}
+{% set title = h.dataset_display_name(group_info) %}
+{% set notes = h.markdown_extract(h.dataset_display_field_value(group_info, 'description'), extract_length=truncate) %}
+
+    {% block title %}
+    <h2 class="media-heading">{{ title }}</h2>
+    {% endblock %}
+    {% block image %}
+    <div class="media_item_img">
+        <img src="{{ group.image_display_url or h.url_for_static('/schemingdcat/base/images/placeholder-group.png') }}" alt="{{ group.name }}" class="media-image img-fluid">
+    </div>
+    {% endblock %}
+
+    {% block description %}
+    {% if notes %}
+        <p class="media-description">{{ notes }}</p>
+    {% endif %}
+    {% endblock %}
+    {% block link %}
+    <a href="{{ url }}" title="{{ _('View {name}').format(name=title) }}" class="media-view">
+    <span>{{ _('View {name}').format(name=title) }}</span>
+    </a>
+    {% endblock %}

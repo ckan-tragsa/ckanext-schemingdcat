@@ -1,0 +1,25 @@
+{% set endpoints = h.get_schemingdcat_get_catalog_endpoints() %}
+
+<div class="box">
+    <div class="inner">
+        <h3><a href="{{ h.url_for('schemingdcat.endpoint_index') }}" title="{{ _('Catalog endpoints') }}">{{ _('Catalog endpoints') }}</a></h3>   
+        <div class="addons">
+            {% for endpoint in endpoints %}
+                {% if endpoint.type == 'ogc' %}
+                
+                {% if h.is_url(endpoint.endpoint) %}
+                    {% set csw_uri = h.url_for_static_or_external(endpoint.endpoint) %}
+                {% else %}
+                    {% set csw_uri = h.get_site_protocol_and_host()[0] +'://' + h.get_site_protocol_and_host()[1] + '/' + endpoint.endpoint %}
+                {% endif %}
+
+                    <a class="tag endpoints_index_cards" href="{{ csw_uri }}"><i class="fa {{ endpoint_icon }}"> </i> {{ endpoint.display_name  }}  <img src="{{ h.url_for_static(endpoint.image_display_url) }}" alt="{{ endpoint.display_name }}"></a>
+
+                {% elif endpoint.type == 'lod' %}
+                {% set endpoint_url = h.url_for(endpoint.endpoint, **endpoint.endpoint_data) %}
+                    <a class="tag endpoints_index_cards" href="{{ h.schemingdcat_url_unquote(endpoint_url) }}"><i class="fa {{ endpoint_icon }}"> </i> {{ endpoint.display_name }}  <img src="{{ h.url_for_static(endpoint.image_display_url) }}" alt="{{ endpoint.display_name }}"></a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>

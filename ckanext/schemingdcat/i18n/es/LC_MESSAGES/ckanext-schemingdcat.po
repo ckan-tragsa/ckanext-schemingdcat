@@ -1,0 +1,1458 @@
+# Spanish translations for ckanext-schemingdcat.
+# Copyright (C) 2024 ORGANIZATION
+# This file is distributed under the same license as the
+# ckanext-schemingdcat
+# project.
+#
+# Translators:
+# mnl.janez@gmail.com, 2024
+msgid ""
+msgstr ""
+"Project-Id-Version: ckanext-schemingdcat 0.0.1\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2023-07-04 11:54+0200\n"
+"PO-Revision-Date: 2024-03-01 18:51+0100\n"
+"Last-Translator: mnl.janez@gmail.comLanguage-Team: es <LL@li.org>\n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Generated-By: Babel 2.7.0\n"
+"X-Generator: Poedit 3.4.2\n"
+
+#: ckanext/schemingdcat/templates/group/read.html:13
+msgid "Relevance"
+msgstr "Relevancia"
+
+#: ckanext/schemingdcat/templates/group/read.html:14
+msgid "Name ascending"
+msgstr "Nombre ascendente"
+
+#: ckanext/schemingdcat/templates/group/read.html:15
+msgid "Name descending"
+msgstr "Nombre descendiente"
+
+#: ckanext/schemingdcat/templates/group/read.html:16
+msgid "Last modified"
+msgstr "Último modificado"
+
+#: ckanext/schemingdcat/templates/group/read.html:17
+msgid "Popular"
+msgstr "Popular"
+
+#: ckanext/schemingdcat/templates/group/read.html:19
+msgid "Search datasets..."
+msgstr "Buscar conjuntos de datos..."
+
+#: ckanext/schemingdcat/templates/organization/read.html:5
+#: ckanext/schemingdcat/templates/package/search.html:6
+msgid "Search config"
+msgstr "Configuración de búsqueda"
+
+#: ckanext/schemingdcat/templates/organization/read.html:15
+msgid "Close"
+msgstr "Cerrar"
+
+#: ckanext/schemingdcat/templates/scheming/form_snippets/multiple_text.html:14
+msgid "Remove"
+msgstr "Quitar"
+
+#: ckanext/schemingdcat/templates/scheming/form_snippets/multiple_text.html:45
+msgid "Add"
+msgstr "Añadir"
+
+#: ckanext/schemingdcat/templates/scheming/package/resource_read.html:21
+msgid "Additional information"
+msgstr "Información adicional"
+
+#: ckanext/schemingdcat/templates/scheming/package/resource_read.html:26
+msgid "Field"
+msgstr "Campo"
+
+#: ckanext/schemingdcat/templates/scheming/package/resource_read.html:27
+msgid "Value"
+msgstr "Valor"
+
+#: ckanext/schemingdcat/templates/scheming/package/resource_read.html:34
+msgid "Data last updated"
+msgstr "Última actualización de los datos"
+
+#: ckanext/schemingdcat/templates/scheming/package/resource_read.html:35
+#: ckanext/schemingdcat/templates/scheming/package/resource_read.html:41
+#: ckanext/schemingdcat/templates/scheming/package/resource_read.html:47
+#: ckanext/schemingdcat/templates/scheming/package/resource_read.html:53
+#: ckanext/schemingdcat/templates/scheming/package/resource_read.html:65
+msgid "unknown"
+msgstr "desconocido"
+
+#: ckanext/schemingdcat/templates/scheming/package/resource_read.html:40
+msgid "Metadata last updated"
+msgstr "Última actualización de los metadatos"
+
+#: ckanext/schemingdcat/templates/scheming/package/resource_read.html:46
+msgid "Created"
+msgstr "Creado"
+
+#: ckanext/schemingdcat/templates/scheming/package/resource_read.html:68
+msgid "Coordinate Reference System"
+msgstr "Sistema de Referencia de Coordenadas"
+
+#: ckanext/schemingdcat/templates/scheming/package/resource_read.html:52
+msgid "Format"
+msgstr "Formato"
+
+#: ckanext/schemingdcat/templates/scheming/package/resource_read.html:58
+msgid "License"
+msgstr "Licencia"
+
+#: ckanext/schemingdcat/templates/scheming/package/resource_read.html:64
+msgid "Rights"
+msgstr "Derechos"
+
+#: ckanext/schemingdcat/templates/scheming/package/snippets/additional_info.html:155
+msgid "Additional info"
+msgstr "Información adicional"
+
+#: ckanext/schemingdcat/templates/scheming/package/snippets/additional_info.html:179
+msgid "Punto de contacto"
+msgstr "Punto de contacto"
+
+#: ckanext/schemingdcat/templates/scheming/package/snippets/additional_info.html:207
+msgid "Spatial information"
+msgstr "Información espacial"
+
+#: ckanext/schemingdcat/templates/scheming/package/snippets/additional_info.html:232
+msgid "Provenance"
+msgstr "Procedencia"
+
+#: ckanext/schemingdcat/templates/scheming/package/snippets/additional_info.html:252
+msgid "Lineage"
+msgstr "Linaje"
+
+#: ckanext/schemingdcat/templates/scheming/package/snippets/additional_info.html:270
+msgid "Temporal extent"
+msgstr "Extensión temporal"
+
+#: ckanext/schemingdcat/templates/scheming/package/snippets/additional_info.html:288
+msgid "More information"
+msgstr "Más información"
+
+#: ckanext/schemingdcat/templates/scheming/package/snippets/additional_info.html:306
+msgid "Version"
+msgstr "Versión"
+
+#: ckanext/schemingdcat/templates/scheming/package/snippets/additional_info.html:324
+msgid "State"
+msgstr "Estado"
+
+#: ckanext/schemingdcat/templates/scheming/package/snippets/additional_info.html:333
+msgid "Responsible party"
+msgstr "Parte responsable"
+
+#: ckanext/schemingdcat/templates/scheming/package/snippets/additional_info.html:338
+msgid "Publicador"
+msgstr "Publicador"
+
+#: ckanext/schemingdcat/templates/scheming/package/snippets/additional_info.html:356
+msgid "Author"
+msgstr "Autor"
+
+#: ckanext/schemingdcat/templates/scheming/package/snippets/additional_info.html:374
+msgid "Maintainer"
+msgstr "Mantenedor"
+
+#: ckanext/schemingdcat/templates/snippets/schemingdcat_facet_list.html:51
+msgid "sort by name"
+msgstr "ordenar por nombre"
+
+#: ckanext/schemingdcat/templates/snippets/schemingdcat_facet_list.html:58
+msgid "sort by results"
+msgstr "ordenar por resultados"
+
+#: ckanext/schemingdcat/templates/snippets/schemingdcat_facet_list.html:111
+msgid "Show more {facet_type}"
+msgstr "Mostrar más {facet_type}"
+
+#: ckanext/schemingdcat/templates/snippets/schemingdcat_facet_list.html:114
+msgid "Display only the first {facet_type}"
+msgstr "Mostrar solo los primeros {facet_type}"
+
+#: ckanext/schemingdcat/templates/snippets/schemingdcat_facet_list.html:118
+msgid "No {facet_type} matching your search"
+msgstr "No existen {facet_type} que coincidan con la búsqueda"
+
+#: ckanext/schemingdcat/templates/snippets/facet_search_operator.html:53
+msgid "Criteria for selection"
+msgstr "Criterio de selección"
+
+#: ckanext/schemingdcat/templates/snippets/facet_search_operator.html:56
+msgid "OR"
+msgstr "Alguno"
+
+#: ckanext/schemingdcat/templates/snippets/facet_search_operator.html:57
+msgid "AND"
+msgstr "Todos"
+
+#: ckanext/schemingdcat/templates/package/read_base.html:4
+msgid "Linked Data"
+msgstr "Datos Abiertos"
+
+#: ckanext/schemingdcat/templates/package/read_base.html:5
+msgid "Geospatial Metadata"
+msgstr "Metadatos geográficos"
+
+# translations for ckanext-scheming
+msgid "Update {page}"
+msgstr "Actualizar {page}"
+
+#: ckanext/schemingdcat/templates/schemingdcat/custom_data/snippets/custom_data_item.html:35
+msgid "Definition"
+msgstr "Definición"
+
+#: ckanext/schemingdcat/templates/schemingdcat/snippets/access_rights.html:7
+msgid "Access rights"
+msgstr "Derechos de acceso"
+
+#: ckanext/schemingdcat/templates/schemingdcat/snippets/access_rights.html:25
+msgid "No Access Rights provided"
+msgstr "No se han proporcionado derechos de acceso"
+
+#: ckanext/schemingdcat/templates/schemingdcat/snippets/graphic_overview.html:4
+msgid "Graphic overview"
+msgstr "Descripción gráfica"
+
+#: ckanext/schemingdcat/templates/schemingdcat/snippets/schemingdcat_dataset_map_sidebar.html:17
+msgid "Dataset extent"
+msgstr "Extensión del conjunto de datos"
+
+#: ckanext/schemingdcat/templates/schemingdcat/snippets/schemingdcat_spatial_query.html:18
+msgid "Filter by location"
+msgstr "Búsqueda por extensión"
+
+#: ckanext/schemingdcat/templates/schemingdcat/snippets/schemingdcat_spatial_query.html:19
+msgid "Clear"
+msgstr "Limpiar"
+
+#: ckanext/schemingdcat/templates/schemingdcat/display_snippets/last_update.html:3
+msgid "Show changelog"
+msgstr "Mostrar histórico de cambios"
+
+#: ckanext/schemingdcat/templates/schemingdcat/snippets/data_access_license.html:20
+msgid "Data Access and Licensing"
+msgstr "Derechos de acceso y Licencia"
+
+#: ckanext/schemingdcat/templates/schemingdcat/snippets/data_access_license.html:37
+msgid "This {resource} is classified as"
+msgstr "El {resource} está clasificado como"
+
+#: ckanext/schemingdcat/templates/schemingdcat/snippets/data_access_license.html:37
+msgid "under the Access to Information Classification Policy of the catalog"
+msgstr "según la Política de Clasificación del Acceso a la Información del catálogo"
+
+#: ckanext/schemingdcat/templates/schemingdcat/snippets/data_access_license.html:38
+msgid "Users outside the catalog cannot access this {resource}"
+msgstr "Los usuarios ajenos al catalogo no pueden acceder a este {resource}"
+
+#: ckanext/schemingdcat/templates/schemingdcat/snippets/schemingdcat_social.html:32
+msgid "Permalink"
+msgstr "Enlace permanente"
+
+#: ckanext/schemingdcat/templates/schemingdcat/snippets/schemingdcat_social.html:33
+msgid "{resource} URI"
+msgstr "URI del {resource}"
+
+#: ckanext/schemingdcat/templates/schemingdcat/snippets/package/snippets/download_metadata.html:32
+msgid "Geospatial data"
+msgstr "Datos geográficos"
+
+#: ckanext/schemingdcat/templates/schemingdcat/snippets/package/snippets/download_metadata.html:32
+msgid "RDF DCAT Endpoint"
+msgstr "Punto final RDF DCAT"
+
+#: ckanext/schemingdcat/templates/scheming/package/snippets/additional_info.html:77
+msgid "Basic information"
+msgstr "Información básica"
+
+#: ckanext/schemingdcat/templates/schemingdcat/snippets/package/snippets/metadata_info.html:5
+msgid "Metadata"
+msgstr "Metadatos"
+
+#: ckanext/schemingdcat/templates/schemingdcat/snippets/package/snippets/metadata_info.html:5
+msgid "{metadata_format} Metadata"
+msgstr "Metadatos {metadata_format}"
+
+#: ckanext/schemingdcat/templates/schemingdcat/snippets/package/snippets/metadata_info.html:5
+msgid "{endpoint_type} Endpoint"
+msgstr "Punto final {endpoint_type}"
+
+#: ckanext/schemingdcat/templates/schemingdcat/package/snippets/download_datastore_formats.html:10
+msgid "CSV, Comma Separated Values is a simple format for representing a rectangular array (matrix) of numeric and textual values."
+msgstr "CSV, Comma Separated Values es un formato sencillo para representar una matriz rectangular de valores numéricos y textuales."
+
+#: ckanext/schemingdcat/templates/schemingdcat/package/snippets/download_datastore_formats.html:14
+msgid "TSV, Tab-Separated Values is a text format whose primary function is to store data in a table structure."
+msgstr "TSV, Tab-Separated Values es un formato de texto cuya función principal es almacenar datos en una estructura de tabla."
+
+#: ckanext/schemingdcat/templates/schemingdcat/package/snippets/download_datastore_formats.html:18
+msgid "JSON, JavaScript Object Notation is a lightweight, text-based, language-independent data interchange format."
+msgstr "JSON, JavaScript Object Notation es un formato de intercambio de datos ligero, basado en texto e independiente del lenguaje."
+
+#: ckanext/schemingdcat/templates/schemingdcat/package/snippets/download_datastore_formats.html:22
+msgid "XML, Extensible Markup Language is a simple, very flexible text format derived from SGML (ISO 8879)."
+msgstr "Extensible Markup Language (XML) es un formato de texto sencillo y muy flexible derivado del SGML (ISO 8879)."
+
+#: ckanext/schemingdcat/templates/schemingdcat/snippets/package/snippets/resource_read.html:112
+msgid "Distribution metadata"
+msgstr "Metadatos de la distribución"
+
+#: ckanext/schemingdcat/templates/home/snippets/endpoints.html:5
+msgid "Catalog endpoints"
+msgstr "Puntos finales del catálogo"
+
+#: ckanext/schemingdcat/templates/home/snippets/search.html
+msgid "Open Data Catalog"
+msgstr "Catálogo de Datos Abiertos"
+
+#: ckanext/schemingdcat/templates/home/snippets/search.html
+msgid "Find data published by various organizations to help you develop products and services."
+msgstr "Encuentre datos publicados por diversas organizaciones que le ayudarán a desarrollar productos y servicios."
+
+#: ckanext/schemingdcat/templates/admin/config.html:14
+msgid "Frontpage intro text"
+msgstr "Texto de introducción"
+
+#: ckanext/schemingdcat/templates/admin/config.html:16
+msgid "If this text is set, it will appear as intro text on the Homepage, see"
+msgstr "Si se establece este texto, aparecerá como texto de introducción en la página de inicio, véase"
+
+#: ckanext/schemingdcat/templates/admin/config.html:21
+msgid "Multilang intro text"
+msgstr "Texto de introducción multilingüe"
+
+#: ckanext/schemingdcat/templates/admin/config.html:21
+msgid "Add the tag with the lang code: <code>[#{iso639-1}#]</code> before the introductory text. Add as many tags as you want for each language."
+msgstr "Añada la etiqueta con el código de idioma: <code>[#{iso639-1}#]</code> antes del texto introductorio. Añade tantas etiquetas como idiomas quieras."
+
+#: ckanext/schemingdcat/templates/admin/config.html:23
+msgid "ISO 639-1 codes"
+msgstr "Códigos ISO 639-1"
+
+#: ckanext/schemingdcat/templates/admin/config.html:31
+msgid "Standard CKAN settings"
+msgstr "Opciones básicas de CKAN"
+
+#: ckanext/schemingdcat/templates/admin/config.html:32
+msgid "This is the title of this CKAN instance. It appears in various places throughout CKAN."
+msgstr "Este es el título de esta instancia de CKAN. Aparece en varios lugares a lo largo de CKAN."
+
+#: ckanext/schemingdcat/templates/admin/config.html:35
+msgid "Choose from a list of simple variations of the main colour scheme to get a very quick custom theme working."
+msgstr "Elige entre una lista de variaciones sencillas del esquema de colores principal para conseguir un tema personalizado muy rápido."
+
+#: ckanext/schemingdcat/templates/admin/config.html:38
+msgid "This is the logo that appears in the header of all the CKAN instance templates."
+msgstr "Es el logotipo que aparece en la cabecera de todas las plantillas de instancias CKAN."
+
+#: ckanext/schemingdcat/templates/admin/config.html:40
+msgid "This text will appear on this CKAN instances, see "
+msgstr "Este texto aparecerá en estas instancias de CKAN, véase "
+
+#: ckanext/schemingdcat/templates/admin/config.html:43
+msgid "This can be used for custom CSS on a CKAN site"
+msgstr "Esto se puede utilizar para añadir CSS personalizado en un sitio CKAN"
+
+#: ckanext/schemingdcat/templates/admin/config.html:46
+msgid "This is for choosing a predefined layout for the modules that appear on your homepage."
+msgstr "Permite elegir un diseño predefinido para los módulos que aparecen en la página de inicio."
+
+
+#: ckanext/schemingdcat/templates/admin/index.html
+msgid "<p>A sysadmin user can access and edit any organizations, view and change user details, and permanently delete datasets. You should carefully consider who has access to a sysadmin account on your CKAN system.</p>"
+msgstr "<p>Un administrador puede acceder a cualquier organización y editarla, ver y cambiar los detalles de los usuarios y eliminar conjuntos de datos de forma permanente. Debe considerar cuidadosamente quién tiene acceso a una cuenta sysadmin en su sistema CKAN.</p>"
+
+#: ckanext/schemingdcat/templates/admin/index.html
+msgid "For guidance on using sysadmin features, see the CKAN"
+msgstr "Para obtener orientación sobre el uso de las funciones de administrador del sistema, consulte la"
+
+#: ckanext/schemingdcat/templates/admin/index.html
+msgid "For guidance on configuration options, see the CKAN"
+msgstr "Para obtener orientación sobre las opciones de configuración, consulte la"
+
+#: ckanext/schemingdcat/templates/admin/index.html
+msgid "sysadmin guide"
+msgstr "guía del administrador del sistema de CKAN"
+
+#: ckanext/schemingdcat/templates/admin/index.html
+msgid "As a sysadmin user you have full control over this CKAN instance. <strong>Proceed with care!</strong>"
+msgstr "Como administrador del sistema se tiene control total sobre esta instancia de CKAN. <strong>¡Proceda con cuidado!</strong>"
+
+#: ckanext/schemingdcat/templates/admin/index.html
+msgid "Current Sysadmins"
+msgstr "Administradores actuales"
+
+#: ckanext/schemingdcat/templates/admin/index.html
+msgid "Promote user to Sysadmin"
+msgstr "Elevar usuario a Administrador de CKAN"
+
+#: ckanext/schemingdcat/templates/header.html:5
+msgid "Harvest metadata"
+msgstr "Cosechar metadatos"
+
+# ckanext-harvest
+#: ckanext/harvest/helpers.py:70
+msgid "title"
+msgstr "título"
+
+#: ckanext/harvest/controllers/organization.py:40
+msgid "Group not found"
+msgstr "Grupo no encontrado"
+
+#: ckanext/harvest/controllers/organization.py:42
+#, python-format
+msgid "Unauthorized to read group %s"
+msgstr "No autorizado a leer el grupo %s"
+
+#: ckanext/harvest/controllers/organization.py:137
+msgid "Groups"
+msgstr "Grupos"
+
+#: ckanext/harvest/controllers/organization.py:138
+msgid "Tags"
+msgstr "Palabras clave"
+
+#: ckanext/harvest/controllers/organization.py:139
+msgid "Formats"
+msgstr "Formatos"
+
+#: ckanext/harvest/controllers/organization.py:140
+msgid "Licence"
+msgstr "Licencia"
+
+#: ckanext/harvest/controllers/view.py:28
+msgid "Not authorized to see this page"
+msgstr "No está autorizado a ver esta página"
+
+#: ckanext/harvest/controllers/view.py:45
+msgid "Harvesting source successfully cleared"
+msgstr "Fuente de cosecha limpiada con éxito"
+
+#: ckanext/harvest/controllers/view.py:47
+msgid "Harvesting source successfully inactivated"
+msgstr "Fuente de cosecha desactivada con éxito"
+
+#: ckanext/harvest/controllers/view.py:51
+#: ckanext/harvest/controllers/view.py:63
+#: ckanext/harvest/controllers/view.py:85
+#: ckanext/harvest/controllers/view.py:146
+#: ckanext/harvest/controllers/view.py:184
+#: ckanext/harvest/controllers/view.py:195
+#: ckanext/harvest/controllers/view.py:221
+#: ckanext/harvest/logic/auth/create.py:34
+#: ckanext/harvest/logic/auth/delete.py:18 ckanext/harvest/logic/auth/get.py:33
+#: ckanext/harvest/logic/auth/update.py:19
+msgid "Harvest source not found"
+msgstr "Fuente de cosecha no encontrada"
+
+#: ckanext/harvest/controllers/view.py:61
+msgid "Harvest will start shortly. Refresh this page for updates."
+msgstr "La cosecha comenzará en breve. Actualice esta página."
+
+#: ckanext/harvest/controllers/view.py:67
+msgid "Cannot create new harvest jobs on inactive sources. First, please change the source status to 'active'."
+msgstr "No se pueden crear nuevos trabajos de cosecha en fuentes inactivas. En primer lugar, por favor cambia el estado de la fuente a 'activo'."
+
+#: ckanext/harvest/controllers/view.py:71
+msgid "A harvest job has already been scheduled for this source"
+msgstr "Ya se ha programado un trabajo de cosecha para esta fuente"
+
+#: ckanext/harvest/controllers/view.py:83
+msgid "Harvest source cleared"
+msgstr "Fuente de cosecha limpiada"
+
+#: ckanext/harvest/controllers/view.py:111
+msgid "No content found"
+msgstr "No se ha encontrado ningún contenido"
+
+#: ckanext/harvest/controllers/view.py:171
+msgid "Harvest job not found"
+msgstr "No se ha encontrado el trabajo de cosecha"
+
+#: ckanext/harvest/controllers/view.py:204
+#: ckanext/harvest/templates/source/admin.html:15
+#: ckanext/harvest/templates/source/job/list.html:13
+msgid "No jobs yet for this source"
+msgstr "Aún no hay trabajos para esta fuente"
+
+#: ckanext/harvest/logic/auth/create.py:19
+msgid "User {0} not authorized to create harvest sources"
+msgstr "Usuario {0} no autorizado para crear fuentes de cosecha"
+
+#: ckanext/harvest/logic/auth/create.py:42
+msgid "User not authorized to create a job for source {0}"
+msgstr "Usuario no autorizado para crear un trabajo para la fuente {0}"
+
+#: ckanext/harvest/logic/auth/create.py:52
+msgid "Only sysadmins can create harvest jobs for all sources"
+msgstr "Sólo los administradores de la instancia pueden crear trabajos de cosecha para todas las fuentes"
+
+#: ckanext/harvest/logic/auth/create.py:63
+msgid "Only the sysadmins can create harvest objects"
+msgstr "Sólo los administradores de la instancia pueden crear objetos de cosecha"
+
+#: ckanext/harvest/logic/auth/delete.py:27
+msgid "User {0} not authorized to delete harvest source {1}"
+msgstr "Usuario {0} no autorizado a eliminar la fuente de cosecha {1}"
+
+#: ckanext/harvest/logic/auth/get.py:42
+msgid "User {0} not authorized to read harvest source {1}"
+msgstr "Usuario {0} no autorizado a leer la fuente de cosecha {1}"
+
+#: ckanext/harvest/logic/auth/get.py:82
+msgid "User {0} not authorized to see jobs from source {1}"
+msgstr "Usuario {0} no autorizado a ver los trabajos de la fuente de cosecha {1}"
+
+#: ckanext/harvest/logic/auth/get.py:104
+msgid "User {0} not authorized to list jobs for source {1}"
+msgstr "Usuario {0} no autorizado a recopilar los trabajos de la fuente de cosecha {1}"
+
+#: ckanext/harvest/logic/auth/update.py:28
+msgid "User {0} not authorized to update harvest source {1}"
+msgstr "Usuario {0} no autorizado a actualizar la fuente de cosecha {1}"
+
+#: ckanext/harvest/logic/auth/update.py:45
+msgid "Only sysadmins can reimport all harvest objects"
+msgstr "Sólo los administradores de la instancia pueden reimportar todos los objetos de la cosecha"
+
+#: ckanext/harvest/logic/auth/update.py:57
+msgid "Only sysadmins can run the pending harvest jobs"
+msgstr "Sólo los administradores de la instancia pueden ejecutar las tareas de cosecha pendientes"
+
+#: ckanext/harvest/logic/auth/update.py:89
+msgid "Only sysadmins can reindex all harvest sources"
+msgstr "Sólo los administradores de la instancia pueden reindexar todas las fuentes de cosecha"
+
+#: ckanext/harvest/templates/snippets/add_source_button.html:6
+#: ckanext/harvest/templates/source/org_source_list.html:11
+msgid "Add Harvest Source"
+msgstr "Añadir fuente de cosecha"
+
+#: ckanext/harvest/templates/snippets/job_details.html:26
+#: ckanext/harvest/templates/source/job/list.html:44
+msgid "errors"
+msgstr "errores"
+
+#: ckanext/harvest/templates/snippets/job_details.html:41
+msgid "Details"
+msgstr "Detalles"
+
+#: ckanext/harvest/templates/snippets/job_details.html:48
+msgid "Id"
+msgstr "ID"
+
+#: ckanext/harvest/templates/snippets/job_details.html:60
+msgid "Started"
+msgstr "Empezado"
+
+#: ckanext/harvest/templates/snippets/job_details.html:68
+msgid "Finished"
+msgstr "Finalizado"
+
+#: ckanext/harvest/templates/snippets/job_details.html:76
+msgid "Status"
+msgstr "Estado"
+
+#: ckanext/harvest/templates/snippets/job_error_summary.html:18
+msgid "Count"
+msgstr "Total"
+
+#: ckanext/harvest/templates/snippets/job_error_summary.html:19
+msgid "Message"
+msgstr "Mensaje"
+
+#: ckanext/harvest/templates/snippets/package_list_empty.html:1
+msgid "There are no datasets associated to this harvest source."
+msgstr "No hay conjuntos de datos asociados a esta fuente de cosecha."
+
+#: ckanext/harvest/templates/snippets/search_result_text.html:4
+msgid "{number} harvest source found for \"{query}\""
+msgid_plural "{number} harvest sources found for \"{query}\""
+msgstr[0] "{number} fuente de cosecha encontrada para \"{query}\""
+msgstr[1] "{number} fuentes de cosecha encontradas para \"{query}\""
+
+#: ckanext/harvest/templates/snippets/search_result_text.html:5
+#: ckanext/harvest/templates/source/org_source_list.html:17
+#: ckanext/harvest/templates/source/search_2.0.html:27
+msgid "Sorry no harvest sources found for \"{query}\""
+msgstr "Lo sentimos, no se han encontrado fuentes de cosecha para \"{query}\""
+
+#: ckanext/harvest/templates/snippets/search_result_text.html:6
+msgid "{number} harvest source found"
+msgid_plural "{number} harvest sources found"
+msgstr[0] "{number} fuente de cosecha encontrada"
+msgstr[1] "{number} fuentes de cosecha encontradas"
+
+#: ckanext/harvest/templates/snippets/search_result_text.html:6
+msgid "{number} harvest found"
+msgid_plural "{number} harvest found"
+msgstr[0] "{number} fuente encontrada"
+msgstr[1] "{number} fuentes encontradas"
+
+#: ckanext/harvest/templates/snippets/search_result_text.html:7
+#: ckanext/harvest/templates/source/org_source_list.html:25
+msgid "Sorry no harvest sources found"
+msgstr "Lo sentimos, no se han encontrado fuentes de cosecha"
+
+#: ckanext/harvest/templates/snippets/source_item.html:28
+msgid "Draft"
+msgstr "Borrador"
+
+#: ckanext/harvest/templates/snippets/source_item.html:30
+#: ckanext/harvest/templates/source/new_source_form.html:83
+msgid "Deleted"
+msgstr "Eliminado"
+
+#: ckanext/harvest/templates/snippets/source_item.html:37
+#: ckanext/harvest/templates/source/about.html:9
+#: ckanext/harvest/templates/source/read_base.html:25
+msgid "There is no description for this harvest source"
+msgstr "No hay descripción para esta fuente de cosecha"
+
+#: ckanext/harvest/templates/snippets/source_item.html:42
+#: ckanext/harvest/templates/source/read.html:5
+#: ckanext/harvest/templates/source/read_base.html:30
+#: ckanext/harvest/templates/source/read_base.html:53
+msgid "Datasets"
+msgstr "Conjuntos de datos"
+
+#: ckanext/harvest/templates/snippets/source_item.html:45
+#: ckanext/harvest/templates/source/new_source_form.html:63
+msgid "Organization"
+msgstr "Organización"
+
+#: ckanext/harvest/templates/source/admin.html:5
+msgid "Last Harvest Job"
+msgstr "Último trabajo de la cosecha"
+
+#: ckanext/harvest/templates/source/admin.html:11
+msgid "View full job report"
+msgstr "Ver informe de trabajo completo"
+
+#: ckanext/harvest/templates/source/admin_base.html:7
+#: ckanext/harvest/templates/source/read_base.html:4
+msgid "Admin"
+msgstr "Administrador"
+
+#: ckanext/harvest/templates/source/admin_base.html:15
+msgid "This will re-run the harvesting for this source. Any updates at the source will overwrite the local datasets. Sources with a large number of datasets may take a significant amount of time to finish harvesting. Please confirm you would like us to start reharvesting."
+msgstr "Esto volverá a ejecutar la cosecha para esta fuente. Cualquier actualización en la fuente sobrescribirá los conjuntos de datos locales. Las fuentes con un gran número de conjuntos de datos pueden tardar bastante tiempo en finalizar la recopilación. Confirme que desea que iniciemos la recopilación."
+
+#: ckanext/harvest/templates/source/admin_base.html:18
+msgid "Start a new harvesting job for this harvest source now"
+msgstr "Iniciar ahora un nuevo trabajo de cosecha para esta fuente de cosecha"
+
+#: ckanext/harvest/templates/source/admin_base.html:20
+msgid "Reharvest"
+msgstr "Volver a cosechar"
+
+#: ckanext/harvest/templates/source/admin_base.html:24
+msgid "Warning: This will remove all datasets for this source, as well as all previous job reports. Are you sure you want to continue?"
+msgstr "Advertencia: Esto eliminará todos los conjuntos de datos de esta fuente, así como todos los informes de trabajo anteriores. Está seguro de que desea continuar?"
+
+#: ckanext/harvest/templates/source/admin_base.html:27
+msgid "Delete all harvest jobs and existing datasets from this source"
+msgstr "Eliminar todas las tareas de cosecha y los conjuntos de datos existentes de esta fuente"
+
+#: ckanext/harvest/templates/source/admin_base.html:32
+msgid "View harvest source"
+msgstr "Ver fuente de cosecha"
+
+#: ckanext/harvest/templates/source/admin_base.html:48
+msgid "Dashboard"
+msgstr "Panel de control"
+
+#: ckanext/harvest/templates/source/admin_base.html:49
+msgid "Jobs"
+msgstr "Trabajos"
+
+#: ckanext/harvest/templates/source/admin_base.html:50
+msgid "Edit"
+msgstr "Editar"
+
+#: ckanext/harvest/templates/source/base.html:17
+msgid "Organizations"
+msgstr "Organizaciones"
+
+#: ckanext/harvest/templates/source/base.html:19
+#: ckanext/harvest/templates/source/base.html:22
+#: ckanext/harvest/templates/source/new.html:4
+#: ckanext/harvest/templates/source/org_source_list.html:3
+#: ckanext/harvest/templates/source/org_source_list.html:7
+#: ckanext/harvest/templates/source/org_source_list.html:19
+#: ckanext/harvest/templates/source/search.html:7
+msgid "Harvest Sources"
+msgstr "Fuentes de cosecha"
+
+#: ckanext/harvest/templates/source/edit.html:3
+msgid "Edit harvest source"
+msgstr "Editar fuente de cosecha"
+
+#: ckanext/harvest/templates/source/new.html:5
+#: ckanext/harvest/templates/source/new.html:11
+msgid "Create Harvest Source"
+msgstr "Crear fuente de cosecha"
+
+#: ckanext/harvest/templates/source/new.html:23
+#: ckanext/harvest/templates/source/search.html:3
+msgid "Harvest sources"
+msgstr "Fuentes de cosecha"
+
+#: ckanext/harvest/templates/source/new.html:26
+msgid "Harvest sources allow importing remote metadata into this catalog.   Remote sources can be other catalogs such as other CKAN instances, CSW servers, XML metadata files, XLSX with metadata records or Web Accessible Folder (WAF)."
+msgstr "Las fuentes de cosecha permiten importar metadatos remotos a este catálogo. Las fuentes remotas pueden ser otros catálogos, como otras instancias de CKAN, servidores CSW, ficheros de metadatos XML, ficheros XLSX con registros de metadatos, o carpetas accesibles desde la Web (WAF)."
+
+#: ckanext/harvest/templates/source/new.html:31
+msgid "Depending on the actual harvesters enabled for this instance. eg: "
+msgstr "Dependiendo de los cosechadores activados para esta instancia. ej: "
+
+#: ckanext/harvest/templates/source/new_source_form.html:8
+msgid "URL"
+msgstr "URL"
+
+#: ckanext/harvest/templates/source/new_source_form.html:10
+msgid "This should include the <code>http://</code> or <code>https://</code> part of the URL. If it is for the SQL Harvester, then it can be <code>http://{host}:{port}</code>, e.g.: <code>http://localhost:5432</code>"
+msgstr "Debe incluir la parte <code>http://</code> o <code>https://</code> de la URL. Sí es para SQL Harvester, entonces puede ser <code>http://{host}:{port}</code>, e.g.: <code>http://localhost:5432</code>"
+
+#: ckanext/harvest/templates/source/new_source_form.html
+msgid "schemingdcat_xls"
+msgstr "Scheming DCAT: Cosechador de hojas de cálculo de Google/Onedrive"
+
+#: ckanext/harvest/templates/source/new_source_form.html
+msgid "schemingdcat_ckan"
+msgstr "Scheming DCAT: Catálogos CKAN"
+
+#: ckanext/harvest/templates/source/new_source_form.html
+msgid "schemingdcat_csw"
+msgstr "Scheming DCAT: Catálogos CSW-INSPIRE"
+
+#: ckanext/harvest/templates/source/new_source_form.html
+msgid "schemingdcat_ows"
+msgstr "Scheming DCAT: Servidores OWS (Geoserver)"
+
+#: ckanext/harvest/templates/source/new_source_form.html
+msgid "schemingdcat_xml"
+msgstr "Scheming DCAT: Cosechador metadatos XML"
+
+#: ckanext/harvest/templates/source/new_source_form.html
+msgid "dcat_rdf"
+msgstr "DCAT: Cosechador RDF"
+
+#: ckanext/harvest/templates/source/new_source_form.html
+msgid "dcat_json"
+msgstr "DCAT: Cosechador RDF"
+
+#: ckanext/harvest/templates/source/new_source_form.html
+msgid "Type"
+msgstr "Tipo"
+
+#: ckanext/harvest/templates/source/new_source_form.html
+msgid "Frequency"
+msgstr "Frecuencia"
+
+#: ckanext/harvest/templates/source/new_source_form.html:14
+msgid "Title"
+msgstr "Título"
+
+#: ckanext/harvest/templates/source/new_source_form.html:14
+msgid "e.g. A descriptive title"
+msgstr "ej. Un título descriptivo"
+
+#: ckanext/harvest/templates/source/new_source_form.html:21
+msgid "Name"
+msgstr "Nombre"
+
+#: ckanext/harvest/templates/source/new_source_form.html:21
+msgid "e.g. my-dataset"
+msgstr "ej. mi-dataset"
+
+#: ckanext/harvest/templates/source/new_source_form.html:23
+msgid "Description"
+msgstr "Descripción"
+
+#: ckanext/harvest/templates/source/new_source_form.html:29
+msgid "Source type"
+msgstr "Tipo de fuente"
+
+#: ckanext/harvest/templates/source/new_source_form.html:43
+msgid "Update frequency"
+msgstr "Frecuencia de actualización"
+
+#: ckanext/harvest/templates/source/new_source_form.html:46
+msgid "Configuration"
+msgstr "Configuración"
+
+#: ckanext/harvest/templates/source/new_source_form.html:66
+msgid "No organization"
+msgstr "Sin organización"
+
+#: ckanext/harvest/templates/source/new_source_form.html:82
+msgid "Active"
+msgstr "Activa"
+
+#: ckanext/harvest/templates/source/new_source_form.html:92
+msgid "This will flag the source as deleted but keep all its datasets and previous jobs. Are you sure you want to delete this harvest source?"
+msgstr "Esto marcará la fuente como eliminada pero conservará todos sus conjuntos de datos y trabajos anteriores. ¿Está seguro de que desea eliminar esta fuente de datos?"
+
+#: ckanext/harvest/templates/source/new_source_form.html:93
+msgid "Warning: Apart from deleting this source, this command will remove all its datasets, as well as all previous job reports. Are you sure you want to continue?"
+msgstr "Advertencia: Además de eliminar esta fuente, este comando eliminará todos sus conjuntos de datos, así como todos los informes de trabajo anteriores. ¿Está seguro de que desea continuar?"
+
+#: ckanext/harvest/templates/source/new_source_form.html:96
+msgid "Delete"
+msgstr "Eliminar"
+
+#: ckanext/harvest/templates/source/new_source_form.html:102
+msgid "Delete source"
+msgstr "Eliminar fuente"
+
+#: ckanext/harvest/templates/source/new_source_form.html:107
+msgid "Delete and clear source"
+msgstr "Eliminar y limpiar la fuente"
+
+#: ckanext/harvest/templates/source/old_new_source_form.html:5
+msgid "Return to the harvest sources list"
+msgstr "Volver a la lista de fuentes de cosecha"
+
+#: ckanext/harvest/templates/source/org_source_list.html:15
+#: ckanext/harvest/templates/source/search_2.0.html:25
+msgid " found for \"{query}\""
+msgstr " encontrado para \"{query}\""
+
+#: ckanext/harvest/templates/source/org_source_list.html:31
+msgid "Search sources..."
+msgstr "Buscar fuentes..."
+
+#: ckanext/harvest/templates/source/org_source_list.html:32
+#: ckanext/harvest/templates/source/search_2.0.html:8
+msgid "Search"
+msgstr "Buscar"
+
+#: ckanext/harvest/templates/source/read_base.html:22
+msgid "read more"
+msgstr "leer más"
+
+#: ckanext/harvest/templates/source/read_base.html:54
+msgid "About"
+msgstr "Acerca de"
+
+#: ckanext/harvest/templates/source/search.html:45
+msgid "Name Ascending"
+msgstr "Nombre ascendente"
+
+#: ckanext/harvest/templates/source/search.html:46
+msgid "Name Descending"
+msgstr "Nombre descendente"
+
+#: ckanext/harvest/templates/source/search.html:47
+msgid "Last Modified"
+msgstr "Última modificación"
+
+#: ckanext/harvest/templates/source/search.html:25
+msgid "Only <code>sysadmin</code> users can manage harvest sources. Check the <a href='https://github.com/mjanez/ckanext-harvest'>ckanext-harvest</a> documentation for more information."
+msgstr "Solo los usuarios <code>sysadmin</code> pueden gestionar las fuentes de cosecha. Comprueba la documentación de <a href='https://github.com/mjanez/ckanext-harvest'>ckanext-harvest</a> para más información."
+
+#: ckanext/harvest/templates/source/search.html:50
+msgid "Search harvest sources..."
+msgstr "Buscar fuentes de cosecha..."
+
+#: ckanext/harvest/templates/source/search_2.0.html:7
+msgid "Search..."
+msgstr "Buscar..."
+
+#: ckanext/harvest/templates/source/search_2.0.html:29
+msgid "All harvest sources"
+msgstr "Todas las fuentes de cosecha"
+
+#: ckanext/harvest/templates/source/search_2.0.html:48
+msgid "Try another search term, browse the sources below or "
+msgstr "Pruebe con otro término de búsqueda, consulte las fuentes a continuación o "
+
+#: ckanext/harvest/templates/source/search_2.0.html:49
+msgid "add a new one"
+msgstr "añadir uno nuevo"
+
+#: ckanext/harvest/templates/source/search_2.0.html:55
+msgid " <p><strong>There was an error while searching.</strong> Please try again.</p> "
+msgstr " <p><strong>Hubo un error durante la búsqueda.</strong> Por favor, inténtalo de nuevo.</p> "
+
+#: ckanext/harvest/templates/source/job/list.html:5
+#: ckanext/harvest/templates/source/job/list.html:10
+msgid "Harvest Jobs"
+msgstr "Trabajos de cosecha"
+
+#: ckanext/harvest/templates/source/job/list.html:21
+msgid "Job: "
+msgstr "Trabajo: "
+
+#: ckanext/harvest/templates/source/job/list.html:28
+msgid "Started:"
+msgstr "Empezado:"
+
+#: ckanext/harvest/templates/source/job/list.html:30
+#: ckanext/harvest/templates/source/job/list.html:35
+msgid "Not yet"
+msgstr "Todavía no"
+
+#: ckanext/harvest/templates/source/job/list.html:33
+msgid "Finished:"
+msgstr "Finalizado:"
+
+#: ckanext/harvest/templates/source/job/read.html:3
+#: ckanext/harvest/templates/source/job/read.html:12
+msgid "Job Report"
+msgstr "Informe de trabajo"
+
+#: ckanext/harvest/templates/source/job/read.html:9
+msgid "Back to job list"
+msgstr "Volver a la lista de trabajos"
+
+#: ckanext/harvest/templates/source/job/read.html:18
+#: ckanext/harvest/templates/source/job/read.html:22
+msgid "Error Summary"
+msgstr "Resumen de errores"
+
+#: ckanext/harvest/templates/source/job/read.html:19
+msgid "No errors for this job"
+msgstr "No hay errores para este trabajo"
+
+#: ckanext/harvest/templates/source/job/read.html:23
+msgid "Only the 20 most frequent errors are shown"
+msgstr "Sólo se muestran los 20 errores más frecuentes"
+
+#: ckanext/harvest/templates/source/job/read.html:26
+#: ckanext/harvest/templates/source/job/read.html:40
+msgid "Job Errors"
+msgstr "Errores de trabajo"
+
+#: ckanext/harvest/templates/source/job/read.html:30
+#: ckanext/harvest/templates/source/job/read.html:57
+msgid "Document Errors"
+msgstr "Errores en los documentos"
+
+#: ckanext/harvest/templates/source/job/read.html:37
+msgid "Error Report"
+msgstr "Informe de error"
+
+#: ckanext/harvest/templates/source/job/read.html:58
+msgid "documents with errors"
+msgstr "documentos con errores"
+
+#: ckanext/harvest/templates/source/job/read.html:69
+msgid "Remote content"
+msgstr "Contenido remoto"
+
+#: ckanext/harvest/templates/source/job/read.html:73
+msgid "Local content"
+msgstr "Contenido local"
+
+#: ckanext/harvest/templates/source/new_source_form.html:51
+msgid "You can validate the JSON at: "
+msgstr "Puedes validar el JSON en: "
+
+#: ckanext/schemingdcat/templates/ajax_snippets/scd_api_info.html
+msgid "(<a href=\"{{ url }}\">ckanapi</a> library)"
+msgstr "(Librería <a href=\"{{ url }}\">ckanapi</a>)"
+
+#: ckanext/schemingdcat/templates/ajax_snippets/scd_api_info.html
+msgid "Query example (results containing 'medio-ambiente')"
+msgstr "Consulta ejemplo (resultados que contienen 'medio-ambiente')"
+
+#: ckanext/schemingdcat/templates/ajax_snippets/scd_api_info.html
+msgid "A simple request to the data API using Python."
+msgstr "Una simple petición a la API de datos utilizando Python."
+
+#: ckanext/schemingdcat/templates/ajax_snippets/scd_api_info.html
+msgid "Further information in the <a href=\"http://docs.ckan.org/en/latest/maintaining/datastore.html\" target=\"_blank\">main CKAN Data API and DataStore documentation</a>."
+msgstr "Más información en la <a href=\"http://docs.ckan.org/en/latest/maintaining/datastore.html\" target=\"_blank\">documentación principal de la API de datos de CKAN y DataStore</a>."
+
+#: ckanext/schemingdcat/templates/ajax_snippets
+msgid "Example"
+msgstr "Ejemplo"
+
+#: ckanext/schemingdcat/templates/schemingdcat/endpoints/index.html
+msgid "What are Endpoints?"
+msgstr "¿Qué son los Endpoints?"
+
+#: ckanext/schemingdcat/templates/schemingdcat/endpoints/index.html
+msgid "Endpoints are access points to an API that allow interaction between different software systems. In the context of CKAN, endpoints are essential for enabling access to the data and metadata stored on the platform."
+msgstr "Los Puntos finales (o Endpoints) son puntos de acceso a una API que permiten la interacción entre diferentes sistemas de software. En el contexto de CKAN, los puntos finales son esenciales para permitir el acceso a los datos y metadatos almacenados en la plataforma."
+
+#: ckanext/schemingdcat/templates/schemingdcat/endpoints/index.html
+msgid "We have several endpoints available on our CKAN instance:"
+msgstr "Están disponibles varios puntos finales en nuestra instancia de CKAN:"
+
+#: ckanext/schemingdcat/templates/schemingdcat/endpoints/index.html
+msgid "This endpoint allows access to data in RDF (Resource Description Framework) format, a standard for data exchange on the web."
+msgstr "Este punto final permite acceder a datos en formato RDF (Resource Description Framework), un estándar para el intercambio de datos en la web"
+
+#: ckanext/schemingdcat/templates/schemingdcat/endpoints/index.html
+msgid "This endpoint provides data in Turtle format, a compact and easy-to-read syntax for RDF."
+msgstr "Este punto final proporciona datos en formato Turtle, una sintaxis compacta y fácil de leer para RDF."
+
+#: ckanext/schemingdcat/templates/schemingdcat/endpoints/index.html
+msgid "This endpoint offers data in JSON-LD format, a representation of RDF data in JSON that allows interoperability between different data services."
+msgstr "Este punto final ofrece datos en formato JSON-LD, una representación de datos RDF en JSON que permite la interoperabilidad entre distintos servicios de datos."
+
+#: ckanext/schemingdcat/templates/schemingdcat/endpoints/index.html
+msgid "This endpoint allows access to geographic metadata in accordance with the INSPIRE regulations, through the CSW (Catalog Service for the Web) standard."
+msgstr "Este punto final permite el acceso a metadatos geográficos de acuerdo con la normativa INSPIRE, a través del estándar CSW (Catalog Service for the Web)."
+
+#: ckanext/schemingdcat/templates/schemingdcat/endpoints/index.html
+msgid "This endpoint provides programmatic access to the CKAN instance's data and functionality, allowing for operations like data search, package creation, and more."
+msgstr "Este punto final proporciona acceso programático a los datos y funcionalidades de la instancia CKAN, permitiendo operaciones como búsqueda de datos, creación de paquetes, etc.."
+
+#: ckanext/schemingdcat/templates/schemingdcat/endpoints/index.html
+msgid "This endpoint allows querying of RDF data using the SPARQL query language. It enables complex queries over the data."
+msgstr "Este punto final permite la consulta de datos RDF utilizando el lenguaje de consulta SPARQL. Permite realizar consultas complejas sobre los datos."
+
+#: ckanext/schemingdcat/templates/schemingdcat/endpoints/index.html
+msgid "Open Data in"
+msgstr "Datos Abiertos en"
+
+#: ckanext/schemingdcat/templates/schemingdcat/endpoints/index.html
+msgid "CKAN API"
+msgstr "API de CKAN"
+
+#: ckanext/schemingdcat/templates/schemingdcat/endpoints/index.html
+msgid "SPARQL Endpoint"
+msgstr "Punto final SPARQL"
+
+#: ckanext/schemingdcat/templates/schemingdcat/endpoints/index.html
+msgid "Geographic Metadata (CSW INSPIRE)"
+msgstr "Metadatos Geográficos (CSW INSPIRE)"
+
+#: ckanext/schemingdcat/templates/schemingdcat/endpoints/index.html
+msgid "Featured organization"
+msgid_plural "Featured organizations"
+msgstr[0] "Organización destacada"
+msgstr[1] "Organizaciones destacadas"
+
+#: ckanext/schemingdcat/templates/schemingdcat/endpoints/index.html
+msgid "Featured group"
+msgid_plural "Featured groups"
+msgstr[0] "Grupo destacado"
+msgstr[1] "Grupos destacados"
+
+#: ckanext/schemingdcat/templates/schemingdcat/endpoints/index.html
+msgid "Featured dataset"
+msgid_plural "Featured datasets"
+msgstr[0] "Conjunto de datos destacado"
+msgstr[1] "Conjuntos de datos destacados"
+
+#: ckanext/schemingdcat/templates/home/snippets/about_portal.html
+msgid "Explore and use Open Data"
+msgstr "Explora y utiliza datos abiertos"
+
+#: ckanext/schemingdcat/templates/home/snippets/about_themes.html
+msgid "Theme categories"
+msgstr "Categorías temáticas"
+
+# ckanext/schemingdcat/templates/schemingdcat/metadata_templates/header_metadata_templates.html
+msgid "Metadata template"
+msgstr "Plantilla de metadatos"
+
+# ckanext/schemingdcat/templates/schemingdcat/metadata_templates/header_metadata_templates.html
+msgid "Metadata templates"
+msgstr "Plantillas de metadatos"
+
+#: ckanext/harvest/templates/source/new.html:26
+msgid "The metadata templates allow large numbers of datasets to be created in CKAN in a simple and standardised way. They are all compatible with the metadata schema of the catalogue:"
+msgstr "Las plantillas de metadatos permiten crear grandes cantidades de conjuntos de datos en CKAN de forma sencilla y normalizada. Todas son compatibles con el esquema de metadatos del catálogo:"
+
+#: ckanext/harvest/templates/source/new.html:26
+msgid "Specifically, the extension that adds the metadata harvester using tabular files is:"
+msgstr "Concretamente la extensión que añade el cosechador de metadatos mediante ficheros tabulares es:"
+
+# ckanext/schemingdcat/templates/schemingdcat/metadata_templates/header_metadata_templates.html
+msgid "About the templates"
+msgstr "Acerca de las plantillas"
+
+# ckanext/schemingdcat/templates/schemingdcat/metadata_templates/header_metadata_templates.html
+msgid "CKAN schema"
+msgstr "esquema CKAN"
+
+# ckanext/schemingdcat/templates/schemingdcat/metadata_templates/header_metadata_templates.html
+msgid "No metadata templates available"
+msgstr "No hay plantillas de metadatos disponibles"
+
+# ckanext/schemingdcat/templates/schemingdcat/metadata_templates/header_metadata_templates.html
+msgid "To retrieve them, use an identifier that includes the following"
+msgstr "Para recuperarlas, utilice un identificador que incluya lo siguiente"
+
+# ckanext/schemingdcat/templates/schemingdcat/metadata_templates/header_metadata_templates.html
+msgid "\"*\" means any character"
+msgstr "\"*\" se refiere a cualquier carácter"
+
+# ckanext/schemingdcat/templates/package/snippets/package_form.html
+msgid "Next"
+msgstr "Siguiente"
+
+# ckanext/schemingdcat/templates/package/snippets/package_form.html
+msgid "Add Data"
+msgstr "Añadir Datos"
+
+# ckanext/schemingdcat/templates/package/snippets/package_form.html
+msgid "There are required fields in this category"
+msgstr "Esta categoría contiene campos obligatorios"
+
+#: ckanext/schemingdcat/templates/schemingdcat/package/snippets/document_info.html
+msgid "Bibliographic information"
+msgstr "Información bibliográfica"
+
+#: ckanext/schemingdcat/templates/schemingdcat/snippets/dataset_citation.html
+msgid "Cite as"
+msgstr "Cite como"
+
+#: ckanext/schemingdcat/templates/schemingdcat/snippets/dataset_citation.html
+msgid "Retrieved"
+msgstr "Recuperado"
+
+#: ckanext/schemingdcat/templates/schemingdcat/snippets/dataset_citation.html
+msgid "Private {id}"
+msgstr "{id} privado"
+
+#: ckanext/schemingdcat/templates/schemingdcat/snippets/dataset_citation.html
+msgid "This {id} is not yet resolvable."
+msgstr "Este {id} no se puede resolver."
+
+#: ckanext/schemingdcat/templates/schemingdcat/snippets/dataset_citation.html
+msgid "It is available for use in manuscripts, and will be published when the Dataset is made public."
+msgstr "Está disponible para su uso en manuscritos, y se publicará cuando se haga público el conjunto de datos"
+
+#: ckanext/schemingdcat/templates/scheming/form_snippets/org_hierarchy.html
+msgid "Parent"
+msgstr "Organización padre"
+
+#: ckanext/schemingdcat/templates/scheming/form_snippets/org_hierarchy.html
+msgid "None - top level"
+msgstr "Ninguna - nivel superior"
+
+#: ckanext/schemingdcat/templates/schemingdcat/form_snippets/dataset_private.html
+msgid "You are not authorized to change this field. Only a <code>admin</code> can publish a dataset <u>that has already been created</u>."
+msgstr "No está autorizado a modificar este campo. Solo un <code>administrador</code> puede publicar un conjunto de datos <u>ya creado</u>."
+
+#: ckanext/schemingdcat/templates/schemingdcat/form_snippets/custom_identifier.html
+msgid "Waiting for Metadata completion..."
+msgstr "Esperando a la finalización del Metadato..."
+
+# Themes (NTI-RISP) - Schema field_name: theme_es
+msgid "ciencia-tecnologia"
+msgstr "Ciencia y tecnología"
+
+msgid "comercio"
+msgstr "Comercio"
+
+msgid "cultura-ocio"
+msgstr "Cultura y ocio"
+
+msgid "demografia"
+msgstr "Demografía"
+
+msgid "deporte"
+msgstr "Deporte"
+
+msgid "economia"
+msgstr "Economía"
+
+msgid "educacion"
+msgstr "Educación"
+
+msgid "empleo"
+msgstr "Empleo"
+
+msgid "energia"
+msgstr "Energía"
+
+msgid "hacienda"
+msgstr "Hacienda"
+
+msgid "industria"
+msgstr "Industria"
+
+msgid "legislacion-justicia"
+msgstr "Legislación y justicia"
+
+msgid "medio-ambiente"
+msgstr "Medio ambiente"
+
+msgid "medio-rural-pesca"
+msgstr "Medio Rural"
+
+msgid "salud"
+msgstr "Salud"
+
+msgid "sector-publico"
+msgstr "Sector público"
+
+msgid "seguridad"
+msgstr "Seguridad"
+
+msgid "sociedad-bienestar"
+msgstr "Sociedad y bienestar"
+
+msgid "transporte"
+msgstr "Transporte"
+
+msgid "turismo"
+msgstr "Turismo"
+
+msgid "urbanismo-infraestructuras"
+msgstr "Urbanismo e infraestructuras"
+
+msgid "vivienda"
+msgstr "Vivienda"
+
+# ISO 19115 topic category - Schema field_name: topic
+msgid "biota"
+msgstr "biota"
+
+msgid "boundaries"
+msgstr "boundaries"
+
+msgid "climatologyMeteorologyAtmosphere"
+msgstr "climatologyMeteorologyAtmosphere"
+
+msgid "economy"
+msgstr "economy"
+
+msgid "elevation"
+msgstr "elevation"
+
+msgid "environment"
+msgstr "environment"
+
+msgid "farming"
+msgstr "farming"
+
+msgid "geoscientificInformation"
+msgstr "geoscientificInformation"
+
+msgid "health"
+msgstr "health"
+
+msgid "imageryBaseMapsEarthCover"
+msgstr "imageryBaseMapsEarthCover"
+
+msgid "inlandWaters"
+msgstr "inlandWaters"
+
+msgid "intelligenceMilitary"
+msgstr "intelligenceMilitary"
+
+msgid "location"
+msgstr "location"
+
+msgid "oceans"
+msgstr "oceans"
+
+msgid "planningCadastre"
+msgstr "planningCadastre"
+
+msgid "society"
+msgstr "society"
+
+msgid "structure"
+msgstr "structure"
+
+msgid "transportation"
+msgstr "transportation"
+
+msgid "utilitiesCommunication"
+msgstr "utilitiesCommunication"
+
+# High-value dataset category - Schema field_name: hvd_category
+msgid "c_164e0bf5"
+msgstr "Meteorología"
+
+msgid "c_a9135398"
+msgstr "Sociedades y propiedad de sociedades"
+
+msgid "c_ac64a52d"
+msgstr "Geospacial"
+
+msgid "c_b79e35eb"
+msgstr "Movilidad"
+
+msgid "c_dd313021"
+msgstr "Observación de la Tierra y medio ambiente"
+
+msgid "c_e1da4e07"
+msgstr "Estadística"
+
+# Themes (DCAT-AP) - Schema field_name: theme_eu
+msgid "AGRI"
+msgstr "Agricultura, pesca, silvicultura y alimentación"
+
+msgid "ECON"
+msgstr "Economía y finanzas"
+
+msgid "EDUC"
+msgstr "Educación, cultura y deporte"
+
+msgid "ENER"
+msgstr "Energía"
+
+msgid "ENVI"
+msgstr "Medio ambiente"
+
+msgid "GOVE"
+msgstr "Gobierno y sector público"
+
+msgid "HEAL"
+msgstr "Salud"
+
+msgid "INTR"
+msgstr "Asuntos internacionales"
+
+msgid "JUST"
+msgstr "Justicia, sistema jurídico y seguridad pública"
+
+msgid "REGI"
+msgstr "Regiones y ciudades"
+
+msgid "SOCI"
+msgstr "Población y sociedad"
+
+msgid "TECH"
+msgstr "Ciencia y tecnología"
+
+# Spatial Datasets / Non-spatial Datasets
+msgid "Non-spatial datasets"
+msgstr "Conjuntos de datos no espaciales"
+
+msgid "Spatial datasets"
+msgstr "Conjuntos de datos espaciales"
+
+msgid "Spatial dataset"
+msgstr "Conjunto de datos espaciales"
+
+# INSPIRE Themes - Schema field_name: theme
+msgid "mf"
+msgstr "Aspectos geográficos de carácter meteorológico"
+
+msgid "ac"
+msgstr "Condiciones atmosféricas"
+
+msgid "lc"
+msgstr "Cubierta terrestre"
+
+msgid "ad"
+msgstr "Direcciones"
+
+msgid "pd"
+msgstr "Distribución de la población - demografía"
+
+msgid "sd"
+msgstr "Distribución de las especies"
+
+msgid "bu"
+msgstr "Edificios"
+
+msgid "el"
+msgstr "Elevaciones"
+
+msgid "ge"
+msgstr "Geología"
+
+msgid "hy"
+msgstr "Hidrografía"
+
+msgid "hb"
+msgstr "Hábitats y biotopos"
+
+msgid "af"
+msgstr "Instalaciones agrícolas y de acuicultura"
+
+msgid "ef"
+msgstr "Instalaciones de observación del medio ambiente"
+
+msgid "pf"
+msgstr "Instalaciones de producción e industriales"
+
+msgid "ps"
+msgstr "Lugares protegidos"
+
+msgid "gn"
+msgstr "Nombres geográficos"
+
+msgid "oi"
+msgstr "Ortoimágenes"
+
+msgid "cp"
+msgstr "Parcelas catastrales"
+
+msgid "of"
+msgstr "Rasgos geográficos oceanográficos"
+
+msgid "er"
+msgstr "Recursos energéticos"
+
+msgid "mr"
+msgstr "Recursos minerales"
+
+msgid "tn"
+msgstr "Redes de transporte"
+
+msgid "br"
+msgstr "Regiones biogeográficas"
+
+msgid "sr"
+msgstr "Regiones marinas"
+
+msgid "hh"
+msgstr "Salud y seguridad humanas"
+
+msgid "us"
+msgstr "Servicios de utilidad pública y estatales"
+
+msgid "gg"
+msgstr "Sistema de cuadrículas geográficas"
+
+msgid "rs"
+msgstr "Sistemas de coordenadas de referencia"
+
+msgid "so"
+msgstr "Suelo"
+
+msgid "au"
+msgstr "Unidades administrativas"
+
+msgid "su"
+msgstr "Unidades estadísticas"
+
+msgid "lu"
+msgstr "Uso del suelo"
+
+msgid "nz"
+msgstr "Zonas de riesgos naturales"
+
+msgid "am"
+msgstr "Zonas sujetas a ordenación, a restricciones o reglamentaciones y unidades de notificación"
+
+# Quote alerts
+# ckanext/schemingdcat/templates/schemingdcat/snippets/quote_alerts.html
+msgid "Tip"
+msgstr "Consejo"
+
+msgid "Note"
+msgstr "Nota"
+
+msgid "Warning"
+msgstr "Advertencia"
+
+msgid "Caution"
+msgstr "Precaución"
+
+msgid "Important"
+msgstr "Importante"

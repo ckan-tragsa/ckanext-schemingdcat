@@ -1,0 +1,45 @@
+{% block social %}
+  <section class="module module-narrow social">
+    {% block social_title %}
+      <h2 class="module-heading"><i class="fa fa-share-square"></i> {{ _('Social') }}</h2>
+    {% endblock %}
+    {% block social_nav %}
+    <ul class="nav nav-simple">
+        {% if pkg_dict %}
+            {% block nums %}
+                {% set num_followers = h.follow_count('dataset', pkg_dict.id) %}
+                <li class="nav-item">
+                <span class="nums">
+                <dl>
+                    <dt class="item_social_nums_dt">
+                        <li class="nav-item"><a href="{{h.url_for_static('/dashboard/') }}" target="_blank"><i class="fa fa-users"></i> {{ _('Followers') }}</a></li>
+                    
+                    </dt>
+                    <dd class="item_social_nums_dd" data-bs-module="followers-counter" data-bs-module-id="{{ pkg_dict.id }}" data-bs-module-num_followers="{{ num_followers }}">{{ h.SI_number_span(num_followers) }}</dd>
+                </dl>
+                </span>
+            {% endblock %}
+            {% block follow_button %}
+                {% if not hide_follow_button %}
+                <div class="follow_button">
+                    {{ h.follow_button('dataset', pkg_dict.id) }}
+                </div>
+                </li>
+                {% endif %}
+            {% endblock %}
+        {% endif %}
+          {% block permalink %}
+            {% set current_url = h.url_for_static(h.current_url(), _external=True) %}
+            {% snippet "schemingdcat/snippets/permanent_url.html", url=current_url %}     
+          {% endblock %}
+          {% set current_url = h.url_for_static(h.current_url(), _external=True) %}
+          <li class="nav-item">
+            <a href="https://twitter.com/share?url={{ current_url }}" target="_blank"><i class="fa-brands fa-twitter"></i> Twitter</a>
+          </li>
+          <li class="nav-item"><a href="https://www.facebook.com/sharer.php?u={{ current_url }}" target="_blank">
+            <i class="fa-brands fa-facebook"></i> Facebook</a>
+          </li>
+      </ul>
+    {% endblock %}
+  </section>
+{% endblock %}

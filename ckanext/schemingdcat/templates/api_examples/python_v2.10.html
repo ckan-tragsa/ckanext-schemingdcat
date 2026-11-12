@@ -1,0 +1,19 @@
+<div class="accordion-item">
+  <div class="accordion-heading">
+    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-python" aria-expanded="false" aria-controls="collapse-python">{{ _('Example') }}: Python &raquo;</button>
+  </div>
+  <div id="collapse-python" class="accordion-collapse collapse" aria-labelledby="collapse-python" data-bs-parent="#accordion2">
+    <div class="accordion-body">
+      <p>{{ _('A simple request to the data API using Python.') }} (ckanapi: <a href="https://github.com/ckan/ckanapi/blob/master/README.md#remoteckan">RemoteCKAN</a>)</p>
+<pre class="ft-syntax-highlight" data-bs-syntax="python" data-bs-syntax-theme="one-dark" style="font-size:12px">
+<code class="language-python">
+<span class="keyword">import</span> <span class="identifier">urllib.request</span>
+
+<span class="identifier">url</span> = <span class="string">'{{ h.url_for('api.action', qualified=True, ver=3, logic_function='datastore_search', resource_id=resource_id, limit=5) + '&q=title:medio-ambiente' }}'</span>  <span class="comment">{# not urlencoding the ":" because its clearer #}</span>
+<span class="identifier">fileobj</span> = <span class="identifier">urllib.request.urlopen</span>(<span class="identifier">url</span>)
+<span class="identifier">print</span>(<span class="identifier">fileobj.read</span>())
+</code>
+</pre>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+{#
+  Render a list of NTI-RISP Themes linking to the theme page
+
+  themes_list - list of themes
+#}
+{% set _class = _class or 'scheming-icon-list' %}
+{% set themes_list = data[field.field_name] %}
+{%  set choices = [] %}
+{%  for c in h.scheming_field_choices(field) %}
+  {%  do choices.append(
+    (c.value, h.scheming_language_text(c.label))) %}
+{%  endfor %}
+
+{% block theme_list %}
+  <ul class="{{ _class }}">
+    {%  for val, label in choices %}
+      {%  if val in themes_list %}
+        {%  set img_url = h.url_for_static('/images/icons/theme_es/' + val.split('/')[-1].lower() + '.png') %}
+          <li>
+            <img src="{{ img_url }}" title="{{ label }}" alt="{{ label }}" class="{{ _class }}-icon" loading="lazy"></img> <a href="{{ val }}" class="truncate-link">{{ label }}</a>
+          </li>
+      {%  endif %}
+    {% endfor %}
+  </ul>
+{% endblock %}

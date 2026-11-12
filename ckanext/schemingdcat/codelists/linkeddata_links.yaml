@@ -1,0 +1,39 @@
+ttl:
+  display_name: Turtle
+  format: Turtle
+  image_display_url: /images/formats/ttl.svg
+  endpoint_icon: /images/endpoints/catalog-ttl.png
+  description: Terse RDF Triple Language.
+  description_url: https://www.w3.org/TR/turtle/
+
+rdf:
+  display_name: RDF
+  format: RDF/XML
+  image_display_url: /images/formats/rdf.svg
+  endpoint_icon: /images/endpoints/catalog-rdf.png
+  description: Resource Description Framework model.
+  description_url: https://www.w3.org/TR/rdf-syntax-grammar/
+
+n3:
+  display_name: Notation3
+  format: Notation3
+  image_display_url: /images/formats/n3.svg
+  endpoint_icon: /images/endpoints/catalog-n3.png
+  description: Shorthand non-XML serialization of RDF models.
+  description_url: https://www.w3.org/TeamSubmission/n3/
+
+jsonld:
+  display_name: JSON-LD
+  format: JSON-LD
+  image_display_url: /images/formats/json.svg
+  endpoint_icon: /images/endpoints/catalog-jsonld.png
+  description: JavaScript Object Notation for Linked Data.
+  description_url: https://www.w3.org/TR/json-ld/
+ 
+xml:
+  display_name: XML
+  format: XML
+  image_display_url: /images/formats/xml.svg
+  endpoint_icon: /images/endpoints/catalog-xml.png
+  description: Extended Markup Language.
+  description_url: https://www.w3.org/TR/xml/

@@ -1,0 +1,23 @@
+{% ckan_extends %}
+
+{% block secondary_content %}
+  <div class="module context-info">
+    <section class="module-content">
+      <h1 class="heading">{{ harvest_source.title }}</h1>
+      {% if harvest_source.notes %}
+        <p>
+          {{ h.markdown_extract(harvest_source.notes, 180) }}
+          {{ h.nav_link(_('read more'), named_route='harvester.about', id=harvest_source.name) }}
+        </p>
+      {% else %}
+        <p class="empty">{{ _('There is no description for this harvest source') }}</p>
+      {% endif %}
+      <div class="nums">
+        <dl>
+            <dt>{{ _('Datasets') }}</dt>
+            <dd>{{ h.schemingdcat_package_count_for_source(harvest_source.id) }}</dd>
+        </dl>
+      </div>
+    </section>
+  </div>
+{% endblock %}

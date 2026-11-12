@@ -1,0 +1,88 @@
+{% asset 'css/ft-syntax-highlight.min.css' %}
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <a class="accordion-toggle" data-bs-toggle="collapse" data-bs-parent="accordion2" href="#collapse-python">{{ _('Example') }}: Python &raquo;</a>
+  </div>
+
+  <div id="collapse-python" class="panel-collapse collapse">
+    <div class="panel-body">
+
+      <p>
+        (ckanapi: <a href="https://github.com/ckan/ckanapi/blob/master/README.md#remoteckan">RemoteCKAN</a>)
+      </p>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <a class="accordion-toggle" data-bs-toggle="collapse" data-bs-parent="#collapse-python" href="#collapse-python-example1">{{ _('Query example (first 5 results)') }}</a>
+        </div>
+        <div id="collapse-python-example1" class="panel-collapse collapse">
+          <div class="panel-body">
+            <pre class="ft-syntax-highlight" data-bs-syntax="python" data-bs-syntax-theme="one-dark" style="font-size:12px">
+<code>
+
+<span class="keyword">from</span> <span class="identifier">ckanapi</span> <span class="keyword">import</span> <span class="object">RemoteCKAN</span>
+
+<span class="identifier">rc</span> = <span class="object">RemoteCKAN</span>('<span class="url">{{ h.url_for('home.index', qualified=True) }}</span>', <span class="parameter">apikey</span>=<span class="identifier">API_TOKEN</span>)
+<span class="identifier">result</span> = <span class="identifier">rc</span>.<span class="property">action</span>.<span class="identifier-class">datastore_search</span>(
+    <span class="parameter">resource_id</span>="<span class="value">{{ resource_id }}</span>",
+    <span class="parameter">limit</span>=<span class="unit">5</span>,
+)
+<span class="keyword">print</span>(<span class="identifier">result</span>[<span class="property">'record'</span>])
+</code>
+            </pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+          <div class="panel-heading">
+            <a class="accordion-toggle" data-bs-toggle="collapse" data-bs-parent="#collapse-python" href="#collapse-python-example2">{{ _('Query example (results containing \'medio-ambiente\')') }}</a>
+          </div>
+          <div id="collapse-python-example2" class="panel-collapse collapse">
+            <div class="panel-body">
+              <pre class="ft-syntax-highlight" data-bs-syntax="python" data-bs-syntax-theme="one-dark" style="font-size:12px">
+<code>
+
+<span class="keyword">from</span> <span class="identifier">ckanapi</span> <span class="keyword">import</span> <span class="object">RemoteCKAN</span>
+
+<span class="identifier">rc</span> = <span class="object">RemoteCKAN</span>('<span class="url">{{ h.url_for('home.index', qualified=True) }}</span>', <span class="parameter">apikey</span>=<span class="identifier">API_TOKEN</span>)
+<span class="identifier">result</span> = <span class="identifier">rc</span>.<span class="property">action</span>.<span class="identifier-class">datastore_search</span>(
+  <span class="parameter">resource_id</span>="<span class="value">{{ resource_id }}</span>",
+    <span class="parameter">filters</span>={
+      subject: [<span class="property">'medio-ambiente'</span>],
+      stage: "<span class="value">active</span>",
+    },
+)
+<span class="keyword">print</span>(<span class="identifier">result</span>[<span class="property">'record'</span>])
+</code>
+              </pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <a class="accordion-toggle" data-bs-toggle="collapse" data-bs-parent="#collapse-python" href="#collapse-python-example3">{{ _('Query example (via SQL statement)') }}</a>
+          </div>
+          <div id="collapse-python-example3" class="panel-collapse collapse">
+            <div class="panel-body">
+              <pre class="ft-syntax-highlight" data-bs-syntax="python" data-bs-syntax-theme="one-dark" style="font-size:12px">
+<code>
+<span class="keyword">from</span> <span class="identifier">ckanapi</span> <span class="keyword">import</span> <span class="class">RemoteCKAN</span>
+
+<span class="identifier">rc</span> = <span class="object">RemoteCKAN</span>('<span class="url">{{ h.url_for('home.index', qualified=True) }}</span>', <span class="parameter">apikey</span>=<span class="identifier">API_TOKEN</span>)
+<span class="identifier">result</span> = <span class="identifier">rc</span>.<span class="property">action</span>.<span class="identifier-class">datastore_search_sql</span>(
+    <span class="parameter">sql</span>="<span class="string">""SELECT * from "<span class="value">{{ resource_id }}</span>" WHERE title LIKE 'medio-ambiente'""</span>"
+)
+<span class="keyword">print</span>(<span class="identifier">result</span>[<span class="property">'records'</span>])
+</code>
+              </pre>
+            </div>
+          </div>
+        </div>
+
+
+    </div>
+  </div>
+</div>

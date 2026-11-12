@@ -1,0 +1,19 @@
+{% set _class = _class or 'scheming-icon-list' %}
+{% set value = data[field.field_name] %}
+{% if 'datos.gob.es' in value %}
+  {% set default_icon = "/images/icons/spatial_uri/pais/españa.jpg" %}
+{% else %}
+  {% set default_icon = "/images/icons/endpoints/global.svg" %}
+{% endif %}
+{% set icons_dir = h.schemingdcat_get_icons_dir(field_name=field.field_name) %}
+{% set label = h.scheming_choices_label(h.scheming_field_choices(field), value) %}
+{% set icon = icons_dir and h.schemingdcat_get_icon(h.schemingdcat_get_choice_item(field, value), icons_dir,default_icon) %}
+{% set img_url = icon and h.url_for_static(icon) %}
+
+{% set label_text = value if value == label else label %}
+{% if img_url %}
+  <img src="{{ img_url }}" title="{{ label }}" class="{{ _class }}-icon spatial_uri-icon" loading="lazy"></img>
+{% endif %}
+<a href="{{ value }}"> 
+  {{ h.schemingdcat_prettify_url_name(label_text) }}
+</a>

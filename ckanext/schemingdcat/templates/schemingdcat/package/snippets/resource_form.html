@@ -1,0 +1,116 @@
+{% extends 'package/snippets/resource_form.html' %}
+
+{% block stages %}
+  {% set pages = h.scheming_get_dataset_form_pages(dataset_type) %}
+  {% if pages and stage %}
+    <ol class="stages stage-1">
+      {% for p in pages %}
+        <li class="{{
+          'first ' if loop.first else ''}}"
+          style="width:{{ 100 / (loop.length + 1) }}%">
+          <span class="highlight" style="padding-right:0"><a href="{{
+              h.url_for(dataset_type + '.scheming_new_page',
+                package_type=dataset_type,
+                id=pkg_name,
+                page=loop.index)
+            }}">{{ h.scheming_language_text(p.title) }}</a>
+          </span>
+        </li>
+      {%- endfor -%}
+      <li class="last active" style="width:{{ 100 / (pages | length + 1) }}%">
+        <span class="highlight">{{ _('Add data') }}</span>
+      </li>
+    </ol>
+  {%- else -%}
+    {{ super() }}
+  {%- endif -%}
+{% endblock %}
+
+{% block errors %}
+  {%- if errors -%}
+    {%- set schema = h.schemingdcat_get_cached_schema(dataset_type) -%}
+    {%- snippet 'scheming/snippets/errors.html',
+      errors=errors, fields=schema.resource_fields,
+      entity_type='resource', object_type=dataset_type -%}
+  {%- endif -%}
+{% endblock %}
+
+{# Render tabs and form groups #}
+{% block basic_fields %}
+
+    {% if not dataset_type %}
+        <p>
+            dataset_type not passed to template. your version of CKAN
+            might not be compatible with ckanext-scheming
+        </p>
+    {% endif %}
+
+        {% set schema = h.schemingdcat_get_cached_schema(dataset_type) %}
+        {% set pages = h.scheming_get_dataset_form_pages(dataset_type) %}
+        {% set form_groups = h.schemingdcat_get_dataset_type_form_groups(dataset_type) %}
+        {% set all_tabs = h.schemingdcat_form_tabs_grouping(schema, 'resource_fields') %}
+        {% set user_is_org_admin = (data.owner_org and h.check_access('organization_update', {'id':data.owner_org})) %}
+        {% set user_is_admin = h.check_access('sysadmin') or user_is_org_admin %}
+
+        {% if not all_tabs %}
+            {{ super() }}
+        {% else %}
+        <div id="groupTab" class="row group-tab">
+          <ul class="nav nav-pills nav-stacked col-md-2 tabs_container">
+              {% for tab in all_tabs %}
+                <li class="nav-item {% if loop.first %}active{% endif %}">
+                    <a href="#{{ h.schemingdcat_slugify(tab.form_tab) }}" data-bs-toggle="tab" class="nav-link tab-link form_tab">{{ h.scheming_language_text(tab.label) }}</a>
+                      <ul class="form-group-list" style="display: none;">
+                        {% for form_group in tab.form_group_id %}
+                        <li class="{% if form_group.form_group_id in tab.required_form_group_id %}required-fields{% endif %}" 
+                            {% if form_group.form_group_id in tab.required_form_group_id %}title="{{ _('There are required fields in this category') }}"{% endif %}>
+                            <a href="#{{ form_group.form_group_id }}">
+                            {{ h.scheming_language_text(form_group.label) }}
+                            </a>
+                        </li>
+                          {% endfor %}
+                      </ul>
+                  </li>
+              {% endfor %}
+          </ul>
+
+            <div class="tab-content col-md-10" style="display:block;">
+                {% for tab in all_tabs %}
+            <div class="tab-pane fade {% if loop.first %}active show{% endif %}" id="{{ h.schemingdcat_slugify(tab.form_tab) }}">
+                {% for form_group in tab.form_group_id %}
+                            {% if form_group %}
+                        <div class="{{ form_group.form_group_id }}-group card mb-3" data-bs-form_group_id="{{ form_group.form_group_id }}" id="{{ form_group.form_group_id }}">
+                                    <div class="card-header">
+                                        <h3 class="mb-0"><i class="fa {{ form_group.fa_icon }}" style="padding-right:5px;"></i>{{ h.scheming_language_text(form_group.label) }}</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        {% for group_field in schema.resource_fields %}
+                                            {% if group_field.form_group_id == form_group.form_group_id %}
+                                                {% if group_field.form_snippet is not none %}
+                                                    {% if not (group_field.visibility == 'admin') or (group_field.visibility == 'admin' and user_is_admin) %}
+                                                        {% snippet 'scheming/snippets/form_field.html',
+                                                            field=group_field, data=data, errors=errors, licenses=c.licenses,
+                                                            entity_type='resource', object_type=dataset_type %}
+                                                    {% endif %}
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+        </div>
+            </div>
+
+            {% if 'resource_fields' not in schema %}
+                <input type="hidden" name="_ckan_phase" value=""/>
+            {% endif %}
+        </div>
+        {% asset 'ckanext-schemingdcat/schemingdcat-form-tabs' %}
+    {% endif %}
+{% endblock %}
+
+{% block metadata_fields %}
+{% endblock %}

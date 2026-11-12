@@ -1,0 +1,20 @@
+<div class="accordion-item">
+  <div class="accordion-heading">
+    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-curl" aria-expanded="false" aria-controls="collapse-curl"> {{ _('Example') }}: curl &raquo;</button>
+  </div>
+  <div id="collapse-curl" class="accordion-collapse collapse" aria-labelledby="collapse-curl" data-bs-parent="#accordion2">
+    <div class="accordion-body">
+      <p>{{ _('Query example (first 5 results)') }}</p>
+<pre class="ft-syntax-highlight" data-bs-syntax="shell" data-bs-syntax-theme="one-dark" style="font-size:12px">
+<code>
+curl {{ h.url_for('api.action', ver=3, logic_function='datastore_search', qualified=True) }} \
+-H"Authorization:$API_TOKEN" -d '
+{
+  "resource_id": "{{ resource_id }}",
+  "limit": 5
+}'
+</code>
+</pre>
+    </div>
+  </div>
+</div>

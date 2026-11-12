@@ -1,0 +1,4 @@
+{% if data[field.field_name] %}
+    {%  set url_name = 'EPSG:' + h.schemingdcat_prettify_url_name(data[field.field_name]) %}
+    {{ h.link_to(url_name, data[field.field_name], rel=field.display_property, target='_blank', class='truncate-link') }}
+{% endif %}

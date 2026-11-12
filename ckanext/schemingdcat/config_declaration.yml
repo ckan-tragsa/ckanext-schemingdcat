@@ -1,0 +1,207 @@
+version: 1
+groups:
+  - annotation: General settings
+    options:
+      - key: ckanext.schemingdcat.icons_dir
+        default: 'images/icons'
+        description: |
+          Path to the default directory for custom icons.
+        required: false
+        example: 'my-custom-plugin-folder/icons'
+
+      - key: ckanext.schemingdcat.default_package_item_icon
+        default: 'theme'
+        description: |
+          Default category icon for packages, a specific field in the schemingdcat dataset (`field_name`) by default `theme` (INSPIRE Themes), can be changed to other thematic categories as `theme_es`, `theme_eu`, etc. 
+        required: false
+        example: 'my_custom_theme'
+
+      - key: ckanext.schemingdcat.default_package_item_show_spatial
+        default: true
+        description: |
+          Display spatial information on package elements by default. Is used to retrieve the configuration value that determines whether the spatial information should be shown in the default package item.
+        type: bool
+        required: false
+
+      - key: ckanext.schemingdcat.show_metadata_templates_toolbar
+        default: false
+        description: |
+          Determines whether the metadata templates toolbar should be shown or not.
+        type: bool
+        required: false
+
+      - key: ckanext.schemingdcat.metadata_templates_search_identifier
+        default: 'schemingdcat_xls-template'
+        description: |
+          Identifier used to search for packages that are metadata templates, used in schemingdcat schemas field `schemingdcat_xls_metadata_template`.
+        required: false
+        example: 'my-org_template'
+
+      - key: ckanext.schemingdcat.form_tabs_allowed
+        default: true
+        description: |
+          Use form tabs in the package forms to group the fields into different tabs.
+        type: bool
+        required: false
+
+      - key: ckanext.schemingdcat.endpoints_yaml
+        default: 'endpoints.yaml'
+        description: |
+          The module path to the YAML file that contains the endpoint configurations. Like `module:file.yaml`. See https://github.com/mjanez/ckanext-schemingdcat#endpoints for more details.
+        required: false
+        example: 'ckanext.myplugin:codelists/endpoints.yaml'
+
+      - key: ckanext.schemingdcat.geometadata_base_uri
+        default: '/csw'
+        description: |
+          Base URI for spatial CSW Endpoint. By default `/csw` is used, provided it is used in the same instance as [`ckan-pycsw`](https://github.com/mjanez/ckan-pycsw).
+        required: false
+        example: 'https://demo.pycsw.org/cite/csw'
+
+  - annotation: API settings
+    options:
+      - key: ckanext.schemingdcat.api.private_fields
+        description: |
+          List of fields that should not be exposed in the API actions like `package_show`, `package_search` `resource_show`, etc.
+        type: list
+        default: []
+        required: false
+        
+      - key: ckanext.schemingdcat.api.private_fields_roles
+        description: |
+          List of members that has access to private_fields. By default members of the organization with the role `admin`, `editor` and `member` have access to private fields.
+        type: list
+        default:
+          - admin
+          - editor
+          - member
+        required: false
+
+  - annotation: Facet settings
+    options:
+      - key: ckanext.schemingdcat.default_facet_operator
+        default_callable: ckanext.schemingdcat.helpers:schemingdcat_default_facet_search_operator
+        description: |
+          Sets the default operator for faceted searches. Only accepts `AND` or `OR`. Default: `OR`.
+        required: false
+
+      - key: ckanext.schemingdcat.organization_custom_facets
+        default: true
+        description: |
+          Enables custom facets for organizations.
+        type: bool
+        required: false
+
+      - key: ckanext.schemingdcat.group_custom_facets
+        default: true
+        description: |
+          Enables custom facets for groups.
+        type: bool
+        required: false
+
+  - annotation: Open Data stats settings
+    options:
+      - key: ckanext.schemingdcat.open_data_intro_enabled
+        default: false
+        description: |
+          Enables site description on the homepage of the portal.
+        type: bool
+        required: false
+
+      - key: ckanext.schemingdcat.open_data_statistics
+        default: true
+        description: |
+          Enable open data statistics on the homepage of the portal.
+        type: bool
+        required: false
+
+      - key: ckanext.schemingdcat.open_data_statistics_themes
+        default: true
+        description: |
+          Enables open data statistics for themes on the homepage of the portal.
+          `theme` field are defined by: `ckanext.schemingdcat.default_package_item_icon`
+        type: bool
+        required: false
+
+      - key: ckanext.schemingdcat.dcat_ap.publisher.name
+        default: 'Organismo publicador del Catálogo'
+        description: |
+          A party that makes a dataset available to others.
+        required: false
+
+      - key: ckanext.schemingdcat.dcat_ap.publisher.identifier
+        default: 'http://datos.gob.es/recurso/sector-publico/org/Organismo/EA0000000'
+        description: |
+          Unique identifier of the publisher. Spain: Unique identifier (DIR3) of the public organization ([datos.gob.es](http://datos.gob.es/es/recurso/sector-publico/org/Organismo)).
+        required: false
+
+      - key: ckanext.schemingdcat.dcat_ap.publisher.email
+        default: 'organismo@example.org'
+        description: |
+          Email of the publisher
+        required: false
+
+      - key: ckanext.schemingdcat.dcat_ap.publisher.type
+        default: 'http://purl.org/adms/publishertype/NonProfitOrganisation'
+        description: |
+          Type of the publisher. [Publisher Type Codelist](http://purl.org/adms/publishertype)
+        required: false
+
+      - key: ckanext.schemingdcat.dcat_ap.publisher.url
+        default: 'https://organismo.example.org/'
+        description: |
+          Website of the publisher
+        required: false
+
+      - key: ckanext.schemingdcat.dcat_ap.datastore_dataservice.title
+        default: 'Datastore API service'
+        description: |
+          Title of the Datastore API service.
+        required: false
+
+      - key: ckanext.schemingdcat.dcat_ap.datastore_dataservice.description
+        default: 'This API provides live access to the Datastore portion of the Open Data Portal. Serve data resources in a machine-readable format.'
+        description: |
+          Description of the Datastore API service.
+        required: false
+
+      - key: ckanext.schemingdcat.dcat_ap.datastore_dataservice.endpoint_description
+        default: '{ckan_site_url}/openapi/datastore/'
+        description: |
+          URI of the Datastore OpenAPI or online documentation.
+        required: false
+
+  - annotation: Social settings
+    options:
+      - key: ckanext.schemingdcat.social_github
+        default: 'https://github.com/mjanez/ckanext-schemingdcat'
+        description: |
+          URL of your GitHub profile.
+        required: false
+
+      - key: ckanext.schemingdcat.social_linkedin
+        default: 'https://www.linkedin.com/company/ckanproject'
+        description: |
+          URL of your LinkedIn profile.
+        required: false
+
+      - key: ckanext.schemingdcat.social_x
+        default: 'https://x.com/ckanproject'
+        description: |
+          URL of your X (formerly Twitter) profile.
+        required: false
+
+  - annotation: SchemingDCATSQLHarvester settings
+    options:
+      - key: ckanext.schemingdcat.postgres.geojson_chars_limit
+        default: 1000
+        type: int
+        description: |
+          Number of limit using in SchemingDCATSQLHarvester to select data from a specified column. For GeoJSON data, if the data length exceeds, the expression returns NULL to avoid performance issues with large GeoJSON objects.
+        required: false
+
+      - key: ckanext.schemingdcat.postgres.geojson_tolerance
+        default_callable: ckanext.schemingdcat.helpers:schemingdcat_validate_float
+        description: |
+          For geographic columns, it applies a transformation to the EPSG:4326 coordinate system and simplifies the geometry based on a tolerance value. Default: `0.001`
+        required: false

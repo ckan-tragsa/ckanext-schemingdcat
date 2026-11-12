@@ -1,0 +1,276 @@
+{
+    "scheming_version": 2,
+    "organization_type": "organization",
+    "about": "Organizations: Adaptation for CKAN of the GeoDCAT-AP metadata schema extended (2.0.0) with ISO-19115 (INSPIRE) mandatory elements.",
+    "about_url": "https://github.com/mjanez/ckanext-schemingdcat",
+    "fields": [
+        {
+          "field_name": "title",
+          "label": {
+            "en": "Name",
+            "es": "Nombre"
+          },
+          "validators": "ignore_missing unicode_safe",
+          "form_snippet": "large_text.html",
+          "form_attrs": {"data-module": "slug-preview-target"},
+          "form_placeholder": {
+            "en": "My organization",
+            "es": "Mi organización"
+          }
+        },
+        {
+          "field_name": "name",
+          "label": "URL",
+          "validators": "not_empty unicode_safe name_validator group_name_validator",
+          "form_snippet": "slug.html",
+          "display_snippet": "link.html",
+          "form_placeholder": "my-organization"
+        },
+        {
+          "field_name": "description",
+          "label": {
+            "en": "Abstract",
+            "es": "Resumen"
+          },
+          "form_snippet": "markdown.html",
+          "display_snippet": "markdown.html",
+          "form_placeholder": {
+            "en": "e.g. Some useful description about the group.",
+            "es": "ej. Una descripción útil sobre el grupo."
+          }
+        },
+        {
+          "field_name": "image_url",
+          "label": {
+            "en": "Image URL",
+            "es": "URL de la imagen"
+          },
+          "display_snippet": "link.html",
+          "preset": "resource_url_upload",
+          "form_placeholder": "http://example.com/my-image.jpg"
+        },
+        {
+          "field_name": "publisher_email",
+          "label": {
+            "en": "Email of the publisher",
+            "es": "Email del publicador"
+          },
+          "display_snippet": "email.html",
+          "form_placeholder": "joseblanco@example.com"
+        },
+        {
+          "field_name": "publisher_url",
+          "label": {
+            "en": "Website of the publisher",
+            "es": "Web del publicador"
+          },
+          "display_snippet": "link.html",
+          "form_placeholder": "e.g. http://www.example.org.com/"
+        },
+        {
+          "field_name": "identifier",
+          "label": {
+            "en": "URI of the publisher",
+            "es": "URI del publicador"
+          },
+          "display_snippet": "link.html",
+          "form_placeholder": "e.g. E05068001",
+          "help_text": {
+            "en": "Unique identifier of the organisation, for example DIR3 for Spain (<a href='https://datos.gob.es/es/recurso/sector-publico/org/Organismo' target='_blank'>datos.gob.es</a>).",
+            "es": "Identificador único de la organización, por ejemplo DIR3 para España (<a href='https://datos.gob.es/es/recurso/sector-publico/org/Organismo' target='_blank'>datos.gob.es</a>)."
+          },
+          "help_allow_html": "True"
+        },
+        {
+          "field_name": "publisher_type",
+          "label": {
+              "en": "Type of the publisher",
+              "es": "Tipo de publicador"
+          },
+          "preset": "select",
+          "display_property": "dct:type",
+          "display_snippet": "schemingdcat/display_snippets/link_schema.html",
+          "choices": [
+              {
+                  "label": {
+                      "en": "National authority",
+                      "es": "Autoridad nacional"
+                  },
+                  "value": "http://purl.org/adms/publishertype/NationalAuthority"
+              },
+              {
+                  "label": {
+                      "en": "Regional authority",
+                      "es": "Autoridad regional"
+                  },
+                  "value": "http://purl.org/adms/publishertype/RegionalAuthority"
+              },
+              {
+                  "label": {
+                      "en": "Supranational authority",
+                      "es": "Autoridad supranacional"
+                  },
+                  "value": "http://purl.org/adms/publishertype/SupraNationalAuthority"
+              },
+              {
+                  "label": {
+                      "en": "Local authority",
+                      "es": "Autoridad local"
+                  },
+                  "value": "http://purl.org/adms/publishertype/LocalAuthority"
+              },
+              {
+                  "label": {
+                      "en": "Academia-Scientific organisation",
+                      "es": "Organización académica-científica"
+                  },
+                  "value": "http://purl.org/adms/publishertype/Academia-ScientificOrganisation"
+              },
+              {
+                  "label": {
+                      "en": "Non profit organisation",
+                      "es": "Organización sin animo de lucro"
+                  },
+                  "value": "http://purl.org/adms/publishertype/NonProfitOrganisation"
+              },
+              {
+                  "label": {
+                      "en": "Company",
+                      "es": "Empresa"
+                  },
+                  "value": "http://purl.org/adms/publishertype/Company"
+              },
+              {
+                  "label": {
+                      "en": "Industry consortium",
+                      "es": "Consorcio industrial"
+                  },
+                  "value": "http://purl.org/adms/publishertype/IndustryConsortium"
+              },
+              {
+                  "label": {
+                      "en": "Non Governmental Organisation",
+                      "es": "Organización no gubernamental (ONG)"
+                  },
+                  "value": "http://purl.org/adms/publishertype/NonGovernmentalOrganisation"
+              },
+              {
+                  "label": {
+                      "en": "Private individual(s)",
+                      "es": "Individuo(s) privado(s)"
+                  },
+                  "value": "http://purl.org/adms/publishertype/PrivateIndividual(s)"
+              },
+              {
+                  "label": {
+                      "en": "Standardisation body",
+                      "es": "Organismo de normalización"
+                  },
+                  "value": "http://purl.org/adms/publishertype/StandardisationBody"
+              }
+          ]
+        },
+        {
+          "field_name": "theme_eu",
+          "label": {
+              "en": "Themes (DCAT-AP)",
+              "es": "Temáticas (DCAT-AP)"
+          },
+          "preset": "multiple_choice_icon",
+          "display_property": "dcat:theme",
+          "select_size": 10,
+          "help_text": {
+              "en": "<a href=\"http://publications.europa.eu/resource/authority/data-theme\" target=\"_blank\" rel=\"noopener\">Themes</a> (DCAT-AP)",
+              "es": "<a href=\"http://publications.europa.eu/resource/authority/data-theme\" target=\"_blank\" rel=\"noopener\">Temáticas</a> (DCAT-AP)"
+          },
+          "help_allow_html": "True",
+          "sorted_choices": "True",
+          "choices": [
+              {
+                  "value": "http://publications.europa.eu/resource/authority/data-theme/AGRI",
+                  "label": {
+                      "en": "Agriculture, fisheries, forestry and food",
+                      "es": "Agricultura, pesca, silvicultura y alimentación"
+                  }
+              },
+              {
+                  "value": "http://publications.europa.eu/resource/authority/data-theme/ECON",
+                  "label": {
+                      "en": "Economy and finance",
+                      "es": "Economía y finanzas"
+                  }
+              },
+              {
+                  "value": "http://publications.europa.eu/resource/authority/data-theme/EDUC",
+                  "label": {
+                      "en": "Education, culture and sport",
+                      "es": "Educación, cultura y deporte"
+                  }
+              },
+              {
+                  "value": "http://publications.europa.eu/resource/authority/data-theme/ENER",
+                  "label": {
+                      "en": "Energy",
+                      "es": "Energía"
+                  }
+              },
+              {
+                  "value": "http://publications.europa.eu/resource/authority/data-theme/ENVI",
+                  "label": {
+                      "en": "Environment",
+                      "es": "Medio ambiente"
+                  }
+              },
+              {
+                  "value": "http://publications.europa.eu/resource/authority/data-theme/GOVE",
+                  "label": {
+                      "en": "Government and public sector",
+                      "es": "Gobierno y sector público"
+                  }
+              },
+              {
+                  "value": "http://publications.europa.eu/resource/authority/data-theme/HEAL",
+                  "label": {
+                      "en": "Health",
+                      "es": "Salud"
+                  }
+              },
+              {
+                  "value": "http://publications.europa.eu/resource/authority/data-theme/INTR",
+                  "label": {
+                      "en": "International issues",
+                      "es": "Asuntos internacionales"
+                  }
+              },
+              {
+                  "value": "http://publications.europa.eu/resource/authority/data-theme/JUST",
+                  "label": {
+                      "en": "Justice, legal system and public safety",
+                      "es": "Justicia, sistema jurídico y seguridad pública"
+                  }
+              },
+              {
+                  "value": "http://publications.europa.eu/resource/authority/data-theme/REGI",
+                  "label": {
+                      "en": "Regions and cities",
+                      "es": "Regiones y ciudades"
+                  }
+              },
+              {
+                  "value": "http://publications.europa.eu/resource/authority/data-theme/SOCI",
+                  "label": {
+                      "en": "Population and society",
+                      "es": "Población y sociedad"
+                  }
+              },
+              {
+                  "value": "http://publications.europa.eu/resource/authority/data-theme/TECH",
+                  "label": {
+                      "en": "Science and technology",
+                      "es": "Ciencia y tecnología"
+                  }
+              }
+          ]
+        }
+      ]
+  }

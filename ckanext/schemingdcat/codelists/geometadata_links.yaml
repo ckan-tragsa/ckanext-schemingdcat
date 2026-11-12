@@ -1,0 +1,72 @@
+csw_formats:
+    - name: inspire_xml
+      display_name: INSPIRE
+      format: INSPIRE ISO-19139
+      output_schema: http://www.isotc211.org/2005/gmd
+      output_format: application/xml
+      image_display_url: /images/formats/inspire_iso19139.svg
+      endpoint_icon: /images/endpoints/catalog-csw-eu.png
+      description: INSPIRE datasets and services in ISO/TS 19139 based XML format.
+      description_url: http://inspire.ec.europa.eu/id/document/tg/metadata-iso19139
+      version: 3.0.0
+      element_set_name: full
+
+    - name: inspire_json
+      display_name: INSPIRE
+      format: INSPIRE JSON
+      output_schema: http://www.isotc211.org/2005/gmd
+      output_format: application/json
+      image_display_url: /images/formats/inspire_iso19139.svg
+      endpoint_icon: /images/endpoints/catalog-csw-eu.png
+      description: INSPIRE datasets and services in ISO/TS 19139 based XML format.
+      description_url: http://inspire.ec.europa.eu/id/document/tg/metadata-iso19139
+      version: 3.0.0
+      element_set_name: full
+
+    - name: dc
+      display_name: Dublin Core
+      format: Dublin Core XML
+      output_format: application/xml
+      output_schema: http://www.opengis.net/cat/csw/3.0
+      image_display_url: /images/formats/dc.svg
+      endpoint_icon: /images/endpoints/catalog-csw.png
+      description: Dublin Core Metadata Element Set
+      description_url: https://www.dublincore.org/specifications/dublin-core/dcmes-xml/
+      version: 3.0.0
+      element_set_name: full
+
+    - name: atom
+      display_name: ATOM
+      format: ATOM XML
+      output_format: application/xml
+      output_schema: http://www.w3.org/2005/Atom
+      image_display_url: /images/formats/atom.svg
+      endpoint_icon: /images/endpoints/catalog-csw.png
+      description: Atom Syndication Format (ATOM)
+      description_url: https://datatracker.ietf.org/doc/html/rfc4287
+      version: 3.0.0
+      element_set_name: full
+
+    - name: fgdc
+      display_name: FGDC
+      format: FGDC XML
+      output_format: application/xml
+      output_schema: http://www.opengis.net/cat/csw/csdgm
+      image_display_url: /images/formats/fgdc.svg
+      endpoint_icon: /images/endpoints/catalog-csw.png
+      description: FGDC Content Standard for Digital Spatial Metadata (CSDGM).
+      description_url: https://www.fgdc.gov/metadata/csdgm-standard
+      version: 3.0.0
+      element_set_name: full
+
+    - name: dif
+      display_name: NASA DIF
+      format: NASA DIF XML
+      output_format: application/xml
+      output_schema: http://gcmd.gsfc.nasa.gov/Aboutus/xml/dif/
+      image_display_url: /images/formats/fgdc.svg
+      endpoint_icon: /images/endpoints/catalog-csw.png
+      description: Directory Interchange Format (NASA DIF).
+      description_url: https://www.earthdata.nasa.gov/esdis/esco/standards-and-practices/directory-interchange-format-dif-standard
+      version: 3.0.0
+      element_set_name: full

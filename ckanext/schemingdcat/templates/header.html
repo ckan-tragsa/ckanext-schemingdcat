@@ -1,0 +1,54 @@
+{% ckan_extends %}
+
+{% block header_account_logged %}
+    {% block header_metadata_templates %}
+    <li>
+      <a href="{{ h.url_for('schemingdcat.metadata_templates') }}" title="{{ _('Metadata templates') }}">  
+          <i class="fa fa-table"></i>
+        </a>
+      </li>
+    {% endblock %}
+
+  <li>
+    <a href="{{ h.url_for('/harvest/') }}" title="{{ _('Harvest metadata') }}">
+      <i class="fa fa-cloud-download"></i>
+    </a>
+  </li>
+  {{ super() }}
+  {% block header_lang_logged %}
+    <li class="nav-item dropdown">
+      {% snippet "schemingdcat/snippets/header_language_selector.html" %}
+    </li>
+  {% endblock %}
+{% endblock %}
+
+{% block header_account_notlogged %}
+  {{ super() }}
+  
+  {% block header_lang_notlogged %}
+    <li class="nav-item dropdown">
+      {% snippet "schemingdcat/snippets/header_language_selector.html" %}
+    </li>
+  {% endblock %}
+{% endblock %}
+
+{% block header_debug %} {% if g.debug and not g.debug_supress_header %}
+  <div class="custom-debug">
+    <strong>Debug info:</strong>
+    <br/>
+    Blueprint : {{ g.blueprint }}
+    <br/>
+    View : {{ g.view }}
+  </div>
+{% endif %} {% endblock %}
+
+{% block header_logo %}
+  <a class="logo" href="{{ h.url_for('home.index') }}">
+    {% if g.site_logo %}
+      {% set logo_url = g.site_logo if h.get_not_lang_root_path() in g.site_logo else h.url_for_static_or_external(g.site_logo) %}
+    {% else %}
+      {% set logo_url = h.url_for_static_or_external('/images/default/ckan-logo.png') %}
+    {% endif %}
+    <img src="{{ logo_url }}" alt="{{ g.site_title }}" title="{{ g.site_title }}" />
+  </a>
+{% endblock %}

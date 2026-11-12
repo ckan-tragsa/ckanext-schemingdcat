@@ -1,0 +1,41 @@
+{#
+    Render a link from Schema values according to value of field
+  
+    choices - list of values and labels from Schema
+#}
+
+{% set _class = _class or 'link-list' %}
+{% set link_schema_list = data[field.field_name] %}
+
+{% set choices = [] %}
+{% set field_choices = h.scheming_field_choices(field) %}
+{% if field_choices %}
+  {% for c in field_choices %}
+    {% do choices.append((c.value, h.scheming_language_text(c.label))) %}
+  {% endfor %}
+{% endif %}
+
+{% set filtered_choices = [] %}
+{% set seen = [] %}
+{% for val, label in choices %}
+  {% if val in link_schema_list and val not in seen %}
+    {% do filtered_choices.append((val, label)) %}
+    {% do seen.append(val) %}
+  {% endif %}
+{% endfor %}
+
+{% block link_schema_list %}
+  {% if filtered_choices|length > 1 %}
+    <ul class="{{ _class }}">
+    {% for val, label in filtered_choices %}
+        <li>
+          <a class="{% block link_schema_list_item_class %}{{ val }}{% endblock %} truncate-link" href="{{ val }}">{{ label }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    {% for val, label in filtered_choices %}
+        <a class="{{ val }} truncate-link" href="{{ val }}">{{ label }}</a>
+    {% endfor %}
+  {% endif %}
+{% endblock %}

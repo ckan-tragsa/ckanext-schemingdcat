@@ -1,0 +1,49 @@
+{% ckan_extends %}
+
+{% block secondary_content %}
+    <section class="module module-narrow">
+    <h2 class="module-heading"><i class="fa fa-lg fa-info-circle icon-large icon-info-sign"></i> {{ _('Harvest sources') }}</h2>
+    <div class="module-content">
+        <p>
+        {% trans %}
+        Harvest sources allow importing remote metadata into this catalog.   Remote sources can be other catalogs such as other CKAN instances, CSW servers, XML metadata files, XLSX with metadata records or Web Accessible Folder (WAF).
+        {% endtrans %}
+        </p>
+        
+        <p>
+        {{ _('Depending on the actual harvesters enabled for this instance. eg: ') }}
+        <ul>
+            <li><a href="https://github.com/mjanez/ckanext-scheming_dcat?tab=readme-ov-file#harvesters" target="_blank">ckanext-scheming_dcat</a></li>
+            <li><a href="https://github.com/ckan/ckanext-dcat?tab=readme-ov-file#rdf-dcat-harvester" target="_blank">ckanext-dcat</a></li>
+            <li><a href="https://docs.ckan.org/projects/ckanext-spatial/en/latest/harvesters.html" target="_blank">ckanext-scheming_spatial</a></li>
+            <li><a href="https://github.com/mjanez/ckanext-harvest?tab=readme-ov-file#ckanext-harvest---remote-harvesting-extension" target="_blank">ckanext-harvest</a></li>
+        </ul>
+        </p>
+        {% block harvest_info %}
+            {% set quote_content %}
+            {% trans %}
+            Only <code>sysadmin</code> users can manage harvest sources. Check the <a href='https://github.com/mjanez/ckanext-harvest'>ckanext-harvest</a> documentation for more information.
+            {% endtrans %}
+            {% endset %}
+            {% snippet "schemingdcat/snippets/quote_alerts.html", alert_type='info', content=quote_content %}
+        {% endblock %}
+    </div>
+
+    </section>
+    
+    {% block facets %}
+    <div class="filters">
+        <div>
+        {% for facet in c.facet_titles %}
+            {% if facet =='owner_org' %}
+            {% set label_function = h.schemingdcat_organization_name %}
+            {% else %}
+            {% set label_function = None %}
+            {% endif %}
+            {{ h.snippet('schemingdcat/snippets/schemingdcat_facet_list.html', title=c.facet_titles[facet], name=facet, search_facets=search_facets, alternative_url=h.url_for('{0}.search'.format(c.dataset_type))) }}
+        {% endfor %}
+        </div>
+        <a class="close no-text hide-filters"><i class="fa fa-times-circle"></i><span class="text">_('Close')</span></a>
+    </div>
+    {% endblock %}
+{% endblock %}

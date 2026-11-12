@@ -1,0 +1,43 @@
+{#
+
+Inspired by /group/snippets/group_item.html
+
+Renders a media item for a custom data. This should be used in a list.
+
+custom_data - A custom_data dict.
+identifier - dataset's identifier
+
+Example:
+
+    <ul class="media-grid">
+      {% for custom_data in custom_data_list %}
+        {% snippet "schemingdcat/custom_data/snippets/custom_data_item.html", custom_data=custom_data, id=id %}
+      {% endfor %}
+    </ul>
+#}
+
+{% set url = h.url_for(endpoint, **custom_data.endpoint_data) if endpoint else custom_data.url.format(id=id) %}
+
+{% block item %}
+  <li class="media-item">
+    {% block item_inner %}
+      <img src="{{ h.url_for_static(custom_data.image_display_url) if custom_data.image_display_url else h.url_for_static('/base/images/placeholder-group.png') }}" alt="{{ custom_data.name }}" class="media-image img-responsive">
+      <h2 class="media-heading">{{ custom_data.display_name }}</h2>
+      {% if custom_data.description %}
+        <p class="media-description">{{ h.markdown_extract(custom_data.description, extract_length=80) }}</p>
+      {% endif %}
+      <a href="{{ url }}" title="{{ _('View {name}').format(name=custom_data.display_name) }}" class="media-view" target="_blank">
+        <span>
+          {{ _('View {name}').format(name=custom_data.display_name) }}
+        </span>
+      </a>
+      {% if custom_data.description_url %}
+        <a href="{{ custom_data.description_url }}" target="_blank" class="media-description-url-overlay-link">{{ _('Definition') }}</a>
+      {% endif %}
+    {% endblock %}
+  </li>
+{% endblock %}
+
+{% if position is divisibleby 3 %}
+  <li class="clearfix js-hide"></li>
+{% endif %}

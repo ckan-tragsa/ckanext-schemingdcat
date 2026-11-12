@@ -1,0 +1,25 @@
+{% extends "page.html" %}
+
+{% block subtitle %}{{ _('About') }}{% endblock %}
+
+{% block breadcrumb_content %}
+  <li class="active">{% link_for _('About'), 'home.about' %}</li>
+{% endblock %}
+
+{% block primary %}
+  <article class="module about" role="main">
+    <div class="module-content">
+      {% block about %}
+        {% if g.site_about %}
+          {% set intro = h.schemingdcat_extract_lang_text(g.site_about, h.schemingdcat_get_current_lang())  %}
+          {{ h.render_markdown(intro) }}
+        {% else %}
+          <h1 class="page-heading">{{ _('About') }}</h1>
+          {% snippet 'home/snippets/about_text.html' %}
+        {% endif %}
+      {% endblock %}
+    </div>
+  </article>
+{% endblock %}
+
+{% block secondary %}{% endblock %}

@@ -1,0 +1,12 @@
+{% block package_metadata %} {% asset
+  'ckanext-schemingdcat/schemingdcat-permanent-url' %}
+  <li class="nav-item permanav" title="{{ _('Permalink') }}" id="copy" style="position: relative;">
+    <label for="permalink-checkbox" class="permalink-label"
+      ><i class="fa fa-external-link-square"></i> {{ _('URIRef') }}</label
+    >
+    <div style="display: flex; align-items: center; position: relative;">
+      <input class="permalink-input" id="input" value="{{ url }}" type="url" style="flex: 1;" />
+      <img id="permalink-clipboard-icon" src="{{ h.url_for_static('/images/default/clipboard.svg') }}" class="permalink-clipboard-icon" alt="Clipboard Icon">
+    </div>
+  </li>
+  {% endblock %}

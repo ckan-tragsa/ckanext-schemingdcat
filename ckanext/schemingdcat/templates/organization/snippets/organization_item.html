@@ -1,0 +1,20 @@
+{% ckan_extends %}
+
+{% set url = h.url_for(organization.type ~ '.read', id=organization.name) %}
+{% set truncate = truncate or 80 %}
+{% set title = h.dataset_display_name(organization) %}
+{% set notes = h.markdown_extract(h.dataset_display_field_value(organization, 'description'), extract_length=truncate) %}
+
+      {% block title %}
+        <h2 class="media-heading">{{ title }}</h2>
+      {% endblock %}
+      {% block description %}
+        {% if organization.description %}
+          <p class="media-description">{{ notes }}</p>
+        {% endif %}
+      {% endblock %}
+      {% block link %}
+      <a href="{{ url }}" title="{{ _('View {organization_name}').format(organization_name=title) }}" class="media-view">
+        <span>{{ _('View {organization_name}').format(organization_name=title) }}</span>
+      </a>
+      {% endblock %}

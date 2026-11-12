@@ -1,0 +1,46 @@
+{% ckan_extends %}
+
+{% block secondary_content %}
+  {% block secondary_help_content %}{% endblock %}
+
+  {% block package_info %}
+    {% if pkg.organization %}
+      {% set org = h.get_organization(pkg.organization.id) %}
+      {% snippet 'schemingdcat/snippets/schemingdcat_info.html', pkg_dict=pkg, dataset_type=dataset_type, organization=org %}
+    {% endif %}
+  {% endblock %}
+
+  {% block graphic_overview %}
+    {% if pkg.graphic_overview %}
+      {% snippet "schemingdcat/snippets/graphic_overview.html", pkg_dict=pkg %}
+    {% endif %}
+  {% endblock %}
+
+  {% block package_data_access %}
+    {% if pkg.license_id and pkg.access_rights %}
+      {% snippet "schemingdcat/snippets/data_access_license.html", pkg_dict=pkg, dataset_type=dataset_type %}
+    {% endif %}
+  {% endblock %}
+  
+  {% block package_publisher_info %}
+    {% if pkg.publisher_name %}
+      {% snippet "schemingdcat/snippets/publisher_info.html", pkg_dict=pkg, dataset_type=dataset_type %}
+    {% endif %}
+  {% endblock %}
+
+  {% block package_contact_info %}
+    {% if pkg.contact_name %}
+      {% snippet "schemingdcat/snippets/contact_info.html", pkg_dict=pkg, dataset_type=dataset_type %}
+    {% endif %}
+  {% endblock %}
+
+  {% block package_related_resources %}
+    {% if pkg.reference %}
+      {% snippet "schemingdcat/snippets/related_resources.html", pkg_dict=pkg%}
+    {% endif %}
+  {% endblock %}
+
+  {% block package_social %}
+    {% snippet "schemingdcat/snippets/schemingdcat_social.html", pkg_dict=pkg %}
+  {% endblock %}
+{% endblock %}

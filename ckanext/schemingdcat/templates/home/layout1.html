@@ -1,0 +1,35 @@
+<div role="main">
+  <div class="main hero">
+    <div class="container">
+      <div class="row row1">
+        <div class="col-md-12">
+          {% block search %}
+            {% snippet 'home/snippets/search.html', search_facets=search_facets %}
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main">
+    <div class="container">
+      <div class="row row2">
+        <div class="col-md-12">
+          {% if h.schemingdcat_open_data_statistics_enabled().portal %}
+            {% block about_portal %}
+              {% snippet 'home/snippets/about_portal.html' %}
+            {% endblock %}
+          {% endif %}
+        </div>
+      </div>
+      <div class="row row2"></div>
+        <div class="col-md-12">
+          {% if h.schemingdcat_open_data_statistics_enabled().themes %}
+            {% block about_themes %}
+              {% snippet 'home/snippets/about_themes.html' %}
+            {% endblock %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

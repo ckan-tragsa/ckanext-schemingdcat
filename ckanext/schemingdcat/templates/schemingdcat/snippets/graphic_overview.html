@@ -1,0 +1,16 @@
+{% block graphic_overview %}
+    {% if pkg_dict.graphic_overview %}
+        <section class="module module-narrow">
+            <h2 class="module-heading"><i class="fa fa-file-image"></i> {{ _('Graphic overview') }}</h2>
+            {% block inner %}
+                {% block image %}
+                <div class="graphic_overview">
+                    <a href="{{ pkg_dict.graphic_overview }}" target="_blank">
+                            <img src="{{ pkg_dict.graphic_overview}}" width="100%" alt="graphic_overview" class="item_image"/>
+                    </a>
+                </div>
+                {% endblock %}
+            {% endblock %}
+        </section>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,45 @@
+{# 
+  Macro to render a quote alert with a specific type and content.
+
+  Args:
+      alert_type (str): The type of the alert. Possible values are 'tip', 'note', 'warning', 'caution', 'important'.
+      content (str): The HTML content to be displayed inside the alert.
+
+  Example:
+      {% block api_info %}
+        {% set quote_content %}
+          {% trans %}
+          Further information in the <a href="http://docs.ckan.org/en/latest/maintaining/datastore.html" target="_blank">main CKAN Data API and DataStore documentation</a>.
+          {% endtrans %}
+        {% endset %}
+        {% snippet "schemingdcat/snippets/quote_alerts.html", alert_type='tip', content=quote_content %}
+      {% endblock %}
+#}
+{% macro render_quote_alert(alert_type, content) %}
+    {# Ensure alert_type is valid, otherwise default to 'note' #}
+    {% if alert_type not in ['tip', 'note', 'warning', 'caution', 'important'] %}
+        {% set alert_type = 'note' %}
+    {% endif %}
+
+    <div class="quote-alert {{ alert_type }}">
+        <div class="quote-alert-title">
+            {% if alert_type == 'tip' %}
+                <i class="far fa-lightbulb"></i>{{ _('Tip') }}
+            {% elif alert_type == 'note' %}
+                <i class="far fa-sticky-note"></i>{{ _('Note') }}
+            {% elif alert_type == 'warning' %}
+                <i class="fas fa-exclamation-triangle"></i>{{ _('Warning') }}
+            {% elif alert_type == 'caution' %}
+                <i class="fas fa-exclamation-circle"></i>{{ _('Caution') }}
+            {% elif alert_type == 'important' %}
+                <i class="far fa-star"></i>{{ _('Important') }}
+            {% endif %}
+        </div>
+
+        <div class="quote-alert-content">
+            {{ content | safe }}
+        </div>
+    </div>
+{% endmacro %}
+
+{{ render_quote_alert(alert_type, content) }}

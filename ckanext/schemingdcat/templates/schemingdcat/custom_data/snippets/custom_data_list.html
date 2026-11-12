@@ -1,0 +1,23 @@
+{#
+Inspired by /group/snippets/group_list.html
+
+Display a grid of linked data items.
+
+data_list - A list of data to link.
+identifier - dataset's identifier
+
+Example:
+
+    {% snippet "schemingdcat/custom_data/snippets/custom_data_list.html", data_list=data_list, id=id[, endpoint=endpoint] %}
+
+#}
+{% block custom_data_list %}
+<ul class="media-grid" data-bs-module="media-grid">
+  {% block custom_data_list_inner %}
+  {% for custom_data in data_list %}
+    {% snippet "schemingdcat/custom_data/snippets/custom_data_item.html", custom_data=custom_data, id=id, endpoint=endpoint, position=loop.index %}
+  {% endfor %}
+  {% endblock %}
+</ul>
+{% endblock %}
+

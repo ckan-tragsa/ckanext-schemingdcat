@@ -1,0 +1,552 @@
+{
+  "scheming_presets_version": 1,
+  "about": "These are the default schemingdcat field presets",
+  "about_url": "http://github.com/ckan/ckanext-scheming#preset",
+  "presets": [
+    {
+      "preset_name": "title",
+      "values": {
+        "validators": "if_empty_same_as(name) unicode_safe",
+        "form_snippet": "large_text.html",
+        "form_attrs": {
+          "data-module": "slug-preview-target"
+        }
+      }
+    },
+    {
+      "preset_name": "dataset_slug",
+      "values": {
+        "validators": "not_empty unicode_safe name_validator package_name_validator"
+      }
+    },
+    {
+      "preset_name": "dataset_url",
+      "values": {
+        "form_snippet": null,
+        "display_snippet": null,
+        "display_property": "dcat:landingPage",
+        "validators": "schemingdcat_dataset_url unicode_safe"
+      }
+    },
+    {
+      "preset_name": "schemingdcat_dataset_slug",
+      "values": {
+        "validators": "not_empty unicode_safe name_validator package_name_validator",
+        "form_snippet": "schemingdcat/form_snippets/schemingdcat_slug.html"
+      }
+    },
+    {
+      "preset_name": "tag_string_autocomplete",
+      "values": {
+        "validators": "ignore_missing tag_string_convert",
+        "classes": ["control-full"],
+        "form_attrs": {
+          "data-module": "autocomplete",
+          "data-module-tags": "",
+          "data-module-source": "/api/2/util/tag/autocomplete?incomplete=?",
+          "class": ""
+        }
+      }
+    },
+    {
+      "preset_name": "normalize_tag_string_autocomplete",
+      "values": {
+        "validators": "ignore_missing normalize_tag_strings tag_string_convert",
+        "classes": ["control-full"],
+        "form_attrs": {
+          "data-module": "autocomplete",
+          "data-module-tags": "",
+          "data-module-source": "/api/2/util/tag/autocomplete?incomplete=?",
+          "class": ""
+        }
+      }
+    },
+    {
+      "preset_name": "tag_string_uris",
+      "values": {
+        "validators": "owner_org_validator tag_string_convert",
+        "form_snippet": "multiple_text.html"
+      }
+    },
+    {
+      "preset_name": "valid_url",
+      "values": {
+        "validators": "ignore_missing schemingdcat_valid_url",
+        "display_snippet": "schemingdcat/display_snippets/link.html"
+      }
+    },
+    {
+      "preset_name": "valid_url_dependent_fields",
+      "values": {
+        "validators": "ignore_missing schemingdcat_valid_url schemingdcat_fill_dependent_fields",
+        "display_snippet": "schemingdcat/display_snippets/link.html"
+      }
+    },
+    {
+      "preset_name": "dataset_organization",
+      "values": {
+        "validators": "owner_org_validator unicode_safe",
+        "form_snippet": "schemingdcat/form_snippets/organization.html"
+      }
+    },
+    {
+      "preset_name": "resource_url_upload",
+      "values": {
+        "validators": "ignore_missing unicode_safe remove_whitespace",
+        "form_snippet": "upload.html",
+        "form_placeholder": "http://example.com/my-data.csv",
+        "upload_field": "upload",
+        "upload_clear": "clear_upload",
+        "upload_label": "Upload a file"
+      }
+    },
+    {
+      "preset_name": "organization_url_upload",
+      "values": {
+        "validators": "ignore_missing unicode_safe remove_whitespace",
+        "form_snippet": "organization_upload.html",
+        "form_placeholder": "http://example.com/my-data.csv"
+      }
+    },
+    {
+      "preset_name": "resource_format_autocomplete",
+      "values": {
+        "validators": "schemingdcat_if_empty_guess_format ignore_missing clean_format unicode_safe",
+        "form_placeholder": "e.g. CSV, XML or JSON",
+        "form_attrs": {
+          "data-module": "autocomplete",
+          "data-module-source": "/api/2/util/resource/format_autocomplete?incomplete=?"
+        }
+      }
+    },
+    {
+      "preset_name": "select",
+      "values": {
+        "form_snippet": "select.html",
+        "display_snippet": "select.html",
+        "validators": "scheming_required scheming_choices"
+      }
+    },
+    {
+      "preset_name": "select_not_empty",
+      "values": {
+        "form_snippet": "select.html",
+        "display_snippet": "select.html",
+        "validators": "not_empty scheming_required scheming_choices"
+      }
+    },
+    {
+      "preset_name": "select_dependent_fields",
+      "values": {
+        "form_snippet": "select.html",
+        "display_snippet": "select.html",
+        "validators": "scheming_required scheming_choices schemingdcat_fill_dependent_fields"
+      }
+    },
+    {
+      "preset_name": "multiple_checkbox",
+      "values": {
+        "form_snippet": "multiple_checkbox.html",
+        "display_snippet": "multiple_choice.html",
+        "validators": "scheming_multiple_choice",
+        "output_validators": "scheming_multiple_choice_output"
+      }
+    },
+    {
+      "preset_name": "multiple_select",
+      "values": {
+        "form_snippet": "multiple_select.html",
+        "display_snippet": "multiple_choice.html",
+        "validators": "scheming_multiple_choice",
+        "output_validators": "scheming_multiple_choice_output"
+      }
+    },
+    {
+      "preset_name": "schemingdcat_dataset_type",
+      "values": {
+        "form_snippet": "select.html",
+        "display_snippet": "select.html",
+        "validators": "default(http://publications.europa.eu/resource/authority/dataset-type/STATISTICAL) scheming_required scheming_choices"
+      }
+    },
+    {
+      "preset_name": "schemingdcat_xls_metadata_template",
+      "values": {
+        "form_snippet": null,
+        "display_snippet": null,
+        "validators": "default(False) schemingdcat_xls_metadata_template",
+        "output_validators": "boolean_validator"
+      }
+    },
+    {
+      "preset_name": "dataset_scope",
+      "values": {
+        "form_snippet": null,
+        "display_snippet": null,
+        "validators": "default(non_spatial_dataset) schemingdcat_dataset_scope"
+      }
+    },
+    {
+      "preset_name": "dataset_private",
+      "values": {
+        "form_snippet": "schemingdcat/form_snippets/dataset_private.html",
+        "display_snippet": null,
+        "validators": "default(True) scheming_required boolean_validator",
+        "output_validators": "boolean_validator"
+      }
+    },
+    {
+      "preset_name": "date",
+      "values": {
+        "form_snippet": "date.html",
+        "display_snippet": "schemingdcat/display_snippets/date_localised.html",
+        "validators": "scheming_required isodate convert_to_json_if_date"
+      }
+    },
+    {
+      "preset_name": "date_not_required",
+      "values": {
+        "form_snippet": "date.html",
+        "display_snippet": "schemingdcat/display_snippets/date_localised.html",
+        "validators": "ignore_missing isodate convert_to_json_if_date"
+      }
+    },
+    {
+      "preset_name": "date_dependent_fields",
+      "values": {
+        "form_snippet": "date.html",
+        "display_snippet": "schemingdcat/display_snippets/date_localised.html",
+        "validators": "scheming_required isodate convert_to_json_if_date schemingdcat_fill_dependent_fields"
+      }
+    },
+    {
+      "preset_name": "date_dcatap",
+      "values": {
+        "form_snippet": "date.html",
+        "display_snippet": "schemingdcat/display_snippets/date_localised.html",
+        "validators": "ignore_missing isodate convert_to_json_if_date"
+      }
+    },
+
+    {
+      "preset_name": "date_modified",
+      "values": {
+        "form_snippet": null,
+        "display_snippet": "schemingdcat/display_snippets/date_localised.html",
+        "validators": "schemingdcat_update_modified scheming_required isodate convert_to_json_if_date"
+      }
+    },
+    {
+      "preset_name": "date_created",
+      "values": {
+        "form_snippet": "date.html",
+        "display_snippet": "schemingdcat/display_snippets/date_localised.html",
+        "display_property": "dct:format",
+        "validators": "schemingdcat_if_empty_datenow scheming_required isodate convert_to_json_if_date"
+      }
+    },
+    {
+      "preset_name": "datetime",
+      "values": {
+        "form_snippet": "datetime.html",
+        "display_snippet": "datetime.html",
+        "validators": "scheming_isodatetime convert_to_json_if_datetime"
+      }
+    },
+    {
+      "preset_name": "datetime_tz",
+      "values": {
+        "form_snippet": "datetime_tz.html",
+        "display_snippet": "datetime_tz.html",
+        "validators": "scheming_isodatetime_tz convert_to_json_if_datetime"
+      }
+    },
+    {
+      "preset_name": "json_object",
+      "values": {
+        "validators": "scheming_required scheming_valid_json_object",
+        "output_validators": "scheming_load_json",
+        "form_snippet": "json.html",
+        "display_snippet": "json.html"
+      }
+    },
+    {
+      "preset_name": "multiple_text",
+      "values": {
+        "form_snippet": "schemingdcat/form_snippets/multiple_text.html",
+        "validators": "ignore_missing schemingdcat_multiple_text",
+        "output_validators": "scheming_load_json"
+      }
+    },
+    {
+      "preset_name": "select_icon",
+      "values": {
+        "form_snippet": "schemingdcat/form_snippets/select_icon.html",
+        "display_snippet": "schemingdcat/display_snippets/select_icon.html",
+        "validators": "ignore_missing"
+      }
+    },
+    {
+      "preset_name": "select_spatial_icon",
+      "values": {
+        "form_snippet": "schemingdcat/form_snippets/select_spatial_uri.html",
+        "display_snippet": "schemingdcat/display_snippets/select_spatial_icon.html",
+        "validators": "ignore_missing"
+      }
+    },
+    {
+      "preset_name": "select_spatial_icon_dependent_fields",
+      "values": {
+        "form_snippet": "schemingdcat/form_snippets/select_spatial_uri.html",
+        "display_snippet": "schemingdcat/display_snippets/select_spatial_icon.html",
+        "validators": "ignore_missing schemingdcat_fill_spatial_uri_dependent_fields"
+      }
+    },
+    {
+      "preset_name": "multiple_choice_icon",
+      "values": {
+        "form_snippet": "schemingdcat/form_snippets/multiple_select_icon.html",
+        "display_snippet": "schemingdcat/display_snippets/multiple_choice_icon.html",
+        "validators": "ignore_missing schemingdcat_multiple_choice",
+        "output_validators": "scheming_multiple_choice_output"
+      }
+    },
+    {
+      "preset_name": "multiple_choice_custom_tag",
+      "values": {
+        "form_snippet": "schemingdcat/form_snippets/multiple_custom_tag.html",
+        "validators": "ignore_missing schemingdcat_multiple_choice_custom_tag_string tag_string_convert",
+        "output_validators": "schemingdcat_multiple_choice_custom_tag_output"
+      }
+    },
+    {
+      "preset_name": "multiple_text_links",
+      "values": {
+        "form_snippet": "schemingdcat/form_snippets/multiple_text.html",
+        "display_snippet": "schemingdcat/display_snippets/list_links.html",
+        "validators": "ignore_missing schemingdcat_multiple_text",
+        "output_validators": "scheming_load_json"
+      }
+    },
+    {
+      "preset_name": "multiple_metadata_profiles",
+      "values": {
+        "form_snippet": "schemingdcat/form_snippets/multiple_text.html",
+        "display_snippet": "schemingdcat/display_snippets/list_metadata_profiles.html",
+        "validators": "ignore_missing schemingdcat_multiple_text",
+        "output_validators": "scheming_load_json"
+      }
+    },
+    {
+      "preset_name": "multiple_text_raws_ordered",
+      "values": {
+        "form_snippet": "schemingdcat/form_snippets/multiple_text.html",
+        "display_snippet": "schemingdcat/display_snippets/list_raws_ordered.html",
+        "validators": "ignore_missing schemingdcat_multiple_text",
+        "output_validators": "scheming_load_json"
+      }
+    },
+    {
+      "preset_name": "required_multiple_text_raws_ordered",
+      "values": {
+        "form_snippet": "schemingdcat/form_snippets/multiple_text.html",
+        "display_snippet": "schemingdcat/display_snippets/list_raws_ordered.html",
+        "validators": "not_empty scheming_required schemingdcat_multiple_text",
+        "output_validators": "scheming_load_json"
+      }
+    },
+    {
+      "preset_name": "required_multiple_text_links",
+      "values": {
+        "form_snippet": "schemingdcat/form_snippets/multiple_text.html",
+        "display_snippet": "schemingdcat/display_snippets/list_links.html",
+        "validators": "not_empty scheming_required schemingdcat_multiple_text",
+        "output_validators": "scheming_load_json"
+      }
+    },
+    {
+      "preset_name": "markdown",
+      "values": {
+        "form_snippet": "markdown.html",
+        "display_snippet": "markdown.html"
+      }
+    },
+    {
+      "preset_name": "radio",
+      "values": {
+        "form_snippet": "radio.html",
+        "display_snippet": "select.html",
+        "validators": "scheming_required scheming_choices"
+      }
+    },
+    {
+      "preset_name": "spatial",
+      "values": {
+        "form_snippet": "json.html",
+        "display_snippet": "schemingdcat/display_snippets/spatial_json.html",
+        "validators": "schemingdcat_spatial_uri_validator ignore_missing schemingdcat_valid_json_object"
+      }
+    },
+    {
+      "preset_name": "spatial_dependent_fields",
+      "values": {
+        "form_snippet": "json.html",
+        "display_snippet": "schemingdcat/display_snippets/spatial_json.html",
+        "validators": "schemingdcat_spatial_uri_validator ignore_missing schemingdcat_valid_json_object schemingdcat_fill_spatial_dependent_fields"
+      }
+    },
+
+    {
+      "preset_name": "hide_spatial_coverage",
+          "values": {
+            "form_snippet": null,
+            "display_snippet": null,
+            "validators": "schemingdcat_spatial_coverage_validator"
+          }
+    },
+    {
+      "preset_name": "schemingdcat_identifier",
+      "values": {
+        "validators": "not_empty scheming_required schemingdcat_clean_identifier",
+        "form_attrs": {
+          "data-module": "slug-preview-target"
+        }
+      }
+    },
+    {
+      "preset_name": "schemingdcat_fluent_title_translated",
+      "values": {
+        "form_snippet": "schemingdcat/form_snippets/schemingdcat_fluent_text.html",
+        "display_snippet": "fluent_text.html",
+        "error_snippet": "schemingdcat/error_snippets/schemingdcat_fluent_text.html",
+        "validators": "if_empty_same_as(name) unicode_safe not_empty scheming_required schemingdcat_fluent_text",
+        "output_validators": "schemingdcat_fluent_core_translated_output"
+      }
+    },
+    {
+      "preset_name": "schemingdcat_fluent_notes_translated",
+      "values": {
+        "form_snippet": "schemingdcat/form_snippets/schemingdcat_fluent_markdown.html",
+        "display_snippet": "fluent_markdown.html",
+        "error_snippet": "schemingdcat/error_snippets/schemingdcat_fluent_text.html",
+        "validators": "unicode_safe schemingdcat_fluent_text",
+        "output_validators": "schemingdcat_fluent_core_translated_output"
+      }
+    },
+    {
+      "preset_name": "schemingdcat_fluent_core_translated_txt",
+      "values": {
+        "form_snippet": "schemingdcat/form_snippets/schemingdcat_fluent_text.html",
+        "display_snippet": "fluent_text.html",
+        "error_snippet": "schemingdcat/error_snippets/schemingdcat_fluent_text.html",
+        "validators": "schemingdcat_fluent_text",
+        "output_validators": "schemingdcat_fluent_core_translated_output"
+      }
+    },
+    {
+      "preset_name": "schemingdcat_fluent_core_translated_md",
+      "values": {
+        "form_snippet": "schemingdcat/form_snippets/schemingdcat_fluent_markdown.html",
+        "display_snippet": "fluent_markdown.html",
+        "error_snippet": "schemingdcat/error_snippets/schemingdcat_fluent_text.html",
+        "validators": "unicode_safe not_empty schemingdcat_fluent_text",
+        "output_validators": "schemingdcat_fluent_core_translated_output"
+      }
+    },
+    {
+      "preset_name": "schemingdcat_fluent_text",
+      "values": {
+        "form_snippet": "schemingdcat/form_snippets/schemingdcat_fluent_text.html",
+        "display_snippet": "fluent_text.html",
+        "error_snippet": "schemingdcat/error_snippets/schemingdcat_fluent_text.html",
+        "validators": "unicode_safe schemingdcat_fluent_text",
+        "output_validators": "fluent_text_output"
+      }
+    },
+    {
+      "preset_name": "schemingdcat_fluent_tags",
+      "values": {
+        "form_snippet": "schemingdcat/form_snippets/schemingdcat_fluent_tags.html",
+        "display_snippet": "fluent_tags.html",
+        "error_snippet": "schemingdcat/error_snippets/schemingdcat_fluent_text.html",
+        "validators": "fluent_tags",
+        "output_validators": "fluent_tags_output",
+        "form_attrs": {
+          "data-module": "autocomplete",
+          "data-module-tags": ""
+        }
+      }
+    },
+    {
+      "preset_name": "schemingdcat_fluent_markdown",
+      "values": {
+        "form_snippet": "schemingdcat/form_snippets/schemingdcat_fluent_markdown.html",
+        "display_snippet": "fluent_markdown.html",
+        "error_snippet": "schemingdcat/error_snippets/schemingdcat_fluent_text.html",
+        "validators": "unicode_safe schemingdcat_fluent_text",
+        "output_validators": "fluent_text_output"
+      }
+    },
+    {
+      "preset_name": "schemingdcat_fluent_link",
+      "values": {
+        "form_snippet": "schemingdcat/form_snippets/schemingdcat_fluent_text.html",
+        "display_snippet": "fluent_link.html",
+        "error_snippet": "schemingdcat/error_snippets/schemingdcat_fluent_text.html",
+        "validators": "unicode_safe schemingdcat_fluent_text",
+        "output_validators": "fluent_text_output"
+      }
+    },
+    {
+      "preset_name": "multilingual_output",
+      "values": {
+        "validators": "ignore",
+        "output_validators": "multilingual_text_output"
+      }
+    },
+    {
+      "preset_name": "hidden_field",
+      "values": {
+        "form_snippet": null,
+        "validators": "ignore"
+      }
+    },
+    {
+      "preset_name": "hide_fallback",
+          "values": {
+            "form_snippet": null,
+            "display_snippet": null
+          }
+    },
+    {
+      "preset_name": "file_size",
+      "values": {
+        "validators": "default(0) natural_number_validator",
+        "display_snippet": "schemingdcat/display_snippets/file_size.html",
+        "form_snippet": "schemingdcat/form_snippets/file_size.html"
+      }
+    },
+    {
+      "preset_name": "schemingdcat_valid_email",
+      "values": {
+        "validators": "ignore_missing schemingdcat_valid_email",
+        "display_snippet": "email.html"
+      }
+    },
+    {
+      "preset_name": "schemingdcat_valid_email_dependent_fields",
+      "values": {
+        "validators": "ignore_missing schemingdcat_valid_email schemingdcat_fill_dependent_fields",
+        "display_snippet": "email.html"
+      }
+    },
+    {
+      "preset_name": "access_rights",
+      "values": {
+        "form_snippet": "select.html",
+        "display_snippet": "schemingdcat/display_snippets/link_schema.html",
+        "validators": "default(http://inspire.ec.europa.eu/metadata-codelist/LimitationsOnPublicAccess/noLimitations) scheming_required scheming_choices"
+      }
+    }
+  ]
+}

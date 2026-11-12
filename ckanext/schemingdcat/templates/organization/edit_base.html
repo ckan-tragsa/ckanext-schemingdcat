@@ -1,0 +1,9 @@
+{% ckan_extends %}
+
+{% block secondary_content %}
+  {% if organization %}
+    {% snippet 'schemingdcat/snippets/organization.html', organization=organization %}
+  {% else %}
+    {{ super() }}
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:cnt="http://www.w3.org/2011/content#"
+   xmlns:dcat="http://www.w3.org/ns/dcat#"
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:foaf="http://xmlns.com/foaf/0.1/"
+   xmlns:geodcatap="http://data.europa.eu/930/"
+   xmlns:locn="http://www.w3.org/ns/locn#"
+   xmlns:prov="http://www.w3.org/ns/prov#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:vcard="http://www.w3.org/2006/vcard/ns#"
+>
+  <rdf:Description rdf:nodeID="N5a84f7e8344540f7bfa3ed46bb7d10fc">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+    <prov:used rdf:resource="https://192.168.68.106:8482/dataset/3e4da15e-ec6a-5a71-b3d4-51d9bfcdfad8/"/>
+    <prov:qualifiedAssociation rdf:nodeID="N82adf3a5d45748b1b8cc9eab475c6489"/>
+    <prov:generated rdf:nodeID="Nf9deeeee88604a10af90f4716019d4b1"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N57a4c458f3c94b0980980c75e37d5dc7">
+    <rdf:type rdf:resource="http://www.w3.org/2006/vcard/ns#Organization"/>
+    <vcard:fn xml:lang="es">Subdirección General de Planificación, Red Transeuropea y Logística (SGPRTL) del Ministerio de Transportes y Movilidad Sostenible.</vcard:fn>
+    <vcard:hasEmail rdf:resource="mailto:hermes@transportes.gob.es"/>
+    <vcard:hasURL rdf:resource="https://www.transportes.gob.es/ministerio/proyectos-singulares/plataforma-hermes/formulario-contacto-plataforma-hermes"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7bb91e04ce3f4478b969251a49034652">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Plan"/>
+    <prov:wasDerivedFrom rdf:resource="http://data.europa.eu/eli/reg/2010/1089"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nbcb59e7b6bf6455fb48fe652602348c0">
+    <rdf:type rdf:resource="http://www.w3.org/2006/vcard/ns#Organization"/>
+    <vcard:fn xml:lang="es">Subdirección General de Planificación, Red Transeuropea y Logística (SGPRTL) del Ministerio de Transportes y Movilidad Sostenible.</vcard:fn>
+    <vcard:hasEmail rdf:resource="mailto:hermes@transportes.gob.es"/>
+    <vcard:hasURL rdf:resource="https://www.transportes.gob.es/ministerio/proyectos-singulares/plataforma-hermes/formulario-contacto-plataforma-hermes"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.europa.eu/eli/reg/2008/1205">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    <rdf:type rdf:resource="http://purl.org/dc/terms/Standard"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://192.168.68.106:8482/dataset/3e4da15e-ec6a-5a71-b3d4-51d9bfcdfad8/">
+    <foaf:isPrimaryTopicOf rdf:nodeID="N575bce8ab99443e7bbc8396c5d0c65e1"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Dataset"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    <geodcatap:resourceType rdf:resource="http://inspire.ec.europa.eu/metadata-codelist/ResourceType/dataset"/>
+    <dcterms:title xml:lang="es">Red de Ferrocarriles destinados al tráfico de mercancías de la Red global de la Red Transeuropea de Transportes (TEN-T) 2024/1679.</dcterms:title>
+    <dcterms:description xml:lang="es">Contiene el listado de tramos ferroviarios para el uso de mercancías que pertenecen a la Red Global de la Red Transeuropea de Transportes (TEN-T). _(*)Nota: La información mostrada en este conjunto de datos se corresponde con lo publicado en el Reglamento (UE) 2024/1679._</dcterms:description>
+    <dcterms:accrualPeriodicity rdf:resource="http://publications.europa.eu/resource/authority/frequency/CONT"/>
+    <geodcatap:topicCategory rdf:resource="http://inspire.ec.europa.eu/metadata-codelist/TopicCategory/transportation"/>
+    <dcat:theme rdf:resource="http://inspire.ec.europa.eu/theme/tn"/>
+    <dcat:theme rdf:resource="https://www.eionet.europa.eu/gemet/en/concept/11118"/>
+    <dcat:theme rdf:resource="http://inspire.ec.europa.eu/metadata-codelist/SpatialScope/national"/>
+    <dcterms:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></dcterms:identifier>
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
+    <dcterms:spatial rdf:nodeID="Nbd1b428858104d509e82988368f3af74"/>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-12-02T00:00:00+00:00</dcterms:created>
+    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-12-03T11:44:27+00:00</dcterms:issued>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-12-03T00:00:00+00:00</dcterms:modified>
+    <geodcatap:referenceSystem rdf:resource="http://www.opengis.net/def/crs/EPSG/0/25830"/>
+    <dcterms:conformsTo rdf:resource="http://data.europa.eu/eli/reg/2010/1089"/>
+    <dcterms:conformsTo rdf:resource="http://data.europa.eu/eli/reg/2008/1205"/>
+    <prov:wasUsedBy rdf:nodeID="N77e5c2bca4ee4413abd5774392ec7cda"/>
+    <prov:wasUsedBy rdf:nodeID="N0e5da43dbb65434092ead5d3d4071232"/>
+    <prov:wasUsedBy rdf:nodeID="N7e4aa153981f4035a256f068e634fa14"/>
+    <prov:wasUsedBy rdf:nodeID="N5a84f7e8344540f7bfa3ed46bb7d10fc"/>
+    <foaf:page rdf:resource="https://www.arcgis.com/home/webmap/viewer.html?url=https://mapas.fomento.gob.es/arcgis/rest/services/Hermes/NEW_RED_TRANSEUROPEA_DE_TRANSPORTE__TEN_T_2024/MapServer/34"/>
+    <foaf:page rdf:resource="https://mapas.fomento.gob.es/arcgis/rest/services/Hermes/NEW_RED_TRANSEUROPEA_DE_TRANSPORTE__TEN_T_2024/MapServer/34/query?where=Shape is not null&amp;amp;outFields=*&amp;amp;f=kmz"/>
+    <foaf:page rdf:resource="https://mapas.fomento.gob.es/arcgis/rest/services/Hermes/NEW_RED_TRANSEUROPEA_DE_TRANSPORTE__TEN_T_2024/MapServer/34/query?where=Shape is not null&amp;amp;outFields=*&amp;amp;f=json"/>
+    <foaf:page rdf:resource="https://drive.google.com/file/d/1Nq-T0Fs8d8Co3qdXA2CVcMXP9nZO3Dqe/preview"/>
+    <dcat:contactPoint rdf:nodeID="Nbcb59e7b6bf6455fb48fe652602348c0"/>
+    <prov:qualifiedAttribution rdf:nodeID="N236b2dcf990343fd8938342fe41f30ad"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7e4aa153981f4035a256f068e634fa14">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+    <prov:used rdf:resource="https://192.168.68.106:8482/dataset/3e4da15e-ec6a-5a71-b3d4-51d9bfcdfad8/"/>
+    <prov:qualifiedAssociation rdf:nodeID="Na6ecfb946c154297b733ad4664c4ef40"/>
+    <prov:generated rdf:nodeID="N0ed5c40117774a7ab5240aaa08bb4ec4"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.europa.eu/eli/reg/2010/1089">
+    <rdf:type rdf:resource="http://purl.org/dc/terms/Standard"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Neea421943559405ebe159b855a7554a4">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    <dcterms:type rdf:resource="http://inspire.ec.europa.eu/metadata-codelist/DegreeOfConformity/conformant"/>
+    <dcterms:description xml:lang="es">This data set is conformant with the INSPIRE Implementing Rules for the interoperability of spatial data sets and services</dcterms:description>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2994dae609e2469598bb1a212baaf1f5">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+    <foaf:name xml:lang="es">Subdirección General de Planificación, Red Transeuropea y Logística (SGPRTL) del Ministerio de Transportes y Movilidad Sostenible.</foaf:name>
+    <foaf:mbox rdf:resource="mailto:hermes@transportes.gob.es"/>
+    <foaf:workplaceHomepage rdf:resource="https://www.transportes.gob.es/ministerio/proyectos-singulares/plataforma-hermes/formulario-contacto-plataforma-hermes"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne4dea0f70c354ecf8b7e459bf07308a1">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    <dcterms:type rdf:resource="http://inspire.ec.europa.eu/metadata-codelist/DegreeOfConformity/conformant"/>
+    <dcterms:description xml:lang="es">This data set is conformant with the INSPIRE Implementing Rules for the interoperability of spatial data sets and services</dcterms:description>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf9deeeee88604a10af90f4716019d4b1">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    <dcterms:type rdf:resource="http://inspire.ec.europa.eu/metadata-codelist/DegreeOfConformity/conformant"/>
+    <dcterms:description xml:lang="es">This data set is conformant with the INSPIRE Implementing Rules for the interoperability of spatial data sets and services</dcterms:description>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf95ae4563e434f4c813b8deeee9a1ab3">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association"/>
+    <prov:hadPlan rdf:nodeID="N460493fe11e04f3b8730a696d1feb641"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4618ded4c56943b38c282ecccb697cab">
+    <rdf:type rdf:resource="http://purl.org/dc/terms/Standard"/>
+    <dcterms:title xml:lang="es">Reglamento (CE) Nº 1205/2008 de INSPIRE</dcterms:title>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nbd1b428858104d509e82988368f3af74">
+    <rdf:type rdf:resource="http://purl.org/dc/terms/Location"/>
+    <locn:geometry rdf:datatype="http://www.opengis.net/ont/geosparql#wktLiteral">POLYGON((-19.00 44.04,4.60 44.04,4.60 27.00,-19.00 27.00,-19.00 44.04))</locn:geometry>
+    <locn:geometry rdf:datatype="http://www.opengis.net/ont/geosparql#gmlLiteral">&lt;gml:Envelope srsName="http://www.opengis.net/def/crs/OGC/1.3/CRS84"&gt;&lt;gml:lowerCorner&gt;-19.00 27.00&lt;/gml:lowerCorner&gt;&lt;gml:upperCorner&gt;4.60 44.04&lt;/gml:upperCorner&gt;&lt;/gml:Envelope&gt;</locn:geometry>
+    <locn:geometry rdf:datatype="https://www.iana.org/assignments/media-types/application/vnd.geo+json">{"type":"Polygon","coordinates":[[[-19.00,44.04],[4.60,44.04],[4.60,27.00],[-19.00,27.00],[-19.00,44.04]]]}</locn:geometry>
+    <locn:geometry rdf:datatype="http://www.opengis.net/ont/geosparql#geoJSONLiteral">{"type":"Polygon","coordinates":[[[-19.00,44.04],[4.60,44.04],[4.60,27.00],[-19.00,27.00],[-19.00,44.04]]]}</locn:geometry>
+    <dcat:bbox rdf:datatype="http://www.opengis.net/ont/geosparql#wktLiteral">POLYGON((-19.00 44.04,4.60 44.04,4.60 27.00,-19.00 27.00,-19.00 44.04))</dcat:bbox>
+    <dcat:bbox rdf:datatype="http://www.opengis.net/ont/geosparql#gmlLiteral">&lt;gml:Envelope srsName="http://www.opengis.net/def/crs/OGC/1.3/CRS84"&gt;&lt;gml:lowerCorner&gt;-19.00 27.00&lt;/gml:lowerCorner&gt;&lt;gml:upperCorner&gt;4.60 44.04&lt;/gml:upperCorner&gt;&lt;/gml:Envelope&gt;</dcat:bbox>
+    <dcat:bbox rdf:datatype="https://www.iana.org/assignments/media-types/application/vnd.geo+json">{"type":"Polygon","coordinates":[[[-19.00,44.04],[4.60,44.04],[4.60,27.00],[-19.00,27.00],[-19.00,44.04]]]}</dcat:bbox>
+    <dcat:bbox rdf:datatype="http://www.opengis.net/ont/geosparql#geoJSONLiteral">{"type":"Polygon","coordinates":[[[-19.00,44.04],[4.60,44.04],[4.60,27.00],[-19.00,27.00],[-19.00,44.04]]]}</dcat:bbox>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0e5da43dbb65434092ead5d3d4071232">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+    <prov:used rdf:resource="https://192.168.68.106:8482/dataset/3e4da15e-ec6a-5a71-b3d4-51d9bfcdfad8/"/>
+    <prov:qualifiedAssociation rdf:nodeID="Nf95ae4563e434f4c813b8deeee9a1ab3"/>
+    <prov:generated rdf:nodeID="Neea421943559405ebe159b855a7554a4"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://mapas.fomento.gob.es/arcgis/rest/services/Hermes/NEW_RED_TRANSEUROPEA_DE_TRANSPORTE__TEN_T_2024/MapServer/34/query?where=Shape is not null&amp;amp;outFields=*&amp;amp;f=kmz">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
+    <dcterms:title xml:lang="es">KMZ</dcterms:title>
+    <dcterms:description xml:lang="es">Consulta para la descarga completa del conjunto de datos en formato KMZ. *(\*)Nota: El tiempo de descarga puede variar dependiendo del tamaño del archivo resultante.*</dcterms:description>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N77e5c2bca4ee4413abd5774392ec7cda">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+    <prov:used rdf:resource="https://192.168.68.106:8482/dataset/3e4da15e-ec6a-5a71-b3d4-51d9bfcdfad8/"/>
+    <prov:qualifiedAssociation rdf:nodeID="Nf989e905227c4e1c8cb5b27754059bfd"/>
+    <prov:generated rdf:nodeID="Ne4dea0f70c354ecf8b7e459bf07308a1"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf989e905227c4e1c8cb5b27754059bfd">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association"/>
+    <prov:hadPlan rdf:nodeID="N7bb91e04ce3f4478b969251a49034652"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://drive.google.com/file/d/1Nq-T0Fs8d8Co3qdXA2CVcMXP9nZO3Dqe/preview">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
+    <dcterms:title xml:lang="es">Diccionario de datos</dcterms:title>
+    <dcterms:description xml:lang="es">PDF que contiene el diccionario de datos asociado al conjunto de datos.</dcterms:description>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0ed5c40117774a7ab5240aaa08bb4ec4">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+    <dcterms:type rdf:resource="http://inspire.ec.europa.eu/metadata-codelist/DegreeOfConformity/conformant"/>
+    <dcterms:description xml:lang="es">This data set is conformant with the INSPIRE Implementing Rules for the interoperability of spatial data sets and services</dcterms:description>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N68d4c488d3934c21bdda03ae21ef138f">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Plan"/>
+    <prov:wasDerivedFrom rdf:resource="http://data.europa.eu/eli/reg/2008/1205"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://www.arcgis.com/home/webmap/viewer.html?url=https://mapas.fomento.gob.es/arcgis/rest/services/Hermes/NEW_RED_TRANSEUROPEA_DE_TRANSPORTE__TEN_T_2024/MapServer/34">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
+    <dcterms:title xml:lang="es">ESRI Map - Layer</dcterms:title>
+    <dcterms:description xml:lang="es">Layer de ArcGIS Map Service (URL y previsualización). URL: https://mapas.fomento.gob.es/arcgis/rest/services/Hermes/NEW_RED_TRANSEUROPEA_DE_TRANSPORTE__TEN_T_2024/MapServer/31</dcterms:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/frequency/CONT">
+    <rdf:type rdf:resource="http://purl.org/dc/terms/Frequency"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N11aa93d96f5c4dad82cf028321810c18">
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#CatalogRecord"/>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-12-03</dcterms:modified>
+    <cnt:characterEncoding rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UTF-8</cnt:characterEncoding>
+    <dcterms:conformsTo rdf:nodeID="N4618ded4c56943b38c282ecccb697cab"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N575bce8ab99443e7bbc8396c5d0c65e1">
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#CatalogRecord"/>
+    <foaf:primaryTopic rdf:resource="https://192.168.68.106:8482/dataset/3e4da15e-ec6a-5a71-b3d4-51d9bfcdfad8/"/>
+    <dcterms:conformsTo rdf:resource="http://data.europa.eu/930/"/>
+    <dcterms:language rdf:resource="http://publications.europa.eu/resource/authority/language/SPA"/>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-12-03T11:44:27+00:00</dcterms:modified>
+    <dcat:contactPoint rdf:nodeID="N57a4c458f3c94b0980980c75e37d5dc7"/>
+    <prov:qualifiedAttribution rdf:nodeID="N7863e4e3f65f462d89ef34a1a09c4a37"/>
+    <dcterms:identifier rdf:datatype="http://www.w3.org/2001/XMLSchema#string">3e4da15e-ec6a-5a71-b3d4-51d9bfcdfad8</dcterms:identifier>
+    <dcterms:source rdf:nodeID="N11aa93d96f5c4dad82cf028321810c18"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N39421d104022403eba875909f5faed1d">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Organization"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+    <foaf:name xml:lang="es">Subdirección General de Planificación, Red Transeuropea y Logística (SGPRTL) del Ministerio de Transportes y Movilidad Sostenible.</foaf:name>
+    <foaf:mbox rdf:resource="mailto:hermes@transportes.gob.es"/>
+    <foaf:workplaceHomepage rdf:resource="https://www.transportes.gob.es/ministerio/proyectos-singulares/plataforma-hermes/formulario-contacto-plataforma-hermes"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.opengis.net/def/crs/EPSG/0/25830">
+    <rdf:type rdf:resource="http://purl.org/dc/terms/Standard"/>
+    <dcterms:type rdf:resource="http://inspire.ec.europa.eu/glossary/SpatialReferenceSystem"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://mapas.fomento.gob.es/arcgis/rest/services/Hermes/NEW_RED_TRANSEUROPEA_DE_TRANSPORTE__TEN_T_2024/MapServer/34/query?where=Shape is not null&amp;amp;outFields=*&amp;amp;f=json">
+    <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
+    <dcterms:title xml:lang="es">JSON</dcterms:title>
+    <dcterms:description xml:lang="es">Consulta para la descarga completa del conjunto de datos en formato JSON</dcterms:description>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N460493fe11e04f3b8730a696d1feb641">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Plan"/>
+    <prov:wasDerivedFrom rdf:resource="http://data.europa.eu/eli/reg/2008/1205"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N82adf3a5d45748b1b8cc9eab475c6489">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association"/>
+    <prov:hadPlan rdf:nodeID="N68d4c488d3934c21bdda03ae21ef138f"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na6ecfb946c154297b733ad4664c4ef40">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association"/>
+    <prov:hadPlan rdf:nodeID="Na6f9d1f9bf4146f683865f1be1273512"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://inspire.ec.europa.eu/metadata-codelist/ResponsiblePartyRole/pointOfContact">
+    <rdf:type rdf:resource="http://www.w3.org/ns/dcat#Role"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N236b2dcf990343fd8938342fe41f30ad">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Attribution"/>
+    <prov:agent rdf:nodeID="N39421d104022403eba875909f5faed1d"/>
+    <dcterms:type rdf:resource="http://inspire.ec.europa.eu/metadata-codelist/ResponsiblePartyRole/pointOfContact"/>
+    <dcat:hadRole rdf:resource="http://inspire.ec.europa.eu/metadata-codelist/ResponsiblePartyRole/pointOfContact"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7863e4e3f65f462d89ef34a1a09c4a37">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Attribution"/>
+    <prov:agent rdf:nodeID="N2994dae609e2469598bb1a212baaf1f5"/>
+    <dcterms:type rdf:resource="http://inspire.ec.europa.eu/metadata-codelist/ResponsiblePartyRole/pointOfContact"/>
+    <dcat:hadRole rdf:resource="http://inspire.ec.europa.eu/metadata-codelist/ResponsiblePartyRole/pointOfContact"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na6f9d1f9bf4146f683865f1be1273512">
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Plan"/>
+    <prov:wasDerivedFrom rdf:resource="http://data.europa.eu/eli/reg/2010/1089"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.europa.eu/930/">
+    <rdf:type rdf:resource="http://purl.org/dc/terms/Standard"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://publications.europa.eu/resource/authority/language/SPA">
+    <rdf:type rdf:resource="http://purl.org/dc/terms/LinguisticSystem"/>
+  </rdf:Description>
+</rdf:RDF>

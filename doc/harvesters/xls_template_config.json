@@ -1,0 +1,49 @@
+{
+   "storage_type": "gspread",
+   "dataset_sheet": "Dataset",
+   "distribution_sheet": "Distribution",
+
+   ...
+   # other properties
+   ...
+
+   "field_mapping_schema_version": 2,
+   "dataset_field_mapping": {
+     "title": {
+         "field_name": "my_title"
+       },
+     "title_translated": {
+         "languages": {
+             "en": {
+                 "field_name": "my_title-en"
+             },
+             "de": {
+                 "field_value": ""
+             },
+             "es": {
+                 "field_name": "my_title"
+             }
+         }
+     },
+     "private": {
+         "field_name": "private"
+     },
+     "theme": {
+         "field_name": ["theme", "theme_eu"]
+     },
+     "tag_custom": {
+         "field_name": "keywords"
+     },
+     "tag_string": {
+         "field_name": ["theme_a", "theme_b", "theme_c"]
+     },
+     "theme_es": {
+         "field_value": "http://datos.gob.es/kos/sector-publico/sector/medio-ambiente"
+     },
+     "tag_uri": {
+         "field_name": "keyword_uri",
+         // "field_value" extends the original list of values retrieved from the remote file for all records.
+         "field_value": ["https://www.example.org/codelist/a","https://www.example.org/codelist/b", "https://www.example.org/codelist/c"] 
+     }
+   }
+ }

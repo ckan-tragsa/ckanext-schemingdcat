@@ -1,0 +1,1943 @@
+scheming_version: 2
+dataset_type: document
+about: "Datasets/Distributions: Adaptation for CKAN of the Data Catalog Vocabulary (DCAT) - Version 3 (https://www.w3.org/TR/vocab-dcat-3/)." 
+about_url: https://github.com/mjanez/ckanext-schemingdcat
+form_languages: ["en", "es"]
+required_language: "en"
+schema_version: 3.0
+schema_date: 2024-08-01
+schema_name: document
+schema_title: DCAT
+schema_description: Data Catalog Vocabulary (DCAT)
+schema_profile_version: 3.0.0
+schema_profile_url: https://www.w3.org/TR/vocab-dcat-3/
+schema_form_groups:
+  # Basic Info parties form_page (#1)
+  - form_group_id: title
+    label:
+      en: Title
+      es: Título
+    fa_icon: fa-sticky-note
+  - form_group_id: general_info
+    label:
+      en: General information
+      es: Información general
+    fa_icon: fa-info-circle 
+  - form_group_id: identification
+    label:
+      en: Dataset identification
+      es: Identificación del conjunto de datos
+    fa_icon: fa-id-card
+  - form_group_id: notes
+    label:
+      en: Abstract
+      es: Resumen
+    fa_icon: fa-file-text
+  - form_group_id: vocabs
+    label:
+      en: Vocabs information
+      es: Información de vocabularios
+    fa_icon: fa-database
+  - form_group_id: contact
+    label:
+      en: Contact information
+      es: Información de contacto
+    fa_icon: fa-address-book
+  # Responsible parties form_page (#2)
+  - form_group_id: publisher
+    label:
+      en: Publisher information
+      es: Información del publicador
+    fa_icon: fa-user
+  - form_group_id: maintainer
+    label:
+      en: Maintainer information
+      es: Información del mantenedor
+    fa_icon: fa-server
+  - form_group_id: author
+    label:
+      en: Author information
+      es: Información del autor
+    fa_icon: fa-pencil-square
+  # Quality form_page (#3)
+  - form_group_id: standards
+    label:
+      en: Standards compliance
+      es: Adecuación a estándares
+    fa_icon: fa-check-square
+  - form_group_id: temporal_info
+    label:
+      en: Timing
+      es: Información temporal
+    fa_icon: fa-clock  
+  - form_group_id: lineage
+    label:
+      en: Provenance information
+      es: Información de procedencia
+    fa_icon: fa-history
+  - form_group_id: purpose
+    label:
+      en: Purpose of the dataset
+      es: Propósito del conjunto de datos
+    fa_icon: fa-question-circle
+  # Spatial form_page (#4)
+  - form_group_id: spatial_info
+    label:
+      en: Location information
+      es: Información sobre localización
+    fa_icon: fa-map-marker
+  - form_group_id: inspire
+    label:
+      en: INSPIRE information
+      es: Información INSPIRE
+    fa_icon: fa-globe
+  # License form_page (#5)
+  - form_group_id: license_info
+    label:
+      en: License and restrictions
+      es: Licencia y restricciones
+    fa_icon: fa-lock
+  - form_group_id: version_notes
+    label:
+      en: Version information
+      es: Información sobre versiones
+    fa_icon: fa-info-circle
+  # Resources form_page
+  - form_group_id: resource_title
+    label:
+      en: Title
+      es: Título
+    fa_icon: fa-sticky-note
+  - form_group_id: resource_notes
+    label:
+      en: Abstract
+      es: Resumen
+    fa_icon: fa-file-text
+  - form_group_id: resource_identification
+    label:
+      en: Resource identification
+      es: Identificación del recurso
+    fa_icon: fa-id-card
+  - form_group_id: resource_url
+    label:
+      en: Resource locator
+      es: Localizador del recurso
+    fa_icon: fa-link
+  - form_group_id: resource_type
+    label:
+      en: Resource type information 
+      es: Información del tipo de recurso
+    fa_icon: fa-file-code 
+  - form_group_id: resource_license_info
+    label:
+      en: License and restrictions
+      es: Licencia y restricciones
+    fa_icon: fa-lock
+  - form_group_id: resource_lineage
+    label:
+      en: Provenance information
+      es: Información de procedencia
+    fa_icon: fa-history
+  - form_group_id: resource_standards
+    label:
+      en: Standards compliance
+      es: Adecuación a estándares
+    fa_icon: fa-check-square
+
+### Codes in Schema
+# (M): Mandatory
+# (R): Recommended
+# (C): Conditional
+# (O): Optional
+
+#--Dataset (dcat:Dataset) fields--#
+dataset_fields:
+
+#--Basic info--#
+- start_form_page:
+    title: 
+      en: Basic Info
+      es: Identificación
+    description: 
+      en: Basic metadata identification and reference information.
+      es: Información básica de identificación y referencia de los metadatos.
+
+# Dataset title translated (M)
+  field_name: title_translated
+  label: 
+    en: Dataset title
+    es: Título del conjunto de datos
+  preset: schemingdcat_fluent_title_translated
+  required: True
+  display_property: dct:title
+  form_placeholder:
+    en: e.g. A descriptive title.
+    es: ej. Un título descriptivo.
+  form_languages: ["en", "es"]
+  required_language: "en"
+  form_group_id: title
+
+# Metadata template for schemingdcat_xls harvester
+- field_name: schemingdcat_xls_metadata_template
+  label:
+    en: Metadata template for schemingdcat_xls harvester
+    es: Plantilla de metadatos para el cosechador schemingdcat_xls
+  preset: schemingdcat_xls_metadata_template
+  required: False
+  choices:
+    - label:
+        en: "No"
+        es: "No"
+      value: False
+    - label:
+        en: "Yes"
+        es: "Si"
+      value: True
+  help_text:
+    en: 'ckanext-schemingdcat <a href="https://github.com/mjanez/ckanext-schemingdcat?tab=readme-ov-file#remote-google-sheetonedrive-excel-metadata-upload-harvester" target="_blank" rel="noopener noreferrer">remote Google Sheet/Onedrive Excel metadata harvester</a>'
+    es: 'ckanext-schemingdcat <a href="https://github.com/mjanez/ckanext-schemingdcat?tab=readme-ov-file#remote-google-sheetonedrive-excel-metadata-upload-harvester" target="_blank" rel="noopener noreferrer">cosechador de ficheros remotos Google Sheet/Onedrive Excel/a>'
+  form_group_id: general_info
+
+# Non-spatial Dataset (Hidden field, based on dcat_type)
+- field_name: dataset_scope
+  label:
+    en: Scope of the data
+    es: Alcance de los datos
+  preset: dataset_scope
+  required: False
+  choices:
+    - label:
+        en: "Non-spatial dataset"
+        es: "Conjunto de datos no espaciales"
+      value: non_spatial_dataset
+    - label:
+        en: "Spatial dataset"
+        es: "Conjunto de datos espaciales"
+      value: spatial_dataset
+  form_group_id: general_info
+
+# CKAN Organization (M) // Dataset privacy (M)
+- field_name: owner_org
+  label:
+    en: Organization
+    es: Organización
+  required: True
+  help_text:
+    en: Entity (organisation) responsible for making the Dataset available.
+    es: Entidad (organización) responsable de publicar el conjunto de datos.
+  preset: dataset_organization
+  form_group_id: general_info
+
+# Dataset privacy (M)
+- field_name: private
+  label:
+    en: Dataset visibility
+    es: Visiblidad del conjunto de datos
+  required: True
+  preset: dataset_private
+  form_include_blank_choice: False
+  choices:
+  - label:
+      en: Private
+      es: Privado
+    value: True
+  - label:
+      en: Public
+      es: Público
+    value: False
+  form_group_id: general_info
+  help_text:
+    en: The publicity or the visibility of the dataset. Only an <code>admin</code> can publish.
+    es: Publicidad o visiblidad del conjunto de datos. Solo un <code>administrador</code> puede publicar.
+  help_allow_html: True
+
+# Graphic overview (O)
+- field_name: graphic_overview
+  label:
+    en: Graphic overview of the dataset
+    es: Descripción gráfica del conjunto de datos
+  display_snippet: schemingdcat/display_snippets/graphic_overview.html
+  form_placeholder: http://example.com/dataset.jpg
+  help_text:
+    en: "Graphic that provides an illustration of the dataset."
+    es: "Gráfico que ilustra el conjunto de datos."
+  form_group_id: general_info
+
+# Metadata file identifier (M)
+## Unique resource identifier (UUID)  (Mandatory). If it does not exist, CKAN creates a UUID (Metadata file identifier 'package_id')
+- field_name: identifier
+  label: 
+    en: Metadata identifier
+    es: Identificador de los metadatos
+  preset: schemingdcat_identifier
+  required: True
+  display_property: dct:identifier
+  form_placeholder: 123e4567-e89b-12d3-a456-426614174000
+  help_text:
+    en: e.g. Unique resource identifier (UUID).
+    es: Ej. Identificador único de recurso (UUID).
+  help_allow_html: True
+  form_group_id: identification
+
+# Dataset locator (O)
+## For all resources that is equivalent to this element, such as a URI (of dcat:Dataset).
+- field_name: name
+  label: 
+    en: URL
+    es: URL
+  preset: schemingdcat_dataset_slug
+  display_property: dcat:landingPage
+  form_placeholder:
+    en: URL title Dataset
+    es: Título de la URL del Dataset
+  form_slug_related: identifier
+  form_group_id: identification
+
+# Dataset type (M)
+- field_name: dcat_type
+  label: 
+    en: Resource type
+    es: Tipo de recurso
+  preset: select
+  form_include_blank_choice: False
+  validators: not_empty scheming_required
+  required: True
+  display_property: dct:type
+  display_snippet: schemingdcat/display_snippets/link_schema.html
+  choices:
+  - label:
+      en: Spatial data set
+      es: Conjunto de datos espacial
+    value: http://inspire.ec.europa.eu/metadata-codelist/ResourceType/dataset
+    dataset_scope: spatial_dataset
+  - label:
+      en: Article
+      es: Artículo
+    value: http://id.loc.gov/vocabulary/marcgt/art
+    dataset_scope: non_spatial_dataset
+  - label:
+      en: Bibliographic data
+      es: Datos bibliográficos
+    value: http://id.loc.gov/vocabulary/marcgt/bda
+    dataset_scope: non_spatial_dataset
+  - label:
+      en: Collection
+      es: Colección
+    value: http://purl.org/dc/dcmitype/Collection
+    dataset_scope: non_spatial_dataset
+  - label:
+      en: Database
+      es: Base de datos
+    value: http://id.loc.gov/vocabulary/marcgt/dtb
+    dataset_scope: non_spatial_dataset
+  - label:
+      en: Document (computer)
+      es: Documento (informático)
+    value: http://id.loc.gov/vocabulary/marcgt/doc
+    dataset_scope: non_spatial_dataset
+  - label:
+      en: Event
+      es: Evento
+    value: http://purl.org/dc/dcmitype/Event
+    dataset_scope: non_spatial_dataset 
+  - label:
+      en: Government publication
+      es: Publicación gubernamental
+    value: http://id.loc.gov/vocabulary/marcgt/gov
+    dataset_scope: non_spatial_dataset
+  - label:
+      en: Image
+      es: Imagen
+    value: http://purl.org/dc/dcmitype/Image
+    dataset_scope: non_spatial_dataset
+  - label:
+      en: Still Image
+      es: Imagen fija
+    value: http://purl.org/dc/dcmitype/StillImage
+    dataset_scope: non_spatial_dataset
+  - label:
+      en: Journal
+      es: Revista
+    value: http://id.loc.gov/vocabulary/marcgt/jou
+    dataset_scope: non_spatial_dataset
+  - label:
+      en: Legislation
+      es: Legislación
+    value: http://id.loc.gov/vocabulary/marcgt/leg
+    dataset_scope: non_spatial_dataset
+  - label:
+      en: Moving Image
+      es: Imagen en movimiento
+    value: http://purl.org/dc/dcmitype/MovingImage
+    dataset_scope: non_spatial_dataset
+  - label:
+      en: Physical Object
+      es: Objeto físico
+    value: http://purl.org/dc/dcmitype/PhysicalObject
+    dataset_scope: non_spatial_dataset
+  - label:
+      en: Reporting
+      es: Informe
+    value: http://id.loc.gov/vocabulary/marcgt/rpt
+    dataset_scope: non_spatial_dataset
+  - label:
+      en: Interactive Resource
+      es: Recurso interactivo
+    value: http://purl.org/dc/dcmitype/InteractiveResource
+    dataset_scope: non_spatial_dataset
+  - label:
+      en: Spatial data set series
+      es: Series de datos espaciales
+    value: http://inspire.ec.europa.eu/metadata-codelist/ResourceType/series
+    dataset_scope: spatial_dataset
+  - label:
+      en: Service
+      es: Servicio
+    value: http://purl.org/dc/dcmitype/Service
+    dataset_scope: non_spatial_dataset
+  - label:
+      en: Spatial data service
+      es: Servicio de datos espaciales
+    value: http://inspire.ec.europa.eu/metadata-codelist/ResourceType/service
+    dataset_scope: spatial_dataset
+  - label:
+      en: Sound
+      es: Sonido
+    value: http://purl.org/dc/dcmitype/Sound
+    dataset_scope: non_spatial_dataset
+  - label:
+      en: Software
+      es: Software
+    value: http://purl.org/dc/dcmitype/Software
+    dataset_scope: non_spatial_dataset
+  - label:
+      en: Standard or specification
+      es: Norma o especificación
+    value: http://id.loc.gov/vocabulary/marcgt/stp
+    dataset_scope: non_spatial_dataset
+  - label:
+      en: Technical report
+      es: Informe técnico
+    value: http://id.loc.gov/vocabulary/marcgt/ter
+    dataset_scope: non_spatial_dataset
+  - label:
+      en: Text
+      es: Texto
+    value: http://purl.org/dc/dcmitype/Text
+    dataset_scope: non_spatial_dataset
+  form_group_id: identification
+
+# MDR Themes (M)
+## Taxonomy [DCAT-AP](hhttp://publications.europa.eu/resource/authority/data-theme)
+- field_name: theme_eu
+  label:
+    en: Themes (DCAT-AP)
+    es: Temáticas (DCAT-AP)
+  preset: multiple_choice_icon
+  display_property: dcat:theme
+  select_size: 10
+  required: True
+  help_text:
+    en: '<a href="http://publications.europa.eu/resource/authority/data-theme" target="_blank" rel="noopener">Themes</a> (DCAT-AP)'
+    es: '<a href="http://publications.europa.eu/resource/authority/data-theme" target="_blank" rel="noopener">Temáticas</a> (DCAT-AP)'
+  help_allow_html: True
+  sorted_choices: True
+  choices:
+    - value: http://publications.europa.eu/resource/authority/data-theme/AGRI
+      label:
+        en: Agriculture, fisheries, forestry and food
+        es: Agricultura, pesca, silvicultura y alimentación
+    - value: http://publications.europa.eu/resource/authority/data-theme/ECON
+      label:
+        en: Economy and finance
+        es: Economía y finanzas
+    - value: http://publications.europa.eu/resource/authority/data-theme/EDUC
+      label:
+        en: Education, culture and sport
+        es: Educación, cultura y deporte
+    - value: http://publications.europa.eu/resource/authority/data-theme/ENER
+      label:
+        en: Energy
+        es: Energía
+    - value: http://publications.europa.eu/resource/authority/data-theme/ENVI
+      label:
+        en: Environment
+        es: Medio ambiente
+    - value: http://publications.europa.eu/resource/authority/data-theme/GOVE
+      label:
+        en: Government and public sector
+        es: Gobierno y sector público
+    - value: http://publications.europa.eu/resource/authority/data-theme/HEAL
+      label:
+        en: Health
+        es: Salud
+    - value: http://publications.europa.eu/resource/authority/data-theme/INTR
+      label:
+        en: International issues
+        es: Asuntos internacionales
+    - value: http://publications.europa.eu/resource/authority/data-theme/JUST
+      label:
+        en: Justice, legal system and public safety
+        es: Justicia, sistema jurídico y seguridad pública
+    - value: http://publications.europa.eu/resource/authority/data-theme/REGI
+      label:
+        en: Regions and cities
+        es: Regiones y ciudades
+    - value: http://publications.europa.eu/resource/authority/data-theme/SOCI
+      label:
+        en: Population and society
+        es: Población y sociedad
+    - value: http://publications.europa.eu/resource/authority/data-theme/TECH
+      label:
+        en: Science and technology
+        es: Ciencia y tecnología
+  form_group_id: identification
+
+# Metadata file language (M)
+- field_name: language
+  label:
+    en: Metadata language
+    es: Idioma de los metadatos
+  preset: select
+  display_property: dct:language
+  display_snippet: schemingdcat/display_snippets/link_schema.html
+  form_include_blank_choice: False
+  validators: not_empty scheming_required
+  required: True
+  sorted_choices: True
+  choices:
+  - label:
+      en: Spanish
+      es: Español
+    value: http://publications.europa.eu/resource/authority/language/SPA
+  - label:
+      en: English
+      es: Inglés
+    value: http://publications.europa.eu/resource/authority/language/ENG
+  - label:
+      en: German
+      es: Alemán
+    value: http://publications.europa.eu/resource/authority/language/DEU
+  - label:
+      en: French
+      es: Francés
+    value: http://publications.europa.eu/resource/authority/language/FRA
+  - label:
+      en: Italian
+      es: Italiano
+    value: http://publications.europa.eu/resource/authority/language/ITA
+  - label:
+      en: Dutch
+      es: Neerlandés
+    value: http://publications.europa.eu/resource/authority/language/NLD
+  - label:
+      en: Danish
+      es: Danés
+    value: http://publications.europa.eu/resource/authority/language/DAN
+  - label:
+      en: Greek
+      es: Griego
+    value: http://publications.europa.eu/resource/authority/language/ELL
+  - label:
+      en: Portuguese
+      es: Portugués
+    value: http://publications.europa.eu/resource/authority/language/POR
+  - label:
+      en: Finnish
+      es: Finés
+    value: http://publications.europa.eu/resource/authority/language/FIN
+  - label:
+      en: Swedish
+      es: Sueco
+    value: http://publications.europa.eu/resource/authority/language/SWE
+  - label:
+      en: Czech
+      es: Checo
+    value: http://publications.europa.eu/resource/authority/language/CES
+  - label:
+      en: Estonian
+      es: Estonio
+    value: http://publications.europa.eu/resource/authority/language/EST
+  - label:
+      en: Croatian
+      es: Croata
+    value: http://publications.europa.eu/resource/authority/language/HRV
+  - label:
+      en: Hungarian
+      es: Húngaro
+    value: http://publications.europa.eu/resource/authority/language/HUN
+  - label:
+      en: Latvian
+      es: Letón
+    value: http://publications.europa.eu/resource/authority/language/LAV
+  - label:
+      en: Lithuanian
+      es: Lituano
+    value: http://publications.europa.eu/resource/authority/language/LIT
+  - label:
+      en: Luxembourgish
+      es: Luxemburgués
+    value: http://publications.europa.eu/resource/authority/language/LTZ
+  - label:
+      en: Maltese
+      es: Maltés
+    value: http://publications.europa.eu/resource/authority/language/MLT
+  - label:
+      en: Polish
+      es: Polaco
+    value: http://publications.europa.eu/resource/authority/language/POL
+  - label:
+      en: Slovak
+      es: Eslovaco
+    value: http://publications.europa.eu/resource/authority/language/SLK
+  - label:
+      en: Slovene
+      es: Esloveno
+    value: http://publications.europa.eu/resource/authority/language/SLV
+  - label:
+      en: Romanian
+      es: Rumano
+    value: http://publications.europa.eu/resource/authority/language/ROM
+  form_group_id: identification
+
+# Date of creation (O)
+- field_name: created
+  label: 
+    en: Date of creation
+    es: Fecha de creación
+  display_property: dct:created
+  preset: date_created
+  form_group_id: identification
+
+# Date of last revision (O)
+- field_name: modified
+  label: 
+    en: Date of last revision
+    es: Fecha de última modificación
+  display_snippet: schemingdcat/display_snippets/last_update.html
+  display_property: dct:modified
+  preset: date_modified
+  form_group_id: identification
+
+# # Dataset abstract translated (M)
+- field_name: notes_translated
+  label: 
+    en: Dataset abstract 
+    es: Resumen del conjunto de datos
+  preset: schemingdcat_fluent_notes_translated
+  required: True
+  display_property: dct:description
+  form_placeholder:
+    en: e.g. Some useful description about the dataset.
+    es: ej. Una descripción útil sobre el conjunto de datos.
+  form_languages: ["es", "en"]
+  required_language: "es"
+  default_values: 
+    en: Default abstract of the {dataset}.
+    es: Resumen por defecto del conjunto de datos {dataset}.
+  form_group_id: notes
+# Keyword value (M)
+- field_name: tag_string
+  label: 
+    en: Keywords
+    es: Palabras clave
+  preset: tag_string_autocomplete
+  display_property: dct:subject
+  form_placeholder: 'payments'
+  help_text:
+    en: A keyword or tag describing the resource.'
+    es: 'Palabra clave o etiqueta que describe el recurso.'
+  form_group_id: vocabs
+
+# Keyword URI (M)
+## TODO: Improve form_snippet to generate tag_uri auto from tag_string
+## TODO: Add as scheming_datastore_choices (helpers.py/#102) http://github.com/ckan/ckanext-scheming/issues/270
+## Only for ckanext-dcat profiles.py
+- field_name: tag_uri
+  label: 
+    en: Keyword URIs
+    es: URI de palabras clave
+  preset: multiple_text
+  display_snippet: schemingdcat/display_snippets/list_keywords.html
+  form_placeholder: 'http://inspire.ec.europa.eu/metadata-codelist/IACSData/gsaa'
+  help_text:
+    en: 'e.g. Metadata code list register (INSPIRE): http://inspire.ec.europa.eu/metadata-codelist'
+    es: 'ej: Registro de listas controladas de metadatos (INSPIRE): http://inspire.ec.europa.eu/metadata-codelist'
+  form_group_id: vocabs
+
+# TODO: Probably better include contact_role and contact_organization (boolean) to distinguish between vcard:Individual and vcard:Organizationto use in ckanext-dcat/profiles.py
+# Metadata point of contact URI (M)
+- field_name: contact_uri
+  label:
+    en: URI of the Metadata contact point
+    es: URI del punto de contacto de los metadatos
+  display_snippet: schemingdcat/display_snippets/link_name.html
+  form_placeholder: http://orgs.vocab.org/some-org
+  form_group_id: contact
+
+# Metadata point of contact name (M)
+- field_name: contact_name
+  label:
+    en: Metadata contact point name
+    es: Nombre del punto de contacto de los metadatos
+  display_property: dcat:contactPoint
+  form_placeholder: José Blanco
+  form_group_id: contact
+
+# Metadata point of contact email (M)
+- field_name: contact_email
+  label:
+    en: Metadata contact point email
+    es: Email del punto de contacto de los Metadatos
+  validators: not_empty scheming_required schemingdcat_valid_email
+  required: True
+  display_property: vcard:hasEmail
+  display_snippet: email.html
+  form_placeholder: joseblanco@example.com
+  form_group_id: contact
+
+# Metadata point of contact Web (R)
+- field_name: contact_url
+  label:
+    en: Website of the Metadata contact point
+    es: Web del punto de contacto de los metadatos
+  preset: valid_url
+  display_property: vcard:hasURL
+  form_placeholder: http://www.example.com
+  form_group_id: contact
+
+#--Responsible party--#
+- start_form_page:
+    title: 
+      en: Responsible party
+      es: Responsable
+    description: 
+      en: Organization(s) responsible for the creation, management, maintenance and distribution of datasets.
+      es: Organización(es) responsable(s) de la creación, gestión, mantenimiento y distribución de los conjuntos de datos.
+
+# Publisher name (M)
+  field_name: publisher_name
+  label:
+    en: Name of the publisher
+    es: Nombre del publicador
+  display_property: foaf:name
+  form_placeholder: José Blanco
+  help_text:
+    en: "A party that makes a dataset available to others."
+    es: "Persona u organización que pone a disposición de otros el conjunto de datos."
+  form_group_id: publisher
+
+# Publisher identifier (M)
+- field_name: publisher_identifier
+  label:
+    en: Identifier of the publisher
+    es: Identificador del publicador
+  display_property: dct:identifier
+  form_placeholder: http://datos.gob.es/recurso/sector-publico/org/Organismo/E05068001
+  help_text:
+    en: "Unique identifier of the publisher. Spain: Unique identifier (DIR3) of the public organization (<a href='http://datos.gob.es/es/recurso/sector-publico/org/Organismo' target='_blank'>datos.gob.es</a>)."
+    es: "Identificador único del publicador. España: Identificador único (DIR3) del organismo público. (<a href='http://datos.gob.es/es/recurso/sector-publico/org/Organismo' target='_blank'>datos.gob.es</a>)"
+  help_allow_html: True
+  form_group_id: publisher
+
+# Publisher URI (M)
+- field_name: publisher_uri
+  label:
+    en: URI of the publisher
+    es: URI del publicador
+  display_snippet: schemingdcat/display_snippets/link_name.html
+  form_snippet: schemingdcat/form_snippets/publisher_uri.html
+  form_placeholder: http://orgs.vocab.org/some-org
+  help_text:
+    en: This property refers to an Agent (organisation) responsible for making the Catalogue Record available. URI
+    es: Esta propiedad se refiere a un agente (organización) responsable de poner a disposición el recurso del catálogo. URI
+  form_group_id: publisher
+
+# Publisher email (M)
+- field_name: publisher_email
+  label:
+    en: Email of the publisher
+    es: Email del publicador
+  preset: schemingdcat_valid_email
+  display_property: foaf:mbox
+  form_placeholder: joseblanco@example.com
+  form_group_id: publisher
+
+# Publisher URL (O)
+- field_name: publisher_url
+  label:
+    en: Website of the publisher
+    es: Web del publicador
+  display_property: foaf:homepage
+  form_placeholder: http://www.example.com
+  preset: valid_url
+  help_text:
+    en: Esta propiedad se refiere a una página web que actúa como página principal del publicador. URL
+    es: Esta propiedad se refiere a una página web que actúa como página principal del publicador. URL
+  form_group_id: publisher
+
+# Publisher type (M)
+- field_name: publisher_type
+  label:
+    en: Type of the publisher
+    es: Tipo de publicador
+  preset: select
+  display_property: dct:type
+  display_snippet: schemingdcat/display_snippets/link_schema.html
+  choices:
+  - label:
+      en: National authority
+      es: Autoridad nacional
+    value: http://purl.org/adms/publishertype/NationalAuthority
+  - label:
+      en: Regional authority
+      es: Autoridad regional
+    value: http://purl.org/adms/publishertype/RegionalAuthority
+  - label:
+      en: Supranational authority
+      es: Autoridad supranacional
+    value: http://purl.org/adms/publishertype/SupraNationalAuthority
+  - label:
+      en: Local authority
+      es: Autoridad local
+    value: http://purl.org/adms/publishertype/LocalAuthority
+  - label:
+      en: Academia-Scientific organisation
+      es: Organización académica-científica
+    value: http://purl.org/adms/publishertype/Academia-ScientificOrganisation
+  - label:
+      en: Non profit organisation
+      es: Organización sin animo de lucro
+    value: http://purl.org/adms/publishertype/NonProfitOrganisation
+  - label:
+      en: Company
+      es: Empresa
+    value: http://purl.org/adms/publishertype/Company
+  - label:
+      en: Industry consortium
+      es: Consorcio industrial
+    value: http://purl.org/adms/publishertype/IndustryConsortium
+  - label:
+      en: Non Governmental Organisation
+      es: Organización no gubernamental (ONG)
+    value: http://purl.org/adms/publishertype/NonGovernmentalOrganisation
+  - label:
+      en: Private individual(s)
+      es: Individuo(s) privado(s)
+    value: http://purl.org/adms/publishertype/PrivateIndividual(s)
+  - label:
+      en: Standardisation body
+      es: Organismo de normalización
+    value: http://purl.org/adms/publishertype/StandardisationBody
+  form_group_id: publisher
+
+# Maintainer name (O)
+- field_name: maintainer
+  label:
+    en: Name of the dataset maintainer
+    es: Nombre del mantenedor
+  display_property: dcat:contactPoint
+  form_placeholder: José Blanco
+  help_text:
+    en: "Person or organization responsible for maintaining or updating a dataset."
+    es: "Persona u organización responsable de mantener o actualizar un conjunto de datos."
+  form_group_id: maintainer
+
+# Maintainer Identifier (O)
+- field_name: maintainer_uri
+  label:
+    en: Identifier of the dataset maintainer
+    es: Identificador del mantenedor
+  display_snippet: schemingdcat/display_snippets/link_name.html
+  form_placeholder: http://datos.gob.es/recurso/sector-publico/org/Organismo/E05068001
+  help_text:
+    en: "Unique identifier of the publisher. Spain: Unique identifier (DIR3) of the public organization (<a href='http://datos.gob.es/es/recurso/sector-publico/org/Organismo' target='_blank'>datos.gob.es</a>)."
+    es: "Identificador único del publicador. España: Identificador único (DIR3) del organismo público. (<a href='http://datos.gob.es/es/recurso/sector-publico/org/Organismo' target='_blank'>datos.gob.es</a>)"
+  help_allow_html: True
+  form_group_id: maintainer
+
+# Maintainer email (O)
+- field_name: maintainer_email
+  label:
+    en: Email of the dataset maintainer
+    es: Email del mantenedor
+  preset: schemingdcat_valid_email
+  display_property: vcard:hasEmail
+  form_placeholder: joseblanco@example.com
+  form_group_id: maintainer
+
+# Maintainer web (O)
+- field_name: maintainer_url
+  label:
+    en: Website of the dataset maintainer
+    es: Web del mantenedor
+  display_property: foaf:homepage
+  form_placeholder: http://www.example.com
+  preset: valid_url
+  help_text:
+    en: This property refers to a web page that acts as the maintainer's homepage. URL
+    es: Esta propiedad se refiere a una página web que actúa como página principal del mantenedor. URL
+  form_group_id: maintainer
+
+# Author name (O)
+- field_name: author
+  label:
+    en: Name of the dataset creator
+    es: Nombre del autor
+  display_property: dct:creator
+  form_placeholder: José Blanco
+  help_text:
+    en: "A party that creates or produces a particular dataset."
+    es: "Persona u organización creadora o productora de un conjunto de datos"
+  form_group_id: author
+
+# Author Identifier (O)
+- field_name: author_uri
+  label:
+    en: Identifier of the dataset creator
+    es: Identificador del autor
+  display_snippet: schemingdcat/display_snippets/link_name.html
+  form_placeholder: http://datos.gob.es/recurso/sector-publico/org/Organismo/E05068001
+  help_text:
+    en: "Unique identifier of the publisher. Spain: Unique identifier (DIR3) of the public organization (<a href='http://datos.gob.es/es/recurso/sector-publico/org/Organismo' target='_blank'>datos.gob.es</a>)."
+    es: "Identificador único del publicador. España: Identificador único (DIR3) del organismo público. (<a href='http://datos.gob.es/es/recurso/sector-publico/org/Organismo' target='_blank'>datos.gob.es</a>)"
+  help_allow_html: True
+  form_group_id: author
+
+# Author email (O)
+- field_name: author_email
+  label:
+    en: Email of the dataset creator
+    es: Email del autor
+  preset: schemingdcat_valid_email
+  display_property: vcard:hasEmail
+  form_placeholder: joseblanco@example.com
+  form_group_id: author
+
+# Author web (O)
+- field_name: author_url
+  label:
+    en: Website of the dataset creator
+    es: Web del autor
+  display_property: foaf:homepage
+  preset: valid_url
+  form_placeholder: http://www.example.com
+  help_text:
+    en: This property refers to a web page that acts as the author's homepage. URL
+    es: Esta propiedad se refiere a una página web que actúa como página principal del publicador. URL
+  form_group_id: author
+
+#--Quality--#
+- start_form_page:
+    title: 
+      en: Quality
+      es: Calidad
+    description: 
+      en: Data quality information.
+      es: Información sobre calidad de los datos.
+
+# Other identifier (O))
+  field_name: alternate_identifier
+  label: 
+    en: Other identifier
+    es: Identificador alternativo
+  display_property: adms:identifier
+  form_placeholder: doi:10.1234/example-dataset
+  help_text:
+    en: 'An alternate identifier in a particular context, can express other locally minted identifiers or external identifiers, like DOI, ELI, arΧiv for creative works and ORCID, VIAF, ISNI for actors such as authors and publishers, as long as the identifiers are globally unique and stable.'
+    es: 'Un identificador alternativo en un contexto particular, puede expresar otros identificadores acuñados localmente o identificadores externos, como DOI, ELI, arΧiv para obras creativas y ORCID, VIAF, ISNI para actores como autores y editores, siempre que los identificadores sean globalmente únicos y estables.'
+  help_allow_html: True
+  form_group_id: standards
+
+# Provenance statement (M)
+- field_name: provenance
+  label: 
+    en: Provenance  statement
+    es: Declaración de procedencia
+  preset: schemingdcat_fluent_markdown
+  display_property: dct:provenance
+  form_placeholder:
+    en: Means the history of a data set, and the life cycle from collection and acquisition through compilation and derivation to its current form, in accordance with EN ISO-19101.
+    es: Historia de un conjunto de datos y su ciclo de vida desde su recogida y adquisición hasta su compilación y derivación hasta su forma actual, con arreglo a la norma EN ISO-19101.
+  form_languages: ["en", "es"]
+  form_group_id: lineage
+
+# Conformity (M)
+- field_name: conforms_to
+  label: 
+    en: Conformity 
+    es: Conformidad
+  required: False
+  display_property: dct:conformsTo
+  preset: multiple_text_links
+  form_placeholder: 'https://www.w3.org/TR/rdf-schema/'
+  help_text:
+    en: 'An established standard to which the described resource conforms.'
+    es: 'Norma establecida a la que se ajusta el recurso descrito.'
+  form_group_id: standards
+
+# Metadata standard (M)
+- field_name: metadata_profile
+  label:
+    en: Metadata Standard
+    es: Perfil de Metadatos
+  required: False
+  display_property: dct:conformsTo
+  preset: multiple_metadata_profiles
+  form_placeholder: 'http://semiceu.github.io/GeoDCAT-AP/releases/2.0.0'
+  help_text:
+    en: 'URI(s) of the Metadata profile used'
+    es: 'URI(s) del perfil de Metadatos utilizado'
+  form_group_id: standards
+
+# Temporal start (O)
+- field_name: temporal_start
+  label: 
+    en: Temporal extent (Start)
+    es: Cobertura temporal (Inicio)
+  display_property: dct:temporal
+  preset: date
+  form_group_id: temporal_info
+
+# Temporal end (O)
+- field_name: temporal_end
+  label: 
+    en: Temporal extent (End)
+    es: Cobertura temporal (Fin)
+  display_property: dct:temporal
+  preset: date
+  form_group_id: temporal_info
+
+# Update frequency (O)
+- field_name: frequency
+  label:
+    en: Update frequency
+    es: Frecuencia de actualización
+  preset: select
+  display_property: dct:accrualPeriodicity
+  display_snippet: schemingdcat/display_snippets/link_schema.html
+  sorted_choices: True
+  choices:
+  - label:
+      en: Annual
+      es: Anual
+    value: http://publications.europa.eu/resource/authority/frequency/ANNUAL
+  - label:
+      en: Semiannual
+      es: Semestral
+    value: http://publications.europa.eu/resource/authority/frequency/ANNUAL_2
+  - label:
+      en: Three times a year
+      es: Cuatrimestral
+    value: http://publications.europa.eu/resource/authority/frequency/ANNUAL_3
+  - label:
+      en: Biennial
+      es: Bienal
+    value: http://publications.europa.eu/resource/authority/frequency/BIENNIAL
+  - label:
+      en: Bimonthly
+      es: Bimestral
+    value: http://publications.europa.eu/resource/authority/frequency/BIMONTHLY
+  - label:
+      en: Biweekly
+      es: Quincenal
+    value: http://publications.europa.eu/resource/authority/frequency/BIWEEKLY
+  - label:
+      en: Continuous
+      es: Continuo
+    value: http://publications.europa.eu/resource/authority/frequency/CONT
+  - label:
+      en: Daily
+      es: Diario
+    value: http://publications.europa.eu/resource/authority/frequency/DAILY
+  - label:
+      en: Twice a day
+      es: Dos veces al día
+    value: http://publications.europa.eu/resource/authority/frequency/DAILY_2
+  - label:
+      en: Irregular
+      es: Irregular
+    value: http://publications.europa.eu/resource/authority/frequency/IRREG
+  - label:
+      en: Monthly
+      es: Mensual
+    value: http://publications.europa.eu/resource/authority/frequency/MONTHLY
+  - label:
+      en: Semimonthly
+      es: Bimensual
+    value: http://publications.europa.eu/resource/authority/frequency/MONTHLY_2
+  - label:
+      en: Three times a month
+      es: Tres veces por mes
+    value: http://publications.europa.eu/resource/authority/frequency/MONTHLY_3
+  - label:
+      en: Never
+      es: Nunca
+    value: http://publications.europa.eu/resource/authority/frequency/NEVER
+  - label:
+      en: Provisional data
+      es: Datos provisionales
+    value: http://publications.europa.eu/resource/authority/frequency/OP_DATPRO
+  - label:
+      en: Quarterly
+      es: Trimestral
+    value: http://publications.europa.eu/resource/authority/frequency/QUARTERLY
+  - label:
+      en: Triennial
+      es: Trienal
+    value: http://publications.europa.eu/resource/authority/frequency/TRIENNIAL
+  - label:
+      en: Unknown
+      es: Desconocida
+    value: http://publications.europa.eu/resource/authority/frequency/UNKNOWN
+  - label:
+      en: Continuously updated
+      es: Continuamente actualizado
+    value: http://publications.europa.eu/resource/authority/frequency/UPDATE_CONT
+  - label:
+      en: Semiweekly
+      es: Bisemanal
+    value: http://publications.europa.eu/resource/authority/frequency/WEEKLY_2
+  - label:
+      en: Three times a week
+      es: Tres veces por semana
+    value: http://publications.europa.eu/resource/authority/frequency/WEEKLY_3
+  - label:
+      en: Quinquennial
+      es: Cada cinco años
+    value: http://publications.europa.eu/resource/authority/frequency/QUINQUENNIAL
+  - label:
+      en: Decennial
+      es: Cada diez años
+    value: http://publications.europa.eu/resource/authority/frequency/DECENNIAL
+  - label:
+      en: Hourly
+      es: Cada hora
+    value: http://publications.europa.eu/resource/authority/frequency/HOURLY
+  - label:
+      en: Quadrennial
+      es: Cada cuatro años
+    value: http://publications.europa.eu/resource/authority/frequency/QUADRENNIAL
+  - label:
+      en: Bihourly
+      es: Cada dos horas
+    value: http://publications.europa.eu/resource/authority/frequency/BIHOURLY
+  - label:
+      en: Trihourly
+      es: Cada tres horas
+    value: http://publications.europa.eu/resource/authority/frequency/TRIHOURLY
+  - label:
+      en: Bidecennial
+      es: Cada veinte años
+    value: http://publications.europa.eu/resource/authority/frequency/BIDECENNIAL
+  - label:
+      en: Tridecennial
+      es: Cada treinta años
+    value: http://publications.europa.eu/resource/authority/frequency/TRIDECENNIAL
+  form_group_id: temporal_info
+
+# Source dataset (C)
+- field_name: source
+  label: 
+    en: Source dataset
+    es: Conjunto de datos de origen
+  display_property: dct:source
+  display_snippet: schemingdcat/display_snippets/link_name.html
+  form_placeholder: http://example.org/catalog/en/dataset/fc21c1a5-4c02-4157-9d2f-9a2cd200f908
+  help_text:
+    en: This property refers to a related Dataset from which the described Dataset is derived. URI
+    es: Esta propiedad hace referencia a un conjunto de datos relacionado del que deriva el conjunto de datos descrito. URI
+  form_group_id: lineage
+
+# Related resources (O)
+- field_name: reference
+  label: 
+    en: Related sources
+    es: Recurso(s) relacionado(s)
+  preset: multiple_text_links
+  display_property: dcat:relation
+  form_placeholder: 'http://example.org/catalog/dataset/ejemplo'
+  help_text:
+    en: 'URI identifying the related resource. You can include as many properties as you know of references.'
+    es: 'URI que identifica al recurso relacionado. Se pueden incluir tantas propiedades como referencias se conozcan.'
+
+# Character encoding (C)
+- field_name: encoding
+  label:
+    en: Character encoding
+    es: Codificación
+  display_property: cnt:characterEncoding
+  form_placeholder: UTF-8
+  help_text:
+    en: 'Character encoding in ISO-19115 metadata is specified with a code list that can be mapped to the corresponding codes in <a href="https://www.iana.org/assignments/character-sets" target="_blank" rel="noopener">[IANA-CHARSETS]</a>'
+    es: 'La codificación de caracteres en los metadatos ISO-19115 se especifica con una lista de códigos que puede asignarse a los códigos correspondientes en <a href="https://www.iana.org/assignments/character-sets" target="_blank" rel="noopener">[IANA-CHARSETS]</a>.'
+  help_allow_html: True
+  form_group_id: standards
+
+##TODO: temporal_resolution
+## ISO 8601: http://www.google.com/url?q=http://www.w3.org/TR/xmlschema11-2/%23duration&sa=D&source=editors&ust=1677159514756434&usg=AOvVaw3Xyh6wn0UVcwFCy3-_9P8i
+
+
+#--Spatial--#
+- start_form_page:
+    title: 
+      en: Spatial info
+      es: Espacial
+    description: 
+      en: Spatial capabilities information.
+      es: Información sobre las capacidades espaciales.
+
+# Geographic bounding box (M)
+- field_name: spatial
+  label: 
+    en: Bounding Box
+    es: Extensión espacial
+  preset: spatial
+  form_placeholder: '{"type": "Polygon", "coordinates": [[[-18.27, 27.54], [4.44, 27.54], [4.44, 43.85], [-18.27, 43.85], [-18.27, 27.54]]]}'
+  help_text:
+    en: 'If a <strong>Geographic identifier</strong> is selected and this element is empty, it will be filled in automatically.<a href="https://boundingbox.klokantech.com" target="_blank" rel="noopener">Draw BBox and copy GEOJSON with "coordinates" value..</a> e.g. <code>{"type": "Polygon", "coordinates": [[[-18.27, 27.54], [4.44, 27.54], [4.44, 43.85], [-18.27, 43.85], [-18.27, 27.54]]]}</code><br>Only "geometry" dict with "type" and "coordinates" elements. More information at <a href="http://geojson.org/geojson-spec.html#bounding-boxes" target="_blank" rel="noopener">GeoJSON bounding boxes</a>.'
+    es: 'Sí se selecciona un <strong>Identificador geográfico</strong> y este elemento esta vacío, se rellena automáticamente.<br><br><a href="https://boundingbox.klokantech.com" target="_blank" rel="noopener">Dibuja el BBox y copia el GEOJSON con el valor de "coordinates".</a> ej: <code>{"type": "Polygon", "coordinates": [[[-18.27, 27.54], [4.44, 27.54], [4.44, 43.85], [-18.27, 43.85], [-18.27, 27.54]]]}</code><br>Solo es necesario el diccionario "geometry" con los elementos "type" y "coordinates". Más información en <a href="http://geojson.org/geojson-spec.html#bounding-boxes" target="_blank" rel="noopener">GeoJSON bounding boxes</a>.'
+  help_allow_html: True
+  form_group_id: spatial_info
+
+# Coordinate Reference System (M)
+- field_name: reference_system
+  label:
+    en: Coordinate Reference System
+    es: Sistema de Referencia de Coordenadas
+  validators: ignore_missing schemingdcat_valid_url
+  display_snippet: schemingdcat/display_snippets/link_epsg.html
+  form_placeholder: http://www.opengis.net/def/crs/EPSG/0/4326
+  help_text:
+    en: 'EPSG URI system for identifying position in the real world [ISO 19112]. The URI prefix for coordinate reference systems is the following one: http://www.opengis.net/def/crs/EPSG/0/{EPSG Code}'
+    es: 'URI EPSG del sistema para identificar la posición en el mundo real [ISO 19112]. El prefijo URI para los sistemas de referencia de coordenadas es el siguiente: http://www.opengis.net/def/crs/EPSG/0/{Código EPSG}'
+  help_allow_html: True
+  form_group_id: spatial_info
+
+# Geographic identifier (O)
+- field_name: spatial_uri
+  label: 
+    en: Geographic identifier
+    es: Identificador geográfico
+  preset: select_spatial_icon
+  display_property: dcat:theme
+  select_size: 10
+  sorted_choices: True
+  choices:
+  - label:
+      en: Spain
+      es: España
+    spatial: '{"type": "Polygon", "coordinates": [[[-18.17, 27.64], [4.32, 27.64],
+      [4.32, 43.76], [-18.17, 43.76], [-18.17, 27.64]]]}'
+    value: http://publications.europa.eu/resource/authority/country/ESP
+  - label:
+      en: Germany
+      es: Alemania
+    spatial: '{"type": "Polygon", "coordinates": [[[5.87, 47.27], [15.03, 47.27],
+      [15.03, 55.06], [5.87, 55.06], [5.87, 47.27]]]}'
+    value: http://publications.europa.eu/resource/authority/country/DEU
+  - label:
+      en: Austria
+      es: Austria
+    spatial: '{"type": "Polygon", "coordinates": [[[9.53, 46.41], [17.17, 46.41],
+      [17.17, 49.02], [9.53, 49.02], [9.53, 46.41]]]}'
+    value: http://publications.europa.eu/resource/authority/country/AUT
+  - label:
+      en: Belgium
+      es: Bélgica
+    spatial: '{"type": "Polygon", "coordinates": [[[2.54, 49.51], [6.4, 49.51], [6.4,
+      51.5], [2.54, 51.5], [2.54, 49.51]]]}'
+    value: http://publications.europa.eu/resource/authority/country/BEL
+  - label:
+      en: Bulgaria
+      es: Bulgaria
+    spatial: '{"type": "Polygon", "coordinates": [[[22.37, 41.24], [28.61, 41.24],
+      [28.61, 44.22], [22.37, 44.22], [22.37, 41.24]]]}'
+    value: http://publications.europa.eu/resource/authority/country/BGR
+  - label:
+      en: Cyprus
+      es: Chipre
+    spatial: '{"type": "Polygon", "coordinates": [[[32.27, 34.64], [34.59, 34.64],
+      [34.59, 35.69], [32.27, 35.69], [32.27, 34.64]]]}'
+    value: http://publications.europa.eu/resource/authority/country/CYP
+  - label:
+      en: Croatia
+      es: Croacia
+    spatial: '{"type": "Polygon", "coordinates": [[[13.5, 42.4], [19.43, 42.4], [19.43,
+      46.54], [13.5, 46.54], [13.5, 42.4]]]}'
+    value: http://publications.europa.eu/resource/authority/country/HRV
+  - label:
+      en: Denmark
+      es: Dinamarca
+    spatial: '{"type": "Polygon", "coordinates": [[[8.09, 54.56], [15.15, 54.56],
+      [15.15, 57.75], [8.09, 57.75], [8.09, 54.56]]]}'
+    value: http://publications.europa.eu/resource/authority/country/DNK
+  - label:
+      en: Slovakia
+      es: Eslovaquia
+    spatial: '{"type": "Polygon", "coordinates": [[[16.84, 47.74], [22.56, 47.74],
+      [22.56, 49.6], [16.84, 49.6], [16.84, 47.74]]]}'
+    value: http://publications.europa.eu/resource/authority/country/SVK
+  - label:
+      en: Slovenia
+      es: Eslovenia
+    spatial: '{"type": "Polygon", "coordinates": [[[13.38, 45.43], [16.61, 45.43],
+      [16.61, 46.88], [13.38, 46.88], [13.38, 45.43]]]}'
+    value: http://publications.europa.eu/resource/authority/country/SVN
+  - label:
+      en: Estonia
+      es: Estonia
+    spatial: '{"type": "Polygon", "coordinates": [[[21.84, 57.52], [28.19, 57.52],
+      [28.19, 59.66], [21.84, 59.66], [21.84, 57.52]]]}'
+    value: http://publications.europa.eu/resource/authority/country/EST
+  - label:
+      en: Finland
+      es: Finlandia
+    spatial: '{"type": "Polygon", "coordinates": [[[19.51, 59.81], [31.58, 59.81],
+      [31.58, 70.09], [19.51, 70.09], [19.51, 59.81]]]}'
+    value: http://publications.europa.eu/resource/authority/country/FIN
+  - label:
+      en: France
+      es: Francia
+    spatial: '{"type": "Polygon", "coordinates": [[[-4.79, 41.36], [9.56, 41.36],
+      [9.56, 51.09], [-4.79, 51.09], [-4.79, 41.36]]]}'
+    value: http://publications.europa.eu/resource/authority/country/FRA
+  - label:
+      en: Greece
+      es: Grecia
+    spatial: '{"type": "Polygon", "coordinates": [[[19.64, 34.93], [28.24, 34.93],
+      [28.24, 41.75], [19.64, 41.75], [19.64, 34.93]]]}'
+    value: http://publications.europa.eu/resource/authority/country/GRC
+  - label:
+      en: Hungary
+      es: Hungría
+    spatial: '{"type": "Polygon", "coordinates": [[[16.11, 45.75], [22.89, 45.75],
+      [22.89, 48.58], [16.11, 48.58], [16.11, 45.75]]]}'
+    value: http://publications.europa.eu/resource/authority/country/HUN
+  - label:
+      en: Ireland
+      es: Irlanda
+    spatial: '{"type": "Polygon", "coordinates": [[[-10.47, 51.45], [-6.01, 51.45],
+      [-6.01, 55.38], [-10.47, 55.38], [-10.47, 51.45]]]}'
+    value: http://publications.europa.eu/resource/authority/country/IRL
+  - label:
+      en: Italy
+      es: Italia
+    spatial: '{"type": "Polygon", "coordinates": [[[6.62, 36.65], [18.51, 36.65],
+      [18.51, 47.09], [6.62, 47.09], [6.62, 36.65]]]}'
+    value: http://publications.europa.eu/resource/authority/country/ITA
+  - label:
+      en: Latvia
+      es: Letonia
+    spatial: '{"type": "Polygon", "coordinates": [[[20.97, 55.67], [28.24, 55.67],
+      [28.24, 58.08], [20.97, 58.08], [20.97, 55.67]]]}'
+    value: http://publications.europa.eu/resource/authority/country/LVA
+  - label:
+      en: Lithuania
+      es: Lituania
+    spatial: '{"type": "Polygon", "coordinates": [[[20.94, 53.89], [26.81, 53.89],
+      [26.81, 56.45], [20.94, 56.45], [20.94, 53.89]]]}'
+    value: http://publications.europa.eu/resource/authority/country/LTU
+  - label:
+      en: Luxembourg
+      es: Luxemburgo
+    spatial: '{"type": "Polygon", "coordinates": [[[5.73, 49.45], [6.52, 49.45], [6.52,
+      50.18], [5.73, 50.18], [5.73, 49.45]]]}'
+    value: http://publications.europa.eu/resource/authority/country/LUX
+  - label:
+      en: Malta
+      es: Malta
+    spatial: '{"type": "Polygon", "coordinates": [[[14.33, 35.8], [14.57, 35.8], [14.57,
+      35.99], [14.33, 35.99], [14.33, 35.8]]]}'
+    value: http://publications.europa.eu/resource/authority/country/MLT
+  - label:
+      en: New Zealand
+      es: Nueva Zelanda
+    spatial: '{"type": "Polygon", "coordinates": [[[-176.85, -52.58], [178.84, -52.58],
+      [178.84, -34.41], [-176.85, -34.41], [-176.85, -52.58]]]}'
+    value: http://publications.europa.eu/resource/authority/country/NZL
+  - label:
+      en: Netherlands
+      es: Países Bajos
+    spatial: '{"type": "Polygon", "coordinates": [[[3.37, 50.75], [7.21, 50.75], [7.21,
+      53.47], [3.37, 53.47], [3.37, 50.75]]]}'
+    value: http://publications.europa.eu/resource/authority/country/NLD
+  - label:
+      en: Poland
+      es: Polonia
+    spatial: '{"type": "Polygon", "coordinates": [[[14.15, 49.0], [24.14, 49.0], [24.14,
+      54.84], [14.15, 54.84], [14.15, 49.0]]]}'
+    value: http://publications.europa.eu/resource/authority/country/POL
+  - label:
+      en: Portugal
+      es: Portugal
+    spatial: '{"type": "Polygon", "coordinates": [[[-9.49, 37.01], [-6.19, 37.01],
+      [-6.19, 42.15], [-9.49, 42.15], [-9.49, 37.01]]]}'
+    value: http://publications.europa.eu/resource/authority/country/PRT
+  - label:
+      en: Czech Republic
+      es: República Checa
+    spatial: '{"type": "Polygon", "coordinates": [[[12.09, 48.58], [18.85, 48.58],
+      [18.85, 51.05], [12.09, 51.05], [12.09, 48.58]]]}'
+    value: http://publications.europa.eu/resource/authority/country/CZE
+  - label:
+      en: Romania
+      es: Rumania
+    spatial: '{"type": "Polygon", "coordinates": [[[20.26, 43.62], [29.67, 43.62],
+      [29.67, 48.26], [20.26, 48.26], [20.26, 43.62]]]}'
+    value: http://publications.europa.eu/resource/authority/country/ROU
+  - label:
+      en: Sweden
+      es: Suecia
+    spatial: '{"type": "Polygon", "coordinates": [[[11.11, 55.34], [24.17, 55.34],
+      [24.17, 69.06], [11.11, 69.06], [11.11, 55.34]]]}'
+    value: http://publications.europa.eu/resource/authority/country/SWE
+  - label:
+      en: Argentina
+      es: Argentina
+    spatial: '{"type": "Polygon", "coordinates": [[[-73.58, -55.05], [-53.65, -55.05],
+      [-53.65, -21.78], [-73.58, -21.78], [-73.58, -55.05]]]}'
+    value: http://publications.europa.eu/resource/authority/country/ARG
+  - label:
+      en: Australia
+      es: Australia
+    spatial: '{"type": "Polygon", "coordinates": [[[112.91, -54.75], [158.96, -54.75],
+      [158.96, -10.14], [112.91, -10.14], [112.91, -54.75]]]}'
+    value: http://publications.europa.eu/resource/authority/country/AUS
+  - label:
+      en: Brazil
+      es: Brasil
+    spatial: '{"type": "Polygon", "coordinates": [[[-74.0, -33.74], [-34.79, -33.74],
+      [-34.79, 5.27], [-74.0, 5.27], [-74.0, -33.74]]]}'
+    value: http://publications.europa.eu/resource/authority/country/BRA
+  - label:
+      en: Canada
+      es: Canadá
+    spatial: '{"type": "Polygon", "coordinates": [[[-141.0, 41.68], [-52.62, 41.68],
+      [-52.62, 83.11], [-141.0, 83.11], [-141.0, 41.68]]]}'
+    value: http://publications.europa.eu/resource/authority/country/CAN
+  - label:
+      en: China
+      es: China
+    spatial: '{"type": "Polygon", "coordinates": [[[73.62, 18.17], [134.77, 18.17],
+      [134.77, 53.55], [73.62, 53.55], [73.62, 18.17]]]}'
+    value: http://publications.europa.eu/resource/authority/country/CHN
+  - label:
+      en: United States
+      es: Estados Unidos
+    spatial: '{"type": "Polygon", "coordinates": [-178.22, 18.93], [179.78, 18.93], [179.78, 71.35], [-178.22, 71.35], [-178.22, 18.93]}'
+    value: http://publications.europa.eu/resource/authority/country/USA
+  - label:
+      en: Japan
+      es: Japón
+    spatial: '{"type": "Polygon", "coordinates": [[[123.68, 24.25], [145.81, 24.25],
+      [145.81, 45.49], [123.68, 45.49], [123.68, 24.25]]]}'
+    value: http://publications.europa.eu/resource/authority/country/JPN
+  - label:
+      en: Mexico
+      es: Mexico
+    spatial: '{"type": "Polygon", "coordinates": [[[-118.4, 14.55], [-86.74, 14.55],
+      [-86.74, 32.72], [-118.4, 32.72], [-118.4, 14.55]]]}'
+    value: http://publications.europa.eu/resource/authority/country/MEX
+  - label:
+      en: New Zeland
+      es: Nueva Zelanda
+    spatial: '{"type": "Polygon", "coordinates": [[[-176.85, -52.58], [178.84, -52.58],
+      [178.84, -34.41], [-176.85, -34.41], [-176.85, -52.58]]]}'
+    value: http://publications.europa.eu/resource/authority/country/NZL
+  - label:
+      en: United Kingdom
+      es: Reino Unido
+    spatial: '{"type": "Polygon", "coordinates": [-8.17, 49.96], [1.75, 49.96], [1.75, 60.84], [-8.17, 60.84], [-8.17, 49.96]}'
+    value: http://publications.europa.eu/resource/authority/country/GBR
+  help_text:
+    en: 'Geographic coverage of the dataset. More information in <a href="http://publications.europa.eu/resource/authority/country" target="_blank" rel="noopener">EU Vocab Countries</a>.'
+    es: 'Ámbito geográfico cubierto por el conjunto de datos. Más información en <a href="http://publications.europa.eu/resource/authority/country" target="_blank" rel="noopener">EU Vocab Countries</a>.'
+  help_allow_html: True
+  form_group_id: spatial_info
+
+# Spatial resolution (C)
+- field_name: spatial_resolution_in_meters
+  label: 
+    en: Spatial resolution of the dataset (m) 
+    es: Resolución espacial del dataset (m)
+  display_property: dcat:spatialResolutionInMeters
+  form_placeholder: '5000'
+  help_text:
+    en: Specify spatial resolution as distance in metres.
+    es: Especifique la resolución espacial como distancia en metros
+  form_group_id: spatial_info
+
+#--License--#
+- start_form_page:
+    title: 
+      en: License info
+      es: Licencia
+    description: 
+      en: Information on licenses and restrictions on use and access.
+      es: Información sobre licencias y restricciones de uso y acceso.
+
+# License URI (M)
+  field_name: license_id
+  label: 
+    en: License
+    es: Licencia
+  form_snippet: schemingdcat/form_snippets/license.html
+  display_property: dct:license
+  help_text:
+    en: 'License definitions and additional information can be found at: <a href="http://opendefinition.org/" target="_blank" rel="noopener">Open Definition</a>'
+    es: 'Las definiciones de las licencias y la información adicional pueden encontrarse en: <a href="http://opendefinition.org/" target="_blank" rel="noopener">Open Definition</a>'
+  help_allow_html: True
+  form_group_id: license_info
+
+# Conditions for access and use and limitations on public access (M)
+- field_name: access_rights
+  label:
+    en: Access Rights
+    es: Derechos de acceso
+  preset: access_rights
+  display_property: dct:accessRights
+  form_include_blank_choice: False
+  choices:
+  - label:
+      en: Confidential
+      es: Confidencial
+    value: http://publications.europa.eu/resource/authority/access-right/CONFIDENTIAL
+  - label:
+      en: Non-public
+      es: No público
+    value: http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC
+  - label:
+      en: Normal
+      es: Normal
+    value: http://publications.europa.eu/resource/authority/access-right/NORMAL
+  - label:
+      en: Public
+      es: Público
+    value: http://publications.europa.eu/resource/authority/access-right/PUBLIC
+  - label:
+      en: Restricted
+      es: Restringido
+    value: http://publications.europa.eu/resource/authority/access-right/RESTRICTED
+  - label:
+      en: Sensitive
+      es: Sensible
+    value: http://publications.europa.eu/resource/authority/access-right/SENSITIVE
+  help_text:
+    en: 'Name authority list <a href="http://publications.europa.eu/resource/authority/access-right" target="_blank" rel="noopener">Access right</a> (EU Vocabs)'
+    es: 'Lista de autoridades <a href="http://publications.europa.eu/resource/authority/access-right" target="_blank" rel="noopener">Derechos de acceso</a> (EU Vocabs)'
+  help_allow_html: True
+  form_group_id: license_info
+
+# Version number (O)
+- field_name: version
+  label:
+    en: Version
+    es: Versión
+  help_text:
+    en: Version number or other version designation of the Dataset.
+    es: Número de versión u otra designación de versión del conjunto de datos.
+  display_property: owl:versionInfo
+  validators: ignore_missing unicode_safe package_version_validator
+  form_placeholder: '1.0'
+  form_group_id: version_notes
+
+# Version information (O)
+- field_name: version_notes
+  label:
+    en: Version notes
+    es: Notas sobre la versión
+  help_text:
+    en: A description of the differences between this version and a previous version of the Dataset.
+    es: Una descripción de las diferencias entre esta versión y una versión anterior del Dataset.
+  preset: schemingdcat_fluent_markdown
+  display_property: adms:versionNotes
+  form_placeholder:
+    en: e.g. Some useful version notes about the dataset.
+    es: ej. Una descripción útil sobre las diferencias de esta versión del conjunto de datos.
+  form_languages: ["en", "es"]
+  form_group_id: version_notes
+
+# Dataset validity (O)
+- field_name: valid
+  label: 
+    en: Dataset validity
+    es: Vigencia del conjunto de datos
+  display_property: dct:valid
+  preset: date
+  form_group_id: version_notes
+
+#--Resource/Distribution (dcat:Distribution) fields--#
+resource_fields:
+
+# Access URL (M)
+- field_name: url
+  label:
+    en: Access URL
+    es: URL de acceso
+  preset: resource_url_upload
+  display_property: dcat:accessURL
+  display_snippet: schemingdcat/display_snippets/link.html
+  form_group_id: resource_url
+
+#FIX: Resource title (M) -- name_translated field dont work
+- field_name: name
+  label:
+    en: Distribution title
+    es: Título de la distribución
+  form_placeholder:
+    en: e.g. Web Map Service
+    es: ej. Web Map Service
+  display_property: dct:title
+  form_group_id: resource_title
+
+#FIX: Resource abstract (M) -- description_translated field dont work
+- field_name: description
+  label:
+    en: Distribution abstract
+    es: Descripción de la distribución
+  form_snippet: markdown.html
+  form_placeholder:
+    en: Some useful notes about the data.
+    es: Algunas notas útiles sobre los datos.
+  display_property: dct:description
+  form_group_id: resource_notes
+
+# Date of creation (M)
+- field_name: created
+  label: 
+    en: Date of creation
+    es: Fecha de creación
+  display_property: dct:created
+  preset: date_created
+  form_group_id: resource_identification
+
+# Date of last revision (M)
+- field_name: modified
+  label: 
+    en: Date of last revision
+    es: Fecha de última modificación
+  display_property: dct:modified
+  preset: date_modified
+  form_group_id: resource_identification
+
+# Resource status (O)
+- field_name: availability
+  label:
+    en: Resource availability
+    es: Disponibilidad de la distribución
+  preset: select
+  display_snippet: schemingdcat/display_snippets/link_schema.html
+  display_property: dcatap:availability
+  form_include_blank_choice: False
+  choices:
+  - label:
+      en: Available
+      es: Disponible
+    value: http://publications.europa.eu/resource/authority/planned-availability/AVAILABLE
+  - label:
+      en: Stable
+      es: Estable
+    value: http://publications.europa.eu/resource/authority/planned-availability/STABLE
+  - label:
+      en: Experimental
+      es: Experimental
+    value: http://publications.europa.eu/resource/authority/planned-availability/EXPERIMENTAL
+  - label:
+      en: Provisional data
+      es: Datos provisionales
+    value: http://publications.europa.eu/resource/authority/planned-availability/OP_DATPRO
+  - label:
+      en: Temporary
+      es: Temporal
+    value: http://publications.europa.eu/resource/authority/planned-availability/TEMPORARY
+  help_text:
+    en: 'This property indicates how long it is planned to keep the Distribution of the Dataset available acording to <a href="http://publications.europa.eu/resource/authority/planned-availability" target="_blank" rel="noopener">Distribution availability vocabulary</a>.'
+    es: 'Esta propiedad indica durante cuánto tiempo se prevé mantener disponible la distribución del conjunto de datos de acuerdo con el <a href="http://publications.europa.eu/resource/authority/planned-availability" target="_blank" rel="noopener">Vocabulario de disponibilidad de la distribución</a>.'
+  help_allow_html: True
+  form_group_id: resource_lineage
+
+# Resource format (O)
+- field_name: format
+  label:
+    en: Format
+    es: Formato
+  preset: resource_format_autocomplete
+  display_property: dct:format
+  form_group_id: resource_type
+
+# Media type (O)
+- field_name: mimetype
+  label:
+    en: Media type
+    es: Tipo de medio 
+  display_snippet: schemingdcat/display_snippets/link.html
+  display_property: dct:MediaType
+  form_placeholder: http://www.iana.org/assignments/media-types/application/vnd.shp
+  help_text:
+    en: 'This property refers to the media type of the Distribution as defined in the official <a href="http://www.iana.org/assignments/media-types/media-types.xhtml" target="_blank" rel="noopener">register of media types</a> (IANA)'
+    es: 'Esta propiedad se refiere al tipo de medio de la Distribución tal y como se define en el <a href="http://www.iana.org/assignments/media-types/media-types.xhtml" target="_blank" rel="noopener">registro oficial de tipos de medios</a> (IANA)'
+  help_allow_html: True
+  form_group_id: resource_type
+
+# Resource status (O)
+- field_name: status
+  label:
+    en: Resource status
+    es: Estado de la distribución
+  preset: select
+  display_snippet: schemingdcat/display_snippets/link_schema.html
+  display_property: adms:status
+  form_include_blank_choice: False
+  choices:
+  - label:
+      en: Completed
+      es: Completado
+    value: http://purl.org/adms/status/Completed
+  - label:
+      en: Under development
+      es: En desarrollo
+    value: http://purl.org/adms/status/UnderDevelopment
+  - label:
+      en: Deprecated
+      es: Obsoleto
+    value: http://purl.org/adms/status/Deprecated
+  - label:
+      en: Withdrawn
+      es: Retirado
+    value: http://purl.org/adms/status/Withdrawn
+  help_text:
+    en: 'This property refers to the maturity of the Distribution. It MUST take one of the values from the <a href="http://purl.org/adms/status/" target="_blank" rel="noopener">ADMS status</a> list.'
+    es: 'Esta propiedad hace referencia a la madurez de la distribución y debe tomar uno de los valores de la lista <a href="http://purl.org/adms/status/" target="_blank" rel="noopener">ADMS status</a>.'
+  help_allow_html: True
+  form_group_id: resource_type
+
+# Resource character encoding (C)
+- field_name: encoding
+  label:
+    en: Character encoding
+    es: Codificación
+  display_property: cnt:characterEncoding
+  form_placeholder: UTF-8
+  help_text:
+    en: 'Character encoding in ISO-19115 metadata is specified with a code list that can be mapped to the corresponding codes in <a href="https://www.iana.org/assignments/character-sets" target="_blank" rel="noopener">[IANA-CHARSETS]</a>'
+    es: 'La codificación de caracteres en los metadatos ISO-19115 se especifica con una lista de códigos que puede asignarse a los códigos correspondientes en <a href="https://www.iana.org/assignments/character-sets" target="_blank" rel="noopener">[IANA-CHARSETS]</a>.'
+  help_allow_html: True
+  form_group_id: resource_type
+
+# Resource language (M)
+- field_name: language
+  label:
+    en: Resource language
+    es: Idioma de la distribución
+  preset: select
+  display_property: dct:language
+  display_snippet: schemingdcat/display_snippets/link_schema.html
+  choices:
+  - label:
+      en: Spanish
+      es: Español
+    value: http://publications.europa.eu/resource/authority/language/SPA
+  - label:
+      en: English
+      es: Inglés
+    value: http://publications.europa.eu/resource/authority/language/ENG
+  - label:
+      en: German
+      es: Alemán
+    value: http://publications.europa.eu/resource/authority/language/DEU
+  - label:
+      en: French
+      es: Francés
+    value: http://publications.europa.eu/resource/authority/language/FRA
+  - label:
+      en: Italian
+      es: Italiano
+    value: http://publications.europa.eu/resource/authority/language/ITA
+  - label:
+      en: Dutch
+      es: Neerlandés
+    value: http://publications.europa.eu/resource/authority/language/NLD
+  - label:
+      en: Danish
+      es: Danés
+    value: http://publications.europa.eu/resource/authority/language/DAN
+  - label:
+      en: Greek
+      es: Griego
+    value: http://publications.europa.eu/resource/authority/language/ELL
+  - label:
+      en: Portuguese
+      es: Portugués
+    value: http://publications.europa.eu/resource/authority/language/POR
+  - label:
+      en: Finnish
+      es: Finés
+    value: http://publications.europa.eu/resource/authority/language/FIN
+  - label:
+      en: Swedish
+      es: Sueco
+    value: http://publications.europa.eu/resource/authority/language/SWE
+  - label:
+      en: Czech
+      es: Checo
+    value: http://publications.europa.eu/resource/authority/language/CES
+  - label:
+      en: Estonian
+      es: Estonio
+    value: http://publications.europa.eu/resource/authority/language/EST
+  - label:
+      en: Croatian
+      es: Croata
+    value: http://publications.europa.eu/resource/authority/language/HRV
+  - label:
+      en: Hungarian
+      es: Húngaro
+    value: http://publications.europa.eu/resource/authority/language/HUN
+  - label:
+      en: Latvian
+      es: Letón
+    value: http://publications.europa.eu/resource/authority/language/LAV
+  - label:
+      en: Lithuanian
+      es: Lituano
+    value: http://publications.europa.eu/resource/authority/language/LIT
+  - label:
+      en: Luxembourgish
+      es: Luxemburgués
+    value: http://publications.europa.eu/resource/authority/language/LTZ
+  - label:
+      en: Maltese
+      es: Maltés
+    value: http://publications.europa.eu/resource/authority/language/MLT
+  - label:
+      en: Polish
+      es: Polaco
+    value: http://publications.europa.eu/resource/authority/language/POL
+  - label:
+      en: Slovak
+      es: Eslovaco
+    value: http://publications.europa.eu/resource/authority/language/SLK
+  - label:
+      en: Slovene
+      es: Esloveno
+    value: http://publications.europa.eu/resource/authority/language/SLV
+  - label:
+      en: Romanian
+      es: Rumano
+    value: http://publications.europa.eu/resource/authority/language/ROM
+  form_group_id: resource_identification
+
+# Byte size (O)
+- field_name: size
+  label:
+    en: Byte size
+    es: Tamaño en bytes
+  form_placeholder: 305000
+  preset: file_size
+  display_property: dcat:byteSize
+  help_text:
+    en: 'Integer value.'
+    es: 'Valor entero.'
+  form_group_id: resource_type
+
+# Additional format information (O)
+##TODO: To profiles.py
+- field_name: resource_relation
+  label: 
+    en: Additional format information
+    es: Información adicional sobre el formato
+  preset: multiple_text_raws_ordered
+  form_placeholder: 'http://www.catastro.minhap.es/ayuda/lang/castellano/ayuda_descarga_shape.htm'
+  help_text:
+    en: 'Link(s) related to the format, where the format, the scheme used for its representation or other technical information on how to access the documents or information resources is indicated.'
+    es: 'Enlace(s) relacionado(s) con el formato, en dónde se indica el formato, el esquema utilizado para su representación u otra información técnica sobre cómo acceder a los documentos o recursos de información.'
+  form_group_id: resource_lineage
+
+# Resource License (R)
+- field_name: license
+  label: 
+    en: Distribution license
+    es: Licencia de la distribución
+  display_property: dct:license
+  form_placeholder:
+    en: e.g. http://creativecommons.org/licenses/by/4.0/
+    es: ej. http://creativecommons.org/licenses/by/4.0/
+  help_text:
+    en: 'License definitions and additional information can be found at: <a href="http://opendefinition.org/" target="_blank" rel="noopener">Open Definition</a>'
+    es: 'Las definiciones de las licencias y la información adicional pueden encontrarse en: <a href="http://opendefinition.org/" target="_blank" rel="noopener">Open Definition</a>'
+  help_allow_html: True
+  form_group_id: resource_license_info 
+
+# Resource limitations on public access (M)
+- field_name: rights
+  label:
+    en: Resource access Rights
+    es: Derechos de acceso del recurso
+  preset: select
+  display_snippet: schemingdcat/display_snippets/link_schema.html
+  display_property: dct:accessRights
+  form_include_blank_choice: False
+  choices:
+  - label:
+      en: Confidential
+      es: Confidencial
+    value: http://publications.europa.eu/resource/authority/access-right/CONFIDENTIAL
+  - label:
+      en: Non-public
+      es: No público
+    value: http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC
+  - label:
+      en: Normal
+      es: Normal
+    value: http://publications.europa.eu/resource/authority/access-right/NORMAL
+  - label:
+      en: Public
+      es: Público
+    value: http://publications.europa.eu/resource/authority/access-right/PUBLIC
+  - label:
+      en: Restricted
+      es: Restringido
+    value: http://publications.europa.eu/resource/authority/access-right/RESTRICTED
+  - label:
+      en: Sensitive
+      es: Sensible
+    value: http://publications.europa.eu/resource/authority/access-right/SENSITIVE
+  help_text:
+    en: 'Name authority list <a href="http://publications.europa.eu/resource/authority/access-right" target="_blank" rel="noopener">Access right</a> (EU Vocabs)'
+    es: 'Lista de autoridades <a href="http://publications.europa.eu/resource/authority/access-right" target="_blank" rel="noopener">Derechos de acceso</a> (EU Vocabs)'
+  help_allow_html: True
+  form_group_id: resource_license_info 
+
+# Conformity (M)
+- field_name: conforms_to
+  label: 
+    en: Conformity 
+    es: Conformidad
+  preset: multiple_text_links
+  display_property: dct:conformsTo
+  form_placeholder: 'http://www.opengeospatial.org/standards/wms'
+  help_text:
+    en: 'Specification (e.g. OGC). URLs'
+    es: 'Especificaciones (e.g. OGC). URLs'
+  form_group_id: resource_standards 
+
+# Coordinate Reference System (C)
+- field_name: reference_system
+  label:
+    en: Coordinate Reference System
+    es: Sistema de Referencia de Coordenadas
+  validators: ignore_missing schemingdcat_valid_url
+  display_snippet: schemingdcat/display_snippets/link_epsg.html
+  form_placeholder: http://www.opengis.net/def/crs/EPSG/0/4326
+  help_text:
+    en: 'EPSG URI system for identifying position in the real world [ISO 19112]. The URI prefix for coordinate reference systems is the following one: http://www.opengis.net/def/crs/EPSG/0/{EPSG Code}'
+    es: 'URI EPSG del sistema para identificar la posición en el mundo real [ISO 19112]. El prefijo URI para los sistemas de referencia de coordenadas es el siguiente: http://www.opengis.net/def/crs/EPSG/0/{Código EPSG}'
+  help_allow_html: True
+  form_group_id: resource_standards 
+
+# Lineage statement (O)
+##TODO: provenance
+
+# Lineage process steps (O)
+##TODO: lineage_process_steps

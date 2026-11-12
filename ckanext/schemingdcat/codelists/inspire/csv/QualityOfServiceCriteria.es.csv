@@ -1,0 +1,4 @@
+id,label
+http://inspire.ec.europa.eu/metadata-codelist/QualityOfServiceCriteria/availability,availability
+http://inspire.ec.europa.eu/metadata-codelist/QualityOfServiceCriteria/performance,performance
+http://inspire.ec.europa.eu/metadata-codelist/QualityOfServiceCriteria/capacity,capacity

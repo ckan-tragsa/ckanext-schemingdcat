@@ -1,0 +1,42 @@
+{# 
+  This template renders metadata profile badges for a package.
+  
+  The profiles are sorted by version in descending order, and specific profiles
+  are rendered based on certain conditions. If the 'geodcat_ap' profile is present,
+  the 'dcat_ap' profile will not be rendered.
+  
+  Args:
+      profiles (list): List of profile objects containing profile_id, profile_label, profile_info_url, and profile_version.
+      pkg (object): Package object containing dcat_type and theme_es attributes.
+      inspire_metadata_values (list): List of values for inspire metadata.
+#}
+
+{% set processed_profiles = [] %}
+
+{% macro render_metadata_label(profile_label, profile_title, profile_info_url, profile_fa_icon) %}
+  <div class="metadata-label pull-left">
+    <a href="{{ profile_info_url }}" target="_blank">
+      <span class="full-label" title="{{ profile_title }}">{{ profile_label }}</span>
+      <span class="short-label" title="{{ profile_label }}"><i class="fa {{ profile_fa_icon }}"> </i></span>
+    </a>
+    <i class="fa fa-check-circle"></i>
+  </div>
+{% endmacro %}
+
+{% set sorted_profiles = profiles|sort(attribute='profile_version', reverse=True) %}
+
+{% for profile in sorted_profiles %}
+    {% set profile_key = profile.profile_id if profile.profile_id else profile.profile_label %}
+    {% if profile_key not in processed_profiles %}
+        {% if profile.profile_id == 'inspire' and pkg.dcat_type in inspire_metadata_values %}
+            {{ render_metadata_label(profile.profile_label, profile.profile_label, profile.profile_info_url, profile.profile_fa_icon) }}
+        {% elif profile.profile_id == 'geodcat_ap' and pkg.dcat_type in inspire_metadata_values %}
+            {{ render_metadata_label('GeoDCAT-AP', profile.profile_label, profile.profile_info_url, profile.profile_fa_icon) }}
+        {% elif profile.profile_id == 'dcat_ap' and pkg.dcat_type not in inspire_metadata_values %}
+            {{ render_metadata_label('DCAT-AP', profile.profile_label, profile.profile_info_url, profile.profile_fa_icon) }}
+        {% elif profile.profile_id == 'nti_risp' and pkg.theme_es %}
+            {{ render_metadata_label(profile.profile_label, profile.profile_label, profile.profile_info_url, profile.profile_fa_icon) }}
+        {% endif %}
+        {% set _ = processed_profiles.append(profile_key) %}
+    {% endif %}
+{% endfor %}

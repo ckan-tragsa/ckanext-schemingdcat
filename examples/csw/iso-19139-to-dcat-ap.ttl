@@ -1,0 +1,168 @@
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix ns0: <http://www.w3.org/2011/content#> .
+@prefix ns1: <http://www.w3.org/ns/locn#> .
+@prefix ns2: <http://www.opengis.net/ont/geosparql#> .
+@prefix ns3: <https://www.iana.org/assignments/media-types/application/vnd.geo+> .
+
+<https://mapas.fomento.gob.es/arcgis/rest/services/Hermes/NEW_RED_TRANSEUROPEA_DE_TRANSPORTE__TEN_T_2024/MapServer/34/query?where=Shape is not null&amp;outFields=*&amp;f=kmz>
+  a foaf:Document ;
+  dc:title "KMZ"@es ;
+  dc:description "Consulta para la descarga completa del conjunto de datos en formato KMZ. *(\\*)Nota: El tiempo de descarga puede variar dependiendo del tamaño del archivo resultante.*"@es .
+
+<https://mapas.fomento.gob.es/arcgis/rest/services/Hermes/NEW_RED_TRANSEUROPEA_DE_TRANSPORTE__TEN_T_2024/MapServer/34/query?where=Shape is not null&amp;outFields=*&amp;f=json>
+  a foaf:Document ;
+  dc:title "JSON"@es ;
+  dc:description "Consulta para la descarga completa del conjunto de datos en formato JSON"@es .
+
+<http://www.opengis.net/def/crs/EPSG/0/25830>
+  a dc:Standard ;
+  dc:type <http://inspire.ec.europa.eu/glossary/SpatialReferenceSystem> .
+
+<http://data.europa.eu/eli/reg/2010/1089> a dc:Standard, prov:Entity .
+<http://inspire.ec.europa.eu/metadata-codelist/ResponsiblePartyRole/pointOfContact> a dcat:Role .
+<https://www.arcgis.com/home/webmap/viewer.html?url=https://mapas.fomento.gob.es/arcgis/rest/services/Hermes/NEW_RED_TRANSEUROPEA_DE_TRANSPORTE__TEN_T_2024/MapServer/34>
+  a foaf:Document ;
+  dc:title "ESRI Map - Layer"@es ;
+  dc:description "Layer de ArcGIS Map Service (URL y previsualización). URL: https://mapas.fomento.gob.es/arcgis/rest/services/Hermes/NEW_RED_TRANSEUROPEA_DE_TRANSPORTE__TEN_T_2024/MapServer/31"@es .
+
+<https://drive.google.com/file/d/1Nq-T0Fs8d8Co3qdXA2CVcMXP9nZO3Dqe/preview>
+  a foaf:Document ;
+  dc:title "Diccionario de datos"@es ;
+  dc:description "PDF que contiene el diccionario de datos asociado al conjunto de datos."@es .
+
+<http://publications.europa.eu/resource/authority/language/SPA> a dc:LinguisticSystem .
+<http://publications.europa.eu/resource/authority/frequency/CONT> a dc:Frequency .
+<http://data.europa.eu/930/> a dc:Standard .
+<http://data.europa.eu/eli/reg/2008/1205> a prov:Entity, dc:Standard .
+[]
+  foaf:isPrimaryTopicOf [
+    a dcat:CatalogRecord ;
+    dc:conformsTo <http://data.europa.eu/930/> ;
+    dc:language <http://publications.europa.eu/resource/authority/language/SPA> ;
+    dc:modified "2024-12-03T11:44:27+00:00"^^xsd:dateTime ;
+    dcat:contactPoint [
+      a vcard:Organization ;
+      vcard:fn "Subdirección General de Planificación, Red Transeuropea y Logística (SGPRTL) del Ministerio de Transportes y Movilidad Sostenible."@es ;
+      vcard:hasEmail <mailto:hermes@transportes.gob.es> ;
+      vcard:hasURL <https://www.transportes.gob.es/ministerio/proyectos-singulares/plataforma-hermes/formulario-contacto-plataforma-hermes>
+    ] ;
+    prov:qualifiedAttribution [
+      a prov:Attribution ;
+      prov:agent [
+        a foaf:Organization, prov:Agent ;
+        foaf:name "Subdirección General de Planificación, Red Transeuropea y Logística (SGPRTL) del Ministerio de Transportes y Movilidad Sostenible."@es ;
+        foaf:mbox <mailto:hermes@transportes.gob.es> ;
+        foaf:workplaceHomepage <https://www.transportes.gob.es/ministerio/proyectos-singulares/plataforma-hermes/formulario-contacto-plataforma-hermes>
+      ] ;
+      dc:type <http://inspire.ec.europa.eu/metadata-codelist/ResponsiblePartyRole/pointOfContact> ;
+      dcat:hadRole <http://inspire.ec.europa.eu/metadata-codelist/ResponsiblePartyRole/pointOfContact>
+    ] ;
+    dc:identifier "3e4da15e-ec6a-5a71-b3d4-51d9bfcdfad8"^^xsd:string ;
+    dc:source [
+      a dcat:CatalogRecord ;
+      dc:modified "2024-12-03"^^xsd:date ;
+      ns0:characterEncoding "UTF-8"^^xsd:string ;
+      dc:conformsTo [
+        a dc:Standard ;
+        dc:title "Reglamento (CE) Nº 1205/2008 de INSPIRE"@es
+      ]
+    ]
+  ] ;
+  a dcat:Dataset ;
+  dc:type <http://inspire.ec.europa.eu/metadata-codelist/ResourceType/dataset> ;
+  dc:title "Red de Ferrocarriles destinados al tráfico de mercancías de la Red global de la Red Transeuropea de Transportes (TEN-T) 2024/1679."@es ;
+  dc:description "Contiene el listado de tramos ferroviarios para el uso de mercancías que pertenecen a la Red Global de la Red Transeuropea de Transportes (TEN-T). _(*)Nota: La información mostrada en este conjunto de datos se corresponde con lo publicado en el Reglamento (UE) 2024/1679._"@es ;
+  dc:accrualPeriodicity <http://publications.europa.eu/resource/authority/frequency/CONT> ;
+  dc:subject <http://inspire.ec.europa.eu/metadata-codelist/TopicCategory/transportation> ;
+  dcat:theme <http://inspire.ec.europa.eu/theme/tn>, <https://www.eionet.europa.eu/gemet/en/concept/11118>, <http://inspire.ec.europa.eu/metadata-codelist/SpatialScope/national> ;
+  dc:identifier ""^^xsd:string ;
+  dc:language <http://publications.europa.eu/resource/authority/language/SPA> ;
+  dc:spatial [
+    a dc:Location ;
+    ns1:geometry "POLYGON((-19.00 44.04,4.60 44.04,4.60 27.00,-19.00 27.00,-19.00 44.04))"^^ns2:wktLiteral, "<gml:Envelope srsName=\"http://www.opengis.net/def/crs/OGC/1.3/CRS84\"><gml:lowerCorner>-19.00 27.00</gml:lowerCorner><gml:upperCorner>4.60 44.04</gml:upperCorner></gml:Envelope>"^^ns2:gmlLiteral, "{\"type\":\"Polygon\",\"coordinates\":[[[-19.00,44.04],[4.60,44.04],[4.60,27.00],[-19.00,27.00],[-19.00,44.04]]]}"^^ns3:json, "{\"type\":\"Polygon\",\"coordinates\":[[[-19.00,44.04],[4.60,44.04],[4.60,27.00],[-19.00,27.00],[-19.00,44.04]]]}"^^ns2:geoJSONLiteral ;
+    dcat:bbox "POLYGON((-19.00 44.04,4.60 44.04,4.60 27.00,-19.00 27.00,-19.00 44.04))"^^ns2:wktLiteral, "<gml:Envelope srsName=\"http://www.opengis.net/def/crs/OGC/1.3/CRS84\"><gml:lowerCorner>-19.00 27.00</gml:lowerCorner><gml:upperCorner>4.60 44.04</gml:upperCorner></gml:Envelope>"^^ns2:gmlLiteral, "{\"type\":\"Polygon\",\"coordinates\":[[[-19.00,44.04],[4.60,44.04],[4.60,27.00],[-19.00,27.00],[-19.00,44.04]]]}"^^ns3:json, "{\"type\":\"Polygon\",\"coordinates\":[[[-19.00,44.04],[4.60,44.04],[4.60,27.00],[-19.00,27.00],[-19.00,44.04]]]}"^^ns2:geoJSONLiteral
+  ] ;
+  dc:created ""^^xsd:date ;
+  dc:issued ""^^xsd:date ;
+  dc:modified ""^^xsd:date ;
+  dc:conformsTo <http://www.opengis.net/def/crs/EPSG/0/25830>, <http://data.europa.eu/eli/reg/2010/1089>, <http://data.europa.eu/eli/reg/2008/1205> ;
+  prov:wasUsedBy [
+    a prov:Activity ;
+    prov:qualifiedAssociation [
+      a prov:Association ;
+      prov:hadPlan [
+        a prov:Plan ;
+        prov:wasDerivedFrom <http://data.europa.eu/eli/reg/2010/1089>
+      ]
+    ] ;
+    prov:generated [
+      a prov:Entity ;
+      dc:type <http://inspire.ec.europa.eu/metadata-codelist/DegreeOfConformity/conformant> ;
+      dc:description "This data set is conformant with the INSPIRE Implementing Rules for the interoperability of spatial data sets and services"@es
+    ]
+  ], [
+    a prov:Activity ;
+    prov:qualifiedAssociation [
+      a prov:Association ;
+      prov:hadPlan [
+        a prov:Plan ;
+        prov:wasDerivedFrom <http://data.europa.eu/eli/reg/2008/1205>
+      ]
+    ] ;
+    prov:generated [
+      a prov:Entity ;
+      dc:type <http://inspire.ec.europa.eu/metadata-codelist/DegreeOfConformity/conformant> ;
+      dc:description "This data set is conformant with the INSPIRE Implementing Rules for the interoperability of spatial data sets and services"@es
+    ]
+  ], [
+    a prov:Activity ;
+    prov:qualifiedAssociation [
+      a prov:Association ;
+      prov:hadPlan [
+        a prov:Plan ;
+        prov:wasDerivedFrom <http://data.europa.eu/eli/reg/2010/1089>
+      ]
+    ] ;
+    prov:generated [
+      a prov:Entity ;
+      dc:type <http://inspire.ec.europa.eu/metadata-codelist/DegreeOfConformity/conformant> ;
+      dc:description "This data set is conformant with the INSPIRE Implementing Rules for the interoperability of spatial data sets and services"@es
+    ]
+  ], [
+    a prov:Activity ;
+    prov:qualifiedAssociation [
+      a prov:Association ;
+      prov:hadPlan [
+        a prov:Plan ;
+        prov:wasDerivedFrom <http://data.europa.eu/eli/reg/2008/1205>
+      ]
+    ] ;
+    prov:generated [
+      a prov:Entity ;
+      dc:type <http://inspire.ec.europa.eu/metadata-codelist/DegreeOfConformity/conformant> ;
+      dc:description "This data set is conformant with the INSPIRE Implementing Rules for the interoperability of spatial data sets and services"@es
+    ]
+  ] ;
+  foaf:page <https://www.arcgis.com/home/webmap/viewer.html?url=https://mapas.fomento.gob.es/arcgis/rest/services/Hermes/NEW_RED_TRANSEUROPEA_DE_TRANSPORTE__TEN_T_2024/MapServer/34>, <https://mapas.fomento.gob.es/arcgis/rest/services/Hermes/NEW_RED_TRANSEUROPEA_DE_TRANSPORTE__TEN_T_2024/MapServer/34/query?where=Shape is not null&amp;outFields=*&amp;f=kmz>, <https://mapas.fomento.gob.es/arcgis/rest/services/Hermes/NEW_RED_TRANSEUROPEA_DE_TRANSPORTE__TEN_T_2024/MapServer/34/query?where=Shape is not null&amp;outFields=*&amp;f=json>, <https://drive.google.com/file/d/1Nq-T0Fs8d8Co3qdXA2CVcMXP9nZO3Dqe/preview> ;
+  dcat:contactPoint [
+    a vcard:Organization ;
+    vcard:fn "Subdirección General de Planificación, Red Transeuropea y Logística (SGPRTL) del Ministerio de Transportes y Movilidad Sostenible."@es ;
+    vcard:hasEmail <mailto:hermes@transportes.gob.es> ;
+    vcard:hasURL <https://www.transportes.gob.es/ministerio/proyectos-singulares/plataforma-hermes/formulario-contacto-plataforma-hermes>
+  ] ;
+  prov:qualifiedAttribution [
+    a prov:Attribution ;
+    prov:agent [
+      a foaf:Organization, prov:Agent ;
+      foaf:name "Subdirección General de Planificación, Red Transeuropea y Logística (SGPRTL) del Ministerio de Transportes y Movilidad Sostenible."@es ;
+      foaf:mbox <mailto:hermes@transportes.gob.es> ;
+      foaf:workplaceHomepage <https://www.transportes.gob.es/ministerio/proyectos-singulares/plataforma-hermes/formulario-contacto-plataforma-hermes>
+    ] ;
+    dc:type <http://inspire.ec.europa.eu/metadata-codelist/ResponsiblePartyRole/pointOfContact> ;
+    dcat:hadRole <http://inspire.ec.europa.eu/metadata-codelist/ResponsiblePartyRole/pointOfContact>
+  ] .

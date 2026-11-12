@@ -1,0 +1,88 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+      <a class="accordion-toggle" data-bs-toggle="collapse" data-bs-parent="accordion2" href="#collapse-javascript">{{ _('Example') }}: Javascript &raquo;</a>
+    </div>
+
+    <div id="collapse-javascript" class="panel-collapse collapse">
+      <div class="panel-body">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <a class="accordion-toggle" data-bs-toggle="collapse" data-bs-parent="#collapse-javascript" href="#collapse-javascript-example1">{{ _('Query example (first 5 results)') }}</a>
+          </div>
+          <div id="collapse-javascript-example1" class="panel-collapse collapse">
+            <div class="panel-body">
+              <pre class="ft-syntax-highlight" data-bs-syntax="js" data-bs-syntax-theme="one-dark" style="font-size:12px"><code class="language-javascript">
+
+<span class="keyword">const</span> <span class="identifier">resp</span> = <span class="keyword">await</span> <span class="identifier">fetch</span>(`<span class="url">{{ h.url_for('api.action', ver=3, logic_function='datastore_search', qualified=True) }}</span>`, {
+  <span class="property">method</span>: <span class="string">'POST'</span>,
+  <span class="property">headers</span>: {
+      <span class="property">'content-type'</span>: <span class="string">'application/json'</span>,
+      <span class="property">authorization</span>: <span class="identifier">API_TOKEN</span>
+  },
+  <span class="property">body</span>: <span class="identifier">JSON</span>.<span class="property">stringify</span>({
+      <span class="property">resource_id</span>: <span class="value">'{{ resource_id }}'</span>,
+      <span class="property">limit</span>: <span class="number">5</span>,
+  })
+})
+<span class="keyword">await</span> <span class="identifier">resp</span>.<span class="property">json</span>()
+            </code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+              <a class="accordion-toggle" data-bs-toggle="collapse" data-bs-parent="#collapse-javascript" href="#collapse-javascript-example2">{{ _('Query example (results containing \'medio-ambiente\')') }}</a>
+            </div>
+            <div id="collapse-javascript-example2" class="panel-collapse collapse">
+              <div class="panel-body">
+                <pre class="ft-syntax-highlight" data-bs-syntax="js" data-bs-syntax-theme="one-dark" style="font-size:12px"><code class="language-javascript">
+
+<span class="keyword">const</span> <span class="identifier">resp</span> = <span class="keyword">await</span> <span class="identifier">fetch</span>(`<span class="url">{{ h.url_for('api.action', ver=3, logic_function='datastore_search', qualified=True) }}</span>`, {
+  <span class="property">method</span>: <span class="string">'POST'</span>,
+  <span class="property">headers</span>: {
+      <span class="property">'content-type'</span>: <span class="string">'application/json'</span>,
+      <span class="property">authorization</span>: <span class="identifier">API_TOKEN</span>
+  },
+  <span class="property">body</span>: <span class="identifier">JSON</span>.<span class="property">stringify</span>({
+      <span class="property">resource_id</span>: <span class="value">'{{ resource_id }}'</span>,
+      <span class="property">filters</span>: {
+          <span class="property">subject</span>: [<span class="property">'medio-ambiente'</span>],
+          <span class="property">stage</span>: <span class="string">'active'</span>
+      }
+  })
+})
+<span class="keyword">await</span> <span class="identifier">resp</span>.<span class="property">json</span>()
+                </code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <a class="accordion-toggle" data-bs-toggle="collapse" data-bs-parent="#collapse-javascript" href="#collapse-javascript-example3">{{ _('Query example (via SQL statement)') }}</a>
+            </div>
+            <div id="collapse-javascript-example3" class="panel-collapse collapse">
+              <div class="panel-body">
+                <pre class="ft-syntax-highlight" data-bs-syntax="js" data-bs-syntax-theme="one-dark" style="font-size:12px"><code class="language-javascript">
+
+<span class="keyword">const</span> <span class="identifier">resp</span> = <span class="keyword">await</span> <span class="identifier">fetch</span>(`<span class="url">{{ h.url_for('api.action', ver=3, logic_function='datastore_search', qualified=True) }}</span>`, {
+  <span class="property">method</span>: <span class="string">'POST'</span>,
+  <span class="property">headers</span>: {
+      <span class="property">'content-type'</span>: <span class="string">'application/json'</span>,
+      <span class="property">authorization</span>: <span class="identifier">API_TOKEN</span>
+  },
+  <span class="property">body</span>: <span class="identifier">JSON</span>.<span class="property">stringify</span>({
+      <span class="property">sql</span>: <span class="string">`SELECT * FROM "<span class="value">'{{ resource_id }}'</span>" WHERE title LIKE 'medio-ambiente'`</span>
+  })
+})
+<span class="keyword">await</span> <span class="identifier">resp</span>.<span class="property">json</span>()
+                </code></pre>
+              </div>
+            </div>
+          </div>
+
+
+      </div>
+    </div>
+  </div>

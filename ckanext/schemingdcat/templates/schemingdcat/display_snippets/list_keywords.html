@@ -1,0 +1,34 @@
+{#
+  Render a list of keywords URI
+
+  choices_uniques - list of unique keywords
+#}
+
+{% set _class = _class or 'keyword-list' %}
+{%  set choices = data[field.field_name] %}
+
+{% if choices is iterable and (choices is not string) %}
+  {%  set values = choices or ([''] * field.get('form_blanks', 1)) %}
+{% elif choices is string %}
+  {%  set values = h.scheming_display_json_list(choices).strip('][').split('",') or ([''] * field.get('form_blanks', 1)) %}
+{% else %}
+  {%  set values = [''] %}
+{% endif %}
+
+{%  set choices_uniques = [] %}
+{% for value in values if value not in choices_uniques %}
+  {%  do choices_uniques.append(
+    (value, value.split("/")[-1].lower())) %}
+{% endfor %}
+
+{% block choices_uniques %}
+  <ul class="{{ _class }}">
+    {% for value, label  in choices_uniques|sort(attribute=1) if value|length %}
+    {% set value = h.scheming_clean_json_value(value.replace(' ', '')) %}
+    {% set label = h.scheming_clean_json_value(label.replace(' ', '')) %}
+      <li>
+        <a href="{{ value }}" class="truncate-link">{{ label }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

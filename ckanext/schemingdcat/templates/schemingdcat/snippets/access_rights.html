@@ -1,0 +1,37 @@
+{# 
+  This Jinja2 template block displays information about the access rights of a CKAN dataset. It checks if the `access_rights` field is present in the `pkg_dict` dictionary, and if so, it uses the `scheming_field_by_name` and `scheming_field_choices` functions to get the field schema and choices. It then generates HTML that displays the access rights label and an icon based on the value of the `access_rights` field. If the `access_rights` field is not present, it displays a message indicating that no access rights were provided. 
+
+  Variables:
+  - `pkg_dict` (dict): A dictionary containing information about the CKAN dataset.
+  - `schema` (dict): The schema of the CKAN dataset.
+#}
+
+{% block access_rights %}
+  {% if pkg_dict.access_rights %}
+    {% set field = h.scheming_field_by_name(schema.dataset_fields, 'access_rights') %}
+
+    <section class="module module-narrow access_rights">
+      <h2 class="module-heading"><i class="fa fa-share-alt-square"></i> {{ _('Access rights') }}</h2>
+      <ul class="nav nav-simple">
+        {% set choices = h.scheming_field_choices(field) %}
+        {% set access_rights_label = h.scheming_choices_label(choices, pkg_dict.access_rights) %}
+        {% set fa_icon = 'fa fa-lock' %}
+        {% if 'nolimitations' in pkg_dict.access_rights.lower() %}
+          {% set fa_icon = 'fa fa-unlock' %}
+        {% endif %}
+        <li class="nav-item">
+          <a href="{{ pkg_dict.access_rights }}" target="_blank"><i class="{{ fa_icon }}"></i> {{ access_rights_label }}</a>
+        </li>
+      </ul>
+    </section>
+  {% else %}
+    <section class="module module-narrow access_rights">
+      <h2 class="module-heading"><i class="fa fa-share-alt-square"></i> {{ _('Access rights') }}</h2>
+      <ul class="nav nav-simple">
+        <li class="nav-item">
+          <a href="{{ pkg_dict.access_rights }}" target="_blank"><i class="fa fa-unlock"></i> {{ _('No Access Rights provided') }}</a>
+        </li>
+      </ul>
+    </section>
+  {% endif %}
+{% endblock %}

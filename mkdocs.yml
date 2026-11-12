@@ -1,0 +1,81 @@
+site_name: ckanext-schemingdcat
+site_url: https://mjanez.github.io/ckanext-schemingdcat/   # Local: mkdocs serve -a 127.0.0.1:8088
+site_description: >-
+  The documentation of ckanext-schemingdcat, this CKAN extension provides functions and templates specifically designed to extend `ckanext-scheming` and `ckanext-dcat` and includes RDF profiles and Harvest enhancements to adapt CKAN Schema to multiple metadata profiles as: [GeoDCAT-AP](./ckanext/schemingdcat/schemas/geodcat_ap/es_geodcat_ap_full.yaml) or [DCAT-AP](./ckanext/schemingdcat/schemas/dcat_ap/eu_dcat_ap_full.yaml).
+repo_name: mjanez/ckanext-schemingdcat
+repo_url: https://github.com/mjanez/ckanext-schemingdcat
+
+nav:
+  - Home: index.md
+  - Getting Started: v1/getting-started.md
+  - Features:
+      - UI/UX enhancements: v1/feature-new-theme.md
+      - Custom schemas (DCAT-AP/ISO19XXX): v1/feature-schemas.md
+      - Custom harvesters: v1/feature-harvesters.md
+      - Custom profiles: v1/feature-profiles.md
+      - CLI: v1/feature-cli.md
+  - Running tests: v1/tests.md
+  - Development:
+    - Translations: v1/dev-translations.md
+    - Plugin docs with MKDocs: v1/dev-mkdocs.md
+    - Update ChangeLog: v1/dev-changelog.md
+  - Configuration reference: 'v1/configuration.md'
+  - CHANGELOG: changelog.md
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/toggle-switch-off
+        name: Switch to light mode
+
+  logo: _assets/logo.png
+  favicon: _assets/ckan.ico
+  features:
+    - navigation.expand
+    - navigation.footer
+    - navigation.instant
+    - navigation.instant.progress
+    - search.suggest
+    - search.highlight
+    - toc.integrate
+    - content.code.copy
+    - content.footnote.tooltips
+    - content.tooltips
+
+plugins:
+  - search
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - admonition
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - codehilite
+  - footnotes
+  - abbr
+  - attr_list
+  - md_in_html
+
+extra_css:
+  - _css/extra.css
+
+exclude_docs: |
+    !/doc/*
+    !/README.md

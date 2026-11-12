@@ -1,0 +1,19 @@
+{% block reference %}
+  {% if pkg_dict.reference %}
+    {% set name = 'reference' %}
+    {% set list_values = h.schemingdcat_listify_str(pkg_dict.reference) %}
+    <section class="module module-narrow publisher_info">
+      <h2 class="module-heading"><i class="fa fa-plus-square"></i> {{ _('Related resources') }}</h2>
+      
+      <ul class="nav nav-simple scrollable-list">
+        {% for item in list_values %}
+          {% set url_name = h.schemingdcat_prettify_url(item) | truncate(30) %}
+          <li class="nav-item">
+            <a href="{{ item }}" target="_blank"></i> {{ url_name }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+      
+    </section>
+  {% endif %}
+{% endblock %}

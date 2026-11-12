@@ -1,0 +1,78 @@
+{% set inspire_metadata_values = h.schemingdcat_get_inspire_dcat_types() %}
+{% set endpoints = h.get_schemingdcat_get_catalog_endpoints() %}
+{% set profiles = [] %}
+
+{% for endpoint in endpoints %}
+  {% set profile = endpoint.get('profile') %}
+  {% set profile_id = endpoint.get('profile_id') %}
+  {% set profile_label = endpoint.get('profile_label') %}
+  {% set profile_info_url = endpoint.get('profile_info_url') %}
+  {% set profile_label_order = endpoint.get('profile_label_order') %}
+  {% set profile_version = endpoint.get('profile_version') %}
+  {% set profile_fa_icon = endpoint.get('fa_icon') %}
+  {% set profile_type = endpoint.get('type') %}
+  {% if {'profile': profile, 'profile_id': profile_id, 'profile_label': profile_label, 'profile_info_url': profile_info_url, 'profile_type': profile_type, 'profile_label_order': profile_label_order} not in profiles %}
+    {% set _ = profiles.append({'profile': profile, 'profile_id': profile_id, 'profile_label': profile_label, 'profile_info_url': profile_info_url, 'profile_type': profile_type, 'profile_label_order': profile_label_order, 'profile_version': profile_version, 'profile_fa_icon': profile_fa_icon}) %}
+  {% endif %}
+{% endfor %}
+
+{% set profiles = profiles|sort(attribute='profile_label_order') %}
+
+{% macro render_download_link(link, format_label) %}
+  <li>
+    <a href="{{ link }}" target="_blank">
+      <span class="metadata-download_info_label">{{ _('{metadata_format} Metadata').format(metadata_format=format_label|safe) }}</span>
+    </a>
+  </li>
+{% endmacro %}
+
+{% block package_download_metadata %}
+    <div class="download-links-container">
+
+        {% block metadata_profile_badges %}
+          {% snippet
+              "schemingdcat/package/snippets/metadata_profiles_badges.html", profiles=profiles, pkg=pkg, inspire_metadata_values=inspire_metadata_values 
+          %}
+        {% endblock %}
+
+        <div class="download-links pull-right">
+            <div class="btn-group">
+                <a class="btn btn-primary" href="{{ h.url_for('api.action', ver=3, logic_function='package_show', _external=True, id=pkg.name) }}" target="_blank">
+                    <i class="fa fa-download"></i> 
+                    <span class="d-none d-md-inline">{{ _('Download') }}</span>
+                </a>
+                <button class="btn btn-primary dropdown-toggle custom-dropdown-toggle" data-bs-toggle="dropdown">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu custom-dropdown-menu dropdown-menu-end">
+                    {% set linked_data_links = h.schemingdcat_get_all_metadata(pkg.id) %}
+                    {% if pkg.dcat_type in inspire_metadata_values %}
+                        <li class="dropdown-header" title="{{ _('CSW Endpoint') }}"><i class="fa fa-globe"></i> CSW - {{ _('Geospatial Metadata') }}</li>
+                        {% for link in linked_data_links if link.endpoint_type == 'csw' %}
+                            {% set url = link.url.format(id=pkg.identifier) %}
+                            {% set format_label = '<strong>' + link.format + '</strong>' %}
+                            {{ render_download_link(url, format_label) }}
+                        {% endfor %}
+                    {% endif %}
+                    
+                    {% set added_profiles = [] %}
+                    {% for profile in profiles %}
+                        {% if profile.profile_label not in added_profiles %}
+                            {% if ('eu_dcat_ap' in profile.profile or (pkg.theme_es and 'es_dcat' in profile.profile)) and not ('eu_geodcat_ap' in profile.profile and pkg.dcat_type not in inspire_metadata_values) %}
+                                <li class="dropdown-header" title="{{ _('RDF DCAT Endpoint') }}">
+                                    <i class="fa fa-share-alt"></i> {{ profile.profile_label }} - {{ _('Linked Data') }}
+                                </li>
+                                {% for link in linked_data_links if link.endpoint_type == 'dcat' %}
+                                    {% set url = h.url_for(link.endpoint, profiles=profile.profile, **link.endpoint_data) %}
+                                    {% set format_label = '<strong>' + link.format + '</strong>' %}
+                                    {{ render_download_link(h.schemingdcat_url_unquote(url), format_label) }}
+                                {% endfor %}
+                                {% set _ = added_profiles.append(profile.profile_label) %}
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

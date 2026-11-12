@@ -1,0 +1,55 @@
+{% macro contact_item(icon_class, url, truncate_length, url_text=None) %}
+  {% if url %}
+    <li class="nav-item">
+      <a href="{{ url }}" target="_blank"><i class="{{ icon_class }}"></i> {{ url_text|default(url) | truncate(truncate_length) }}</a>
+    </li>
+  {% endif %}
+{% endmacro %}
+
+{% block contact_info %}
+  {% if pkg_dict.contact_name %}
+    {% set dataset_fields = h.schemingdcat_get_cached_schema(dataset_type).dataset_fields %}
+    {% set field_spatial_uri = h.scheming_field_by_name(dataset_fields, 'spatial_uri') %}
+    {% set default_spatial_uri = {
+      "es": "http://datos.gob.es/recurso/sector-publico/territorio/Pais/España",
+      "eu": "http://publications.europa.eu/resource/authority/country/EUR"
+    } %}
+    {% set spatial_uri = pkg_dict.spatial_uri %}
+    {% if ".es" in pkg_dict.contact_email or ".es" in pkg_dict.contact_url %}
+      {% set spatial_uri = default_spatial_uri.es %}
+    {% elif ".eu" in pkg_dict.contact_email or ".eu" in pkg_dict.contact_url %}
+      {% set spatial_uri = default_spatial_uri.eu %}
+    {% endif %}
+
+    <section class="module module-narrow module-shallow contact_info">
+      <h2 class="module-heading"><i class="fa fa-info-circle"></i> {{ _('Punto de contacto') }}</h2>
+      <section class="module-content module_package_info">
+        {% set icons_dir = h.schemingdcat_get_icons_dir(field_spatial_uri) %}
+        {% if icons_dir %}
+          {% set icon = h.schemingdcat_get_icon(h.schemingdcat_get_choice_item(field_spatial_uri, spatial_uri), icons_dir, None) %}
+          {% if icon %}
+            {% set img_url= h.url_for_static(icon) %}
+          {% endif %}
+        {% endif %}
+        {% if img_url %}
+          <a href="{{ h.url_for('dataset.search', spatial_uri=spatial_uri) }}" target="_blank">
+            <img src="{{ img_url }}" title="{{ label }}" class="item_icon"></img>
+          </a>
+        {% endif %}
+        <a class="item_heading" href="{{ h.url_for('dataset.search', contact_name=pkg_dict.contact_name) }}" target="_blank"> {{ pkg_dict.contact_name }}</a>
+
+        <ul class="nav nav-simple">
+          {% if pkg_dict.contact_email %}
+            {{ contact_item('fa fa-envelope', 'mailto:' + pkg_dict.contact_email, 26, pkg_dict.contact_email) }}
+          {% endif %}
+          {% if pkg_dict.contact_url %}
+            {{ contact_item('fa fa-external-link', pkg_dict.contact_url, 26, h.schemingdcat_prettify_url(pkg_dict.contact_url)) }}
+          {% endif %}
+          {% if pkg_dict.contact_uri %}
+            {{ contact_item('fa fa-user-circle', pkg_dict.contact_uri, 26, h.schemingdcat_prettify_url_name(pkg_dict.contact_uri)) }}
+          {% endif %}
+        </ul>
+      </section>
+    </section>
+  {% endif %}
+{% endblock %}

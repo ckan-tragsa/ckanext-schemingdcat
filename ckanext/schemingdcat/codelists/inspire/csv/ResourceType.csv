@@ -1,0 +1,4 @@
+id,label
+http://inspire.ec.europa.eu/metadata-codelist/ResourceType/series,series
+http://inspire.ec.europa.eu/metadata-codelist/ResourceType/dataset,dataset
+http://inspire.ec.europa.eu/metadata-codelist/ResourceType/service,service

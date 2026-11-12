@@ -1,0 +1,46 @@
+{#
+  This template snippet is used to display dataset categories in a web page.
+
+  theme_field          - The default package item icon.
+  theme_list           - The list obtained from the package.
+  theme_value          - The first item of theme_list if it exists.
+  spatial_uri_value    - The last part of the string if theme_value is a string.
+  package.spatial_uri  - The spatial URI of the package.
+
+  The snippet creates a Bootstrap grid column that is 2 units wide on medium and larger screens. 
+  The column is also a flex container, with its items arranged in a row and centered both vertically and horizontally.
+
+  Inside this column, there are two possible dataset category links that can be displayed, each wrapped in a `div` with the class `dataset-categories`:
+
+  - The first link is displayed if `theme_field` exists. The link's `href` attribute is set to the search page for datasets with the current theme value. 
+    The link has a dynamic class based on the `theme_field`, and a `data-bs-icon` attribute set to the lowercased `theme_value`.
+
+  - The second link is displayed if `package.spatial_uri` exists. The link's `href` attribute is set to the search page for datasets with the current spatial URI. 
+    The link has the class `category-spatial_uri`, a `data-bs-icon` attribute set to the lowercased `spatial_uri_value`, and an additional `spatial_uri` attribute.
+
+  Example:
+
+  {% block dataset_categories %}
+    {% snippet 'schemingdcat/snippets/schemingdcat_dataset_categories.html', package=package %}
+  {% endblock %}
+#}
+
+{% asset 'ckanext-schemingdcat/schemingdcat-icons' %}
+
+{% set theme_field = h.schemingdcat_get_default_package_item_icon() %}
+{% set theme_list = package.get(theme_field, []) %}
+{% set theme_value = theme_list[0] if theme_list else None %}
+{% set category_icon = theme_value.split('/')[-1] if theme_value else None %}
+
+<div class="col-md-2 d-flex flex-row justify-content-end align-items-center dataset-categories">
+{% if theme_field and theme_value %}
+  <div>
+    <a href="{{ h.url_for('dataset.search', **{theme_field: theme_value}) }}" target="_blank" rel="noopener noreferrer" class="category-{{ theme_field }}" data-bs-icon="{{ category_icon|lower }}"></a>
+  </div>
+{% endif %}
+{% if package.spatial_uri %}
+  <div>
+    <a href="{{ h.url_for('dataset.search', **{'spatial_uri': package.spatial_uri}) }}" target="_blank" rel="noopener noreferrer" class="category-spatial_uri" data-bs-icon="{{ package.spatial_uri.split('/')[-1]|lower }}"></a>
+  </div>
+{% endif %}
+</div>

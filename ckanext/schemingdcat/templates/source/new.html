@@ -1,0 +1,23 @@
+{% ckan_extends %}
+
+{% block secondary_content %}
+  <section class="module module-narrow">
+    <h2 class="module-heading"><i class="fa fa-lg fa-info-circle icon-large icon-info-sign"></i> {{ _('Harvest sources') }}</h2>
+    <div class="module-content">
+      <p>
+        {% trans %}
+        Harvest sources allow importing remote metadata into this catalog.   Remote sources can be other catalogs such as other CKAN instances, CSW servers, XML metadata files, XLSX with metadata records or Web Accessible Folder (WAF).
+        {% endtrans %}
+      </p>
+      
+      <p>
+        {{ _('Depending on the actual harvesters enabled for this instance. eg: ') }}
+        <ul>
+          <li><a href="https://github.com/mjanez/ckanext-scheming_dcat?tab=readme-ov-file#harvesters" target="_blank">ckanext-schemingdcat</a></li>
+          <li><a href="https://github.com/ckan/ckanext-dcat?tab=readme-ov-file#rdf-dcat-harvester" target="_blank">ckanext-dcat</a></li>
+          <li><a href="https://docs.ckan.org/projects/ckanext-spatial/en/latest/harvesters.html" target="_blank">ckanext-scheming_spatial</a></li>
+        </ul>
+      </p>
+    </div>
+  </section>
+{% endblock %}

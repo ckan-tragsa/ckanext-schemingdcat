@@ -1,0 +1,5 @@
+{% if data[field.field_name] %}
+    {{ h.schemingdcat_parse_localised_date(data[field.field_name].split()[0]) }}
+    <br>
+    <a class="changelog-link" href="{{ h.full_current_url().replace('dataset', 'dataset/activity') }}">{{ _('Show changelog') }}</a>
+{% endif %}

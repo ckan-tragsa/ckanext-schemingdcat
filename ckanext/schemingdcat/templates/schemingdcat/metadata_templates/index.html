@@ -1,0 +1,68 @@
+{% extends 'page.html' %}
+
+{% block styles %}
+  {{ super() }}
+  {% asset 'pages/index-css' %}
+{% endblock %}
+
+{% block breadcrumb_content %}
+<li class="active"><a href="{{ h.url_for('schemingdcat.metadata_templates') }}" title="{{ _('Metadata templates') }}">{{ _('Metadata templates') }}</a></li>
+{% endblock %}
+
+{% block secondary_content %}
+  <div class="module module-narrow module-shallow">
+    <h2 class="module-heading">
+      <i class="fa fa-info-circle icon-info-sign"></i>
+      {{ _('Metadata templates') }}
+    </h2>
+    <div class="module-content">
+      <p>{% trans %}
+        The metadata templates allow large numbers of datasets to be created in CKAN in a simple and standardised way. They are all compatible with the metadata schema of the catalogue:
+        {% endtrans %} <a href="{{ h.url_for('api.action', ver=3, logic_function='scheming_dataset_schema_show', type="dataset") }}" target="_blank" rel="noopener noreferrer">{{ _('CKAN schema') }}</a>
+        <br>
+        {{ _('Specifically, the extension that adds the metadata harvester using tabular files is:') }}
+        </p>
+      <ul>
+        <li><a href="{{ h.url_for_static_or_external('https://github.com/mjanez/ckanext-schemingdcat?tab=readme-ov-file#remote-google-sheetonedrive-excel-metadata-upload-harvester') }}" target="_blank" rel="noopener noreferrer"><strong>ckanext-schemingdcat</strong></a></li>
+      </ul>
+    </div>
+  </div>
+{% endblock %}
+
+{% block primary_content %}
+{% set templates = h.schemingdcat_get_schemingdcat_xls_harvest_templates() %}
+{% set truncate = truncate or 180 %}
+
+<div class="box">
+  <div class="inner">
+      <h1><center>{{ _('Metadata templates') }}</center></h1>
+      <div class="addons">
+            {% if templates %}
+                <ul class="metadata-sidebar-nav">
+                    {% for template in templates %}
+                        <li>
+                            <a href="{{ h.url_for('dataset.read', id=template.name) }}" target="_blank" rel="noopener noreferrer">
+                                <i class="fa fa-table"></i>{{ h.dataset_display_name(template) }}
+                                <div class="metadata-sidebar-template-description">{{ h.markdown_extract(h.dataset_display_field_value(template, 'notes'), extract_length=truncate) }}</div>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <div class="metadata-sidebar-no-templates">
+                    <p><i class="fa fa-exclamation-triangle"></i> {{ _('No metadata templates available') }}. {{ _('To retrieve them, use an identifier that includes the following') }}:</p>
+        
+                    <div class="block-code">
+                      *{{h.schemingdcat_get_metadata_templates_search_identifier()}}*
+                    </div>
+        
+                    <div class="metadata-sidebar-info-block">
+                        <i class="fa fa-info-circle"></i> {{ _('"*" means any character') }}.
+                    </div>
+        
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

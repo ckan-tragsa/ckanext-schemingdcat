@@ -1,0 +1,108 @@
+{% extends 'page.html' %}
+
+{% set sparql_active = True if 'sparql_interface' in g.plugins else False %}
+
+{% block styles %}
+  {{ super() }}
+  {% asset 'pages/index-css' %}
+{% endblock %}
+
+{% block breadcrumb_content %}
+<li class="active"><a href="{{ h.url_for('schemingdcat.endpoint_index') }}" title="{{ _('Catalog endpoints') }}">{{ _('Catalog endpoints') }}</a></li>
+{% endblock %}
+
+{% block secondary_content %}
+  <div class="module module-narrow module-shallow">
+    <h2 class="module-heading">
+      <i class="fa fa-info-circle icon-info-sign"></i>
+      {{ _('What are Endpoints?') }}
+    </h2>
+    <div class="module-content">
+      <p>{{ _("Endpoints are access points to an API that allow interaction between different software systems. In the context of CKAN, endpoints are essential for enabling access to the data and metadata stored on the platform.") }}</p>
+      <p>{{ _("We have several endpoints available on our CKAN instance:") }}</p>
+      <ul>
+        <li><strong>{{ _("Geographic Metadata (CSW INSPIRE)") }}: </strong> {{ _("This endpoint allows access to geographic metadata in accordance with the INSPIRE regulations, through the CSW (Catalog Service for the Web) standard.") }}</li>
+        <li><strong>{{ _("CKAN API") }}: </strong> {{ _("This endpoint provides programmatic access to the CKAN instance's data and functionality, allowing for operations like data search, package creation, and more.") }}</li>
+        <li><strong>{{ _("Open Data in") }} RDF: </strong> {{ _("This endpoint allows access to data in RDF (Resource Description Framework) format, a standard for data exchange on the web.") }}</li>
+        <li><strong>{{ _("Open Data in") }} Turtle: </strong> {{ _("This endpoint provides data in Turtle format, a compact and easy-to-read syntax for RDF.") }}</li>
+        <li><strong>{{ _("Open Data in") }} JSON-LD: </strong> {{ _("This endpoint offers data in JSON-LD format, a representation of RDF data in JSON that allows interoperability between different data services.") }}</li>
+        {% if sparql_active %}
+            <li><strong>{{ _("SPARQL Endpoint") }}: </strong> {{ _("This endpoint allows querying of RDF data using the SPARQL query language. It enables complex queries over the data.") }}</li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+{% endblock %}
+
+{% block primary_content %}
+{% macro render_endpoint(endpoint, site_protocol_and_host) %}
+    {% set endpoint_type = endpoint.display_name %}
+    {% set endpoint_icon = endpoint.fa_icon %}
+    {% set format_img = h.url_for_static(endpoint.image_display_url) %}
+    {% set endpoint_title = _('{endpoint_type} Endpoint').format(endpoint_type=endpoint_type|safe) %}
+    {% if endpoint.type == 'ogc' %}
+        {% if h.is_url(endpoint.endpoint) %}
+            {% set endpoint_url = h.url_for_static_or_external(endpoint.endpoint) %}
+        {% else %}
+            {% set endpoint_url = site_protocol_and_host[0] +'://' + site_protocol_and_host[1] + '/' + endpoint.endpoint %}
+        {% endif %}
+    {% elif endpoint.type == 'lod' %}
+        {% set endpoint_url = h.url_for(endpoint.endpoint, **endpoint.endpoint_data) %}
+    {% elif endpoint.type == 'ckan' %}
+        {% set endpoint_url = h.url_for('api.action', ver=3, logic_function='status_show', qualified=True) %}
+    {% elif endpoint.type == 'sparql' %}
+        {% set endpoint_url = h.url_for('/sparql') %}
+    {% endif %}
+    <a class="tag endpoints_index_cards" target="_blank" rel="noopener noreferrer" href="{{ h.schemingdcat_url_unquote(endpoint_url) }}"><i class="fa {{ endpoint_icon }}"> </i> {{ endpoint_title }} <img src="{{ format_img }}" alt="{{ endpoint.display_name }}"></a>
+{% endmacro %}
+
+{% set endpoints = h.get_schemingdcat_get_catalog_endpoints() %}
+{% set site_protocol_and_host = h.get_site_protocol_and_host() %}
+{% set endpoint_types = ['ogc', 'ckan', 'lod', 'sparql'] %}
+{% set endpoint_headers = {
+  'ogc': _('Geospatial Metadata'),
+  'ckan': _('CKAN'),
+  'lod': _('Linked Data'),
+  'sparql': 'SPARQL'
+} %}
+{% set endpoint_headers_icons = {
+  'ogc': 'fa fa-globe',
+  'ckan': 'fa fa-asterisk',
+  'lod': 'fa fa-share-alt-square',
+  'sparql': 'fa fa-share-alt-square'
+} %}
+<div class="box">
+  <div class="inner">
+    <h1><center>{{ _('Catalog endpoints') }}</center></h1>
+    <div class="endpoints_index_addons">
+
+      {% for endpoint_type in endpoint_types %}
+        {% if endpoint_type == 'sparql' and not sparql_active %}
+          {% continue %}
+        {% endif %}
+
+        {# Filtrar los endpoints que corresponden al endpoint_type actual #}
+        {% set endpoints_of_type = endpoints | selectattr('type', 'equalto', endpoint_type) | list %}
+
+        {# Renderizar la tarjeta solo si existen endpoints para este tipo #}
+        {% if endpoints_of_type %}
+          <div class="card">
+            <div class="card-header">
+              <h3 class="mb-0">
+                <i class="{{ endpoint_headers_icons.get(endpoint_type, 'fa fa-cloud-upload') }}" style="padding-right:5px;"></i>
+                {{ endpoint_headers.get(endpoint_type, _('Endpoint')) }}
+              </h3>
+            </div>
+            <div class="card-body">
+              {% for endpoint in endpoints_of_type %}
+                {{ render_endpoint(endpoint, site_protocol_and_host) }}
+              {% endfor %}
+            </div>    
+          </div>
+        {% endif %}
+      {% endfor %}
+
+    </div>
+  </div>
+</div>
+{% endblock %}

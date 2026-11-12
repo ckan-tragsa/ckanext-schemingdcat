@@ -1,0 +1,3 @@
+{%  set url_name = h.schemingdcat_prettify_url_name(data[field.field_name]) %}
+
+{{ h.link_to(url_name, data[field.field_name], rel=field.display_property, target='_blank', class='truncate-link') }}

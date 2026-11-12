@@ -1,0 +1,62 @@
+{#
+  Construct a facet module with two search options: and, and or.
+
+
+  title
+    The title of the facet, e.g. "Tags", or "Tag Cloud"
+
+  label_function
+    Renders the human-readable label for each facet value.
+    If defined, this should be a callable that accepts a `facet_item`.
+    e.g. lambda facet_item: facet_item.display_name.upper()
+    By default it displays the facet item's display name, which should
+    usually be good enough
+
+  if_empty
+    A string, which if defined, and the list of possible facet items is empty,
+    is displayed in lieu of an empty list.
+
+  count_label
+    A callable which accepts an integer, and returns a string.  This controls
+    how a facet-item's count is displayed.
+
+  extras
+    Extra info passed into the add/remove params to make the url
+
+  alternative_url
+    URL to use when building the necessary URLs, instead of the default
+    ones returned by url_for. Useful eg for dataset types.
+
+  hide_empty
+    Do not show facet if there are none, Default: false.
+
+  within_tertiary
+    Boolean for when a facet list should appear in the the right column of the
+    page and not the left column.
+
+  #}
+
+  {% block facet_search_operator %}
+      <section class="{{ wrapper_class or 'module module-narrow module-shallow' }}">
+        {% block facet_search_operator_heading %}
+        <h2 class="module-heading search_heading">
+          <span class="search_heading_span" ><i class="fa fa-cog"></i>  {{ title }}</span>
+        </h2>
+        {% endblock %}
+        {% block facet_operator_items %}
+        {% set facet_operator = request.args.get('_facet_operator',  h.schemingdcat_default_facet_search_operator()) %}
+        <nav>
+          <ul class="unstyled nav nav-simple nav-facet">
+          <li class="nav-item container__filter__type__search">
+            <div class="container__filter__type__search_and__or">
+              <div class="btn-group"  role="group" >
+                <button type="button" class="btn btn-default {%if facet_operator == 'OR'%} active{% endif %}" title="{{ _('Criteria for selection') }}: OR"><a href="{{ h.remove_url_param('_facet_operator', replace='OR', extras=extras, alternative_url=alternative_url) }}">{{ _('OR') }}</a></button>
+                <button type="button" class="btn btn-default {%if facet_operator == 'AND'%} active{% endif %}" title="{{ _('Criteria for selection') }}: AND"><a href="{{ h.remove_url_param('_facet_operator', replace='AND', extras=extras, alternative_url=alternative_url) }}">{{ _('AND') }}</a></button>
+              </div>
+            </div>
+          </li>
+          </ul>
+        </nav>
+        {% endblock %}
+      </section>
+  {% endblock %}

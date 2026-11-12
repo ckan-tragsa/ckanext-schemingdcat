@@ -1,0 +1,24 @@
+<div class="accordion-item">
+  <div class="accordion-heading">
+    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-r" aria-expanded="false" aria-controls="collapse-r"> {{ _('Example') }}: R &raquo;</button>
+  </div>
+  <div id="collapse-r" class="accordion-collapse collapse" aria-labelledby="collapse-r" data-bs-parent="#accordion2">
+    <div class="accordion-body">
+      <p>{{ _('Query example (first 5 results)') }}</p>
+<pre class="ft-syntax-highlight" data-bs-syntax="r" data-bs-syntax-theme="one-dark" style="font-size:12px">
+<code>
+<span class="identifier">library</span>(<span class="string">httr2</span>)
+
+<span class="identifier">req</span> &lt;- <span class="identifier">request</span>("<span class="url">{{ h.url_for('api.action', ver=3, logic_function='datastore_search', qualified=True) }}</span>")
+<span class="identifier">result</span> &lt;- <span class="identifier">req</span> %&gt;% 
+    <span class="identifier">req_headers</span>(<span class="property">Authorization</span> = <span class="identifier">API_TOKEN</span>) %>% 
+    <span class="identifier">req_body_json</span>(<span class="identifier">list</span>(
+        <span class="property">resource_id</span> = '<span class="value">{{ resource_id }}</span>',
+        <span class="property">limit</span> = <span class="number">5</span>))
+    <span class="identifier">req_perform</span> <span class="operand">%&gt;%</span> 
+    <span class="identifier">resp_body_json</span>
+</code>
+</pre>
+    </div>
+  </div>
+</div>

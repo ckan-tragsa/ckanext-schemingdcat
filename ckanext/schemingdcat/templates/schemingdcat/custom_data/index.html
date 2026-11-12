@@ -1,0 +1,11 @@
+{% extends "package/read_base.html" %}
+{% import 'macros/form.html' as form %}
+
+{% block primary_content_inner %}
+  <h2 class="hide-heading">{{ _('Custom Data') }}</h2>
+  {%  set schema = h.schemingdcat_get_cached_schema(dataset_type) %}
+    <form method="post">
+      {{ h.csrf_input() if 'csrf_input' in h }}
+      {% snippet 'schemingdcat/custom_data/snippets/custom_data_list.html', data_list=data_list, id=id, endpoint=endpoint, schema=schema %}
+    </form>
+{% endblock %}

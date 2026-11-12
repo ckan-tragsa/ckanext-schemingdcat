@@ -1,0 +1,13 @@
+id,label
+http://inspire.ec.europa.eu/metadata-codelist/MaintenanceFrequency/continual,continual
+http://inspire.ec.europa.eu/metadata-codelist/MaintenanceFrequency/daily,daily
+http://inspire.ec.europa.eu/metadata-codelist/MaintenanceFrequency/weekly,weekly
+http://inspire.ec.europa.eu/metadata-codelist/MaintenanceFrequency/fortnightly,fortnightly
+http://inspire.ec.europa.eu/metadata-codelist/MaintenanceFrequency/monthly,monthly
+http://inspire.ec.europa.eu/metadata-codelist/MaintenanceFrequency/quarterly,quarterly
+http://inspire.ec.europa.eu/metadata-codelist/MaintenanceFrequency/biannually,biannually
+http://inspire.ec.europa.eu/metadata-codelist/MaintenanceFrequency/annually,annually
+http://inspire.ec.europa.eu/metadata-codelist/MaintenanceFrequency/asNeeded,asNeeded
+http://inspire.ec.europa.eu/metadata-codelist/MaintenanceFrequency/irregular,irregular
+http://inspire.ec.europa.eu/metadata-codelist/MaintenanceFrequency/notPlanned,notPlanned
+http://inspire.ec.europa.eu/metadata-codelist/MaintenanceFrequency/unknown,unknown

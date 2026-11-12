@@ -1,0 +1,50 @@
+{#
+    This template snippet is used to render endpoints in a web page.
+
+    endpoint                  - The endpoint object.
+    site_protocol_and_host    - The site protocol and host.
+    endpoint_type             - The display name of the endpoint.
+    endpoint_icon             - The URL for the endpoint's icon.
+    endpoint_title            - The title of the endpoint, formatted as "{endpoint_type} Endpoint".
+    endpoint_url              - The URL for the endpoint, obtained using the helper function get_header_endpoint_url.
+
+    The snippet defines a macro to render an endpoint as a list item with a link and an image. 
+    The link's `href` attribute is set to `endpoint_url`, and it opens in a new tab. 
+    The image's `src` attribute is set to `endpoint_icon`, and its `alt` attribute is set to the endpoint's display name.
+
+    The snippet then gets the list of endpoints and the site protocol and host, and renders a header catalog container. 
+    Inside this container, it renders a title and a list of endpoints using the render_endpoint macro.
+
+    Example:
+
+    {% block header_endpoints %}
+        {% if c.action=='search' and c.controller=="dataset" %}
+            {% snippet 'schemingdcat/endpoints/header_endpoints.html' %}
+        {% endif %}
+    {% endblock %}
+#}
+{% macro render_endpoint(endpoint, site_protocol_and_host) %}
+    {% set endpoint_type = endpoint.display_name %}
+    {% set endpoint_icon = h.url_for_static(endpoint.endpoint_icon) %}
+    {% set endpoint_title = _('{endpoint_type} Endpoint').format(endpoint_type=endpoint_type|safe) %}
+    {% set endpoint_url = h.get_header_endpoint_url(endpoint, site_protocol_and_host) %}
+    <li>
+        <a href="{{ h.schemingdcat_url_unquote(endpoint_url) }}" target="_blank" rel="noopener noreferrer" title="{{ endpoint_title }}">
+            <img class="endpoint-image" src="{{ endpoint_icon }}" alt="{{ endpoint.display_name }}">
+        </a>
+    </li>
+{% endmacro %}
+
+{% set endpoints = h.get_schemingdcat_get_catalog_endpoints() %}
+{% set site_protocol_and_host = h.get_site_protocol_and_host() %}
+
+<div class="header-catalog-container">
+    <h1 class="header-page-title">
+        {{_('Conjuntos de datos')}}
+    </h1>
+    <ul class="header-catalog">
+    {% for endpoint in endpoints %}
+        {{ render_endpoint(endpoint, site_protocol_and_host) }}
+    {% endfor %}
+    </ul>
+</div>

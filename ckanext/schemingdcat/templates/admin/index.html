@@ -1,0 +1,43 @@
+{% ckan_extends %}
+
+{% block primary_content_inner %}
+    {{ super() }}
+
+      {% block admin_caution %}
+        {% set quote_content %}
+          {% trans %}
+          As a sysadmin user you have full control over this CKAN instance. <strong>Proceed with care!</strong>
+          {% endtrans %}
+        {% endset %}
+        {% snippet "schemingdcat/snippets/quote_alerts.html", alert_type='caution', content=quote_content %}
+      {% endblock %}
+{% endblock %}
+
+{% block secondary_content %}
+  <div class="module module-narrow module-shallow">
+    <h2 class="module-heading">
+      <i class="fa fa-info-circle"></i>
+      {{ _('Administer CKAN') }}
+    </h2>
+    <div class="module-content">
+        {% set docs_url = "http://docs.ckan.org/en/{0}/sysadmin-guide.html".format(g.ckan_doc_version) %}
+
+        {%trans %}
+            <p>A sysadmin user can access and edit any organizations, view and change user details, and permanently delete datasets. You should carefully consider who has access to a sysadmin account on your CKAN system.</p>
+        {% endtrans %}
+        
+        {% block admin_tip %}
+        {% set quote_content %}
+          {% trans %}
+            For guidance on using sysadmin features, see the CKAN 
+          {% endtrans %}
+          <a href="{{ docs_url }}" target="_blank" rel="noreferrer">
+            {% trans %}sysadmin guide{% endtrans %}
+          </a>.
+        {% endset %}
+        {% snippet "schemingdcat/snippets/quote_alerts.html", alert_type='tip', content=quote_content %}
+      {% endblock %}
+
+     </div>
+  </div>
+{% endblock %}

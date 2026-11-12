@@ -1,0 +1,297 @@
+{
+    "database_type": "postgres",
+    "credentials":{
+        "user":"user",
+        "password":"password",
+        "host":"localhost",
+        "port":5432,
+        "db":"database"
+    },
+    "field_mapping_schema_version": 1,
+    "dataset_field_mapping": {
+        "title_translated": {
+            "languages": {
+                "es": {
+                    "field_name": "database.flights.title"
+                }
+            }
+        },
+        "private": {
+            "field_value": null
+        },
+        "graphic_overview": {
+            "field_value": null
+        },
+        "notes_translated": {
+            "languages": {
+                "es": {
+                    "field_value": "Resumen por defecto del conjunto de datos de la Fototeca Digital."
+                },
+                "en": {
+                    "field_value": "Default abstract of the Digital Photo Library dataset."
+                }
+            }
+        },
+        "dcat_type": {
+            "field_value": "http://inspire.ec.europa.eu/metadata-codelist/ResourceType/dataset"
+        },
+        "theme_es": {
+            "field_value": "http://datos.gob.es/kos/sector-publico/sector/medio-ambiente"
+        },
+        "theme": {
+            "field_value": "http://inspire.ec.europa.eu/theme/oi"
+        },
+        "language": {
+            "field_value": "http://publications.europa.eu/resource/authority/language/SPA"
+        },
+        "topic": {
+            "field_value": "http://inspire.ec.europa.eu/metadata-codelist/TopicCategory/environment"
+        },
+        "tag_string": {
+            "field_value": [
+                "PNOA",
+                "Ortoimagen",
+                "Nacional",
+                "Ámbito Espacial",
+                "Vuelo fotogramétrico",
+                "Fotograma"
+            ]
+        },
+        "tag_uri": {
+            "field_value": "http://inspire.ec.europa.eu/metadata-codelist/TopicCategory/imageryBaseMapsEarthCover"
+        },
+        "contact_name": {
+            "field_value": "Centro Nacional de Información Geográfica (CNIG)"
+        },
+        "contact_email": {
+            "field_value": "consulta@cnig.es"
+        },
+        "contact_url": {
+            "field_value": "https://www.cnig.es"
+        },
+        "contact_uri": {
+            "field_value": "http://datos.gob.es/recurso/sector-publico/org/Organismo/E00125901"
+        },
+        "hvd_category": {
+            "field_value": "http://data.europa.eu/bna/c_dd313021"
+        },
+        "applicable_legislation": {
+            "field_value": "http://data.europa.eu/eli/reg_impl/2023/138/oj"
+        },
+        "author_name": {
+            "field_value": null
+        },
+        "author_email": {
+            "field_value": null
+        },
+        "author_url": {
+            "field_value": null
+        },
+        "author_uri": {
+            "field_value": null
+        },
+        "maintainer_name": {
+            "field_value": "Centro Nacional de Información Geográfica (CNIG)"
+        },
+        "maintainer_email": {
+            "field_value": "consulta@cnig.es"
+        },
+        "maintainer_url": {
+            "field_value": "https://www.cnig.es"
+        },
+        "maintainer_uri": {
+            "field_value": "http://datos.gob.es/recurso/sector-publico/org/Organismo/E00125901"
+        },
+        "publisher_name": {
+            "field_value": "Centro Nacional de Información Geográfica (CNIG)"
+        },
+        "publisher_email": {
+            "field_value": "consulta@cnig.es"
+        },
+        "publisher_url": {
+            "field_value": "https://www.cnig.es"
+        },
+        "publisher_uri": {
+            "field_value": "http://datos.gob.es/recurso/sector-publico/org/Organismo/E00125901"
+        },
+        "publisher_type": {
+            "field_value": "http://purl.org/adms/publishertype/NationalAuthority"
+        },
+        "inspire_id": {
+            "field_value": null
+        },
+        "alternate_identifier": {
+            "field_name": "database.ckan_view.identifier",
+            "is_p_key": true,
+            "index": true,
+            "f_key_references": [
+                "database.flights.identifier"
+            ]
+        },
+        "conforms_to": {
+            "field_value": [
+                "http://inspire.ec.europa.eu/documents/inspire-metadata-regulation",
+                "http://inspire.ec.europa.eu/documents/commission-regulation-eu-no-13122014-10-december-2014-amending-regulation-eu-no-10892010-0",
+                "https://www.boe.es/eli/es/res/2013/02/19/(4)"
+            ]
+        },
+        "metadata_profile": {
+            "field_value": [
+                "http://semiceu.github.io/GeoDCAT-AP/releases/2.0.0",
+                "http://inspire.ec.europa.eu/document-tags/metadata",
+                "https://semiceu.github.io/DCAT-AP/releases/2.1.1"
+            ]
+        },
+        "temporal_start": {
+            "field_name": "database.ckan_view.year"
+        },
+        "temporal_end": {
+            "field_name": "database.ckan_view.year"
+        },
+        "provenance": {
+            "languages": {
+                "es": {
+                    "field_name": "database.flights.description"
+                }
+            }
+        },
+        "frequency": {
+            "field_value": "http://publications.europa.eu/resource/authority/frequency/ANNUAL_3"
+        },
+        "lineage_source": {
+            "field_value": "Origen de los datos: Instituto Geográfico Nacional (IGN)."
+        },
+        "source": {
+            "field_value": "https://centrodedescargas.cnig.es/CentroDescargas/index.jsp"
+        },
+        "lineage_process_steps": {
+            "field_value": [
+                "Planificación del vuelo fotogramétrico.",
+                "Ejecución del vuelo con pasadas longitudinales y transversales.",
+                "Proceso de ortorrectificación en el que se pasa de una imagen con proyección cónica a otra con proyección ortogonal."
+            ]
+        },
+        "reference": {
+            "field_name": "database.ckan_view.metadata_url"
+        },
+        "temporal_resolution": {
+            "field_value": null
+        },
+        "encoding": {
+            "field_value": "UTF-8"
+        },
+        "spatial": {
+            "field_name": "database.ckan_view.coverage"
+        },
+        "spatial_uri": {
+            "field_value": "http://datos.gob.es/recurso/sector-publico/territorio/Pais/España"
+        },
+        "representation_type": {
+            "field_value": "http://inspire.ec.europa.eu/metadata-codelist/SpatialRepresentationType/grid"
+        },
+        "spatial_resolution_in_meters": {
+            "field_name": "database.ckan_view.scale"
+        },
+        "license_id": {
+            "field_value": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "access_rights": {
+            "field_value": "http://inspire.ec.europa.eu/metadata-codelist/LimitationsOnPublicAccess/noLimitations"
+        },
+        "reference_system": {
+            "field_name": "database.ckan_view.coverage"
+        },
+        "version": {
+            "field_value": null
+        },
+        "version_notes": {
+            "field_value": null
+        },
+        "valid": {
+            "field_value": null
+        },
+        "groups": {
+            "field_value": null
+        },
+        "purpose": {
+            "languages": {
+                "es": {
+                    "field_value": "Los conjuntos de datos de ejemplo tienen el objetivo de salvaguardar los datos originales."
+                },
+                "en": {
+                    "field_value": "Sample datasets are intended to safeguard the original data."
+                }
+            }
+        }
+    },
+  "distribution_field_mapping": {
+        "dataset_id": {
+            "field_name": "database.ckan_view.identifier"
+        },
+        "url": {
+            "field_name": "database.ckan_view.metadata_url"
+        },
+        "created": {
+            "field_value": null
+        },
+        "name": {
+            "field_value": "INSPIRE Metadata"
+        },
+        "description": {
+            "field_value": "INSPIRE Metadata"
+        },
+        "encoding": {
+            "field_value": "UTF-8"
+        },
+        "availability": {
+            "field_value": "http://publications.europa.eu/resource/authority/planned-availability/OP_DATPRO"
+        },
+        "issued": {
+            "field_value": null
+        },
+        "modified": {
+            "field_value": null
+        },
+        "language": {
+            "field_value": "http://publications.europa.eu/resource/authority/language/SPA"
+        },
+        "rights": {
+            "field_value": "http://inspire.ec.europa.eu/metadata-codelist/LimitationsOnPublicAccess/noLimitations"
+        },
+        "format": {
+            "field_value": null
+        },
+        "status": {
+            "field_value": "http://purl.org/adms/status/Completed"
+        },
+        "size": {
+            "field_value": null
+        },
+        "resource_relation": {
+            "field_value": null
+        },
+        "license": {
+            "field_value": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "conforms_to": {
+            "field_value": [
+                "http://inspire.ec.europa.eu/documents/inspire-metadata-regulation",
+                "http://inspire.ec.europa.eu/documents/commission-regulation-eu-no-13122014-10-december-2014-amending-regulation-eu-no-10892010-0",
+                "https://www.boe.es/eli/es/res/2013/02/19/(4)"
+            ]
+        },
+        "reference_system": {
+            "field_value": null
+        },
+        "provenance": {
+            "field_value": null
+        },
+        "lineage_process_steps": {
+            "field_value": null
+        }
+    },
+    "default_groups": [
+        "demo-group"
+    ],
+    "default_tags": []
+}

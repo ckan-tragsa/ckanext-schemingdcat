@@ -1,0 +1,106 @@
+{% ckan_extends %}
+
+{% block primary_content_inner %}
+
+  {{ form.errors(error_summary) }}
+
+  <form method='post' action="" id="admin-config-form" enctype="multipart/form-data">
+    {% block admin_form %}
+    {{ h.csrf_input() }}
+
+      {{ form.input('ckan.site_title', id='field-ckan-site-title', label=_('Site Title'), value=data['ckan.site_title'], error=error, classes=['control-medium']) }}
+
+      {{ form.input('ckan.theme', id='field-ckan-main-css', label=_('Custom Stylesheet'), value=data['ckan.theme'], error=error, classes=['control-medium']) }}
+
+      {{ form.input('ckan.site_description', id='field-ckan-site-description', label=_('Site Tag Line'), value=data['ckan.site_description'], error=error, classes=['control-medium']) }}
+
+      {% set field_url = 'ckan.site_logo' %}
+      {% set is_upload = data[field_url] and not data[field_url].startswith('http') %}
+      {% set is_url = data[field_url] and data[field_url].startswith('http') %}
+      {{ form.image_upload(data, errors, is_upload_enabled=h.uploads_enabled(), is_url=is_url, is_upload=is_upload, upload_label = _('Site logo'), url_label=_('Site logo'),  field_url=field_url, field_upload='logo_upload', field_clear='clear_logo_upload' )}}
+  
+      {{ form.markdown('ckan.site_about', id='field-ckan-site-about', label=_('About'), value=data['ckan.site_about'], error=error, placeholder=_('About page text')) }}
+
+      {{ form.markdown('ckan.site_intro_text', id='field-ckan-site-intro-text', label=_('Intro Text'), value=data['ckan.site_intro_text'], error=error, placeholder=_('Text on home page')) }}
+
+      {{ form.textarea('ckan.site_custom_css', id='field-ckan-site-custom-css', label=_('Custom CSS'), value=data['ckan.site_custom_css'], error=error, placeholder=_('Customisable css inserted into the page header')) }}
+
+      {% endblock %}
+      <div class="form-actions">
+        <a href="{% url_for 'admin.reset_config' %}" class="btn btn-danger pull-left" data-module="confirm-action" data-module-content="{{ _('Are you sure you want to reset the config?') }}">{{ _('Reset') }}</a>
+        <button type="submit" class="btn btn-primary" name="save">{{ _('Update Config') }}</button>
+      </div>
+  </form>
+{% endblock %}
+
+{% block secondary_content %}
+  <div class="module module-narrow module-shallow">
+    <h2 class="module-heading">
+      <i class="fa fa-info-circle"></i>
+      {{ _('CKAN config options') }}
+    </h2>
+    <div class="module-content">
+      {% block admin_form_help %}
+        {% set about_url = h.url_for(controller='home', action='about') %}
+        {% set home_url = h.url_for(controller='home', action='index') %}
+        {% set iso639_url = h.url_for_static_or_external ('https://en.wikipedia.org/wiki/ISO_639-1')%}
+        {% set docs_url = "http://docs.ckan.org/en/{0}/theming".format(g.ckan_doc_version) %}
+          <h3>{{ _('Frontpage intro text') }}</h3>
+          <p><strong>{{ _('Intro Text') }}:</strong>
+            {{ _( 'If this text is set, it will appear as intro text on the Homepage, see') }}:
+            <a href="{{ home_url }}">
+              {{ _('Homepage') }}
+            </a>
+          </p>
+        <p><strong>{{ _('Multilang intro text') }}:</strong> {{ _('Add the tag with the lang code: <code>[#{iso639-1}#]</code> before the introductory text. Add as many tags as you want for each language.') }}
+        <a href="{{ iso639_url }}">
+            {{ _('ISO 639-1 codes') }}
+        </a>
+        </p>
+          <div class="block-code">
+            <div>
+              [#en#]
+              <br>
+              Welcome to the CKAN Open Data Portal.
+            </div>
+            <br>
+            <div>
+              [#es#]
+              <br>
+              Bienvenido al portal de datos abiertos CKAN.
+            </div>
+          </div>
+          <br>
+        <h3>{{ _('Standard CKAN settings') }}</h3>
+        <p><strong>{{ _('Site Title') }}:</strong>
+          {{ _('This is the title of this CKAN instance. It appears in various places throughout CKAN.') }}</p>
+        <p><strong>{{ _('Style') }}:</strong>
+          {{ _('Choose from a list of simple variations of the main colour scheme to get a very quick custom theme working.') }}
+        </p>
+        <p><strong>{{ _('Site Tag Logo') }}:</strong>
+        {{ _('This is the logo that appears in the header of all the CKAN instance templates.') }}</p>
+        <p><strong>{{ _('About') }}:</strong>
+          {{ _('This text will appear on this CKAN instances, see ') }}
+          <a href="{{ about_url }}">{{ _('About page') }}</a>.</p>
+        <p><strong>{{ _('Custom CSS') }}:</strong>
+        {{ _('This can be used for custom CSS on a CKAN site.') }}
+        </p>
+      {% endblock %}
+
+      {% set docs_url = "http://docs.ckan.org/en/{0}/sysadmin-guide.html".format(g.ckan_doc_version) %}
+
+    {% block admin_tip %}
+      {% set quote_content %}
+        {% trans %}
+          For guidance on configuration options, see the CKAN 
+        {% endtrans %}
+        <a href="{{ docs_url }}" target="_blank" rel="noreferrer">
+          {% trans %}sysadmin guide{% endtrans %}
+        </a>.
+      {% endset %}
+      {% snippet "schemingdcat/snippets/quote_alerts.html", alert_type='tip', content=quote_content %}
+    {% endblock %}
+
+    </div>
+  </div>
+{% endblock %}

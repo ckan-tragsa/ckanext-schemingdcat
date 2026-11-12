@@ -1,0 +1,25 @@
+{#
+  Render a list of NTI-RISP spatial URIs
+
+  spatial_uris_list - list of URIs
+#}
+{% set _class = _class or 'scheming-icon-list' %}
+{% set spatial_uris_list = data[field.field_name] %}
+{%  set choices = [] %}
+{%  for c in h.scheming_field_choices(field) %}
+  {%  do choices.append(
+    (c.value, h.scheming_language_text(c.label))) %}
+{%  endfor %}
+
+{% block spatial_uris_list %}
+  <ul class="{{ _class }}">
+    {%  for val, label in choices %}
+      {%  if val in spatial_uris_list %}
+        {%  set img_url = h.url_for_static('/images/icons/theme_es/spain.svg') %}
+          <li>
+            <img src="{{ img_url }}" title="{{ label }}" alt="{{ label }}" class="{{ _class }}-icon" loading="lazy"></img> <a href="{{ val }}" class="truncate-link">{{ label }}</a>
+          </li>
+      {%  endif %}
+    {% endfor %}
+  </ul>
+{% endblock %}

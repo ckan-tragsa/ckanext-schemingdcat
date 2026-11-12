@@ -1,0 +1,57 @@
+{% block access_rights_and_license %}
+  {% set dataset_fields = h.schemingdcat_get_cached_schema(dataset_type).dataset_fields %}
+  {% set access_rights_field = h.scheming_field_by_name(dataset_fields, 'access_rights') %}
+  {% set access_rights_choices = h.scheming_field_choices(access_rights_field) %}
+  {% set open_data_image_url = h.url_for_static('/base/images/od_80x15_blue.png') %}
+  {% set resource_name = _('Dataset') %}
+  {% set access_rights_label = h.scheming_choices_label(access_rights_choices, pkg_dict.access_rights) %}
+  {% set access_rights_fa_icon = 'fa fa-lock' if 'nolimitations' not in pkg_dict.access_rights.lower() else 'fa fa-unlock' %}
+  {% set license_fa_icon = 'fa fa-copyright' if not pkg_dict.isopen else 'fab fa-creative-commons' %}
+  {% set default_access_rights_url = 'http://inspire.ec.europa.eu/metadata-codelist/LimitationsOnPublicAccess/noLimitations' %}
+  
+  {% set access_rights_url = pkg_dict.access_rights|default(default_access_rights_url) %}
+  
+  <section class="module module-narrow access_rights_and_license">
+    <h2 class="module-heading">
+        <i class="fa fa-share-alt-square"></i> {{ _('Data Access and Licensing') }}
+    </h2>
+    
+    <ul class="nav nav-simple">
+      {% if pkg_dict.access_rights %}
+      <li class="nav-item">
+        <a href="{{ access_rights_url }}" target="_blank"><i class="{{ access_rights_fa_icon }}"></i> {{ access_rights_label }}</a>
+      </li>
+      {% endif %}
+      <li class="nav-item">
+        {% if pkg_dict.license_url %}
+          <a href="{{ pkg_dict.license_url }}" target="_blank" rel="dc:rights"><i class="{{ license_fa_icon }}"></i> {{ pkg_dict.license_title }}</a>
+          {% if pkg_dict.isopen %}
+              <a href="http://opendefinition.org/okd/" target="_blank" title="{{ _('This dataset satisfies the Open Definition.') }}">
+              <img class="open-data" src="{{ open_data_image_url }}" alt="[Open Data]" />
+              </a>
+          {% endif %}
+        {% elif pkg_dict.license_id %}
+          <a property="dc:rights"><i class="{{ license_fa_icon }}"></i> {{ pkg_dict.license_title }}</a>
+          {% if pkg_dict.isopen %}
+              <a href="http://opendefinition.org/okd/" target="_blank" title="{{ _('This dataset satisfies the Open Definition.') }}">
+              <img class="open-data" src="{{ open_data_image_url }}" alt="[Open Data]" />
+              </a>
+          {% endif %}
+        {% else %}
+          <i class="{{ license_fa_icon }}"></i> <a>{{ _('No License Provided') }}</a>
+        {% endif %}
+      </li>
+    </ul>
+    {% if pkg_dict.private == True %}
+        <p class="item_p_private">
+            {{ _('This {resource} is classified as').format(resource=resource_name) }}  <strong>{{ _('Private') }}</strong> {{ _('under the Access to Information Classification Policy of the catalog').format(resource=resource_name) }}. 
+            <br>
+            <u> {{ _('Users outside the catalog cannot access this {resource}').format(resource=resource_name) }}</u>.
+        </p>
+    {% else %}
+        <p class="item_p_public">
+            {{ _('This {resource} is classified as').format(resource=resource_name) }}  <strong>{{ _('Public') }}</strong> {{ _('under the Access to Information Classification Policy of the catalog').format(resource=resource_name) }}.
+        </p>
+    {% endif %}
+  </section>
+{% endblock %}
