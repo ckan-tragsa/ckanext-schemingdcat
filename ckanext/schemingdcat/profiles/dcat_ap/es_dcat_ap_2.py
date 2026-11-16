@@ -265,6 +265,13 @@ class EsDCATAP2Profile(EuDCATAP2Profile):
         for resource_dict in dataset_dict.get("resources", []):
             distribution_ref = CleanedURIRef(resource_uri(resource_dict))
 
+        #convention 19, fill dcat:contactPoint vcard values if missing
+        for subject, p, contact in self.g.triples((None,DCAT.contactPoint,None)):
+            log.debug(subject)
+            if (contact,VCARD.hasUID,None) not in self.g:
+                self.g.add((contact,VCARD.hasUID,self.g.value(subject,DCT.publisher)))
+
+
     def _graph_from_dataset_v2_only(self, dataset_dict, dataset_ref):
         """
         CKAN -> DCAT v2 specific properties (not applied to higher versions)
