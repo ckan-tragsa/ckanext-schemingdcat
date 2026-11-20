@@ -5,7 +5,7 @@ openpyxl==3.1.2
 pandas==2.2.2
 rdflib>=6.1.1,<7.1.0
 lxml==5.3.0
-pyshacl
+pyshacl[oxigraph]
 
 # ckanext-spatial compatibility with NumPy 2.0: https://github.com/shapely/shapely/issues/1972
 Shapely==2.0.6

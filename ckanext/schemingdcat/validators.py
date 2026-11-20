@@ -625,7 +625,14 @@ def schemingdcat_if_empty_same_as_title(field, schema):
         pkg_type = data.get(key[:-1] + ('type',), {})
         
         extras = schemingdcat_get_extras(data, pkg_type)
-        output = json.loads(extras.get(fallback_key, '{}')).get(lang, '')
+        translated = extras.get(fallback_key)
+        if not isinstance(translated, dict):
+            translated = parse_json(translated, default_value={})
+        output = translated.get(lang) if isinstance(translated, dict) else None
+        # Legacy records may have empty or malformed translations; keep their core label.
+        if not isinstance(output, str) or not output.strip():
+            output = (data.get(key) or data.get(key[:-1] + ('title',))
+                      or data.get(key[:-1] + ('name',)) or '')
 
         data[key] = output
         #log.debug('schemingdcat_if_empty_same_as_title | output: {0}'.format(output))

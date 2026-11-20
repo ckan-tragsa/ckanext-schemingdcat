@@ -169,6 +169,9 @@ class EuDCATAPSchemingDCATProfile(SchemingDCATRDFProfile):
 
                 if not self._object_value(contact_ref, VCARD.fn):
                     self._add_triple_from_dict(item, contact_ref, VCARD.fn, "name")
+            
+
+                
                 # Add mail address as URIRef, and ensure it has a mailto: prefix
                 self._add_triple_from_dict(
                     item,

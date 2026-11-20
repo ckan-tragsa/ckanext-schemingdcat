@@ -6,7 +6,7 @@ form_languages: ["en", "es"]
 required_language: "en"
 schema_version: 3.1
 schema_date: 2024-12-04
-schema_name: es_geodcat_ap_full
+schema_name: eu_geodcat_ap_full
 schema_title: GeoDCAT-AP
 schema_description: Geospatial extension for the DCAT application profile for data portals in Europe (GeoDCAT-AP)
 schema_profile_version: 3.0.0

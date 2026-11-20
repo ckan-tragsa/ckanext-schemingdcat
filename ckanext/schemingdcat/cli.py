@@ -13,6 +13,7 @@ import ckanext.schemingdcat.config as sdct_config
 import ckanext.scheming.helpers as sh
 import ckanext.schemingdcat.helpers as helpers
 import ckanext.schemingdcat.statistics.model as model
+from ckanext.schemingdcat.logic.checks.shacl_validate import validate as dcat_validate
 
 from ckanext.schemingdcat.profiles.dcat_config import (
     EU_VOCABS_DIR,
@@ -399,3 +400,10 @@ def update_stats(verbose):
     except Exception as e:
         log.error(f"An error occurred while updating the statistics table: {e}")
         raise click.ClickException(f"Failed to update statistics table: {e}")
+
+@schemingdcat.command()
+def validate_catalog():
+    """
+    Validates rdf catalog against shacl validator
+    """
+    return dcat_validate()
